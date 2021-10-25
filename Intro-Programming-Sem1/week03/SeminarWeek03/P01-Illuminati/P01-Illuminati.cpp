@@ -11,7 +11,7 @@ int main()
 	if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1)
 	{
 		std::cout << "Triangle doesn't exist" << std::endl;
-		return;
+		return 0;
 	}
 
 	if (side1 >= side2 && side1 >= side3)
