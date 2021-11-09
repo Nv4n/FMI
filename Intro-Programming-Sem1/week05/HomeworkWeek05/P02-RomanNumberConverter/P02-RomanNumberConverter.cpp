@@ -6,18 +6,14 @@
 int main()
 {
 	int input;
+	std::cout << "Vavedi chislo po-malko ili ravno na 1000: ";
 	std::cin >> input;
-	int thousands,
-		hundreds,
-		tens,
-		ones;
+	int thousands = input / 1000;;
+	int hundreds = input % 1000 / 100;;
+	int tens = input % 100 / 10;
+	int ones = input % 10;
 
-	thousands = input / 1000;
-	hundreds = input % 1000 / 100;
-	tens = input % 100 / 10;
-	ones = input % 10;
-
-	if (thousands==1)
+	if (thousands == 1)
 	{
 		std::cout << "M";
 	}
@@ -75,5 +71,5 @@ int main()
 	{
 		std::cout << "I";
 	}
-	
+
 }

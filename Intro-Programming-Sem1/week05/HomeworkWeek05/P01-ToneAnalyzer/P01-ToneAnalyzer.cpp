@@ -6,24 +6,43 @@ using std::endl;
 int main()
 {
 	int firstTone;
+	int	firstOctave;
+	std::cout << "Vavedi parvi ton: ";
 	std::cin >> firstTone;
+	std::cout << "Vavedi negovata oktava: ";
+	std::cin >> firstOctave;
+
+
 	int secondTone;
+	int secondOctave;
+	std::cout << "Vavedi vtori ton: ";
 	std::cin >> secondTone;
-	int toneSubstraction = std::abs(firstTone - secondTone);
-	switch (toneSubstraction)
+	std::cout << "Vavedi negovata ton: ";
+	std::cin >> secondOctave;
+
+	std::cout << (firstTone + firstOctave * 7) << std::endl;
+	std::cout << (secondTone + secondOctave * 7) << std::endl;
+
+	int toneDistance = ((firstTone + firstOctave * 7) - (secondTone + secondOctave * 7)) % 7;
+	std::cout << toneDistance << std::endl;
+	if (toneDistance < 0) {
+		toneDistance *= -1;
+	}
+
+	switch (toneDistance)
 	{
 	case 1:
 	case 6:
-		std::cout << "Fake sound" << endl;
+		std::cout << "Falshivo zvuchene" << endl;
 		break;
 	case 4:
-		std::cout << "Hollow sound" << endl;
+		std::cout << "Kuho zvuchene" << endl;
 		break;
 	case 2:
-		std::cout << "Pleasing sound" << endl;
+		std::cout << "Nai-blagopriyatniyat zvuk" << endl;
 		break;
 	default:
-		std::cout << "Normal sound" << endl;
+		std::cout << "Normalno zvuchene" << endl;
 		break;
 	}
 }

@@ -6,7 +6,9 @@
 int main()
 {
     int number;
+    std::cout << "Vavedi tricifreno chislo: ";
     std::cin >> number;
+
     int firstDigit = number / 100;
     int secondDigit = number % 100 / 10;
     int thirdDigit = number % 10;

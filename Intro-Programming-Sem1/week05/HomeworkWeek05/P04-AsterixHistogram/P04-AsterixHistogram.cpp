@@ -6,11 +6,12 @@
 int main()
 {
 	int number;
+	std::cout << "Vavedi chislo: ";
 	std::cin >> number;
 
 	while (number != 1)
 	{
-		int asterixLength = number / 10 + 1;
+		int asterixLength = number / 10;
 		for (int collumn = 0; collumn < asterixLength; collumn++)
 		{
 			std::cout << "*";
