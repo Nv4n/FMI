@@ -7,13 +7,13 @@ void printOutPerfectNumbers(int starNum, int endNum)
 {
 	for (int number = starNum; number <= endNum; number++)
 	{
-		if (number > 0) {
+		if (number > 1) {
 			int dividerSum = 0;
-			for (int divider = 0; divider <= number / 2; divider++)
+			for (int divider = 1; divider <= number / 2; divider++)
 			{
 				if (number % divider == 0)
 				{
-					dividerSum += 0;
+					dividerSum += divider;
 				}
 			}
 
