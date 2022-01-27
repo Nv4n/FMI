@@ -3,12 +3,13 @@
 
 #include <iostream>
 
-void removeNumberFromTheArray();
+void removeNumberFromTheArray(int numArr[], int arrLength, int numToFind);
 int main()
 {
 	int arrLength;
 	std::cin >> arrLength;
-	int* numArr = new int[arrLength];
+	//int* numArr = new int[arrLength];
+	int numArr[1000];
 
 	for (int i = 0; i < arrLength; i++)
 	{
@@ -17,10 +18,11 @@ int main()
 
 	int numToFind;
 	std::cin >> numToFind;
-	removeNumberFromArray(numArr, arrLength, numToFind);
+	removeNumberFromTheArray(numArr, arrLength, numToFind);
 
 }
-void removeNumberFromArray(int numArr[], int arrLength, int numToFind) {
+
+void removeNumberFromTheArray(int numArr[], int arrLength, int numToFind) {
 
 	for (int i = 0; i < arrLength; i++)
 	{
@@ -32,6 +34,7 @@ void removeNumberFromArray(int numArr[], int arrLength, int numToFind) {
 
 			}
 			arrLength--;
+			i--;
 		}
 	}
 
@@ -52,3 +55,7 @@ void removeNumberFromArray(int numArr[], int arrLength, int numToFind) {
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
+void removeNumberFromTheArray()
+{
+}
