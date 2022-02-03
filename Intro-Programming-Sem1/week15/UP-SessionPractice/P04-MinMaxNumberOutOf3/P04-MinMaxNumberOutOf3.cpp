@@ -1,32 +1,27 @@
-// P02-LettersInOrder.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// P04-MinMaxNumberOutOf3.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 
 int main()
 {
-	int size;
-	std::cin >> size;
-	char* lettersArr = new char[size + 1];
-	char* digitsArr = new char[size + 1];
-
-	std::cin >> lettersArr;
-	std::cin >> digitsArr;
-
-
-	for (int i = 0; i < size; i++)
+	int numbers[3];
+	int max = INT_MIN;
+	int min = INT_MAX;
+	for (int i = 0; i < 3; i++)
 	{
-		if (!(lettersArr[i] >= 'a' && lettersArr[i] <= 'j') ||
-			!(digitsArr[i] >= '0' && digitsArr[i] <= '9') ||
-			lettersArr[i] - 'a' != digitsArr[i] - '0') {
-			std::cout << std::boolalpha << false << std::endl;
-			return 0;
+		std::cin >> numbers[i];
+		if (max < numbers[i])
+		{
+			max = numbers[i];
+		}
+		if (min > numbers[i])
+		{
+			min = numbers[i];
 		}
 	}
 
-	std::cout << std::boolalpha << true << std::endl;
-	delete[] lettersArr;
-	delete[] digitsArr;
+	std::cout << "Min: " << min << "\nMax: " << max << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

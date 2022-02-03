@@ -1,32 +1,29 @@
-// P02-LettersInOrder.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// P10-MinElement.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
+int returnMinElement(int* arr, int size, int minNum = INT_MAX) {
+	if (size == 1) {
+		return minNum;
+	}
+	if (*arr < minNum)
+	{
+		minNum = *arr;
+	}
+	return returnMinElement(++arr, --size, minNum);
+}
 
 int main()
 {
 	int size;
 	std::cin >> size;
-	char* lettersArr = new char[size + 1];
-	char* digitsArr = new char[size + 1];
-
-	std::cin >> lettersArr;
-	std::cin >> digitsArr;
-
-
+	int* arr = new int[size];
 	for (int i = 0; i < size; i++)
 	{
-		if (!(lettersArr[i] >= 'a' && lettersArr[i] <= 'j') ||
-			!(digitsArr[i] >= '0' && digitsArr[i] <= '9') ||
-			lettersArr[i] - 'a' != digitsArr[i] - '0') {
-			std::cout << std::boolalpha << false << std::endl;
-			return 0;
-		}
+		std::cin >> arr[i];
 	}
-
-	std::cout << std::boolalpha << true << std::endl;
-	delete[] lettersArr;
-	delete[] digitsArr;
+	std::cout << returnMinElement(arr, size) << std::endl;
+	delete[] arr;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
