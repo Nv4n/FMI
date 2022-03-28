@@ -1,4 +1,3 @@
-import GHC.Conc (numCapabilities)
 main:: IO()
 main = do
     print(myGCD 9 121)
