@@ -41,7 +41,15 @@ bool String::operator==(const String& string) {
 	return !strcmp(string_, string.string_);
 }
 
+bool String::operator!=(const String& string) {
+	return !(string == *this);
+	//return !this->operator==(string);
+}
+
 bool operator==(const String& string, const String& stringSource) {
+	if (!string.string_ && !stringSource.string_) return true;
+	if (!string.string_ || !stringSource.string_) return false;
+
 	return !strcmp(string.string_, stringSource.string_);
 }
 
