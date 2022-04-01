@@ -9,7 +9,6 @@ main = do
     print (sumCountsIter 123321 1) -- ➝ 29
 
 -- Задача 1
-
 isNumberSingleDigit :: Int -> Bool
 isNumberSingleDigit d = d >= 0 && d <= 9
 
