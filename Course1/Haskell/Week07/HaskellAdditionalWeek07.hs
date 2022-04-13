@@ -156,3 +156,25 @@
             -- | mod leftover 10 < div (mod leftover 100) 10 = helper (div leftover 10) (result * 10 + mod leftover 10)
             -- | otherwise = result 
 
+-- onlyUnique::[Int]->[Int]
+-- onlyUnique = sum . concat . filter ((==1) . length) . group . sort .)
+
+-- sumUnique :: [[Int]] -> Int
+-- sumUnique = sum . map onlyUnique
+
+type Product = (String, Double )
+type StoreAvailability = [Product]
+db1::StoreAvailability
+db2::StoreAvailability
+db1 = [("bread",1),("milk",2.5),("lamb",10),("cheese",5),("butter",2)]
+db2 = [("bread",1),("cheese",2.5),("bread",1),("cheese",5)]
+
+getAvg:: StoreAvailability -> Double
+getAvg db = sum costs / (fromIntegral  $ length costs)
+    where
+        costs = map snd db
+closestToAvg:: StoreAvailability -> String 
+closestToAvg db = foldl (\ (nx,_) (ny,_) -> if getAvgPr n) db
+    where
+        getAvgPr name = sum costsForProduct / (fromIntegral $ length costsForProduct)
+            where costsForProduct =  [c | (n, c) <- db, n == name]
