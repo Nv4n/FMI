@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{70ce4fc0-caf1-4362-b22c-2914a7e6c014}</ProjectGuid>
-    <RootNamespace>P01PractWeek07</RootNamespace>
+    <ProjectGuid>{029d8a69-f0e8-4386-bbf7-3e77fb204e03}</ProjectGuid>
+    <RootNamespace>P01ComputerStore</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,13 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Dictionary.h" />
-    <ClInclude Include="Record.h" />
+    <ClCompile Include="ComputerPart.cpp" />
+    <ClCompile Include="ComputerPartReader.cpp" />
+    <ClCompile Include="ComputerPartWriter.cpp" />
+    <ClCompile Include="ComputerStore.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Dictionary.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Record.cpp" />
+    <ClInclude Include="ComputerPart.h" />
+    <ClInclude Include="ComputerPartReader.h" />
+    <ClInclude Include="ComputerPartWriter.h" />
+    <ClInclude Include="ComputerStore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

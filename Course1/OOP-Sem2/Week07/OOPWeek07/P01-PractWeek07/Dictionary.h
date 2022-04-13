@@ -1,20 +1,37 @@
-#include "DictionaryWord.h"
+#ifndef DICTIONARYH
+#define DICTIONARYH
 
-#pragma once
+#include "Record.h"
+
 class Dictionary
 {
 private:
-	DictionaryWord* words_;
-	size_t wordsCount_;
+	Record* records;
+	int size;
+	int capacity;
+
+	void copy(const Dictionary& other);
+	void resize();
+	void destroy();
+
 public:
+
 	Dictionary();
-	Dictionary(DictionaryWord* words);
-	Dictionary(const Dictionary& dictionary);
-	Dictionary& operator=(const Dictionary& dictionary);
+	Dictionary(const int capacity);
+	Dictionary(const Dictionary& other);
+	Dictionary& operator=(const Dictionary& other);
 	~Dictionary();
 
-	void appendWord(DictionaryWord word);
-	DictionaryWord getAllWords();
-	DictionaryWord getWordExplanation();
+	void addRecord(const char* word, const char* meaning);
+	void print();
+
+	int getSize() const;
+	int getCapacity() const;
+
+	const Record& find(const char* wordToFind) const;
+
+	friend std::ostream& operator<<(std::ostream& os, const Record& dic);
+	friend std::istream& operator>>(std::istream& is, const Record& dic);
 };
 
+#endif // !DICTIONARYH
