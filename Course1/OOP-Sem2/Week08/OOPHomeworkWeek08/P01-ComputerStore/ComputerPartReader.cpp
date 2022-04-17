@@ -4,6 +4,10 @@
 #include <stdexcept>
 #include "ComputerPartReader.h"
 
+ComputerPartReader::ComputerPartReader(std::ifstream& is, ComputerPart& compPart) {
+	read_(is,compPart);
+}
+
 ComputerPartReader::ComputerPartReader(const char* filename) {
 	size_t size = std::strlen(filename) + 1;
 
@@ -20,6 +24,12 @@ ComputerPart& ComputerPartReader::read() {
 	if (!is.is_open()) {
 		throw new std::exception("Failed read stream opening!");
 	}
+	ComputerPart temp;
+	read_(is, temp);
+
+	return temp;
+}
+void ComputerPartReader::read_(std::ifstream& is, ComputerPart& compPart) {
 	//Format {<тип> | <марка> | <модел> | <гаранция> | <цена>}
 	char ignore;
 	PartType type;
@@ -41,7 +51,6 @@ ComputerPart& ComputerPartReader::read() {
 	is >> ignore >> warranty >> ignore >> price >> ignore;
 
 	ComputerPart temp(type, warranty, price, brand, model);
-	return temp;
 }
 
 void ComputerPartReader::close() {
@@ -49,7 +58,7 @@ void ComputerPartReader::close() {
 }
 
 void ComputerPartReader::destroy() {
-	if (filename != nullptr){
+	if (filename != nullptr) {
 		delete[] filename;
 	}
 }

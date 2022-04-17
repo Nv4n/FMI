@@ -19,28 +19,26 @@ private:
 	size_t capacity;
 public:
 	ComputerStore();
+	ComputerStore(char* name, char workTime[12], double turnover, Storage* parts, size_t size, size_t capacity);
 	ComputerStore(const ComputerStore& other);
 	ComputerStore& operator=(const ComputerStore& other);
 	~ComputerStore();
 
-	//TODO ComputerStore.h acceptance criteria methods
 	const char* getName() const;
 	char* getWorkTime() const;
-	double getTurnover()const;
+	double getTurnover();
 	const Storage* getParts() const;
 	const size_t getPartsCount();
 
-	void addPart(ComputerPart part, size_t quantity);
-	void removePart(ComputerPart part);
-	ComputerPart* findPart(PartType type, char* brand);
+	void addPart(ComputerPart& part, size_t quantity);
+	void removePart(ComputerPart& part);
+	const ComputerPart& findPart(PartType type, char* brand);
 
 private:
-	//TODO ComputerStore.h setters
-	void setName(char* name);
-	void setWorkTime(char workTime[12]);
-	void setTurnover(double turnover);
-
-	void setParts(Storage& parts);
+	void setName(const char* name);
+	void setWorkTime(const char workTime[12]);
+	void setTurnover(const double turnover);
+	void setParts(const Storage* parts);
 
 	void resize();
 	void copy(const ComputerStore& other);

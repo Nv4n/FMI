@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cstring>
 #include "ComputerStoreWriter.h"
+#include "ComputerPartWriter.h"
 
 ComputerStoreWriter::ComputerStoreWriter(const char* filename, const ComputerStore& compPart) {
 	size_t size = std::strlen(filename) + 1;
@@ -25,8 +26,9 @@ void ComputerStoreWriter::save() {
 		throw new std::exception("Failed write stream opening!");
 		return;
 	}
-	//TODO!
-	/*Format
+
+	//Format
+	/*
 	<име на магазин>
 		<работно време>
 		<брой артикули>
@@ -38,15 +40,19 @@ void ComputerStoreWriter::save() {
 
 	size_t size = std::strlen(compStore.getName());
 	os << size << compStore.getName() << std::endl;
+
 	os << compStore.getWorkTime() << std::endl;
 	os << compStore.getPartsCount() << std::endl;
 	os << "[" << std::endl;
 
 	for (size_t i = 0; i < compStore.getPartsCount(); i++) {
-		//compStore.getParts()->computerPart;
+		os << " ";
+		ComputerPartWriter(os, compStore.getParts()[i].computerPart);
+		os << " " << compStore.getParts()[i].quantity << std::endl;
 	}
 
 	os << "]" << std::endl;
+	os << compStore.getTurnover();
 }
 
 void ComputerStoreWriter::close() {

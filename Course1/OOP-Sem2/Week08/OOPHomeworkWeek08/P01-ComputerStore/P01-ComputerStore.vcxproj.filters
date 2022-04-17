@@ -13,41 +13,65 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\ComputerPart">
+      <UniqueIdentifier>{e274b62a-ddec-491b-abef-c2d80b758e63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ComputerStore">
+      <UniqueIdentifier>{0d0db7e4-300a-4330-a19c-26cb799cf54f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ComputerPart">
+      <UniqueIdentifier>{dcc855f1-c079-4632-abb8-aad7f6e1c234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ComputerStore">
+      <UniqueIdentifier>{1a59d867-b630-4db4-a866-1afb38ee8b4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ComputerPart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ComputerPartWriter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ComputerPart</Filter>
+    </ClCompile>
+    <ClCompile Include="ComputerPart.cpp">
+      <Filter>Source Files\ComputerPart</Filter>
     </ClCompile>
     <ClCompile Include="ComputerPartReader.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ComputerPart</Filter>
     </ClCompile>
     <ClCompile Include="ComputerStore.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ComputerStore</Filter>
+    </ClCompile>
+    <ClCompile Include="ComputerStoreReader.cpp">
+      <Filter>Source Files\ComputerStore</Filter>
     </ClCompile>
     <ClCompile Include="ComputerStoreWriter.cpp">
+      <Filter>Source Files\ComputerStore</Filter>
+    </ClCompile>
+    <ClCompile Include="Configuration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComputerPart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ComputerPartWriter.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ComputerPart</Filter>
     </ClInclude>
     <ClInclude Include="ComputerPartReader.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ComputerPart</Filter>
+    </ClInclude>
+    <ClInclude Include="ComputerPartWriter.h">
+      <Filter>Header Files\ComputerPart</Filter>
     </ClInclude>
     <ClInclude Include="ComputerStore.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ComputerStore</Filter>
+    </ClInclude>
+    <ClInclude Include="ComputerStoreReader.h">
+      <Filter>Header Files\ComputerStore</Filter>
     </ClInclude>
     <ClInclude Include="ComputerStoreWriter.h">
+      <Filter>Header Files\ComputerStore</Filter>
+    </ClInclude>
+    <ClInclude Include="Configuration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,7 +11,7 @@ price(0),
 brand(nullptr),
 model(nullptr) {}
 
-#pragma 
+#pragma region Ctors
 ComputerPart::ComputerPart(ComputerPart& other) {
 	copy(other);
 }
@@ -35,7 +35,7 @@ ComputerPart::~ComputerPart() {
 }
 #pragma endregion
 
-#pragma region PublicMethods
+#pragma region Setters/Getters
 void ComputerPart::setPrice(const double price) {
 	if (price < 0) {
 		throw new std::invalid_argument("Invalid price value!");
@@ -81,7 +81,7 @@ void ComputerPart::setWarranty(const short warranty) {
 	this->warranty = warranty;
 }
 void ComputerPart::setBrand(const char* brand) {
-	if (this->brand != brand) {
+	if (&(this->brand) != &brand) {
 		if (this->brand != nullptr) {
 			delete[] this->brand;
 		}
@@ -91,7 +91,7 @@ void ComputerPart::setBrand(const char* brand) {
 	}
 }
 void ComputerPart::setModel(const char* model) {
-	if (this->model != model) {
+	if (&(this->model) != &model) {
 		if (this->model != nullptr) {
 			delete[] this->model;
 		}

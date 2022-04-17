@@ -11,13 +11,14 @@ private:
 	char* filename;
 public:
 	ComputerPartReader() = delete;
+	ComputerPartReader(std::ifstream& is, ComputerPart& compPart);
 	ComputerPartReader(const char* filename);
 	~ComputerPartReader();
 
 	ComputerPart& read();
 	void close();
 private:
-	void readChar(char& chr);
+	void read_(std::ifstream& is, ComputerPart& compPart);
 	void destroy();
 };
 
