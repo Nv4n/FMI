@@ -59,3 +59,6 @@ isTriangular as = helper 0 as
     where
         helper _ [] = True
         helper steps (b:bs) = sum (take steps b) == 0 && helper (steps + 1) bs
+
+
+filter (x<a) xs = [x|x<-xs,x<a]
