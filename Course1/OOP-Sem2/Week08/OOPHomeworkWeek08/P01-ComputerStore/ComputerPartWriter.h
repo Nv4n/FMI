@@ -12,12 +12,14 @@ private:
 	ComputerPart compPart;
 public:
 	ComputerPartWriter() = delete;
+	ComputerPartWriter(std::ofstream& os, const ComputerPart& compPart);
 	ComputerPartWriter(const char* filename, const ComputerPart& compPart);
 	~ComputerPartWriter();
 
 	void save();
 	void close();
 private:
+	void write(std::ofstream& os);
 	void destroy();
 };
 

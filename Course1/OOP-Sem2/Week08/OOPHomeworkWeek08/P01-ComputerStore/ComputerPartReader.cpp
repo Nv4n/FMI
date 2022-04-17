@@ -19,9 +19,8 @@ ComputerPart& ComputerPartReader::read() {
 	is.open(filename);
 	if (!is.is_open()) {
 		throw new std::exception("Failed read stream opening!");
-		return;
 	}
-	//{<тип> | <марка> | <модел> | <гаранция> | <цена>}
+	//Format {<тип> | <марка> | <модел> | <гаранция> | <цена>}
 	char ignore;
 	PartType type;
 	short warranty;

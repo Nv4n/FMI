@@ -143,6 +143,7 @@
     <ClCompile Include="ComputerPartReader.cpp" />
     <ClCompile Include="ComputerPartWriter.cpp" />
     <ClCompile Include="ComputerStore.cpp" />
+    <ClCompile Include="ComputerStoreWriter.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="ComputerPartReader.h" />
     <ClInclude Include="ComputerPartWriter.h" />
     <ClInclude Include="ComputerStore.h" />
+    <ClInclude Include="ComputerStoreWriter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

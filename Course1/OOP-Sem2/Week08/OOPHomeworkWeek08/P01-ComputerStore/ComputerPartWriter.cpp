@@ -4,6 +4,11 @@
 #include <stdexcept>
 #include "ComputerPartWriter.h"
 
+#pragma region Ctors
+ComputerPartWriter::ComputerPartWriter(std::ofstream& os, const ComputerPart& compPart) {
+	this->compPart = compPart;
+	write(os);
+}
 
 ComputerPartWriter::ComputerPartWriter(const char* filename, const ComputerPart& compPart) {
 	size_t size = std::strlen(filename) + 1;
@@ -19,6 +24,7 @@ ComputerPartWriter::~ComputerPartWriter() {
 	}
 	destroy();
 }
+#pragma endregion
 
 void ComputerPartWriter::save() {
 	os.open(filename);
@@ -26,6 +32,14 @@ void ComputerPartWriter::save() {
 		throw new std::exception("Failed write stream opening!");
 		return;
 	}
+	write(os);
+}
+
+void ComputerPartWriter::close() {
+	os.close();
+}
+
+void ComputerPartWriter::write(std::ofstream& os) {
 	//Format {<тип> | <марка> | <модел> | <гаранция> | <цена>}
 	os << "{";
 	os.write(reinterpret_cast<const char*> (compPart.getType()), sizeof(compPart.getType()));
@@ -38,10 +52,6 @@ void ComputerPartWriter::save() {
 	os << size << compPart.getModel() << "|"
 		<< compPart.getWarranty() << "|"
 		<< compPart.getPrice() << '}';
-}
-
-void ComputerPartWriter::close() {
-	os.close();
 }
 void ComputerPartWriter::destroy() {
 	if (filename != nullptr) {
