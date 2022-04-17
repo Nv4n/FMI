@@ -35,8 +35,8 @@ public:
 	PartType getType() const;
 	short getWarranty() const;
 	double getPrice() const;
-	char* getBrand() const;
-	char* getModel() const;
+	const char* getBrand() const;
+	const char* getModel() const;
 
 private:
 	void setType(const PartType type);

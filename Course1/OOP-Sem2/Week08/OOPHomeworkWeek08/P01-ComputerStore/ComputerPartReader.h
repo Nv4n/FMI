@@ -12,7 +12,6 @@ private:
 public:
 	ComputerPartReader() = delete;
 	ComputerPartReader(const char* filename);
-	//TODO Copy and operator=S
 	~ComputerPartReader();
 
 	ComputerPart& read();

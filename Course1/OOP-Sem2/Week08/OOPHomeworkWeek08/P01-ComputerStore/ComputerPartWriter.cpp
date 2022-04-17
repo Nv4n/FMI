@@ -6,8 +6,10 @@
 
 
 ComputerPartWriter::ComputerPartWriter(const char* filename, const ComputerPart& compPart) {
-	this->filename = new char[std::strlen(filename) + 1];
-	std::strcpy(this->filename, filename);
+	size_t size = std::strlen(filename) + 1;
+	this->filename = new char[size];
+	strcpy_s(this->filename, size, filename);
+
 	this->compPart = compPart;
 }
 
@@ -24,10 +26,16 @@ void ComputerPartWriter::save() {
 		throw new std::exception("Failed write stream opening!");
 		return;
 	}
-	//{<тип> | <марка> | <модел> | <гаранция> | <цена>}
-	os << "{" << compPart.getType() << "|"
-		<< compPart.getBrand() << "|"
-		<< compPart.getModel() << "|"
+	//Format {<тип> | <марка> | <модел> | <гаранция> | <цена>}
+	os << "{";
+	os.write(reinterpret_cast<const char*> (compPart.getType()), sizeof(compPart.getType()));
+	os << "|";
+
+	size_t size = std::strlen(compPart.getBrand());
+	os << size << compPart.getBrand() << "|";
+
+	size = std::strlen(compPart.getModel());
+	os << size << compPart.getModel() << "|"
 		<< compPart.getWarranty() << "|"
 		<< compPart.getPrice() << '}';
 }
@@ -36,5 +44,7 @@ void ComputerPartWriter::close() {
 	os.close();
 }
 void ComputerPartWriter::destroy() {
-	delete[] filename;
+	if (filename != nullptr) {
+		delete[] filename;
+	}
 }
