@@ -1,29 +1,24 @@
 #ifndef COMPUTER_PART_READER_H
 #define COMPUTER_PART_READER_H
-#pragma once
-class ComputerPartReader
-{
-private:
-	std::ifstream os;
-	char* filename;
-};
-
 
 #include "ComputerPart.h"
 
 #pragma once
-class ComputerPartWriter
+class ComputerPartReader
 {
 private:
-	
+	std::ifstream is;
+	char* filename;
 public:
-	ComputerPartWriter() = delete;
-	ComputerPartWriter(const char* filename, const ComputerPart& compPart);
-	~ComputerPartWriter();
+	ComputerPartReader() = delete;
+	ComputerPartReader(const char* filename);
+	//TODO Copy and operator=S
+	~ComputerPartReader();
 
-	void save();
+	ComputerPart& read();
 	void close();
 private:
+	void readChar(char& chr);
 	void destroy();
 };
 
