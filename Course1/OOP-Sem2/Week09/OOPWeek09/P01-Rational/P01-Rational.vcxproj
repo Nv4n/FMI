@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{029d8a69-f0e8-4386-bbf7-3e77fb204e03}</ProjectGuid>
-    <RootNamespace>P01ComputerStore</RootNamespace>
+    <ProjectGuid>{83a30694-603a-4163-84f5-393d1e158136}</ProjectGuid>
+    <RootNamespace>P01Rational</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,24 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ComputerPart.cpp" />
-    <ClCompile Include="ComputerPartReader.cpp" />
-    <ClCompile Include="ComputerPartWriter.cpp" />
-    <ClCompile Include="ComputerStore.cpp" />
-    <ClCompile Include="ComputerStoreReader.cpp" />
-    <ClCompile Include="ComputerStoreWriter.cpp" />
-    <ClCompile Include="Configuration.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="P01-Rational.cpp" />
+    <ClCompile Include="Rational.cpp" />
+    <ClCompile Include="Reminder.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ComputerPart.h" />
-    <ClInclude Include="ComputerPartReader.h" />
-    <ClInclude Include="ComputerPartWriter.h" />
-    <ClInclude Include="ComputerStore.h" />
-    <ClInclude Include="ComputerStoreReader.h" />
-    <ClInclude Include="ComputerStoreWriter.h" />
-    <ClInclude Include="Configuration.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="Rational.h" />
+    <ClInclude Include="Reminder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,34 +10,34 @@ ComputerPartWriter::ComputerPartWriter(std::ofstream& os, const ComputerPart& co
 	write(os);
 }
 
-ComputerPartWriter::ComputerPartWriter(const char* filename, const ComputerPart& compPart) {
-	size_t size = std::strlen(filename) + 1;
-	this->filename = new char[size];
-	strcpy_s(this->filename, size, filename);
+//ComputerPartWriter::ComputerPartWriter(const char* filename, const ComputerPart& compPart) {
+//	size_t size = std::strlen(filename) + 1;
+//	this->filename = new char[size];
+//	strcpy_s(this->filename, size, filename);
+//
+//	this->compPart = compPart;
+//}
 
-	this->compPart = compPart;
-}
-
-ComputerPartWriter::~ComputerPartWriter() {
-	if (os.is_open()) {
-		close();
-	}
-	destroy();
-}
+//ComputerPartWriter::~ComputerPartWriter() {
+//	if (os.is_open()) {
+//		close();
+//	}
+//	destroy();
+//}
 #pragma endregion
 
-void ComputerPartWriter::save() {
-	os.open(filename);
-	if (!os.is_open()) {
-		throw new std::exception("Failed write stream opening!");
-		return;
-	}
-	write(os);
-}
+//void ComputerPartWriter::save() {
+//	os.open(filename);
+//	if (!os.is_open()) {
+//		throw new std::exception("Failed write stream opening!");
+//		return;
+//	}
+//	write(os);
+//}
 
-void ComputerPartWriter::close() {
-	os.close();
-}
+//void ComputerPartWriter::close() {
+//	os.close();
+//}
 
 void ComputerPartWriter::write(std::ofstream& os) {
 	//Format {<тип> | <марка> | <модел> | <гаранция> | <цена>}
@@ -53,8 +53,8 @@ void ComputerPartWriter::write(std::ofstream& os) {
 		<< compPart.getWarranty() << "|"
 		<< compPart.getPrice() << '}';
 }
-void ComputerPartWriter::destroy() {
-	if (filename != nullptr) {
-		delete[] filename;
-	}
-}
+//void ComputerPartWriter::destroy() {
+//	if (filename != nullptr) {
+//		delete[] filename;
+//	}
+//}

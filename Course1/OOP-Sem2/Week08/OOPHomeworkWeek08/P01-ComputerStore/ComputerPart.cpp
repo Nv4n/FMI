@@ -15,7 +15,7 @@ model(nullptr) {}
 ComputerPart::ComputerPart(ComputerPart& other) {
 	copy(other);
 }
-ComputerPart::ComputerPart(PartType type, short warranty, double price, char* brand, char* model) {
+ComputerPart::ComputerPart(PartType type, short warranty, double price, const char* brand, const char* model) {
 	setType(type);
 	setWarranty(warranty);
 	setPrice(price);

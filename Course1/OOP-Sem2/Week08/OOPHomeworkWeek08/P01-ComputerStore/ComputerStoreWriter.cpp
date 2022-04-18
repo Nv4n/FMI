@@ -5,28 +5,23 @@
 #include "ComputerStoreWriter.h"
 #include "ComputerPartWriter.h"
 
-ComputerStoreWriter::ComputerStoreWriter(const char* filename, const ComputerStore& compPart) {
-	size_t size = std::strlen(filename) + 1;
-	this->filename = new char[size];
-	strcpy_s(this->filename, size, filename);
-
+ComputerStoreWriter::ComputerStoreWriter(std::ofstream& os, const ComputerStore& compStore) {
 	this->compStore = compStore;
+	write(os);
 }
 
-ComputerStoreWriter::~ComputerStoreWriter() {
-	if (os.is_open()) {
-		close();
-	}
-	destroy();
-}
+//ComputerStoreWriter::ComputerStoreWriter(const char* filename, const ComputerStore& compPart) {
+//	size_t size = std::strlen(filename) + 1;
+//	this->filename = new char[size];
+//	strcpy_s(this->filename, size, filename);
+//
+//	this->compStore = compStore;
+//}
 
-void ComputerStoreWriter::save() {
-	os.open(filename);
-	if (!os.is_open()) {
-		throw new std::exception("Failed write stream opening!");
-		return;
-	}
-
+//ComputerStoreWriter::~ComputerStoreWriter() {
+//	destroy();
+//}
+void ComputerStoreWriter::write(std::ofstream& os) {
 	//Format
 	/*
 	<име на магазин>
@@ -55,11 +50,8 @@ void ComputerStoreWriter::save() {
 	os << compStore.getTurnover();
 }
 
-void ComputerStoreWriter::close() {
-	os.close();
-}
-void ComputerStoreWriter::destroy() {
-	if (filename != nullptr) {
-		delete[] filename;
-	}
-}
+//void ComputerStoreWriter::destroy() {
+//	if (filename != nullptr) {
+//		delete[] filename;
+//	}
+//}

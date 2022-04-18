@@ -19,7 +19,7 @@ private:
 	size_t capacity;
 public:
 	ComputerStore();
-	ComputerStore(char* name, char workTime[12], double turnover, Storage* parts, size_t size, size_t capacity);
+	ComputerStore(const char* name, char workTime[12], const double turnover, const Storage* parts, const size_t size, const size_t capacity);
 	ComputerStore(const ComputerStore& other);
 	ComputerStore& operator=(const ComputerStore& other);
 	~ComputerStore();

@@ -7,20 +7,19 @@
 class ComputerPartWriter
 {
 private:
-	std::ofstream os;
-	char* filename;
+	//char* filename;
 	ComputerPart compPart;
 public:
 	ComputerPartWriter() = delete;
 	ComputerPartWriter(std::ofstream& os, const ComputerPart& compPart);
-	ComputerPartWriter(const char* filename, const ComputerPart& compPart);
-	~ComputerPartWriter();
+	//ComputerPartWriter(const char* filename, const ComputerPart& compPart);
+	//~ComputerPartWriter();
 
-	void save();
-	void close();
+	//void save();
+	//void close();
 private:
 	void write(std::ofstream& os);
-	void destroy();
+	//void destroy();
 };
 
 #endif // !COMPUTER_PART_WRITER_H

@@ -12,13 +12,19 @@ capacity(8) {
 	parts = new Storage[capacity];
 }
 
-ComputerStore::ComputerStore(char* name, char workTime[12], double turnover, Storage* parts, size_t size, size_t capacity) {
+ComputerStore::ComputerStore(const char* name, char workTime[12], const double turnover, const Storage* parts, const size_t size, const size_t capacity) {
 	setName(name);
 	setWorkTime(workTime);
 	setTurnover(turnover);
 
 	this->size = size;
-	this->capacity = capacity;
+	if (capacity > size) {
+		this->capacity = capacity;
+	}
+	else {
+		this->capacity = size * 2 + 1;
+	}
+
 	setParts(parts);
 }
 
@@ -62,7 +68,7 @@ void ComputerStore::setTurnover(const double turnover) {
 	this->turnover = turnover;
 }
 void ComputerStore::setParts(const Storage* parts) {
-	if (&(this->parts) != &parts) {
+	if (parts != nullptr && &(this->parts) != &parts) {
 		delete[] this->parts;
 		this->parts = new Storage[capacity];
 
@@ -70,6 +76,9 @@ void ComputerStore::setParts(const Storage* parts) {
 			this->parts[i].computerPart = parts[i].computerPart;
 			this->parts[i].quantity = parts[i].quantity;
 		}
+	}
+	else {
+		this->parts = new Storage[capacity];
 	}
 }
 
@@ -112,7 +121,7 @@ void ComputerStore::addPart(ComputerPart& part, size_t quantity) {
 void ComputerStore::removePart(ComputerPart& part) {
 	for (size_t i = 0; i < size; i++) {
 		if (&(parts[i].computerPart) == &part) {
-			delete &parts[i];
+			delete& parts[i];
 		}
 	}
 }

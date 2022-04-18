@@ -26,7 +26,7 @@ private:
 public:
 	ComputerPart();
 	ComputerPart(ComputerPart& other);
-	ComputerPart(PartType type, short warranty, double price, char* brand, char* model);
+	ComputerPart(PartType type, short warranty, double price, const char* brand, const char* model);
 	ComputerPart& operator=(const ComputerPart& other);
 	~ComputerPart();
 

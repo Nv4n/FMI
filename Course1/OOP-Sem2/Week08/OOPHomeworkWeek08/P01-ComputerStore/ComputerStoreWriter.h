@@ -6,17 +6,14 @@
 class ComputerStoreWriter
 {
 private:
-	std::ofstream os;
-	char* filename;
 	ComputerStore compStore;
 public:
 	ComputerStoreWriter() = delete;
-	ComputerStoreWriter(const char* filename, const ComputerStore& compStore);
+	ComputerStoreWriter(std::ofstream& os, const ComputerStore& compStore);
 	~ComputerStoreWriter();
-
-	void save();
-	void close();
 private:
-	void destroy();
+	void write(std::ofstream& os);
+
+	//void destroy();
 };
 #endif // !COMPUTER_STORE_WRITER_H
