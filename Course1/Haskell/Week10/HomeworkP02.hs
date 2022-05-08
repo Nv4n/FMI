@@ -1,4 +1,4 @@
-import Graphics.Win32.Misc (messageBeep)
+import Data.List
 main::IO()
 main = do
     print $ actorsNetworthHigherThan 124000000 db -- → [([["Billy Bob Thornton","Scarlett Johansson"],["Kim Basinger","Alec Baldwin","Harrison Ford"],["Harrison Ford"]],["The Man Who Wasn't There","Star Wars","Empire Strikes Back"],"George Lucas",200000000),([["Liv Tyler"]],["Logan's run"],"Ted Turner",125000000)]
@@ -18,14 +18,14 @@ actorsNetworthHigherThan num (ms,ss,sIs,sts,mEs) = helper getAllIds
         helper [] = []
         helper (i:is) = (getAllActors $ getAllMovies i,getAllMovies i,getProducer i, getNetworth i) : helper is
 
-        getProducer::ProducerID -> Name
-        getProducer inpId = head $ map (\ (name,_,_) -> name) $ filter (\(_,id,_)->id==inpId) mEs
-
-        getNetworth::ProducerID -> Networth
-        getNetworth inpId = head $ map (\ (_,_,net) -> net) $ filter (\(_,id,_)->id==inpId) mEs
-
         getAllIds:: [ProducerID]
         getAllIds = [id | (name, id , net) <- mEs, net > num]
+
+        getProducer::ProducerID -> Name
+        getProducer inpId = (\[(name, _, _)] -> name) $ filter (\(_,id,_)->id==inpId) mEs
+
+        getNetworth::ProducerID -> Networth
+        getNetworth inpId = (\ [(_,_,net)] -> net) $ filter (\(_,id,_)->id==inpId) mEs
 
         getAllMovies:: ProducerID -> [Title]
         getAllMovies prodId = map (\ (title, _, _, _, _) -> title) $ filter (\ ( _, _, _, _, id) -> id == prodId) ms
