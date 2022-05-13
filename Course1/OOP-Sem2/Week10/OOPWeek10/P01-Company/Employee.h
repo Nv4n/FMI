@@ -3,17 +3,20 @@
 
 
 #pragma once
+#pragma warning(disable:4996 )
 class Employee
 {
 protected:
 	char* name;
 	size_t experience;
 public:
-	Employee() = delete;
+	Employee();
 	Employee(const char* name, const size_t experience);
 	Employee(const Employee& other);
 	Employee& operator=(const Employee& other);
 	~Employee();
+
+	virtual Employee* clone()const = 0;
 
 	void setName(const char* name);
 	void setExperience(const size_t experience);

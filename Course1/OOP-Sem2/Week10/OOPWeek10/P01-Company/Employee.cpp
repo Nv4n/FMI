@@ -3,14 +3,18 @@
 #include "Employee.h"
 
 #pragma region Ctors
+Employee::Employee() {
+	name = nullptr;
+	experience = 0;
+}
 Employee::Employee(const char* name, const size_t experience) {
 	setName(name);
 	setExperience(experience);
 }
 Employee::Employee(const Employee& other) {
-		copy(other);
+	copy(other);
 }
-Employee& Employee::operator=(const Employee& other){
+Employee& Employee::operator=(const Employee& other) {
 	if (this != &other) {
 		destroy();
 		copy(other);
@@ -28,7 +32,7 @@ void Employee::setName(const char* name) {
 		delete[] this->name;
 		size_t size = std::strlen(name) + 1;
 		this->name = new char[size];
-		strcpy_s(this->name, size, name);
+		strcpy(this->name, name);
 	}
 }
 
@@ -48,11 +52,13 @@ size_t Employee::getExperinece() {
 void Employee::copy(const Employee& other) {
 	size_t size = std::strlen(other.name) + 1;
 	name = new char[size];
-	strcat_s(name, size, other.name);
+	std::strcpy(name, other.name);
 
 	experience = other.experience;
 }
 
 void Employee::destroy() {
-	delete[] name;
+	if (name != nullptr) {
+		delete[] name;
+	}
 }

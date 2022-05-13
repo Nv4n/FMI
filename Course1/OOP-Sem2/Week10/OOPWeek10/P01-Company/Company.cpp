@@ -24,12 +24,12 @@ Company::~Company() {
 	destroy();
 }
 
-void Company::addEmployee( Employee* const emp) {
+void Company::addEmployee(Employee* const emp) {
 	if (size + 1 > capacity) {
 		resize();
 	}
 
-	employees[size] = emp;
+	employees[size] = emp->clone();
 	size++;
 }
 

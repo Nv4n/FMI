@@ -4,36 +4,55 @@ main = do
     print $ actorsNetworthHigherThan 124000000 db -- → [([["Billy Bob Thornton","Scarlett Johansson"],["Kim Basinger","Alec Baldwin","Harrison Ford"],["Harrison Ford"]],["The Man Who Wasn't There","Star Wars","Empire Strikes Back"],"George Lucas",200000000),([["Liv Tyler"]],["Logan's run"],"Ted Turner",125000000)]
     print $ actorsNetworthHigherThan 125000000 db -- → [([["Billy Bob Thornton","Scarlett Johansson"],["Kim Basinger","Alec Baldwin","Harrison Ford"],["Harrison Ford"]],["The Man Who Wasn't There","Star Wars","Empire Strikes Back"],"George Lucas",200000000)]
 
---Movies:: (Title, Year, Length, ProducerName, ProducerID)
---Stars:: (Name, Gender)
---StarsIn:: (Star_Name, Movie_Name)
---Studios:: (StudioName, ProducerID)
---MovieExecs:: (ProducerName, ProducerID, Networth)
---DB:: movies, stars, starsIn, studios, movieExecs
---Networth -> DB -> [([[Stars_Name]],[Movies_Name], ProducerName, networth)]
+--{
+    --Movies:: (Title, Year, Length, ProducerName, ProducerID)
+    --Stars:: (Name, Gender)
+    --StarsIn:: (Star_Name, Movie_Name)
+    --Studios:: (StudioName, ProducerID)
+    --MovieExecs:: (ProducerName, ProducerID, Networth)
+    --DB:: movies, stars, starsIn, studios, movieExecs
+    --Networth -> DB -> [([[Stars_Name]],[Movies_Name], ProducerName, networth)]
+--}
+
 actorsNetworthHigherThan :: Integer -> MovieDB -> [([[Name]], [Title], Name, Integer)]
 actorsNetworthHigherThan num (ms,ss,sIs,sts,mEs) = helper getAllIds
     where
         helper:: [ProducerID] -> [([[Name]], [Title], Name, Integer)]
         helper [] = []
+        -- We are calling and filtering same List multiple times, so there are faster ways to solve this problem
         helper (i:is) = (getAllActors $ getAllMovies i,getAllMovies i,getProducer i, getNetworth i) : helper is
-
+        
+        -- Get All ProducerIds
         getAllIds:: [ProducerID]
+        -- It's possible to be done with filter and map
+        -- Filter all MovieExecs:: (ProducerName, ProducerID, Networth) to be greater than the input 
+        -- And we get only the ID
         getAllIds = [id | (name, id , net) <- mEs, net > num]
 
+        --Get ProducerName
         getProducer::ProducerID -> Name
+        -- We filter all MoviesExecs by ID and then we get only the name of the getProducer
+        -- Filter returns List [(ProducerName,_,_)] and then we get ProducerName
         getProducer inpId = (\[(name, _, _)] -> name) $ filter (\(_,id,_)->id==inpId) mEs
 
+        -- Get Networth
         getNetworth::ProducerID -> Networth
+        -- Filter all MovieExecs and then we get only the Networth
         getNetworth inpId = (\ [(_,_,net)] -> net) $ filter (\(_,id,_)->id==inpId) mEs
 
         getAllMovies:: ProducerID -> [Title]
+        -- Filter Movies:: (Title, _ , _ , _ , ProducerID) by ProducerID
+        -- Then we get only the Title with map
         getAllMovies prodId = map (\ (title, _, _, _, _) -> title) $ filter (\ ( _, _, _, _, id) -> id == prodId) ms
 
         getActorsPerMovie:: Title -> [Name]
+        -- Filter StarsIn:: (Star_Name, Movie_Name) by MovieName
+        -- map fst returns us Star_Name
         getActorsPerMovie movieTitle = map fst $ filter (\ ( _, title) -> title == movieTitle) sIs
 
         getAllActors:: [Title] -> [[Name]]
+        -- Get all actors for all movies by X producer
+        -- We use GetActorsPerMovie
         getAllActors [] = []
         getAllActors (t:ts) = getActorsPerMovie t : getAllActors ts
 

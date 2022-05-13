@@ -7,23 +7,40 @@ main = do
     print $ sunkK 20 database -- → [("Germany",0),("USA",4),("Japan",2),("Gt.Britain",0)]
 
 -- [(Country, SunkShipsCount)]
+--What we need [(CountryName{from ShipClass}, SunkCount {Outcome})]
+-- CountryName {ShipClass}
+-- SunkCount {Outcome} <-- ShipNames {Ship} <-- ShipClassesPerCountry {ShipClass} <-- Countries {ShipClass}
 sunkK :: Int -> Database -> [(Name, Int)]
+-- We filter all elements so the sunkCount is lower or equal the inputCount
 sunkK cnt (os,bs,ss,sCs) = filter (\(_,num) -> num <= cnt) $ helper getAllCountries
     where
         helper::[Name]->[(Name,Int)]
         helper [] = []
         helper (n:ns) = (n, countAllShips $ getAllShipsNames $ getAllClassesByCountry n) : helper ns
 
+        -- Returns all Countries
         getAllCountries:: [Name]
+        -- Get only the country name ShipClass (ShipClass, Type, Country)
+        -- nub removes all duplicates 
         getAllCountries = nub $ map (\ (_,_,name)-> name) sCs
         
+        -- We input country Name and get all classes by Country
+        -- Filter all elements by CountryName then we take only ShipClassName
         getAllClassesByCountry:: Name -> [Name]
         getAllClassesByCountry countryName = map (\ (name, _, _)->name) $ filter (\ (_, _, name)-> name==countryName) sCs
 
+        -- Input all ShipClassNamesByCountry and get all Ships with these classes
+        -- Ships(Name,ClassName, LaunchDate)
         getAllShipsNames:: [Name] -> [Name]
+        -- `elem` checks if current class is included in the input list
+        -- then map takes only the ship names
         getAllShipsNames ns = map (\(name, _, _)->name) $ filter (\(_, class_, _)->class_ `elem` ns) ss
 
+        -- We input All ShipNames and return sunk count
+        -- Outcome (ShipName, BattleName, Outcome)
         countAllShips:: [Name] -> Int
+        -- Filter all Outcomes where they are sunk and are in the ShipNames List
+        -- then we count them all
         countAllShips ns = length $ filter (\(name,_,res) -> name `elem` ns && res == "sunk") os
 
 type Name = String
