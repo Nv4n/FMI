@@ -4,24 +4,33 @@
 #include "Employee.h"
 
 #pragma once
-class Developer :public Employee
-{
+
+class Developer : public Employee {
 private:
-	bool isCppKnown;
-	bool isCsharpKnown;
+    bool isCppKnown;
+    bool isCsharpKnown;
 public:
-	Developer() = delete;
-	Developer(const Developer& other);
-	Developer& operator=(const Developer& other);
-	Employee* clone() const;
+    Developer(const char *name, const unsigned int months, bool knowCPlusPlus, bool knowCSharp);
 
-	void setCppKnown(bool isCppKnown);
-	void setCsharpKnown(bool isCsharpKnown);
+    Developer(const Developer &obj);
 
-	bool getCppKnown();
-	bool getCsharpKnown();
+    Developer &operator=(const Developer &obj);
+
+    Developer &operator=(Developer &&obj);
+
+    ~Developer();
+
+
+    void setCppKnown(bool isCppKnown);
+
+    void setCsharpKnown(bool isCsharpKnown);
+
+    bool getCppKnown();
+
+    bool getCsharpKnown();
+
 private:
-	void copy(const Developer& other);
+    void copy(const Developer &other);
 };
 
 #endif // !DEVELOPER_H
