@@ -1,9 +1,5 @@
 # ninja log v5
-10	367	6750111542925445	CMakeFiles/FMI.dir/Course1/OOP-Sem2/Week13/Vector/main.cpp.obj	83ccb3a543cb009b
 4	206	6750117665085657	FMI.exe	4ab392563ef528d9
-2	231	6751971380084044	build.ninja	8a674db6798b7505
-3	405	6750117445708881	CMakeFiles/FMI.dir/Course1/OOP-Sem2/Week13/Templates/main.cpp.obj	606c5a16e571e808
-1	300	6750119118079830	CMakeFiles/Templates.dir/Course1/OOP-Sem2/Week13/Templates/main.cpp.obj	4e2b1e855446f27b
+2	231	6752828611383969	build.ninja	8a674db6798b7505
 302	473	6750119119779793	Templates.exe	6472b726e625c806
-0	285	6750120619099660	CMakeFiles/Vector.dir/Course1/OOP-Sem2/Week13/Vector/main.cpp.obj	bfa323dd921e1909
 286	446	6750120620659691	Vector.exe	c04b30b64c615fa5

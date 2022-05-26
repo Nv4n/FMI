@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-w
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Templates.dir/all
-all: CMakeFiles/Vector.dir/all
+all: CMakeFiles/Restaurant.dir/all
+all: CMakeFiles/Ticket.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,61 +72,61 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Templates.dir/clean
-clean: CMakeFiles/Vector.dir/clean
+clean: CMakeFiles/Restaurant.dir/clean
+clean: CMakeFiles/Ticket.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Templates.dir
+# Target rules for target CMakeFiles/Restaurant.dir
 
 # All Build rule for target.
-CMakeFiles/Templates.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Templates.dir/build.make CMakeFiles/Templates.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Templates.dir/build.make CMakeFiles/Templates.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2 "Built target Templates"
-.PHONY : CMakeFiles/Templates.dir/all
+CMakeFiles/Restaurant.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2 "Built target Restaurant"
+.PHONY : CMakeFiles/Restaurant.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Templates.dir/rule: cmake_check_build_system
+CMakeFiles/Restaurant.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Templates.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Restaurant.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
-.PHONY : CMakeFiles/Templates.dir/rule
+.PHONY : CMakeFiles/Restaurant.dir/rule
 
 # Convenience name for target.
-Templates: CMakeFiles/Templates.dir/rule
-.PHONY : Templates
+Restaurant: CMakeFiles/Restaurant.dir/rule
+.PHONY : Restaurant
 
 # clean rule for target.
-CMakeFiles/Templates.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Templates.dir/build.make CMakeFiles/Templates.dir/clean
-.PHONY : CMakeFiles/Templates.dir/clean
+CMakeFiles/Restaurant.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/clean
+.PHONY : CMakeFiles/Restaurant.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Vector.dir
+# Target rules for target CMakeFiles/Ticket.dir
 
 # All Build rule for target.
-CMakeFiles/Vector.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=3,4 "Built target Vector"
-.PHONY : CMakeFiles/Vector.dir/all
+CMakeFiles/Ticket.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=3,4 "Built target Ticket"
+.PHONY : CMakeFiles/Ticket.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Vector.dir/rule: cmake_check_build_system
+CMakeFiles/Ticket.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Vector.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Ticket.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
-.PHONY : CMakeFiles/Vector.dir/rule
+.PHONY : CMakeFiles/Ticket.dir/rule
 
 # Convenience name for target.
-Vector: CMakeFiles/Vector.dir/rule
-.PHONY : Vector
+Ticket: CMakeFiles/Ticket.dir/rule
+.PHONY : Ticket
 
 # clean rule for target.
-CMakeFiles/Vector.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/clean
-.PHONY : CMakeFiles/Vector.dir/clean
+CMakeFiles/Ticket.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/clean
+.PHONY : CMakeFiles/Ticket.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

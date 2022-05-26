@@ -117,78 +117,78 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Templates
+# Target rules for targets named Restaurant
 
 # Build rule for target.
-Templates: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Templates
-.PHONY : Templates
+Restaurant: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Restaurant
+.PHONY : Restaurant
 
 # fast build rule for target.
-Templates/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Templates.dir/build.make CMakeFiles/Templates.dir/build
-.PHONY : Templates/fast
+Restaurant/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/build
+.PHONY : Restaurant/fast
 
 #=============================================================================
-# Target rules for targets named Vector
+# Target rules for targets named Ticket
 
 # Build rule for target.
-Vector: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Vector
-.PHONY : Vector
+Ticket: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Ticket
+.PHONY : Ticket
 
 # fast build rule for target.
-Vector/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/build
-.PHONY : Vector/fast
+Ticket/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/build
+.PHONY : Ticket/fast
 
-Course1/OOP-Sem2/Week13/Templates/main.o: Course1/OOP-Sem2/Week13/Templates/main.cpp.o
-.PHONY : Course1/OOP-Sem2/Week13/Templates/main.o
-
-# target to build an object file
-Course1/OOP-Sem2/Week13/Templates/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Templates.dir/build.make CMakeFiles/Templates.dir/Course1/OOP-Sem2/Week13/Templates/main.cpp.o
-.PHONY : Course1/OOP-Sem2/Week13/Templates/main.cpp.o
-
-Course1/OOP-Sem2/Week13/Templates/main.i: Course1/OOP-Sem2/Week13/Templates/main.cpp.i
-.PHONY : Course1/OOP-Sem2/Week13/Templates/main.i
-
-# target to preprocess a source file
-Course1/OOP-Sem2/Week13/Templates/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Templates.dir/build.make CMakeFiles/Templates.dir/Course1/OOP-Sem2/Week13/Templates/main.cpp.i
-.PHONY : Course1/OOP-Sem2/Week13/Templates/main.cpp.i
-
-Course1/OOP-Sem2/Week13/Templates/main.s: Course1/OOP-Sem2/Week13/Templates/main.cpp.s
-.PHONY : Course1/OOP-Sem2/Week13/Templates/main.s
-
-# target to generate assembly for a file
-Course1/OOP-Sem2/Week13/Templates/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Templates.dir/build.make CMakeFiles/Templates.dir/Course1/OOP-Sem2/Week13/Templates/main.cpp.s
-.PHONY : Course1/OOP-Sem2/Week13/Templates/main.cpp.s
-
-Course1/OOP-Sem2/Week13/Vector/main.o: Course1/OOP-Sem2/Week13/Vector/main.cpp.o
-.PHONY : Course1/OOP-Sem2/Week13/Vector/main.o
+Course1/OOP-Sem2/Week14/BBQ/main.o: Course1/OOP-Sem2/Week14/BBQ/main.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/BBQ/main.o
 
 # target to build an object file
-Course1/OOP-Sem2/Week13/Vector/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/Course1/OOP-Sem2/Week13/Vector/main.cpp.o
-.PHONY : Course1/OOP-Sem2/Week13/Vector/main.cpp.o
+Course1/OOP-Sem2/Week14/BBQ/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/BBQ/main.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/BBQ/main.cpp.o
 
-Course1/OOP-Sem2/Week13/Vector/main.i: Course1/OOP-Sem2/Week13/Vector/main.cpp.i
-.PHONY : Course1/OOP-Sem2/Week13/Vector/main.i
+Course1/OOP-Sem2/Week14/BBQ/main.i: Course1/OOP-Sem2/Week14/BBQ/main.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/BBQ/main.i
 
 # target to preprocess a source file
-Course1/OOP-Sem2/Week13/Vector/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/Course1/OOP-Sem2/Week13/Vector/main.cpp.i
-.PHONY : Course1/OOP-Sem2/Week13/Vector/main.cpp.i
+Course1/OOP-Sem2/Week14/BBQ/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/BBQ/main.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/BBQ/main.cpp.i
 
-Course1/OOP-Sem2/Week13/Vector/main.s: Course1/OOP-Sem2/Week13/Vector/main.cpp.s
-.PHONY : Course1/OOP-Sem2/Week13/Vector/main.s
+Course1/OOP-Sem2/Week14/BBQ/main.s: Course1/OOP-Sem2/Week14/BBQ/main.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/BBQ/main.s
 
 # target to generate assembly for a file
-Course1/OOP-Sem2/Week13/Vector/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vector.dir/build.make CMakeFiles/Vector.dir/Course1/OOP-Sem2/Week13/Vector/main.cpp.s
-.PHONY : Course1/OOP-Sem2/Week13/Vector/main.cpp.s
+Course1/OOP-Sem2/Week14/BBQ/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/BBQ/main.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/BBQ/main.cpp.s
+
+Course1/OOP-Sem2/Week14/TicketSystem/main.o: Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/TicketSystem/main.o
+
+# target to build an object file
+Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.o
+
+Course1/OOP-Sem2/Week14/TicketSystem/main.i: Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/TicketSystem/main.i
+
+# target to preprocess a source file
+Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.i
+
+Course1/OOP-Sem2/Week14/TicketSystem/main.s: Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/TicketSystem/main.s
+
+# target to generate assembly for a file
+Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.s
 
 # Help Target
 help:
@@ -198,14 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Templates"
-	@echo "... Vector"
-	@echo "... Course1/OOP-Sem2/Week13/Templates/main.o"
-	@echo "... Course1/OOP-Sem2/Week13/Templates/main.i"
-	@echo "... Course1/OOP-Sem2/Week13/Templates/main.s"
-	@echo "... Course1/OOP-Sem2/Week13/Vector/main.o"
-	@echo "... Course1/OOP-Sem2/Week13/Vector/main.i"
-	@echo "... Course1/OOP-Sem2/Week13/Vector/main.s"
+	@echo "... Restaurant"
+	@echo "... Ticket"
+	@echo "... Course1/OOP-Sem2/Week14/BBQ/main.o"
+	@echo "... Course1/OOP-Sem2/Week14/BBQ/main.i"
+	@echo "... Course1/OOP-Sem2/Week14/BBQ/main.s"
+	@echo "... Course1/OOP-Sem2/Week14/TicketSystem/main.o"
+	@echo "... Course1/OOP-Sem2/Week14/TicketSystem/main.i"
+	@echo "... Course1/OOP-Sem2/Week14/TicketSystem/main.s"
 .PHONY : help
 
 

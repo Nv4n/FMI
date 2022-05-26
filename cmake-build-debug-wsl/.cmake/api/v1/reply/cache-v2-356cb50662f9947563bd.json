@@ -923,7 +923,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Vector"
+			"value" : "Ticket"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1238,6 +1238,42 @@
 			"value" : "/usr/sbin/sysctl"
 		},
 		{
+			"name" : "Restaurant_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "Restaurant_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Restaurant_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		},
+		{
 			"name" : "Templates_BINARY_DIR",
 			"properties" : 
 			[
@@ -1263,6 +1299,42 @@
 		},
 		{
 			"name" : "Templates_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		},
+		{
+			"name" : "Ticket_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "Ticket_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Ticket_SOURCE_DIR",
 			"properties" : 
 			[
 				{
