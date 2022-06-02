@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 project(Restaurant)
 project(Ticket)
+project(ImageEditor)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -19,4 +20,8 @@ add_executable(Ticket
         Course1/OOP-Sem2/Week14/TicketSystem/StudentTicket.h
         Course1/OOP-Sem2/Week14/TicketSystem/RegularTicket.h
         Course1/OOP-Sem2/Week14/TicketSystem/GroupTicket.h
+        )
+
+add_executable(ImageEditor
+        Course1/OOP-Sem2/Week14/ImageEditor/main.cpp
         )

@@ -923,7 +923,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Ticket"
+			"value" : "ImageEditor"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1204,6 +1204,42 @@
 			],
 			"type" : "BOOL",
 			"value" : "FALSE"
+		},
+		{
+			"name" : "ImageEditor_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "ImageEditor_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "ImageEditor_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
 		},
 		{
 			"name" : "ProcessorCount_cmd_nproc",

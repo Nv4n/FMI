@@ -16,5 +16,5 @@ public:
     void print() override{
         std::cout<<destination<<" "<<price<<" "<<peopleCount<<std::endl;
     }
-}
+};
 #endif //RESTAURANT_GROUPTICKET_H

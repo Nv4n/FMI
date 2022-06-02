@@ -1,4 +1,0 @@
-C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/Restaurant.dir
-C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/Ticket.dir
-C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -142,6 +142,19 @@ Ticket/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/build
 .PHONY : Ticket/fast
 
+#=============================================================================
+# Target rules for targets named ImageEditor
+
+# Build rule for target.
+ImageEditor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ImageEditor
+.PHONY : ImageEditor
+
+# fast build rule for target.
+ImageEditor/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ImageEditor.dir/build.make CMakeFiles/ImageEditor.dir/build
+.PHONY : ImageEditor/fast
+
 Course1/OOP-Sem2/Week14/BBQ/main.o: Course1/OOP-Sem2/Week14/BBQ/main.cpp.o
 .PHONY : Course1/OOP-Sem2/Week14/BBQ/main.o
 
@@ -198,6 +211,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... ImageEditor"
 	@echo "... Restaurant"
 	@echo "... Ticket"
 	@echo "... Course1/OOP-Sem2/Week14/BBQ/main.o"

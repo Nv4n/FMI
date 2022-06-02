@@ -28,7 +28,7 @@
 					[
 						0
 					],
-					"name" : "Ticket",
+					"name" : "ImageEditor",
 					"targetIndexes" : 
 					[
 						0,
@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Restaurant::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Restaurant-Debug-724d30cf17104f337bfc.json",
+					"jsonFile" : "target-Restaurant-Debug-eadbe27cced67a5ef06b.json",
 					"name" : "Restaurant",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Ticket::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Ticket-Debug-995f0367e69877773cf2.json",
+					"jsonFile" : "target-Ticket-Debug-9a15446dc580affbe90d.json",
 					"name" : "Ticket",
 					"projectIndex" : 0
 				}
