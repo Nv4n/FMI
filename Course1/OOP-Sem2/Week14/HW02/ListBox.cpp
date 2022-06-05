@@ -10,12 +10,25 @@ ListBox::ListBox(const char *text, const size_t positionX, const size_t position
 
     size_t size = std::strlen(text);
     description = new char[size + 1];
+    this->text = new char[size + 1];
+
     size_t optionCount = 1;
-    for (int i = 0; i < size; ++i) {
+    size_t longestOption = 0;
+    for (int i = 0, currentLongest = 0; i < size; ++i, ++currentLongest) {
         if (text[i] == '|') {
+            optionCount++;
+            this->text[i] = '\n';
+            description[i] = '\n';
+
+            if (longestOption < currentLongest) {
+                longestOption = currentLongest;
+            }
+            currentLongest = 0;
+        } else {
             description[i] = text[i];
+            this->text[i] = text[i];
         }
     }
 
-    text = new char[size + 1];
+    setSize(longestOption, optionCount);
 }
