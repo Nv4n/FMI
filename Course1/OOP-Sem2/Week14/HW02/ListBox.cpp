@@ -32,3 +32,7 @@ ListBox::ListBox(const char *text, const size_t positionX, const size_t position
 
     setSize(longestOption, optionCount);
 }
+
+Control *ListBox::clone() const {
+    return new ListBox(*this);
+}

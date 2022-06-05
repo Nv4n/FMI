@@ -46,3 +46,7 @@ TextBox::TextBox(const char *text, const size_t positionX, const size_t position
         }
     }
 }
+
+Control *TextBox::clone() const {
+    return new TextBox(*this);
+}

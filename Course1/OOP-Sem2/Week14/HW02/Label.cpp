@@ -17,3 +17,7 @@ Label::Label(const char *text, const size_t positionX, const size_t positionY) {
 
     setSize(size, 1);
 }
+
+Control *Label::clone() const {
+    return new Label(*this);
+}

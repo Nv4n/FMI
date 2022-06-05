@@ -46,13 +46,15 @@ public:
 
     const char *getText() const;
 
+    virtual Control *clone() const = 0;
+
 protected:
     void setPosition(size_t X, size_t Y);
 
     void setSize(size_t width, size_t height);
 
     void setControlId();
-    
+
 private:
 
     void destroy();

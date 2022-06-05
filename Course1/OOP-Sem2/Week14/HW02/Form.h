@@ -16,10 +16,23 @@ private:
     size_t size;
     size_t capacity;
 public:
+    Form() = delete;
+
+    Form(const char *name);
+
+    Form(const Form &other);
+
+    Form &operator=(const Form &other);
 
     virtual ~Form();
 
+    const Control *operator[](size_t) const;
+
+    void addControl(const Control *control);
+
 private:
+    void copy(const Form &other);
+
     void destroy();
 };
 

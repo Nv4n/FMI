@@ -12,6 +12,8 @@
 
 class ListBox : public InputControl {
     ListBox(const char *text, const size_t positionX, const size_t positionY, const size_t optionIndex);
+
+    Control *clone() const override;
 };
 
 

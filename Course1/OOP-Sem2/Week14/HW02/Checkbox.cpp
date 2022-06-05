@@ -46,3 +46,7 @@ Checkbox::Checkbox(const char *text, const size_t positionX, const size_t positi
 void Checkbox::copy(const Checkbox &other) {
     isChecked = other.isChecked;
 }
+
+Control *Checkbox::clone() const {
+    return new Checkbox(*this);
+}

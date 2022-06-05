@@ -52,3 +52,7 @@ RadioButton::RadioButton(const char *text, const size_t positionX, const size_t 
     this->size.height = rowsCount;
     this->size.width = size + 4 * rowsCount;
 }
+
+Control *RadioButton::clone() const {
+    return new RadioButton(*this);
+}

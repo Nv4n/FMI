@@ -13,6 +13,8 @@
 class Label : public OutputControl {
 public:
     Label(const char *text, const size_t positionX, const size_t positionY);
+
+    Control *clone() const override;
 };
 
 

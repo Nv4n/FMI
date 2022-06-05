@@ -19,6 +19,7 @@ public:
 
     Checkbox(const char *text, const size_t positionX, const size_t positionY, const bool isChecked);
 
+    Control *clone() const override;
 
 private:
     void copy(const Checkbox &other);
