@@ -135,4 +135,8 @@ CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.o: \
  /usr/include/c++/9/bits/locale_facets.tcc \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
- /usr/include/c++/9/bits/istream.tcc
+ /usr/include/c++/9/bits/istream.tcc \
+ /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Control.h \
+ /usr/include/c++/9/cstring /usr/include/string.h /usr/include/strings.h \
+ /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Checkbox.h \
+ /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/InputControl.h

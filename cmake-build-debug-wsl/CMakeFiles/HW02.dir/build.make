@@ -153,6 +153,90 @@ CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.s
 
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o: CMakeFiles/HW02.dir/flags.make
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o: ../Course1/OOP-Sem2/Week14/HW02/Label.cpp
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o: CMakeFiles/HW02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o -MF CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o.d -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o -c /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Label.cpp
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Label.cpp > CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.i
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Label.cpp -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.s
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o: CMakeFiles/HW02.dir/flags.make
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o: ../Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o: CMakeFiles/HW02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o -MF CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o.d -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o -c /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp > CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.i
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.s
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o: CMakeFiles/HW02.dir/flags.make
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o: ../Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o: CMakeFiles/HW02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o -MF CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o.d -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o -c /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp > CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.i
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.s
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o: CMakeFiles/HW02.dir/flags.make
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o: ../Course1/OOP-Sem2/Week14/HW02/TextBox.cpp
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o: CMakeFiles/HW02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o -MF CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o.d -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o -c /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp > CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.i
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.s
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o: CMakeFiles/HW02.dir/flags.make
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o: ../Course1/OOP-Sem2/Week14/HW02/ListBox.cpp
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o: CMakeFiles/HW02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o -MF CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o.d -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o -c /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp > CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.i
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.s
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o: CMakeFiles/HW02.dir/flags.make
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o: ../Course1/OOP-Sem2/Week14/HW02/Panel.cpp
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o: CMakeFiles/HW02.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o -MF CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o.d -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o -c /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Panel.cpp
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Panel.cpp > CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.i
+
+CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Panel.cpp -o CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.s
+
 # Object files for target HW02
 HW02_OBJECTS = \
 "CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.o" \
@@ -160,7 +244,13 @@ HW02_OBJECTS = \
 "CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.o" \
 "CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.o" \
 "CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.o" \
-"CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.o"
+"CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.o" \
+"CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o" \
+"CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o" \
+"CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o" \
+"CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o" \
+"CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o" \
+"CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o"
 
 # External object files for target HW02
 HW02_EXTERNAL_OBJECTS =
@@ -171,9 +261,15 @@ HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.o
 HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.o
 HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.o
 HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.o
+HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.o
+HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.o
+HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.o
+HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.o
+HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.o
+HW02: CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.o
 HW02: CMakeFiles/HW02.dir/build.make
 HW02: CMakeFiles/HW02.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable HW02"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable HW02"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/HW02.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

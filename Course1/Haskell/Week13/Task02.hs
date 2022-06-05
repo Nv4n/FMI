@@ -13,14 +13,20 @@ toBST Empty = Empty
 toBST (Node value left right) = getNewTree (Node value left right)
     where
         getNewTree::(Ord a) => BTree a -> Btree a
-        getNewTree _ = Empty
+        getNewTree Empty = Empty
         -- getNewTree (Node value left right)
 
         logic::Bool
         logic = getLogic (Node value left right) 0 >= 1
 
-        -- getChangeValues::(Int, Int, Int, Int)
-        -- getChangeValues
+        getChangeValues::(Ord a) => Int -> Int -> (a, Int, a, Int)
+        getChangeValues a b
+            | 
+
+        getLevel::BTree a -> Int -> [a]
+        getLevel Empty _ = []
+        getLevel (Node value left right) 0 = [value]
+        getLevel (Node value left right) n = getLevel left (k-1) ++ getLevel right (k-1)
 
         getLogic::(Ord a) => BTree a -> Int -> Int
         getLogic Empty n = n

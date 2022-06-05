@@ -1,4 +1,13 @@
 "C:\Program Files\JetBrains\CLion 2022.1.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.1.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\Sybatron\Documents\repos\FMI -B C:\Users\Sybatron\Documents\repos\FMI\cmake-build-debug
 -- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug
+CMake Error at CMakeLists.txt:25 (add_executable):
+  Cannot find source file:
+
+    Course1/OOP-Sem2/Week14/ImageEditor/main.cpp
+
+
+CMake Error at CMakeLists.txt:25 (add_executable):
+  No SOURCES given to target: ImageEditor
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

@@ -8,8 +8,9 @@
 
 #include "Control.h"
 
-class OutputControl : public Control {
+#pragma once
 
+class OutputControl : virtual public Control {
 };
 
 

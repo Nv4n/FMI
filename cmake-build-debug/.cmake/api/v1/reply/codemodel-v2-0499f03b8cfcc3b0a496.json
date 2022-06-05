@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.22"
@@ -45,28 +45,28 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "HW02::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-HW02-Debug-e6c60ecca5e104ea6e15.json",
+					"jsonFile" : "target-HW02-Debug-adcd4bc9a025c4c2517d.json",
 					"name" : "HW02",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ImageEditor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ImageEditor-Debug-430b1781dea06e1d819f.json",
+					"jsonFile" : "target-ImageEditor-Debug-0451df7b992b8510c488.json",
 					"name" : "ImageEditor",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Restaurant::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Restaurant-Debug-1a8c2bf256d7421b2eda.json",
+					"jsonFile" : "target-Restaurant-Debug-eecbc9c905611e2fadc3.json",
 					"name" : "Restaurant",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Ticket::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Ticket-Debug-b60927dd17189229da8e.json",
+					"jsonFile" : "target-Ticket-Debug-2b5c8bb897f7faf20115.json",
 					"name" : "Ticket",
 					"projectIndex" : 0
 				}
@@ -76,8 +76,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl",
-		"source" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		"build" : "C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug",
+		"source" : "C:/Users/Sybatron/Documents/repos/FMI"
 	},
 	"version" : 
 	{

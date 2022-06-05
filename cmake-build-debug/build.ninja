@@ -200,6 +200,48 @@ build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.obj: CXX_CO
   OBJECT_DIR = CMakeFiles\HW02.dir
   OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
 
+build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Label.cpp || cmake_object_order_depends_target_HW02
+  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\Label.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
+  OBJECT_DIR = CMakeFiles\HW02.dir
+  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
+
+build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp || cmake_object_order_depends_target_HW02
+  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\Checkbox.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
+  OBJECT_DIR = CMakeFiles\HW02.dir
+  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
+
+build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp || cmake_object_order_depends_target_HW02
+  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\RadioButton.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
+  OBJECT_DIR = CMakeFiles\HW02.dir
+  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
+
+build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp || cmake_object_order_depends_target_HW02
+  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\TextBox.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
+  OBJECT_DIR = CMakeFiles\HW02.dir
+  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
+
+build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp || cmake_object_order_depends_target_HW02
+  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\ListBox.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
+  OBJECT_DIR = CMakeFiles\HW02.dir
+  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
+
+build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Panel.cpp || cmake_object_order_depends_target_HW02
+  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\Panel.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
+  OBJECT_DIR = CMakeFiles\HW02.dir
+  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target HW02
@@ -208,7 +250,7 @@ build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.obj: CXX_CO
 #############################################
 # Link the executable HW02.exe
 
-build HW02.exe: CXX_EXECUTABLE_LINKER__HW02_Debug CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Form.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.obj
+build HW02.exe: CXX_EXECUTABLE_LINKER__HW02_Debug CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Form.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\HW02.dir

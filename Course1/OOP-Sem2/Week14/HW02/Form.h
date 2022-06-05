@@ -5,11 +5,14 @@
 #ifndef HW02_FORM_H
 #define HW02_FORM_H
 
+#include "Control.h"
+
+#pragma once
 
 class Form {
 private:
     char *name;
-    Control *controls;
+    Control **controls;
     size_t size;
     size_t capacity;
 public:

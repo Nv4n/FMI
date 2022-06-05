@@ -234,6 +234,12 @@
 		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/BBQ/main.cpp">
 			<Option target="Restaurant"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Checkbox.h">
+			<Option target="HW02"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Control.cpp">
 			<Option target="HW02"/>
 		</Unit>
@@ -260,10 +266,40 @@
 			<Option target="Restaurant"/>
 			<Option target="HW02"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Label.cpp">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Label.h">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/ListBox.h">
+			<Option target="HW02"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp">
 			<Option target="HW02"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/OutputControl.h">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Panel.cpp">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Panel.h">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/RadioButton.h">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp">
+			<Option target="HW02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/TextBox.h">
 			<Option target="HW02"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/main.cpp">

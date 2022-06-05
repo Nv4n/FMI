@@ -31,4 +31,12 @@ add_executable(HW02
         Course1/OOP-Sem2/Week14/HW02/main.cpp
         Course1/OOP-Sem2/Week14/HW02/Form.cpp Course1/OOP-Sem2/Week14/HW02/Form.h Course1/OOP-Sem2/Week14/HW02/Control.cpp Course1/OOP-Sem2/Week14/HW02/Control.h
         Course1/OOP-Sem2/Week14/HW02/Control.cpp Course1/OOP-Sem2/Week14/HW02/Control.h
-        Course1/OOP-Sem2/Week14/HW02/InputControl.cpp Course1/OOP-Sem2/Week14/HW02/InputControl.h Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp Course1/OOP-Sem2/Week14/HW02/OutputControl.h Course1/OOP-Sem2/Week14/HW02/IOControl.cpp Course1/OOP-Sem2/Week14/HW02/IOControl.h)
+        Course1/OOP-Sem2/Week14/HW02/InputControl.cpp Course1/OOP-Sem2/Week14/HW02/InputControl.h
+        Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp Course1/OOP-Sem2/Week14/HW02/OutputControl.h
+        Course1/OOP-Sem2/Week14/HW02/IOControl.cpp Course1/OOP-Sem2/Week14/HW02/IOControl.h
+        Course1/OOP-Sem2/Week14/HW02/Label.cpp Course1/OOP-Sem2/Week14/HW02/Label.h
+        Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp Course1/OOP-Sem2/Week14/HW02/Checkbox.h
+        Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp Course1/OOP-Sem2/Week14/HW02/RadioButton.h
+        Course1/OOP-Sem2/Week14/HW02/TextBox.cpp Course1/OOP-Sem2/Week14/HW02/TextBox.h
+        Course1/OOP-Sem2/Week14/HW02/ListBox.cpp Course1/OOP-Sem2/Week14/HW02/ListBox.h
+        Course1/OOP-Sem2/Week14/HW02/Panel.cpp Course1/OOP-Sem2/Week14/HW02/Panel.h)

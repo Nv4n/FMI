@@ -9,6 +9,8 @@
 #include "InputControl.h"
 #include "OutputControl.h"
 
+#pragma once
+
 class IOControl : virtual public InputControl, OutputControl {
 
 };
