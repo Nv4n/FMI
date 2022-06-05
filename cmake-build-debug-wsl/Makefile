@@ -155,6 +155,19 @@ ImageEditor/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ImageEditor.dir/build.make CMakeFiles/ImageEditor.dir/build
 .PHONY : ImageEditor/fast
 
+#=============================================================================
+# Target rules for targets named HW02
+
+# Build rule for target.
+HW02: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HW02
+.PHONY : HW02
+
+# fast build rule for target.
+HW02/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/build
+.PHONY : HW02/fast
+
 Course1/OOP-Sem2/Week14/BBQ/main.o: Course1/OOP-Sem2/Week14/BBQ/main.cpp.o
 .PHONY : Course1/OOP-Sem2/Week14/BBQ/main.o
 
@@ -178,6 +191,177 @@ Course1/OOP-Sem2/Week14/BBQ/main.s: Course1/OOP-Sem2/Week14/BBQ/main.cpp.s
 Course1/OOP-Sem2/Week14/BBQ/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/BBQ/main.cpp.s
 .PHONY : Course1/OOP-Sem2/Week14/BBQ/main.cpp.s
+
+Course1/OOP-Sem2/Week14/HW02/Control.o: Course1/OOP-Sem2/Week14/HW02/Control.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Control.o
+
+# target to build an object file
+Course1/OOP-Sem2/Week14/HW02/Control.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Control.cpp.o
+
+Course1/OOP-Sem2/Week14/HW02/Control.i: Course1/OOP-Sem2/Week14/HW02/Control.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Control.i
+
+# target to preprocess a source file
+Course1/OOP-Sem2/Week14/HW02/Control.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Control.cpp.i
+
+Course1/OOP-Sem2/Week14/HW02/Control.s: Course1/OOP-Sem2/Week14/HW02/Control.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Control.s
+
+# target to generate assembly for a file
+Course1/OOP-Sem2/Week14/HW02/Control.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Control.cpp.s
+
+Course1/OOP-Sem2/Week14/HW02/Form.o: Course1/OOP-Sem2/Week14/HW02/Form.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Form.o
+
+# target to build an object file
+Course1/OOP-Sem2/Week14/HW02/Form.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Form.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Form.cpp.o
+
+Course1/OOP-Sem2/Week14/HW02/Form.i: Course1/OOP-Sem2/Week14/HW02/Form.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Form.i
+
+# target to preprocess a source file
+Course1/OOP-Sem2/Week14/HW02/Form.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Form.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Form.cpp.i
+
+Course1/OOP-Sem2/Week14/HW02/Form.s: Course1/OOP-Sem2/Week14/HW02/Form.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Form.s
+
+# target to generate assembly for a file
+Course1/OOP-Sem2/Week14/HW02/Form.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Form.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/Form.cpp.s
+
+Course1/OOP-Sem2/Week14/HW02/IOControl.o: Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/IOControl.o
+
+# target to build an object file
+Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.o
+
+Course1/OOP-Sem2/Week14/HW02/IOControl.i: Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/IOControl.i
+
+# target to preprocess a source file
+Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.i
+
+Course1/OOP-Sem2/Week14/HW02/IOControl.s: Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/IOControl.s
+
+# target to generate assembly for a file
+Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.s
+
+Course1/OOP-Sem2/Week14/HW02/InputControl.o: Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/InputControl.o
+
+# target to build an object file
+Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.o
+
+Course1/OOP-Sem2/Week14/HW02/InputControl.i: Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/InputControl.i
+
+# target to preprocess a source file
+Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.i
+
+Course1/OOP-Sem2/Week14/HW02/InputControl.s: Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/InputControl.s
+
+# target to generate assembly for a file
+Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.s
+
+Course1/OOP-Sem2/Week14/HW02/OutputControl.o: Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/OutputControl.o
+
+# target to build an object file
+Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.o
+
+Course1/OOP-Sem2/Week14/HW02/OutputControl.i: Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/OutputControl.i
+
+# target to preprocess a source file
+Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.i
+
+Course1/OOP-Sem2/Week14/HW02/OutputControl.s: Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/OutputControl.s
+
+# target to generate assembly for a file
+Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.s
+
+Course1/OOP-Sem2/Week14/HW02/main.o: Course1/OOP-Sem2/Week14/HW02/main.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/main.o
+
+# target to build an object file
+Course1/OOP-Sem2/Week14/HW02/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/HW02/main.cpp.o
+
+Course1/OOP-Sem2/Week14/HW02/main.i: Course1/OOP-Sem2/Week14/HW02/main.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/main.i
+
+# target to preprocess a source file
+Course1/OOP-Sem2/Week14/HW02/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/HW02/main.cpp.i
+
+Course1/OOP-Sem2/Week14/HW02/main.s: Course1/OOP-Sem2/Week14/HW02/main.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/main.s
+
+# target to generate assembly for a file
+Course1/OOP-Sem2/Week14/HW02/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/HW02/main.cpp.s
+
+Course1/OOP-Sem2/Week14/ImageEditor/main.o: Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/ImageEditor/main.o
+
+# target to build an object file
+Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ImageEditor.dir/build.make CMakeFiles/ImageEditor.dir/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.o
+.PHONY : Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.o
+
+Course1/OOP-Sem2/Week14/ImageEditor/main.i: Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/ImageEditor/main.i
+
+# target to preprocess a source file
+Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ImageEditor.dir/build.make CMakeFiles/ImageEditor.dir/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.i
+.PHONY : Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.i
+
+Course1/OOP-Sem2/Week14/ImageEditor/main.s: Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/ImageEditor/main.s
+
+# target to generate assembly for a file
+Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ImageEditor.dir/build.make CMakeFiles/ImageEditor.dir/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.s
+.PHONY : Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.s
 
 Course1/OOP-Sem2/Week14/TicketSystem/main.o: Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.o
 .PHONY : Course1/OOP-Sem2/Week14/TicketSystem/main.o
@@ -211,12 +395,34 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... HW02"
 	@echo "... ImageEditor"
 	@echo "... Restaurant"
 	@echo "... Ticket"
 	@echo "... Course1/OOP-Sem2/Week14/BBQ/main.o"
 	@echo "... Course1/OOP-Sem2/Week14/BBQ/main.i"
 	@echo "... Course1/OOP-Sem2/Week14/BBQ/main.s"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/Control.o"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/Control.i"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/Control.s"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/Form.o"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/Form.i"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/Form.s"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/IOControl.o"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/IOControl.i"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/IOControl.s"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/InputControl.o"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/InputControl.i"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/InputControl.s"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/OutputControl.o"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/OutputControl.i"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/OutputControl.s"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/main.o"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/main.i"
+	@echo "... Course1/OOP-Sem2/Week14/HW02/main.s"
+	@echo "... Course1/OOP-Sem2/Week14/ImageEditor/main.o"
+	@echo "... Course1/OOP-Sem2/Week14/ImageEditor/main.i"
+	@echo "... Course1/OOP-Sem2/Week14/ImageEditor/main.s"
 	@echo "... Course1/OOP-Sem2/Week14/TicketSystem/main.o"
 	@echo "... Course1/OOP-Sem2/Week14/TicketSystem/main.i"
 	@echo "... Course1/OOP-Sem2/Week14/TicketSystem/main.s"

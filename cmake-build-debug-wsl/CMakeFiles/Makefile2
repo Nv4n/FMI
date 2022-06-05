@@ -66,6 +66,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-w
 all: CMakeFiles/Restaurant.dir/all
 all: CMakeFiles/Ticket.dir/all
 all: CMakeFiles/ImageEditor.dir/all
+all: CMakeFiles/HW02.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,6 +77,7 @@ preinstall:
 clean: CMakeFiles/Restaurant.dir/clean
 clean: CMakeFiles/Ticket.dir/clean
 clean: CMakeFiles/ImageEditor.dir/clean
+clean: CMakeFiles/HW02.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -85,12 +87,12 @@ clean: CMakeFiles/ImageEditor.dir/clean
 CMakeFiles/Restaurant.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Restaurant.dir/build.make CMakeFiles/Restaurant.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2 "Built target Restaurant"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=10,11,12 "Built target Restaurant"
 .PHONY : CMakeFiles/Restaurant.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Restaurant.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Restaurant.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
 .PHONY : CMakeFiles/Restaurant.dir/rule
@@ -111,7 +113,7 @@ CMakeFiles/Restaurant.dir/clean:
 CMakeFiles/Ticket.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ticket.dir/build.make CMakeFiles/Ticket.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=3,4 "Built target Ticket"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=13,14 "Built target Ticket"
 .PHONY : CMakeFiles/Ticket.dir/all
 
 # Build rule for subdir invocation for target.
@@ -137,12 +139,12 @@ CMakeFiles/Ticket.dir/clean:
 CMakeFiles/ImageEditor.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ImageEditor.dir/build.make CMakeFiles/ImageEditor.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ImageEditor.dir/build.make CMakeFiles/ImageEditor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num= "Built target ImageEditor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=8,9 "Built target ImageEditor"
 .PHONY : CMakeFiles/ImageEditor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ImageEditor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ImageEditor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
 .PHONY : CMakeFiles/ImageEditor.dir/rule
@@ -155,6 +157,32 @@ ImageEditor: CMakeFiles/ImageEditor.dir/rule
 CMakeFiles/ImageEditor.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ImageEditor.dir/build.make CMakeFiles/ImageEditor.dir/clean
 .PHONY : CMakeFiles/ImageEditor.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/HW02.dir
+
+# All Build rule for target.
+CMakeFiles/HW02.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target HW02"
+.PHONY : CMakeFiles/HW02.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/HW02.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/HW02.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
+.PHONY : CMakeFiles/HW02.dir/rule
+
+# Convenience name for target.
+HW02: CMakeFiles/HW02.dir/rule
+.PHONY : HW02
+
+# clean rule for target.
+CMakeFiles/HW02.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HW02.dir/build.make CMakeFiles/HW02.dir/clean
+.PHONY : CMakeFiles/HW02.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

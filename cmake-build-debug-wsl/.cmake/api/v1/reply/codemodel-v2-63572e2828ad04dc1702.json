@@ -16,7 +16,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -28,11 +30,13 @@
 					[
 						0
 					],
-					"name" : "ImageEditor",
+					"name" : "HW02",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -40,15 +44,29 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "HW02::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HW02-Debug-e6c60ecca5e104ea6e15.json",
+					"name" : "HW02",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ImageEditor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ImageEditor-Debug-430b1781dea06e1d819f.json",
+					"name" : "ImageEditor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "Restaurant::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Restaurant-Debug-eadbe27cced67a5ef06b.json",
+					"jsonFile" : "target-Restaurant-Debug-1a8c2bf256d7421b2eda.json",
 					"name" : "Restaurant",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Ticket::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Ticket-Debug-9a15446dc580affbe90d.json",
+					"jsonFile" : "target-Ticket-Debug-b60927dd17189229da8e.json",
 					"name" : "Ticket",
 					"projectIndex" : 0
 				}

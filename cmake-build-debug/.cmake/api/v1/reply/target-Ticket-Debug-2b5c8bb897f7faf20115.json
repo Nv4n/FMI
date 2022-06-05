@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Ticket"
+			"path" : "Ticket.exe"
+		},
+		{
+			"path" : "Ticket.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +28,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 17,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 8,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
@@ -43,13 +46,16 @@
 			[
 				{
 					"fragment" : "-g"
+				},
+				{
+					"fragment" : "-std=gnu++14"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14"
+					"path" : "C:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14"
 				}
 			],
 			"language" : "CXX",
@@ -79,12 +85,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "Ticket",
-	"nameOnDisk" : "Ticket",
+	"nameOnDisk" : "Ticket.exe",
 	"paths" : 
 	{
 		"build" : ".",

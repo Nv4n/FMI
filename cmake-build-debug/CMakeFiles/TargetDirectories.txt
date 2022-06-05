@@ -1,0 +1,6 @@
+C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/Restaurant.dir
+C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/Ticket.dir
+C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/ImageEditor.dir
+C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/HW02.dir
+C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/CMakeFiles/rebuild_cache.dir

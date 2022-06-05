@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/mnt/c/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp" "CMakeFiles/ImageEditor.dir/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.o" "gcc" "CMakeFiles/ImageEditor.dir/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.o.d"
   )
 
 # Targets to which this target links.
