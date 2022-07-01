@@ -48,6 +48,8 @@ public:
 
     virtual Control *clone() const = 0;
 
+    virtual const char *print() {};
+
 protected:
     void setPosition(size_t X, size_t Y);
 

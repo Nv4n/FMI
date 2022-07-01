@@ -45,5 +45,42 @@ const Control *Form::operator[](size_t ind) const {
 }
 
 void Form::copy(const Form &other) {
+    size_t size = std::strlen(other.name);
+    name = new char[size + 1];
+    std::strcpy(name, other.name);
 
+    capacity = other.capacity;
+    size = other.size;
+    controls = new Control *[capacity];
+    for (int i = 0; i < size; ++i) {
+        controls[i] = other.controls[i];
+    }
+}
+
+void Form::addControl(const Control *control) {
+    if (control != nullptr) {
+        if (size + 1 == capacity) {
+            resize();
+        }
+
+        controls[size] = control->clone();
+        size++;
+    }
+
+}
+
+void Form::resize() {
+    capacity *= 2;
+    Control **tempControls = new Control *[capacity];
+    for (int i = 0; i < size; ++i) {
+        tempControls[i] = controls[i];
+    }
+    delete[]controls;
+    controls = tempControls;
+}
+
+void Form::print() {
+    for (int i = 0; i < size; ++i) {
+        std::cout << controls[i]->print() << std::endl;
+    }
 }

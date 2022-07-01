@@ -12,14 +12,19 @@
 class Checkbox : virtual public InputControl {
 private:
     bool isChecked;
+
+    Checkbox(const char *text, const size_t positionX, const size_t positionY, const bool isChecked);
+
 public:
     Checkbox(const Checkbox &other);
 
     Checkbox &operator=(const Checkbox &other);
 
-    Checkbox(const char *text, const size_t positionX, const size_t positionY, const bool isChecked);
 
     Control *clone() const override;
+
+    Control *input() override;
+
 
 private:
     void copy(const Checkbox &other);

@@ -11,9 +11,16 @@
 #pragma once
 
 class RadioButton : public InputControl {
+public:
+    RadioButton() {};
+
     RadioButton(const char *text, const size_t positionX, const size_t positionY, size_t optionIndex);
 
     Control *clone() const override;
+
+    Control *input() override;
+
+    const char *print() override;
 
 };
 

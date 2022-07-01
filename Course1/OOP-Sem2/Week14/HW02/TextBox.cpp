@@ -50,3 +50,36 @@ TextBox::TextBox(const char *text, const size_t positionX, const size_t position
 Control *TextBox::clone() const {
     return new TextBox(*this);
 }
+
+Control *TextBox::input() {
+    char text[256];
+    std::cin.ignore();
+    std::cin.getline(text, 255);
+
+    size_t positionX;
+    std::cin >> positionX;
+    size_t positionY;
+    std::cin >> positionY;
+    size_t width;
+    std::cin >> width;
+    size_t height;
+    std::cin >> height;
+    return new TextBox(text, positionX, positionY, width, height);
+}
+
+const char *TextBox::print() {
+    char *output = new char[size.width * size.height + 1 + 2];
+    output[0] = '[';
+    for (int i = 1, j = 0; j < size.width; ++i, ++j) {
+        output[i] = text[j];
+    }
+
+    size_t rowsCount = 0;
+    for (int i = 0; i < size.width; ++i) {
+        if (text[i] == '\n') {
+            rowsCount++;
+        }
+    }
+    
+    return nullptr;
+}

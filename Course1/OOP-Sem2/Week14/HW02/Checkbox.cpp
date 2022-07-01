@@ -50,3 +50,18 @@ void Checkbox::copy(const Checkbox &other) {
 Control *Checkbox::clone() const {
     return new Checkbox(*this);
 }
+
+Control *Checkbox::input() {
+    char text[256];
+    std::cin.ignore();
+    std::cin.getline(text, 255);
+
+    size_t positionX;
+    std::cin >> positionX;
+    size_t positionY;
+    std::cin >> positionY;
+    bool isChecked;
+    std::cin >> isChecked;
+
+    return new Checkbox(text, positionX, positionY, isChecked);
+}

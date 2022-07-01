@@ -11,7 +11,8 @@
 #pragma once
 
 class InputControl : virtual public Control {
-
+public:
+    virtual Control *input() = 0;
 };
 
 

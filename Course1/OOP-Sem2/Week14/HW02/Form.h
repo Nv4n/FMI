@@ -30,7 +30,11 @@ public:
 
     void addControl(const Control *control);
 
+    void print();
+
 private:
+    void resize();
+
     void copy(const Form &other);
 
     void destroy();

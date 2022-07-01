@@ -15,6 +15,9 @@ public:
     Label(const char *text, const size_t positionX, const size_t positionY);
 
     Control *clone() const override;
+
+    const char *print() override;
+
 };
 
 

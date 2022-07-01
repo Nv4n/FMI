@@ -11,9 +11,13 @@
 #pragma once
 
 class ListBox : public InputControl {
+public:
     ListBox(const char *text, const size_t positionX, const size_t positionY, const size_t optionIndex);
 
     Control *clone() const override;
+
+    Control *input() override;
+
 };
 
 

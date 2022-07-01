@@ -56,3 +56,22 @@ RadioButton::RadioButton(const char *text, const size_t positionX, const size_t 
 Control *RadioButton::clone() const {
     return new RadioButton(*this);
 }
+
+Control *RadioButton::input() {
+//    const char *text, const size_t positionX, const size_t positionY, size_t optionIndex
+    char text[256];
+    std::cin.ignore();
+    std::cin.getline(text, 255);
+
+    size_t positionX;
+    std::cin >> positionX;
+    size_t positionY;
+    std::cin >> positionY;
+    size_t optionIndex;
+    std::cin >> optionIndex;
+    return new RadioButton(text, positionX, positionY, optionIndex);
+}
+
+const char *RadioButton::print() {
+    return text;
+}
