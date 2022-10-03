@@ -46,5 +46,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/RetakeHW.dir/DependInfo.cmake"
+  "CMakeFiles/Task01NRow.dir/DependInfo.cmake"
+  "CMakeFiles/Task01_1Factorial.dir/DependInfo.cmake"
+  "CMakeFiles/Task02Polymorphism.dir/DependInfo.cmake"
   )

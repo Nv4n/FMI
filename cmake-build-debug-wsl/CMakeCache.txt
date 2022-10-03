@@ -156,7 +156,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=RetakeHW
+CMAKE_PROJECT_NAME:STATIC=Task02Polymorphism
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -261,6 +261,51 @@ RetakeHW_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 RetakeHW_SOURCE_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI
+
+//Value Computed by CMake
+Row_BINARY_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl
+
+//Value Computed by CMake
+Row_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Row_SOURCE_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI
+
+//Value Computed by CMake
+Task01NRow_BINARY_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl
+
+//Value Computed by CMake
+Task01NRow_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Task01NRow_SOURCE_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI
+
+//Value Computed by CMake
+Task01_1Factorial_BINARY_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl
+
+//Value Computed by CMake
+Task01_1Factorial_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Task01_1Factorial_SOURCE_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI
+
+//Value Computed by CMake
+Task01_1NRow_BINARY_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl
+
+//Value Computed by CMake
+Task01_1NRow_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Task01_1NRow_SOURCE_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI
+
+//Value Computed by CMake
+Task02Polymorphism_BINARY_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl
+
+//Value Computed by CMake
+Task02Polymorphism_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Task02Polymorphism_SOURCE_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI
 
 //Value Computed by CMake
 Templates_BINARY_DIR:STATIC=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl

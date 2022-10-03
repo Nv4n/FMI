@@ -923,7 +923,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "RetakeHW"
+			"value" : "Task02Polymorphism"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1371,6 +1371,186 @@
 		},
 		{
 			"name" : "RetakeHW_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		},
+		{
+			"name" : "Row_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "Row_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Row_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		},
+		{
+			"name" : "Task01NRow_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "Task01NRow_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Task01NRow_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		},
+		{
+			"name" : "Task01_1Factorial_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "Task01_1Factorial_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Task01_1Factorial_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		},
+		{
+			"name" : "Task01_1NRow_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "Task01_1NRow_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Task01_1NRow_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		},
+		{
+			"name" : "Task02Polymorphism_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "Task02Polymorphism_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Task02Polymorphism_SOURCE_DIR",
 			"properties" : 
 			[
 				{

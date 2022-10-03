@@ -1,9 +1,19 @@
 cmake_minimum_required(VERSION 3.22)
-#project(RetakeHW)
+
+project(Task01NRow)
+project(Task01_1Factorial)
+project(Task02Polymorphism)
 
 set(CMAKE_CXX_STANDARD 14)
 
-#include_directories(Course1/OOP-Sem2/ReTake)
+include_directories(Course2/StructuresOfData/Week01)
 
-#add_executable(RetakeHW
-#        Course1/OOP-Sem2/ReTake/Set.inl Course1/OOP-Sem2/ReTake/FiniteSet.inl Course1/OOP-Sem2/ReTake/FiniteSet.h Course1/OOP-Sem2/ReTake/Set.h Course1/OOP-Sem2/ReTake/main.cpp Course1/OOP-Sem2/ReTake/CriteriaSet.inl Course1/OOP-Sem2/ReTake/CriteriaSet.h Course1/OOP-Sem2/ReTake/SetReader.inl Course1/OOP-Sem2/ReTake/SetReader.h Course1/OOP-Sem2/ReTake/UnionSet.inl Course1/OOP-Sem2/ReTake/UnionSet.h Course1/OOP-Sem2/ReTake/IntersectionSet.inl Course1/OOP-Sem2/ReTake/IntersectionSet.h)
+add_executable(Task01NRow
+        Course2/StructuresOfData/Week01/Task01.cpp)
+
+add_executable(Task01_1Factorial
+        Course2/StructuresOfData/Week01/Task01_1Factorial.cpp)
+
+add_executable(Task02Polymorphism
+        Course2/StructuresOfData/Week01/Polymorphism/Hero.cpp Course2/StructuresOfData/Week01/Polymorphism/Hero.h Course2/StructuresOfData/Week01/Polymorphism/Magician.cpp Course2/StructuresOfData/Week01/Polymorphism/Magician.h Course2/StructuresOfData/Week01/Polymorphism/Warrior.cpp Course2/StructuresOfData/Week01/Polymorphism/Warrior.h Course2/StructuresOfData/Week01/Polymorphism/Arena.cpp Course2/StructuresOfData/Week01/Polymorphism/Arena.h Course2/StructuresOfData/Week01/Polymorphism/main.cpp)
+

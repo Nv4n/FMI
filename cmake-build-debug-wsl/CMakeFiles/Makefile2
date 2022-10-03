@@ -63,7 +63,9 @@ CMAKE_BINARY_DIR = /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-w
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/RetakeHW.dir/all
+all: CMakeFiles/Task01NRow.dir/all
+all: CMakeFiles/Task01_1Factorial.dir/all
+all: CMakeFiles/Task02Polymorphism.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +73,88 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/RetakeHW.dir/clean
+clean: CMakeFiles/Task01NRow.dir/clean
+clean: CMakeFiles/Task01_1Factorial.dir/clean
+clean: CMakeFiles/Task02Polymorphism.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/RetakeHW.dir
+# Target rules for target CMakeFiles/Task01NRow.dir
 
 # All Build rule for target.
-CMakeFiles/RetakeHW.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RetakeHW.dir/build.make CMakeFiles/RetakeHW.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RetakeHW.dir/build.make CMakeFiles/RetakeHW.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2 "Built target RetakeHW"
-.PHONY : CMakeFiles/RetakeHW.dir/all
+CMakeFiles/Task01NRow.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task01NRow.dir/build.make CMakeFiles/Task01NRow.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task01NRow.dir/build.make CMakeFiles/Task01NRow.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2 "Built target Task01NRow"
+.PHONY : CMakeFiles/Task01NRow.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/RetakeHW.dir/rule: cmake_check_build_system
+CMakeFiles/Task01NRow.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/RetakeHW.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Task01NRow.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
-.PHONY : CMakeFiles/RetakeHW.dir/rule
+.PHONY : CMakeFiles/Task01NRow.dir/rule
 
 # Convenience name for target.
-RetakeHW: CMakeFiles/RetakeHW.dir/rule
-.PHONY : RetakeHW
+Task01NRow: CMakeFiles/Task01NRow.dir/rule
+.PHONY : Task01NRow
 
 # clean rule for target.
-CMakeFiles/RetakeHW.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RetakeHW.dir/build.make CMakeFiles/RetakeHW.dir/clean
-.PHONY : CMakeFiles/RetakeHW.dir/clean
+CMakeFiles/Task01NRow.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task01NRow.dir/build.make CMakeFiles/Task01NRow.dir/clean
+.PHONY : CMakeFiles/Task01NRow.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Task01_1Factorial.dir
+
+# All Build rule for target.
+CMakeFiles/Task01_1Factorial.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task01_1Factorial.dir/build.make CMakeFiles/Task01_1Factorial.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task01_1Factorial.dir/build.make CMakeFiles/Task01_1Factorial.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=3,4 "Built target Task01_1Factorial"
+.PHONY : CMakeFiles/Task01_1Factorial.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Task01_1Factorial.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Task01_1Factorial.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
+.PHONY : CMakeFiles/Task01_1Factorial.dir/rule
+
+# Convenience name for target.
+Task01_1Factorial: CMakeFiles/Task01_1Factorial.dir/rule
+.PHONY : Task01_1Factorial
+
+# clean rule for target.
+CMakeFiles/Task01_1Factorial.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task01_1Factorial.dir/build.make CMakeFiles/Task01_1Factorial.dir/clean
+.PHONY : CMakeFiles/Task01_1Factorial.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Task02Polymorphism.dir
+
+# All Build rule for target.
+CMakeFiles/Task02Polymorphism.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task02Polymorphism.dir/build.make CMakeFiles/Task02Polymorphism.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task02Polymorphism.dir/build.make CMakeFiles/Task02Polymorphism.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=5,6,7,8,9,10 "Built target Task02Polymorphism"
+.PHONY : CMakeFiles/Task02Polymorphism.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Task02Polymorphism.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Task02Polymorphism.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
+.PHONY : CMakeFiles/Task02Polymorphism.dir/rule
+
+# Convenience name for target.
+Task02Polymorphism: CMakeFiles/Task02Polymorphism.dir/rule
+.PHONY : Task02Polymorphism
+
+# clean rule for target.
+CMakeFiles/Task02Polymorphism.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task02Polymorphism.dir/build.make CMakeFiles/Task02Polymorphism.dir/clean
+.PHONY : CMakeFiles/Task02Polymorphism.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

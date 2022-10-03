@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Task01_1Factorial.dir/Course2/StructuresOfData/Week01/Task01_1Factorial.cpp.o -o Task01_1Factorial 
