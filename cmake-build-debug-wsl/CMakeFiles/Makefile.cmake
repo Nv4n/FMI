@@ -46,8 +46,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/Restaurant.dir/DependInfo.cmake"
-  "CMakeFiles/Ticket.dir/DependInfo.cmake"
-  "CMakeFiles/ImageEditor.dir/DependInfo.cmake"
-  "CMakeFiles/HW02.dir/DependInfo.cmake"
+  "CMakeFiles/RetakeHW.dir/DependInfo.cmake"
   )

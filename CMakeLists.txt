@@ -1,42 +1,9 @@
 cmake_minimum_required(VERSION 3.22)
-project(Restaurant)
-project(Ticket)
-project(ImageEditor)
-project(HW02)
+#project(RetakeHW)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(Course1/OOP-Sem2/Week14)
+#include_directories(Course1/OOP-Sem2/ReTake)
 
-add_executable(Restaurant
-        Course1/OOP-Sem2/Week14/BBQ/main.cpp
-        Course1/OOP-Sem2/Week14/BBQ/Queue.inl
-        Course1/OOP-Sem2/Week14/BBQ/Queue.h
-        Course1/OOP-Sem2/Week14/BBQ/Order.h
-        Course1/OOP-Sem2/Week14/HW02/InputControl.cpp Course1/OOP-Sem2/Week14/HW02/InputControl.h)
-
-add_executable(Ticket
-        Course1/OOP-Sem2/Week14/TicketSystem/main.cpp
-        Course1/OOP-Sem2/Week14/TicketSystem/Ticket.h
-        Course1/OOP-Sem2/Week14/TicketSystem/StudentTicket.h
-        Course1/OOP-Sem2/Week14/TicketSystem/RegularTicket.h
-        Course1/OOP-Sem2/Week14/TicketSystem/GroupTicket.h
-        )
-
-add_executable(ImageEditor
-        Course1/OOP-Sem2/Week14/ImageEditor/main.cpp
-        )
-
-add_executable(HW02
-        Course1/OOP-Sem2/Week14/HW02/main.cpp
-        Course1/OOP-Sem2/Week14/HW02/Form.cpp Course1/OOP-Sem2/Week14/HW02/Form.h Course1/OOP-Sem2/Week14/HW02/Control.cpp Course1/OOP-Sem2/Week14/HW02/Control.h
-        Course1/OOP-Sem2/Week14/HW02/Control.cpp Course1/OOP-Sem2/Week14/HW02/Control.h
-        Course1/OOP-Sem2/Week14/HW02/InputControl.cpp Course1/OOP-Sem2/Week14/HW02/InputControl.h
-        Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp Course1/OOP-Sem2/Week14/HW02/OutputControl.h
-        Course1/OOP-Sem2/Week14/HW02/IOControl.cpp Course1/OOP-Sem2/Week14/HW02/IOControl.h
-        Course1/OOP-Sem2/Week14/HW02/Label.cpp Course1/OOP-Sem2/Week14/HW02/Label.h
-        Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp Course1/OOP-Sem2/Week14/HW02/Checkbox.h
-        Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp Course1/OOP-Sem2/Week14/HW02/RadioButton.h
-        Course1/OOP-Sem2/Week14/HW02/TextBox.cpp Course1/OOP-Sem2/Week14/HW02/TextBox.h
-        Course1/OOP-Sem2/Week14/HW02/ListBox.cpp Course1/OOP-Sem2/Week14/HW02/ListBox.h
-        Course1/OOP-Sem2/Week14/HW02/Panel.cpp Course1/OOP-Sem2/Week14/HW02/Panel.h)
+#add_executable(RetakeHW
+#        Course1/OOP-Sem2/ReTake/Set.inl Course1/OOP-Sem2/ReTake/FiniteSet.inl Course1/OOP-Sem2/ReTake/FiniteSet.h Course1/OOP-Sem2/ReTake/Set.h Course1/OOP-Sem2/ReTake/main.cpp Course1/OOP-Sem2/ReTake/CriteriaSet.inl Course1/OOP-Sem2/ReTake/CriteriaSet.h Course1/OOP-Sem2/ReTake/SetReader.inl Course1/OOP-Sem2/ReTake/SetReader.h Course1/OOP-Sem2/ReTake/UnionSet.inl Course1/OOP-Sem2/ReTake/UnionSet.h Course1/OOP-Sem2/ReTake/IntersectionSet.inl Course1/OOP-Sem2/ReTake/IntersectionSet.h)

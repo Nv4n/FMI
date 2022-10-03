@@ -923,7 +923,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "HW02"
+			"value" : "RetakeHW"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1335,6 +1335,42 @@
 		},
 		{
 			"name" : "Restaurant_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI"
+		},
+		{
+			"name" : "RetakeHW_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
+		},
+		{
+			"name" : "RetakeHW_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "RetakeHW_SOURCE_DIR",
 			"properties" : 
 			[
 				{

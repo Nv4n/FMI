@@ -113,7 +113,7 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/FMI
 CMAKE_LINKER:FILEPATH=C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/ld.exe
 
 //make program
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/ninja.exe
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/JetBrains/CLion 2022.1.1/bin/ninja/win/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -151,7 +151,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=HW02
+CMAKE_PROJECT_NAME:STATIC=RetakeHW
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/ranlib.exe
@@ -268,6 +268,15 @@ Restaurant_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 Restaurant_SOURCE_DIR:STATIC=C:/Users/Sybatron/Documents/repos/FMI
+
+//Value Computed by CMake
+RetakeHW_BINARY_DIR:STATIC=C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug
+
+//Value Computed by CMake
+RetakeHW_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+RetakeHW_SOURCE_DIR:STATIC=C:/Users/Sybatron/Documents/repos/FMI
 
 //Value Computed by CMake
 Templates_BINARY_DIR:STATIC=C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug

@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: HW02
+# Project: RetakeHW
 # Configurations: Debug
 # =============================================================================
 
@@ -41,224 +41,38 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target Restaurant
+# Object build statements for EXECUTABLE target RetakeHW
 
 
 #############################################
-# Order-only phony target for Restaurant
+# Order-only phony target for RetakeHW
 
-build cmake_object_order_depends_target_Restaurant: phony || CMakeFiles/Restaurant.dir
+build cmake_object_order_depends_target_RetakeHW: phony || CMakeFiles/RetakeHW.dir
 
-build CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/BBQ/main.cpp.obj: CXX_COMPILER__Restaurant_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/BBQ/main.cpp || cmake_object_order_depends_target_Restaurant
-  DEP_FILE = CMakeFiles\Restaurant.dir\Course1\OOP-Sem2\Week14\BBQ\main.cpp.obj.d
+build CMakeFiles/RetakeHW.dir/Course1/OOP-Sem2/ReTake/main.cpp.obj: CXX_COMPILER__RetakeHW_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/ReTake/main.cpp || cmake_object_order_depends_target_RetakeHW
+  DEP_FILE = CMakeFiles\RetakeHW.dir\Course1\OOP-Sem2\ReTake\main.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\Restaurant.dir
-  OBJECT_FILE_DIR = CMakeFiles\Restaurant.dir\Course1\OOP-Sem2\Week14\BBQ
-
-build CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.obj: CXX_COMPILER__Restaurant_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp || cmake_object_order_depends_target_Restaurant
-  DEP_FILE = CMakeFiles\Restaurant.dir\Course1\OOP-Sem2\Week14\HW02\InputControl.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\Restaurant.dir
-  OBJECT_FILE_DIR = CMakeFiles\Restaurant.dir\Course1\OOP-Sem2\Week14\HW02
+  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/ReTake
+  OBJECT_DIR = CMakeFiles\RetakeHW.dir
+  OBJECT_FILE_DIR = CMakeFiles\RetakeHW.dir\Course1\OOP-Sem2\ReTake
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Restaurant
+# Link build statements for EXECUTABLE target RetakeHW
 
 
 #############################################
-# Link the executable Restaurant.exe
+# Link the executable RetakeHW.exe
 
-build Restaurant.exe: CXX_EXECUTABLE_LINKER__Restaurant_Debug CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/BBQ/main.cpp.obj CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.obj
+build RetakeHW.exe: CXX_EXECUTABLE_LINKER__RetakeHW_Debug CMakeFiles/RetakeHW.dir/Course1/OOP-Sem2/ReTake/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Restaurant.dir
+  OBJECT_DIR = CMakeFiles\RetakeHW.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = Restaurant.exe
-  TARGET_IMPLIB = libRestaurant.dll.a
-  TARGET_PDB = Restaurant.exe.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target Ticket
-
-
-#############################################
-# Order-only phony target for Ticket
-
-build cmake_object_order_depends_target_Ticket: phony || CMakeFiles/Ticket.dir
-
-build CMakeFiles/Ticket.dir/Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.obj: CXX_COMPILER__Ticket_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/TicketSystem/main.cpp || cmake_object_order_depends_target_Ticket
-  DEP_FILE = CMakeFiles\Ticket.dir\Course1\OOP-Sem2\Week14\TicketSystem\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\Ticket.dir
-  OBJECT_FILE_DIR = CMakeFiles\Ticket.dir\Course1\OOP-Sem2\Week14\TicketSystem
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target Ticket
-
-
-#############################################
-# Link the executable Ticket.exe
-
-build Ticket.exe: CXX_EXECUTABLE_LINKER__Ticket_Debug CMakeFiles/Ticket.dir/Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Ticket.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = Ticket.exe
-  TARGET_IMPLIB = libTicket.dll.a
-  TARGET_PDB = Ticket.exe.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target ImageEditor
-
-
-#############################################
-# Order-only phony target for ImageEditor
-
-build cmake_object_order_depends_target_ImageEditor: phony || CMakeFiles/ImageEditor.dir
-
-build CMakeFiles/ImageEditor.dir/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.obj: CXX_COMPILER__ImageEditor_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp || cmake_object_order_depends_target_ImageEditor
-  DEP_FILE = CMakeFiles\ImageEditor.dir\Course1\OOP-Sem2\Week14\ImageEditor\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\ImageEditor.dir
-  OBJECT_FILE_DIR = CMakeFiles\ImageEditor.dir\Course1\OOP-Sem2\Week14\ImageEditor
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target ImageEditor
-
-
-#############################################
-# Link the executable ImageEditor.exe
-
-build ImageEditor.exe: CXX_EXECUTABLE_LINKER__ImageEditor_Debug CMakeFiles/ImageEditor.dir/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\ImageEditor.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = ImageEditor.exe
-  TARGET_IMPLIB = libImageEditor.dll.a
-  TARGET_PDB = ImageEditor.exe.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target HW02
-
-
-#############################################
-# Order-only phony target for HW02
-
-build cmake_object_order_depends_target_HW02: phony || CMakeFiles/HW02.dir
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/main.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Form.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Form.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\Form.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Control.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\Control.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\InputControl.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\OutputControl.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\IOControl.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Label.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\Label.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\Checkbox.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\RadioButton.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\TextBox.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\ListBox.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-build CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.obj: CXX_COMPILER__HW02_Debug C$:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14/HW02/Panel.cpp || cmake_object_order_depends_target_HW02
-  DEP_FILE = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02\Panel.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -IC:/Users/Sybatron/Documents/repos/FMI/Course1/OOP-Sem2/Week14
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  OBJECT_FILE_DIR = CMakeFiles\HW02.dir\Course1\OOP-Sem2\Week14\HW02
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target HW02
-
-
-#############################################
-# Link the executable HW02.exe
-
-build HW02.exe: CXX_EXECUTABLE_LINKER__HW02_Debug CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/main.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Form.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Control.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/OutputControl.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/IOControl.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Label.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Checkbox.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/RadioButton.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/TextBox.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/ListBox.cpp.obj CMakeFiles/HW02.dir/Course1/OOP-Sem2/Week14/HW02/Panel.cpp.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\HW02.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = HW02.exe
-  TARGET_IMPLIB = libHW02.dll.a
-  TARGET_PDB = HW02.exe.dbg
+  TARGET_FILE = RetakeHW.exe
+  TARGET_IMPLIB = libRetakeHW.dll.a
+  TARGET_PDB = RetakeHW.exe.dbg
 
 
 #############################################
@@ -286,13 +100,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build HW02: phony HW02.exe
-
-build ImageEditor: phony ImageEditor.exe
-
-build Restaurant: phony Restaurant.exe
-
-build Ticket: phony Ticket.exe
+build RetakeHW: phony RetakeHW.exe
 
 # =============================================================================
 # Folder targets.
@@ -302,7 +110,7 @@ build Ticket: phony Ticket.exe
 #############################################
 # Folder: C:/Users/Sybatron/Documents/repos/FMI/cmake-build-debug
 
-build all: phony Restaurant.exe Ticket.exe ImageEditor.exe HW02.exe
+build all: phony RetakeHW.exe
 
 # =============================================================================
 # Built-in targets
