@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/SLL.cpp.o CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/main.cpp.o -o Week02_SLL 

@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.22)
 project(Task01NRow)
 project(Task01_1Factorial)
 project(Task02Polymorphism)
+project(Week02_SLL)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -17,3 +18,5 @@ add_executable(Task01_1Factorial
 add_executable(Task02Polymorphism
         Course2/StructuresOfData/Week01/Polymorphism/Hero.cpp Course2/StructuresOfData/Week01/Polymorphism/Hero.h Course2/StructuresOfData/Week01/Polymorphism/Magician.cpp Course2/StructuresOfData/Week01/Polymorphism/Magician.h Course2/StructuresOfData/Week01/Polymorphism/Warrior.cpp Course2/StructuresOfData/Week01/Polymorphism/Warrior.h Course2/StructuresOfData/Week01/Polymorphism/Arena.cpp Course2/StructuresOfData/Week01/Polymorphism/Arena.h Course2/StructuresOfData/Week01/Polymorphism/main.cpp)
 
+add_executable(Week02_SLL
+        Course2/StructuresOfData/Week02/SLL.cpp Course2/StructuresOfData/Week02/SLL.h Course2/StructuresOfData/Week02/main.cpp)

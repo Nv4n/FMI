@@ -155,6 +155,19 @@ Task02Polymorphism/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task02Polymorphism.dir/build.make CMakeFiles/Task02Polymorphism.dir/build
 .PHONY : Task02Polymorphism/fast
 
+#=============================================================================
+# Target rules for targets named Week02_SLL
+
+# Build rule for target.
+Week02_SLL: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Week02_SLL
+.PHONY : Week02_SLL
+
+# fast build rule for target.
+Week02_SLL/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/build
+.PHONY : Week02_SLL/fast
+
 Course2/StructuresOfData/Week01/Polymorphism/Arena.o: Course2/StructuresOfData/Week01/Polymorphism/Arena.cpp.o
 .PHONY : Course2/StructuresOfData/Week01/Polymorphism/Arena.o
 
@@ -323,6 +336,54 @@ Course2/StructuresOfData/Week01/Task01_1Factorial.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Task01_1Factorial.dir/build.make CMakeFiles/Task01_1Factorial.dir/Course2/StructuresOfData/Week01/Task01_1Factorial.cpp.s
 .PHONY : Course2/StructuresOfData/Week01/Task01_1Factorial.cpp.s
 
+Course2/StructuresOfData/Week02/SLL.o: Course2/StructuresOfData/Week02/SLL.cpp.o
+.PHONY : Course2/StructuresOfData/Week02/SLL.o
+
+# target to build an object file
+Course2/StructuresOfData/Week02/SLL.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/SLL.cpp.o
+.PHONY : Course2/StructuresOfData/Week02/SLL.cpp.o
+
+Course2/StructuresOfData/Week02/SLL.i: Course2/StructuresOfData/Week02/SLL.cpp.i
+.PHONY : Course2/StructuresOfData/Week02/SLL.i
+
+# target to preprocess a source file
+Course2/StructuresOfData/Week02/SLL.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/SLL.cpp.i
+.PHONY : Course2/StructuresOfData/Week02/SLL.cpp.i
+
+Course2/StructuresOfData/Week02/SLL.s: Course2/StructuresOfData/Week02/SLL.cpp.s
+.PHONY : Course2/StructuresOfData/Week02/SLL.s
+
+# target to generate assembly for a file
+Course2/StructuresOfData/Week02/SLL.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/SLL.cpp.s
+.PHONY : Course2/StructuresOfData/Week02/SLL.cpp.s
+
+Course2/StructuresOfData/Week02/main.o: Course2/StructuresOfData/Week02/main.cpp.o
+.PHONY : Course2/StructuresOfData/Week02/main.o
+
+# target to build an object file
+Course2/StructuresOfData/Week02/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/main.cpp.o
+.PHONY : Course2/StructuresOfData/Week02/main.cpp.o
+
+Course2/StructuresOfData/Week02/main.i: Course2/StructuresOfData/Week02/main.cpp.i
+.PHONY : Course2/StructuresOfData/Week02/main.i
+
+# target to preprocess a source file
+Course2/StructuresOfData/Week02/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/main.cpp.i
+.PHONY : Course2/StructuresOfData/Week02/main.cpp.i
+
+Course2/StructuresOfData/Week02/main.s: Course2/StructuresOfData/Week02/main.cpp.s
+.PHONY : Course2/StructuresOfData/Week02/main.s
+
+# target to generate assembly for a file
+Course2/StructuresOfData/Week02/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/main.cpp.s
+.PHONY : Course2/StructuresOfData/Week02/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -334,6 +395,7 @@ help:
 	@echo "... Task01NRow"
 	@echo "... Task01_1Factorial"
 	@echo "... Task02Polymorphism"
+	@echo "... Week02_SLL"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.o"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.i"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.s"
@@ -355,6 +417,12 @@ help:
 	@echo "... Course2/StructuresOfData/Week01/Task01_1Factorial.o"
 	@echo "... Course2/StructuresOfData/Week01/Task01_1Factorial.i"
 	@echo "... Course2/StructuresOfData/Week01/Task01_1Factorial.s"
+	@echo "... Course2/StructuresOfData/Week02/SLL.o"
+	@echo "... Course2/StructuresOfData/Week02/SLL.i"
+	@echo "... Course2/StructuresOfData/Week02/SLL.s"
+	@echo "... Course2/StructuresOfData/Week02/main.o"
+	@echo "... Course2/StructuresOfData/Week02/main.i"
+	@echo "... Course2/StructuresOfData/Week02/main.s"
 .PHONY : help
 
 
