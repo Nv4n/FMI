@@ -13,11 +13,6 @@ template<class T>
 class SLL {
 private:
     struct Node {
-        Node(T data, Node *next) {
-            this->data = data;
-            this->next = next;
-        }
-
         T data;
         Node *next;
     };
@@ -82,7 +77,7 @@ public:
     }
 
     void pushFront(const T &element) {
-        first = new Node(element, first);
+        first = new Node{element, first};
     }
 
     void popFront() {
@@ -121,7 +116,7 @@ public:
 
     void reverseRec() {
         if (first == nullptr || first->next == nullptr) {
-            return first;
+            return;
         }
     }
 };
