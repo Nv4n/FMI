@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-8.5" y="255.49999999999994">lab2a.Zad4.StockTest</node>
+    <node x="-57.0" y="-14.5">lab2a.Zad4.Stock</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="lab2a.Zad4.StockTest" target="lab2a.Zad4.Stock" relationship="CREATE">
+      <point x="-74.5" y="7.000000000000057" />
+      <point x="-26.0" y="301.0" />
+      <point x="-92.0" y="149.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.1666666666666667" showDependencies="true" x="253.42857142857554" y="244.28571428571428" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
