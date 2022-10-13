@@ -13,7 +13,7 @@ public class VarietyTest {
 
                             //Increment total numbers count;
                             totalNumberCount++;
-                            
+
                             //Get the number from last 2 digits to check if it's divisible by 4
                             int lastTwoDigits = (fourthDigit * 10) + fifthDigit;
                             //Sum all digits to check if its divisible by 3
@@ -27,11 +27,11 @@ public class VarietyTest {
             }
         }
 
-        double chance = 1.0 * totalNumberCount / conditionNumberCount;
+        double chance = 100.0 * conditionNumberCount / totalNumberCount;
         System.out.printf("""
                 Total number count is: %d  \s
                 Numbers under the conditions are: %d  \s
-                Chance is: %.2f  \s
+                Chance is: %.2f%%  \s
                 %n""", totalNumberCount, conditionNumberCount, chance);
     }
 }
