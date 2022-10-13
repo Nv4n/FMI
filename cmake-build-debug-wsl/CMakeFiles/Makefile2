@@ -67,6 +67,7 @@ all: CMakeFiles/Task01NRow.dir/all
 all: CMakeFiles/Task01_1Factorial.dir/all
 all: CMakeFiles/Task02Polymorphism.dir/all
 all: CMakeFiles/Week02_SLL.dir/all
+all: CMakeFiles/Week02_LinkedList.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -78,6 +79,7 @@ clean: CMakeFiles/Task01NRow.dir/clean
 clean: CMakeFiles/Task01_1Factorial.dir/clean
 clean: CMakeFiles/Task02Polymorphism.dir/clean
 clean: CMakeFiles/Week02_SLL.dir/clean
+clean: CMakeFiles/Week02_LinkedList.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -165,7 +167,7 @@ CMakeFiles/Task02Polymorphism.dir/clean:
 CMakeFiles/Week02_SLL.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=11,12,13 "Built target Week02_SLL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=13,14,15 "Built target Week02_SLL"
 .PHONY : CMakeFiles/Week02_SLL.dir/all
 
 # Build rule for subdir invocation for target.
@@ -183,6 +185,32 @@ Week02_SLL: CMakeFiles/Week02_SLL.dir/rule
 CMakeFiles/Week02_SLL.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/clean
 .PHONY : CMakeFiles/Week02_SLL.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Week02_LinkedList.dir
+
+# All Build rule for target.
+CMakeFiles/Week02_LinkedList.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_LinkedList.dir/build.make CMakeFiles/Week02_LinkedList.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_LinkedList.dir/build.make CMakeFiles/Week02_LinkedList.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=11,12 "Built target Week02_LinkedList"
+.PHONY : CMakeFiles/Week02_LinkedList.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Week02_LinkedList.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Week02_LinkedList.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
+.PHONY : CMakeFiles/Week02_LinkedList.dir/rule
+
+# Convenience name for target.
+Week02_LinkedList: CMakeFiles/Week02_LinkedList.dir/rule
+.PHONY : Week02_LinkedList
+
+# clean rule for target.
+CMakeFiles/Week02_LinkedList.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_LinkedList.dir/build.make CMakeFiles/Week02_LinkedList.dir/clean
+.PHONY : CMakeFiles/Week02_LinkedList.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

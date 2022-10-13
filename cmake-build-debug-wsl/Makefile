@@ -168,6 +168,19 @@ Week02_SLL/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/build
 .PHONY : Week02_SLL/fast
 
+#=============================================================================
+# Target rules for targets named Week02_LinkedList
+
+# Build rule for target.
+Week02_LinkedList: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Week02_LinkedList
+.PHONY : Week02_LinkedList
+
+# fast build rule for target.
+Week02_LinkedList/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_LinkedList.dir/build.make CMakeFiles/Week02_LinkedList.dir/build
+.PHONY : Week02_LinkedList/fast
+
 Course2/StructuresOfData/Week01/Polymorphism/Arena.o: Course2/StructuresOfData/Week01/Polymorphism/Arena.cpp.o
 .PHONY : Course2/StructuresOfData/Week01/Polymorphism/Arena.o
 
@@ -360,6 +373,30 @@ Course2/StructuresOfData/Week02/SLL.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/SLL.cpp.s
 .PHONY : Course2/StructuresOfData/Week02/SLL.cpp.s
 
+Course2/StructuresOfData/Week02/list/main.o: Course2/StructuresOfData/Week02/list/main.cpp.o
+.PHONY : Course2/StructuresOfData/Week02/list/main.o
+
+# target to build an object file
+Course2/StructuresOfData/Week02/list/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_LinkedList.dir/build.make CMakeFiles/Week02_LinkedList.dir/Course2/StructuresOfData/Week02/list/main.cpp.o
+.PHONY : Course2/StructuresOfData/Week02/list/main.cpp.o
+
+Course2/StructuresOfData/Week02/list/main.i: Course2/StructuresOfData/Week02/list/main.cpp.i
+.PHONY : Course2/StructuresOfData/Week02/list/main.i
+
+# target to preprocess a source file
+Course2/StructuresOfData/Week02/list/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_LinkedList.dir/build.make CMakeFiles/Week02_LinkedList.dir/Course2/StructuresOfData/Week02/list/main.cpp.i
+.PHONY : Course2/StructuresOfData/Week02/list/main.cpp.i
+
+Course2/StructuresOfData/Week02/list/main.s: Course2/StructuresOfData/Week02/list/main.cpp.s
+.PHONY : Course2/StructuresOfData/Week02/list/main.s
+
+# target to generate assembly for a file
+Course2/StructuresOfData/Week02/list/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_LinkedList.dir/build.make CMakeFiles/Week02_LinkedList.dir/Course2/StructuresOfData/Week02/list/main.cpp.s
+.PHONY : Course2/StructuresOfData/Week02/list/main.cpp.s
+
 Course2/StructuresOfData/Week02/main.o: Course2/StructuresOfData/Week02/main.cpp.o
 .PHONY : Course2/StructuresOfData/Week02/main.o
 
@@ -395,6 +432,7 @@ help:
 	@echo "... Task01NRow"
 	@echo "... Task01_1Factorial"
 	@echo "... Task02Polymorphism"
+	@echo "... Week02_LinkedList"
 	@echo "... Week02_SLL"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.o"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.i"
@@ -420,6 +458,9 @@ help:
 	@echo "... Course2/StructuresOfData/Week02/SLL.o"
 	@echo "... Course2/StructuresOfData/Week02/SLL.i"
 	@echo "... Course2/StructuresOfData/Week02/SLL.s"
+	@echo "... Course2/StructuresOfData/Week02/list/main.o"
+	@echo "... Course2/StructuresOfData/Week02/list/main.i"
+	@echo "... Course2/StructuresOfData/Week02/list/main.s"
 	@echo "... Course2/StructuresOfData/Week02/main.o"
 	@echo "... Course2/StructuresOfData/Week02/main.i"
 	@echo "... Course2/StructuresOfData/Week02/main.s"

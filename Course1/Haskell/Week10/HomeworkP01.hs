@@ -32,7 +32,7 @@ sunkK cnt (os,bs,ss,sCs) = filter (\(_,num) -> num <= cnt) $ helper getAllCountr
         -- Input all ShipClassNamesByCountry and get all Ships with these classes
         -- Ships(Name,ClassName, LaunchDate)
         getAllShipsNames:: [Name] -> [Name]
-        -- `elem` checks if current class is included in the input list
+        -- `elem` checks if current class is included in the input LinkedList
         -- then map takes only the ship names
         getAllShipsNames ns = map (\(name, _, _)->name) $ filter (\(_, class_, _)->class_ `elem` ns) ss
 

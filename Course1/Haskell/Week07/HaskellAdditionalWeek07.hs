@@ -34,13 +34,13 @@
 -- не пиши лист... пиши списък
 
 -- Primitive
--- + Only 1 list
--- + The base case is the empty list
--- + One recursive call to the end of the list
+-- + Only 1 LinkedList
+-- + The base case is the empty LinkedList
+-- + One recursive call to the end of the LinkedList
 
 -- General
--- + More than 1 list
--- + The base case doesn't depend on the list(s)
+-- + More than 1 LinkedList
+-- + The base case doesn't depend on the LinkedList(s)
 -- + More than 1 recursive call
 
 -- f :: [Int] -> [Int] -> Int
