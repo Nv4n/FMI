@@ -1,13 +1,15 @@
 package lab2b.Zad1;
 
+import java.util.Scanner;
+
 public class Table {
     private double start;
     private double end;
     private int steps;
 
     public Table(double start, double end, int steps) {
-        setStart(Math.max(start, end));
-        setEnd(Math.min(start, end));
+        setStart(Math.min(start, end));
+        setEnd(Math.max(start, end));
         setSteps(steps);
     }
 
@@ -36,6 +38,20 @@ public class Table {
     }
 
     public void makeTable() {
+        double interval = (end - start) / steps;
+        double x = start;
+        Scanner input = new Scanner(System.in);
 
+        for (int i = 1; i <= steps; i++) {
+            System.out.printf("x is %.4f\tf(x) is %.4f%n",
+                    x, (x - 2) * (x - 2) / (x * x + 1));
+
+            if (i % 20 == 0) {
+                System.out.print("Press return to continue ...");
+                input.nextLine();
+            }
+
+            x += interval;
+        }
     }
 }
