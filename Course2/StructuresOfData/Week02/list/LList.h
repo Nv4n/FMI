@@ -18,6 +18,10 @@ private:
 public:
     LList();
 
+    LList(const LList<T> &other);
+
+    LList<T> &operator=(const LList<T> &other);
+
     void pushFront(const T &element);
 
     void print();
@@ -25,6 +29,11 @@ public:
     size_t size() const;
 
     const T &operator[](size_t i) const;
+
+private:
+    void clear();
+
+    void copy(const LList<T>::box *other_fist);
 };
 
 #include "LList.inl"
