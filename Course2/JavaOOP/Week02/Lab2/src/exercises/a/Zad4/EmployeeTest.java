@@ -1,4 +1,4 @@
-package exercises.Zad4;
+package exercises.a.Zad4;
 
 public class EmployeeTest {
     public static void main(String[] args) {

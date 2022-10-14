@@ -1,4 +1,4 @@
-package exercises.Zad3;
+package exercises.a.Zad3;
 
 import java.util.Scanner;
 

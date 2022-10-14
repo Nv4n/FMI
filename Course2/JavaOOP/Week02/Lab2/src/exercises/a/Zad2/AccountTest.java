@@ -1,6 +1,6 @@
 // Fig. 3.14: AccountTest.java
 // Create and manipulate an Account object.
-package exercises.Zad2;
+package exercises.a.Zad2;
 
 import java.util.Scanner;
 

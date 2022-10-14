@@ -1,4 +1,4 @@
-package exercises.Zad4;
+package exercises.a.Zad4;
 
 public class Employee {
     private String firstName;

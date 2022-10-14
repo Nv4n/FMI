@@ -1,4 +1,4 @@
-package exercises.Zad1;
+package exercises.a.Zad1;
 // LargeSmall.java
 // Calculates the largest and smallest
 // of five integers entered one at a time.

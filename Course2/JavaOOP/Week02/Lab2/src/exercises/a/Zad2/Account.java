@@ -1,7 +1,7 @@
 // Fig. 3.13: Account.java
 // Account class with a constructor to
 // initialize instance variable balance.
-package exercises.Zad2;
+package exercises.a.Zad2;
 
 public class Account {
     private double balance;
