@@ -28,10 +28,15 @@ public class VarietyTest {
         }
 
         double chance = 100.0 * conditionNumberCount / totalNumberCount;
-        System.out.printf("""
-                Total number count is: %d  \s
-                Numbers under the conditions are: %d  \s
-                Chance is: %.2f%%  \s
-                %n""", totalNumberCount, conditionNumberCount, chance);
+//        System.out.printf("""
+//                Total number count is: %d  \s
+//                Numbers under the conditions are: %d  \s
+//                Chance is: %.2f%%  \s
+//                %n""", totalNumberCount, conditionNumberCount, chance);
+
+        String resultString = String.format(
+                "Total number count is: %d%nNumbers under the conditions are: %d%nChance is: %.2f%%%n",
+                totalNumberCount, conditionNumberCount, chance);
+        System.out.println(resultString);
     }
 }

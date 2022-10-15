@@ -14,14 +14,14 @@ public class StockTest {
 
         input = Optional.ofNullable(JOptionPane.showInputDialog("Input current stock price:"));
         stock.setCurrentPrice(Double.parseDouble(input.orElse("1")));
-
+        
         JOptionPane.showMessageDialog(null, String.format("""
                         Name: %s \s
                         Symbol: %s \s
                         Previous stock price: %.2f \s
                         Current stock price: %.2f \s
                         Percentage change: %.2f \s
-                        """,
+                        """ ,
                 stock.getName(), stock.getSymbol(),
                 stock.getPreviousClosingPrice(), stock.getCurrentPrice(), stock.changePercent()));
     }
