@@ -51,4 +51,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Task02Polymorphism.dir/DependInfo.cmake"
   "CMakeFiles/Week02_SLL.dir/DependInfo.cmake"
   "CMakeFiles/Week02_LinkedList.dir/DependInfo.cmake"
+  "CMakeFiles/Week03_Stack.dir/DependInfo.cmake"
   )

@@ -181,6 +181,19 @@ Week02_LinkedList/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_LinkedList.dir/build.make CMakeFiles/Week02_LinkedList.dir/build
 .PHONY : Week02_LinkedList/fast
 
+#=============================================================================
+# Target rules for targets named Week03_Stack
+
+# Build rule for target.
+Week03_Stack: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Week03_Stack
+.PHONY : Week03_Stack
+
+# fast build rule for target.
+Week03_Stack/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week03_Stack.dir/build.make CMakeFiles/Week03_Stack.dir/build
+.PHONY : Week03_Stack/fast
+
 Course2/StructuresOfData/Week01/Polymorphism/Arena.o: Course2/StructuresOfData/Week01/Polymorphism/Arena.cpp.o
 .PHONY : Course2/StructuresOfData/Week01/Polymorphism/Arena.o
 
@@ -434,6 +447,7 @@ help:
 	@echo "... Task02Polymorphism"
 	@echo "... Week02_LinkedList"
 	@echo "... Week02_SLL"
+	@echo "... Week03_Stack"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.o"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.i"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.s"

@@ -6,19 +6,19 @@
 #define FMI_VECTOR_H
 
 template<typename Type=int>
-class Vector {
+class IStack {
 private:
     size_t capacity{16};
     Type *storage{new Type[capacity]};
     size_t size{};
 public:
-    Vector() = default;
+    IStack() = default;
 
-    Vector(const Vector &other);
+    IStack(const IStack &other);
 
-    Vector &operator=(const Vector &other);
+    IStack &operator=(const IStack &other);
 
-    virtual ~Vector();
+    virtual ~IStack();
 
     void pushBack(Type item);
 
@@ -31,7 +31,7 @@ private:
 
     void destroy();
 
-    void copy(const Vector &other);
+    void copy(const IStack &other);
 };
 
 #include "vector.inl"
