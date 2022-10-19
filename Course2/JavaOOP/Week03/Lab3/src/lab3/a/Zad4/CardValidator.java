@@ -1,6 +1,6 @@
 package lab3.a.Zad4;
 
-public class CardValidator {
+public final class CardValidator {
 
     /**
      * Return true if the card number is valid

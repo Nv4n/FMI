@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: lab3.a.Zad1.MenuTest
+Main-Class: lab3.a.Zad5.ComplexNumberTest
 
