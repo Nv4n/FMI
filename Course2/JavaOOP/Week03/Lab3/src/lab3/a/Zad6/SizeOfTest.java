@@ -2,7 +2,6 @@ package lab3.a.Zad6;
 
 public class SizeOfTest {
     public static void main(String[] args) {
-        sizeof(null);
         printByteSizes();
     }
 

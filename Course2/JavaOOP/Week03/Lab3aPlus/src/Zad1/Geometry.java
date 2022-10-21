@@ -13,7 +13,7 @@ public class Geometry extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Group group = new Group();
-        Scene scene = new Scene(group, 500, 1000);
+        Scene scene = new Scene(group, 500, 500);
         Circle c = drawCircle(group, scene.getWidth(), scene.getHeight());
         Line l = drawLine(group, scene.getWidth(), scene.getHeight());
         drawIntersectionDots(group, l, c);

@@ -4,33 +4,24 @@ import java.util.Scanner;
 
 public class ComputeByMenu {
     private double x;
-    private Scanner input;
+    private final Scanner input = new Scanner(System.in);
 
     public ComputeByMenu() {
         this(0.00);
     }
 
     public ComputeByMenu(double x) {
-        setX(x);
-        setInput(new Scanner(System.in));
+        this.x = x;
     }
 
     public double getX() {
         return x;
     }
 
-    private void setX(double x) {
-        this.x = x;
-    }
-
-    public void setInput(Scanner input) {
-        this.input = input;
-    }
-
     // private void displayMenu() should be more appropriate
     // as we call displayMenu() only in getUserChoice()
     private void displayMenu() {
-        System.out.printf("%n".repeat(50));
+        System.out.print("%n".repeat(50));
 
         System.out.println("""
                 1. Въведи число x в плаваща запетая
@@ -46,7 +37,7 @@ public class ComputeByMenu {
             case 1 -> {
                 Scanner input = new Scanner(System.in);
                 System.out.print("Enter x: ");
-                setX(input.nextDouble());
+                x = input.nextDouble();
             }
             case 2 -> System.out.printf("exp(%.2f):\t%.4f%n", x, Math.exp(x));
             case 3 -> System.out.printf("sin(%.2f):\t%.4f%n", x, Math.sin(x));

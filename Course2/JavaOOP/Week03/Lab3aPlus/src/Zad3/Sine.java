@@ -15,7 +15,7 @@ public class Sine extends Application {
     public void start(Stage stage) throws Exception {
         Group group = new Group();
 
-        Scene scene = new Scene(group, 1000, 1000);
+        Scene scene = new Scene(group, 1000, 300);
         drawSine(group, scene.getWidth(), scene.getHeight());
         // Set the Window title
         stage.setTitle("Sine");

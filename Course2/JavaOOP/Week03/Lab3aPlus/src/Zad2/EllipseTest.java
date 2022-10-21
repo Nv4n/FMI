@@ -17,7 +17,7 @@ public class EllipseTest extends Application {
         Group group = new Group();
 
         Scene scene = new Scene(group, 500, 500);
-        drawEllipse(group, stage.getWidth(), stage.getHeight());
+        drawEllipse(group, scene.getWidth(), scene.getHeight());
         // Set the Window title
         stage.setTitle("EllipseTest");
         stage.sizeToScene();
@@ -37,6 +37,7 @@ public class EllipseTest extends Application {
         inputDialog.showAndWait();
         double a = Double.parseDouble(inputDialog.getResult());
         inputDialog.setHeaderText("Input the small axis");
+        inputDialog.getEditor().clear();
         inputDialog.showAndWait();
         double b = Double.parseDouble(inputDialog.getResult());
 

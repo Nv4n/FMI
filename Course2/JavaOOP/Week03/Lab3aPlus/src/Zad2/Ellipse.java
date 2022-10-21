@@ -38,7 +38,7 @@ public class Ellipse {
     }
 
     public void setA(double a) {
-        this.a = a;
+        this.a = a <= x0 ? a : 1;
     }
 
     public double getB() {
@@ -46,16 +46,21 @@ public class Ellipse {
     }
 
     public void setB(double b) {
-        this.b = b;
+        this.b = b <= y0 ? b : 1;
     }
 
     public void drawEllipse(Group group) {
         double prevX = getX(0);
-        double prevY = getX(0);
-        for (int i = 1; i <= 360; i += 2) {
+        double prevY = getY(0);
+
+        for (int i = 1; i <= 360; i++) {
             double x = getX(i);
             double y = getY(i);
             Line line = new Line(prevX, prevY, x, y);
+            int r = getRandom();
+            int g = getRandom();
+            int b = getRandom();
+            line.setStyle(String.format("-fx-stroke: rgb(%d,%d,%d)", r, g, b));
             prevX = x;
             prevY = y;
 
@@ -63,11 +68,15 @@ public class Ellipse {
         }
     }
 
+    private static int getRandom() {
+        return (int) (Math.random() * 255);
+    }
+
     private double getX(int degree) {
         return a * Math.cos(degree) + x0;
     }
 
     private double getY(int degree) {
-        return b * Math.cos(degree) + y0;
+        return b * Math.sin(degree) + y0;
     }
 }
