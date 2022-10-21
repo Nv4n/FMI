@@ -1,6 +1,7 @@
 package Zad4;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Paint;
@@ -10,6 +11,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static void draw20ShapesIn4Corners(Group group, double width, double height) {
+        group.getChildren().clear();
         int increments = 20;
         double widthStep = width / increments;
         double heightStep = height / increments;
@@ -39,19 +41,26 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Group group = new Group();
-        Scene scene = new Scene(group, 300, 300);
+        Scene scene = new Scene(group, 300, 500);
         scene.setFill(Paint.valueOf("black"));
         draw20ShapesIn4Corners(group, scene.getWidth(), scene.getHeight());
+
+        ChangeListener<Number> stageSizeListener = (observable, oldValue, newValue) ->
+                draw20ShapesIn4Corners(group, scene.getWidth(), scene.getHeight());
+
+        stage.widthProperty().addListener(stageSizeListener);
+        stage.heightProperty().addListener(stageSizeListener);
 
         // Set the Window title
         stage.setTitle("Draw mesh of lines");
         stage.sizeToScene();
-        stage.resizableProperty().setValue(Boolean.FALSE);
+        stage.resizableProperty().setValue(Boolean.TRUE);
         stage.setScene(scene);
 
         stage.show();
 
     }
+
 
     public static void main(String[] args) {
         launch(args);
