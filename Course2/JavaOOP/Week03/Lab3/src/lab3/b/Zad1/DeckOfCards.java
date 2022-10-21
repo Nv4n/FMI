@@ -8,11 +8,13 @@ public class DeckOfCards {
     private final Card[] deck; // array of Card objects
     private int currentCard; // index of next Card to be dealt
     private final int NUMBER_OF_CARDS = 52; // constant number of Cards
-    private final Random randomNumbers; // random number generator
+    private Random randomNumbers; // random number generator
 
-    private final String[] faces = {"Ace", "Deuce", "Three", "Four", "Five", "Six",
+    private int[] facesCount = new int[13];
+
+    private String[] faces = {"Ace", "Deuce", "Three", "Four", "Five", "Six",
             "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
-    private final String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+    private String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
 
     // constructor fills deck of Cards
     public DeckOfCards() {
@@ -60,27 +62,32 @@ public class DeckOfCards {
         return hand;
     }
 
-    public boolean hasPair(Card[] hand) {
-        int[] handCount = getInts(hand);
-        return hasNCount(handCount, 2);
+    // FIXME: 10/21/2022
+    //  Make all booleans static
+    //  Simplify the methods
+    //  Check if you have pair && !2pairs
+    //  Check if you have full house instead of pair && tierce
+    public static boolean hasPair(Card[] hand) {
+        inits(hand);
+        return hasNCount(facesCount, 2) && !has2Pairs(hand);
     }
 
-    public boolean has2Pairs(Card[] hand) {
-        int[] handCount = getInts(hand);
+    public static boolean has2Pairs(Card[] hand) {
+        inits(hand);
         int count = 0;
-        for (int i : handCount)
+        for (int i : facesCount)
             if (i == 2)
                 count++;
         return count == 2;
     }
 
-    public boolean hasTierce(Card[] hand) {
-        int[] handCount = getInts(hand);
-        return hasNCount(handCount, 3);
+    public static boolean hasTierce(Card[] hand) {
+        inits(hand);
+        return hasNCount(3);
     }
 
-    public boolean hasQuarter(Card[] hand) {
-        int[] handCount = getInts(hand);
+    public static boolean hasQuarter(Card[] hand) {
+        int[] handCount = inits(hand);
         return hasNCount(handCount, 4);
     }
 
@@ -93,7 +100,7 @@ public class DeckOfCards {
     }
 
     public boolean hasSequence(Card[] hand) {
-        int[] handCount = getInts(hand);
+        int[] handCount = inits(hand);
         for (int i = 1; i < handCount.length; i++) {
             if (handCount[i] == 0 && handCount[i - 1] >= 1
                     || handCount[i] > 1)
@@ -103,49 +110,30 @@ public class DeckOfCards {
     }
 
     public boolean hasFullHouse(Card[] hand) {
-        boolean meetsCondition = false;
-        int[] handCount = new int[4];
-        for (int i = 0; i < handCount.length; i++) {
-            for (Card card : hand) {
-                if (card.getSuit().equals(suits[i]))
-                    handCount[i]++;
-            }
-        }
-
-        for (int i : handCount) {
-            meetsCondition = meetsCondition || i == 3;
-        }
-        for (int i : handCount) {
-            meetsCondition = meetsCondition && i == 2;
-        }
-
-        return meetsCondition;
+        return hasPair(hand) && hasTierce(hand);
     }
 
-    private int[] totalHandFaces(Card[] hand) {
-        int[] countHand = new int[13];
-        for (int i = 0; i < countHand.length; i++) {
-            for (Card card : hand) {
+    private void totalHandFaces(Card[] hand) {
+        for (Card card : hand) {
+            for (int i = 0; i < facesCount.length; i++)
                 if (card.getFace().equals(faces[i]))
-                    countHand[i]++;
-            }
+                    facesCount[i]++;
         }
-        return countHand;
     }
 
-    private static boolean hasNCount(int[] handCount, int count) {
-        for (int i : handCount) {
+    private boolean hasNCount(int count) {
+        for (int i : facesCount) {
             if (i == count)
                 return true;
         }
         return false;
     }
 
-    private int[] getInts(Card[] hand) {
+    private void inits(Card[] hand) {
         if (hand.length != 5)
             throw new IllegalArgumentException("Length must be 5: " + hand.length);
 
-        return totalHandFaces(hand);
+        totalHandFaces(hand);
     }
 } // end class DeckOfCards
 

@@ -14,7 +14,32 @@ public class DeckOfCardsTest {
             System.out.printf("%-20s%-20s%-20s%-20s\n",
                     myDeckOfCards.dealCard(), myDeckOfCards.dealCard(),
                     myDeckOfCards.dealCard(), myDeckOfCards.dealCard());
-        } // end for
+        }
+
+
+        myDeckOfCards = new DeckOfCards();
+        myDeckOfCards.shuffle(); // place Cards in random order
+
+        System.out.printf("Pair \t|2Pairs\t|Tierce\t|Quarter\t|Quint\t|Sequence\t|Full House|%n");
+        for (int i = 0; i < 10; i++) {
+            Card[] hand = myDeckOfCards.deal5Cards();
+
+            System.out.printf("%1$5B\t|%2$6B\t|%3$6B\t|%4$7B\t|%5$5B\t|%6$8B\t|%7$10B|",
+                    myDeckOfCards.hasPair(hand), //1
+                    myDeckOfCards.has2Pairs(hand), //2
+                    myDeckOfCards.hasTierce(hand), //3
+                    myDeckOfCards.hasQuarter(hand), //4
+                    myDeckOfCards.hasQuint(hand), //5
+                    myDeckOfCards.hasSequence(hand), //6
+                    myDeckOfCards.hasFullHouse(hand)); //7
+
+            System.out.print("\t[");
+            for (Card c : hand) {
+                System.out.printf(" %s ", c.toString());
+            }
+            System.out.println("]");
+        }
+        // end for
     } // end main
 } // end class DeckOfCardsTest
 
