@@ -182,17 +182,17 @@ Week02_LinkedList/fast:
 .PHONY : Week02_LinkedList/fast
 
 #=============================================================================
-# Target rules for targets named Week03_Stack
+# Target rules for targets named Week04_Queue
 
 # Build rule for target.
-Week03_Stack: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Week03_Stack
-.PHONY : Week03_Stack
+Week04_Queue: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Week04_Queue
+.PHONY : Week04_Queue
 
 # fast build rule for target.
-Week03_Stack/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week03_Stack.dir/build.make CMakeFiles/Week03_Stack.dir/build
-.PHONY : Week03_Stack/fast
+Week04_Queue/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/build
+.PHONY : Week04_Queue/fast
 
 Course2/StructuresOfData/Week01/Polymorphism/Arena.o: Course2/StructuresOfData/Week01/Polymorphism/Arena.cpp.o
 .PHONY : Course2/StructuresOfData/Week01/Polymorphism/Arena.o
@@ -434,6 +434,30 @@ Course2/StructuresOfData/Week02/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week02_SLL.dir/build.make CMakeFiles/Week02_SLL.dir/Course2/StructuresOfData/Week02/main.cpp.s
 .PHONY : Course2/StructuresOfData/Week02/main.cpp.s
 
+Course2/StructuresOfData/Week04/queue/Queue.o: Course2/StructuresOfData/Week04/queue/Queue.cpp.o
+.PHONY : Course2/StructuresOfData/Week04/queue/Queue.o
+
+# target to build an object file
+Course2/StructuresOfData/Week04/queue/Queue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/Course2/StructuresOfData/Week04/queue/Queue.cpp.o
+.PHONY : Course2/StructuresOfData/Week04/queue/Queue.cpp.o
+
+Course2/StructuresOfData/Week04/queue/Queue.i: Course2/StructuresOfData/Week04/queue/Queue.cpp.i
+.PHONY : Course2/StructuresOfData/Week04/queue/Queue.i
+
+# target to preprocess a source file
+Course2/StructuresOfData/Week04/queue/Queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/Course2/StructuresOfData/Week04/queue/Queue.cpp.i
+.PHONY : Course2/StructuresOfData/Week04/queue/Queue.cpp.i
+
+Course2/StructuresOfData/Week04/queue/Queue.s: Course2/StructuresOfData/Week04/queue/Queue.cpp.s
+.PHONY : Course2/StructuresOfData/Week04/queue/Queue.s
+
+# target to generate assembly for a file
+Course2/StructuresOfData/Week04/queue/Queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/Course2/StructuresOfData/Week04/queue/Queue.cpp.s
+.PHONY : Course2/StructuresOfData/Week04/queue/Queue.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -447,7 +471,7 @@ help:
 	@echo "... Task02Polymorphism"
 	@echo "... Week02_LinkedList"
 	@echo "... Week02_SLL"
-	@echo "... Week03_Stack"
+	@echo "... Week04_Queue"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.o"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.i"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.s"
@@ -478,6 +502,9 @@ help:
 	@echo "... Course2/StructuresOfData/Week02/main.o"
 	@echo "... Course2/StructuresOfData/Week02/main.i"
 	@echo "... Course2/StructuresOfData/Week02/main.s"
+	@echo "... Course2/StructuresOfData/Week04/queue/Queue.o"
+	@echo "... Course2/StructuresOfData/Week04/queue/Queue.i"
+	@echo "... Course2/StructuresOfData/Week04/queue/Queue.s"
 .PHONY : help
 
 

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/c/Users/Sybatron/Documents/repos/FMI/Course2/StructuresOfData/Week01
+CXX_INCLUDES = -I/mnt/c/Users/Sybatron/Documents/repos/FMI/Course2/StructuresOfData
 
 CXX_FLAGS = -g
 

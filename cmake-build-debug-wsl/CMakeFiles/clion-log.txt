@@ -1,6 +1,4 @@
 C:\Windows\system32\wsl.exe --distribution Ubuntu --exec /bin/bash -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S /mnt/c/Users/Sybatron/Documents/repos/FMI -B /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl"
 -- Configuring done
-CMake Error: Cannot determine link language for target "Week03_Stack".
-CMake Error: CMake can not determine linker language for target: Week03_Stack
 -- Generating done
-CMake Generate step failed.  Build files cannot be regenerated correctly.
+-- Build files have been written to: /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl

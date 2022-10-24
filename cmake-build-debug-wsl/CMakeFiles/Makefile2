@@ -68,7 +68,7 @@ all: CMakeFiles/Task01_1Factorial.dir/all
 all: CMakeFiles/Task02Polymorphism.dir/all
 all: CMakeFiles/Week02_SLL.dir/all
 all: CMakeFiles/Week02_LinkedList.dir/all
-all: CMakeFiles/Week03_Stack.dir/all
+all: CMakeFiles/Week04_Queue.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -81,7 +81,7 @@ clean: CMakeFiles/Task01_1Factorial.dir/clean
 clean: CMakeFiles/Task02Polymorphism.dir/clean
 clean: CMakeFiles/Week02_SLL.dir/clean
 clean: CMakeFiles/Week02_LinkedList.dir/clean
-clean: CMakeFiles/Week03_Stack.dir/clean
+clean: CMakeFiles/Week04_Queue.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -215,30 +215,30 @@ CMakeFiles/Week02_LinkedList.dir/clean:
 .PHONY : CMakeFiles/Week02_LinkedList.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Week03_Stack.dir
+# Target rules for target CMakeFiles/Week04_Queue.dir
 
 # All Build rule for target.
-CMakeFiles/Week03_Stack.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week03_Stack.dir/build.make CMakeFiles/Week03_Stack.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week03_Stack.dir/build.make CMakeFiles/Week03_Stack.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num= "Built target Week03_Stack"
-.PHONY : CMakeFiles/Week03_Stack.dir/all
+CMakeFiles/Week04_Queue.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=16,17 "Built target Week04_Queue"
+.PHONY : CMakeFiles/Week04_Queue.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Week03_Stack.dir/rule: cmake_check_build_system
+CMakeFiles/Week04_Queue.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Week04_Queue.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Week03_Stack.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
-.PHONY : CMakeFiles/Week03_Stack.dir/rule
+.PHONY : CMakeFiles/Week04_Queue.dir/rule
 
 # Convenience name for target.
-Week03_Stack: CMakeFiles/Week03_Stack.dir/rule
-.PHONY : Week03_Stack
+Week04_Queue: CMakeFiles/Week04_Queue.dir/rule
+.PHONY : Week04_Queue
 
 # clean rule for target.
-CMakeFiles/Week03_Stack.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week03_Stack.dir/build.make CMakeFiles/Week03_Stack.dir/clean
-.PHONY : CMakeFiles/Week03_Stack.dir/clean
+CMakeFiles/Week04_Queue.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/clean
+.PHONY : CMakeFiles/Week04_Queue.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -6,10 +6,11 @@ project(Task02Polymorphism)
 project(Week02_SLL)
 project(Week02_LinkedList)
 project(Week03_Stack)
+project(Week04_Queue)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(Course2/StructuresOfData/Week01)
+include_directories(Course2/StructuresOfData)
 
 add_executable(Task01NRow
         Course2/StructuresOfData/Week01/Task01.cpp)
@@ -26,5 +27,8 @@ add_executable(Week02_SLL
 add_executable(Week02_LinkedList
         Course2/StructuresOfData/Week02/list/LList.inl Course2/StructuresOfData/Week02/list/LList.h Course2/StructuresOfData/Week02/list/main.cpp)
 
-add_executable(Week03_Stack
-        Course2/StructuresOfData/Week03/stack/Stack.h Course2/StructuresOfData/Week03/stack/IStack.h Course2/StructuresOfData/Week03/stack/VectorStack.h)
+#add_executable(Week03_Stack
+#        Course2/StructuresOfData/Week03/stack/Stack.h Course2/StructuresOfData/Week03/stack/IStack.h Course2/StructuresOfData/Week03/stack/VectorStack.h)
+
+add_executable(Week04_Queue
+        Course2/StructuresOfData/Week04/queue/Queue.cpp Course2/StructuresOfData/Week04/queue/Queue.h)
