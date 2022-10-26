@@ -38,7 +38,6 @@ public class PlatformPrinter {
 
             currLength++;
         }
-        currLength++;
         hasPlatforms = hasPlatforms || isPlatform(currStartIndex, currLength, currElement);
 
         if (!hasPlatforms) {

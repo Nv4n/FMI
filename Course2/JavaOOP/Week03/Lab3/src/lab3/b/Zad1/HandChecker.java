@@ -1,5 +1,7 @@
 package lab3.b.Zad1;
 
+import java.util.Arrays;
+
 public class HandChecker {
     private static final String[] FACES = {"Ace", "Deuce", "Three", "Four", "Five", "Six",
             "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
@@ -7,12 +9,9 @@ public class HandChecker {
     private static final String[] SUITS = {"Hearts", "Diamonds", "Clubs", "Spades"};
     private static int[] facesCount = new int[13];
 
-    // FIXME: 10/21/2022
-    //  Simplify the methods
-    //  Check if you have pair && !2pairs
-    //  Check if you have full house instead of pair && tierce
+
     public static boolean hasPair() {
-        return hasNCount(2) && !has2Pairs() && !hasTierce();
+        return !has2Pairs() && hasNCount(2) && !hasNCount(3);
     }
 
     public static boolean has2Pairs() {
@@ -24,43 +23,43 @@ public class HandChecker {
     }
 
     public static boolean hasTierce() {
-        return hasNCount(3);
+        return hasNCount(3) && !hasNCount(2);
     }
 
     public static boolean hasQuarter() {
         return hasNCount(4);
     }
 
-    public static boolean hasQuint(Card[] hand) {
+    public static boolean hasSameSuit(Card[] hand) {
+        String suit = hand[0].getSuit();
         for (int i = 1; i < hand.length; i++) {
-            if (!hand[i].getSuit().equals(hand[i - 1].getSuit()))
+            if (!hand[i].getSuit().equals(suit))
                 return false;
         }
         return true;
     }
 
-    public static boolean hasSequence(Card[] hand) {
+    public static boolean hasSequence() {
         int count = 0;
-        for (int i = 1; i < facesCount.length; i++) {
-            if (facesCount[i] == 1)
+        for (int i : facesCount)
+            if (i == 1)
                 count++;
             else if (count == 5)
                 break;
-            else
-                count = 0;
-        }
+            else if (count > 0)
+                break;
         return count == 5;
     }
 
-    public static boolean hasFullHouse(Card[] hand) {
-        return hasPair(hand) && hasTierce(hand);
+    public static boolean hasFullHouse() {
+        return hasPair() && hasTierce();
     }
 
     public static void initsHand(Card[] hand) {
-
         if (hand.length != 5)
             throw new IllegalArgumentException("Length must be 5: " + hand.length);
 
+        Arrays.fill(facesCount, 0);
         totalHandFaces(hand);
     }
 
