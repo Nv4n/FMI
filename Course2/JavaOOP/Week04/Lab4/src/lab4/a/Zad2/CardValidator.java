@@ -5,15 +5,13 @@ public final class CardValidator {
     /**
      * Return true if the card number is valid
      */
-    // FIXME: 10/24/2022
-    //  4388576018410707 should be valid
     public static boolean isValid(long number) {
         int size = getSize(number);
         long prefix2Digits = getPrefix(number, 2);
         long prefix1Digit = getPrefix(prefix2Digits, 1);
         return size >= 13 && size <= 16
                 && (prefix1Digit == 4 || prefix1Digit == 5 || prefix1Digit == 6 || prefix2Digits == 37)
-                && sumOfDoubleEvenPlace(number) + sumOfOddPlace(number) % 10 == 0;
+                && (sumOfDoubleEvenPlace(number) + sumOfOddPlace(number)) % 10 == 0;
     }
 
     /**

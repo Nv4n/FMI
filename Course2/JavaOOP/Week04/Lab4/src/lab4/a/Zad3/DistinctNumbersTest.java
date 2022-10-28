@@ -19,16 +19,16 @@ public class DistinctNumbersTest {
     }
 
     private static void printAllDistinctNumbers(ArrayList<Integer> sequence) {
-        getAllDistinctNumbers(sequence);
-        System.out.printf("All distinct numbers: %s", sequence);
+        ArrayList<Integer> distinct = new ArrayList<>(sequence);
+        getAllDistinctNumbers(distinct);
+        System.out.printf("All distinct numbers: %s", distinct);
     }
 
     private static void getAllDistinctNumbers(ArrayList<Integer> sequence) {
-        for (int i = 0; i < sequence.size(); i++) {
+        for (int i = 0; i < sequence.size(); i++)
             if (sequence.lastIndexOf(sequence.get(i)) != i) {
                 sequence.removeAll(List.of(sequence.get(i)));
                 i--;
             }
-        }
     }
 }
