@@ -1,0 +1,62 @@
+{
+	"C_Cpp.intelliSenseEngineFallback": "Disabled",
+	"editor.tabSize": 4,
+	"prettier.tabWidth": 4,
+	"prettier.printWidth": 80,
+	"editor.formatOnSave": true,
+	"prettier.enable": true,
+	"better-comments.tags": [
+		{
+			"tag": "!",
+			"color": "#FF2D00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "?",
+			"color": "#3498DB",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "//",
+			"color": "#474747",
+			"strikethrough": true,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "todo",
+			"color": "#FF8C00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "*",
+			"color": "#00FF00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		}
+	],
+	"prettier.bracketSameLine": true,
+	"prettier.bracketSpacing": true,
+	"prettier.htmlWhitespaceSensitivity": "css",
+	"prettier.singleAttributePerLine": true,
+	"prettier.useTabs": true,
+	"cSpell.words": ["Occurances"],
+	"C_Cpp.errorSquiggles": "Disabled"
+}
