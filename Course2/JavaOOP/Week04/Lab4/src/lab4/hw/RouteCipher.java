@@ -75,7 +75,7 @@ public class RouteCipher {
     }
 
     private void fillBottomLeft(int startRi, int endRi, int startCi, int endCi, char[][] grid, char[] textChars, int txtChrInd) {
-        if (txtChrInd == textChars.length)
+        if (txtChrInd >= textChars.length)
             return;
 
         for (int i = startRi; i <= endRi; i++)
