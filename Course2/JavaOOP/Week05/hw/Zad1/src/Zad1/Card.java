@@ -12,6 +12,10 @@ public class Card {
         suit = new String(cardSuit); // initialize suit of card
     } // end two-argument Card constructor
 
+    public Card(Card c) {
+        this(c.getFace(), c.getSuit());
+    }
+
     public String getFace() {
         return new String(face);
     }

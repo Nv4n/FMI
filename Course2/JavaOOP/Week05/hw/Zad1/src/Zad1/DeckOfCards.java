@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class DeckOfCards {
     private final Card[] deck; // array of Card objects
-    private int currentCard; // index of next Card to be dealt
     private final int NUMBER_OF_CARDS = 52; // constant number of Cards
     @SuppressWarnings("FieldMayBeFinal")
     private Random randomNumbers; // random number generator
@@ -20,7 +19,6 @@ public class DeckOfCards {
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
 
         deck = new Card[NUMBER_OF_CARDS]; // create array of Card objects
-        currentCard = 0; // set currentCard so first Card dealt is deck[ 0 ]
         randomNumbers = new Random(); // create random number generator
 
         // populate deck with Card objects
@@ -32,7 +30,6 @@ public class DeckOfCards {
 
     public void shuffle() {
         // after shuffling, dealing should start at deck[ 0 ] again
-        currentCard = 0; // reinitialize currentCard
 
         // for each Card, pick another random Card and swap them
         for (int first = 0; first < deck.length; first++) {
@@ -49,6 +46,6 @@ public class DeckOfCards {
     // deal one Card
     public Card dealCard() {
         int i = randomNumbers.nextInt(deck.length);
-        return deck[i];
+        return new Card(deck[i]);
     } // end method dealCard
 } // end class DeckOfCards

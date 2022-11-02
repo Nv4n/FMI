@@ -27,7 +27,7 @@ public class DrawSpiral extends Application {
         stage.show();
     }
 
-    private static void setRightScale(Scene scene) {
+    private void setRightScale(Scene scene) {
         Scale scale = new Scale(3, 3);
         scale.setPivotX(scene.getWidth() / 2);
         scale.setPivotY(scene.getHeight() / 2);
@@ -45,9 +45,8 @@ public class DrawSpiral extends Application {
         drawLineDown(centerX, centerY, 10, canvas);
     }
 
-    private static void drawLineDown(double startX, double startY, double size, Group canvas) {
-        if (validateCoords(startX, startY, size))
-            return;
+    private void drawLineDown(double startX, double startY, double size, Group canvas) {
+        if (validateCoords(startX, startY, size)) return;
 
         Line line = new Line(startX, startY, startX, startY + size);
         line.setStyle("-fx-stroke: red");
@@ -56,9 +55,8 @@ public class DrawSpiral extends Application {
         drawLineLeft(startX, startY + size, size, canvas);
     }
 
-    private static void drawLineLeft(double startX, double startY, double size, Group canvas) {
-        if (validateCoords(startX, startY, size))
-            return;
+    private void drawLineLeft(double startX, double startY, double size, Group canvas) {
+        if (validateCoords(startX, startY, size)) return;
 
         Line line = new Line(startX, startY, startX - size, startY);
         line.setStyle("-fx-stroke: purple");
@@ -67,9 +65,8 @@ public class DrawSpiral extends Application {
         drawLineUp(startX - size, startY, size + INCREMENT, canvas);
     }
 
-    private static void drawLineUp(double startX, double startY, double size, Group canvas) {
-        if (validateCoords(startX, startY, size))
-            return;
+    private void drawLineUp(double startX, double startY, double size, Group canvas) {
+        if (validateCoords(startX, startY, size)) return;
 
         Line line = new Line(startX, startY, startX, startY - size);
         line.setStyle("-fx-stroke: cyan");
@@ -78,9 +75,8 @@ public class DrawSpiral extends Application {
         drawLineRight(startX, startY - size, size, canvas);
     }
 
-    private static void drawLineRight(double startX, double startY, double size, Group canvas) {
-        if (validateCoords(startX, startY, size))
-            return;
+    private void drawLineRight(double startX, double startY, double size, Group canvas) {
+        if (validateCoords(startX, startY, size)) return;
 
         Line line = new Line(startX, startY, startX + size, startY);
         line.setStyle("-fx-stroke: green");
@@ -89,7 +85,7 @@ public class DrawSpiral extends Application {
         drawLineDown(startX + size, startY, size + INCREMENT, canvas);
     }
 
-    private static boolean validateCoords(double startX, double startY, double size) {
+    private boolean validateCoords(double startX, double startY, double size) {
         return /*startX + size >= paneWidth || startY + size >= paneHeight ||*/
                 startX - size < 0 || startY - size < 0;
     }
