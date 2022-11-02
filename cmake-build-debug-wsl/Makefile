@@ -194,6 +194,19 @@ Week04_Queue/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/build
 .PHONY : Week04_Queue/fast
 
+#=============================================================================
+# Target rules for targets named Week05_QuickSort
+
+# Build rule for target.
+Week05_QuickSort: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Week05_QuickSort
+.PHONY : Week05_QuickSort
+
+# fast build rule for target.
+Week05_QuickSort/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week05_QuickSort.dir/build.make CMakeFiles/Week05_QuickSort.dir/build
+.PHONY : Week05_QuickSort/fast
+
 Course2/StructuresOfData/Week01/Polymorphism/Arena.o: Course2/StructuresOfData/Week01/Polymorphism/Arena.cpp.o
 .PHONY : Course2/StructuresOfData/Week01/Polymorphism/Arena.o
 
@@ -458,6 +471,30 @@ Course2/StructuresOfData/Week04/queue/Queue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/Course2/StructuresOfData/Week04/queue/Queue.cpp.s
 .PHONY : Course2/StructuresOfData/Week04/queue/Queue.cpp.s
 
+Course2/StructuresOfData/Week05/quicksort/quicksort.o: Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.o
+.PHONY : Course2/StructuresOfData/Week05/quicksort/quicksort.o
+
+# target to build an object file
+Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week05_QuickSort.dir/build.make CMakeFiles/Week05_QuickSort.dir/Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.o
+.PHONY : Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.o
+
+Course2/StructuresOfData/Week05/quicksort/quicksort.i: Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.i
+.PHONY : Course2/StructuresOfData/Week05/quicksort/quicksort.i
+
+# target to preprocess a source file
+Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week05_QuickSort.dir/build.make CMakeFiles/Week05_QuickSort.dir/Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.i
+.PHONY : Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.i
+
+Course2/StructuresOfData/Week05/quicksort/quicksort.s: Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.s
+.PHONY : Course2/StructuresOfData/Week05/quicksort/quicksort.s
+
+# target to generate assembly for a file
+Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week05_QuickSort.dir/build.make CMakeFiles/Week05_QuickSort.dir/Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.s
+.PHONY : Course2/StructuresOfData/Week05/quicksort/quicksort.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -472,6 +509,7 @@ help:
 	@echo "... Week02_LinkedList"
 	@echo "... Week02_SLL"
 	@echo "... Week04_Queue"
+	@echo "... Week05_QuickSort"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.o"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.i"
 	@echo "... Course2/StructuresOfData/Week01/Polymorphism/Arena.s"
@@ -505,6 +543,9 @@ help:
 	@echo "... Course2/StructuresOfData/Week04/queue/Queue.o"
 	@echo "... Course2/StructuresOfData/Week04/queue/Queue.i"
 	@echo "... Course2/StructuresOfData/Week04/queue/Queue.s"
+	@echo "... Course2/StructuresOfData/Week05/quicksort/quicksort.o"
+	@echo "... Course2/StructuresOfData/Week05/quicksort/quicksort.i"
+	@echo "... Course2/StructuresOfData/Week05/quicksort/quicksort.s"
 .PHONY : help
 
 

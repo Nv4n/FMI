@@ -69,6 +69,7 @@ all: CMakeFiles/Task02Polymorphism.dir/all
 all: CMakeFiles/Week02_SLL.dir/all
 all: CMakeFiles/Week02_LinkedList.dir/all
 all: CMakeFiles/Week04_Queue.dir/all
+all: CMakeFiles/Week05_QuickSort.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -82,6 +83,7 @@ clean: CMakeFiles/Task02Polymorphism.dir/clean
 clean: CMakeFiles/Week02_SLL.dir/clean
 clean: CMakeFiles/Week02_LinkedList.dir/clean
 clean: CMakeFiles/Week04_Queue.dir/clean
+clean: CMakeFiles/Week05_QuickSort.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -239,6 +241,32 @@ Week04_Queue: CMakeFiles/Week04_Queue.dir/rule
 CMakeFiles/Week04_Queue.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week04_Queue.dir/build.make CMakeFiles/Week04_Queue.dir/clean
 .PHONY : CMakeFiles/Week04_Queue.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Week05_QuickSort.dir
+
+# All Build rule for target.
+CMakeFiles/Week05_QuickSort.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week05_QuickSort.dir/build.make CMakeFiles/Week05_QuickSort.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week05_QuickSort.dir/build.make CMakeFiles/Week05_QuickSort.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles --progress-num=18,19 "Built target Week05_QuickSort"
+.PHONY : CMakeFiles/Week05_QuickSort.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Week05_QuickSort.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Week05_QuickSort.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Sybatron/Documents/repos/FMI/cmake-build-debug-wsl/CMakeFiles 0
+.PHONY : CMakeFiles/Week05_QuickSort.dir/rule
+
+# Convenience name for target.
+Week05_QuickSort: CMakeFiles/Week05_QuickSort.dir/rule
+.PHONY : Week05_QuickSort
+
+# clean rule for target.
+CMakeFiles/Week05_QuickSort.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Week05_QuickSort.dir/build.make CMakeFiles/Week05_QuickSort.dir/clean
+.PHONY : CMakeFiles/Week05_QuickSort.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -52,4 +52,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Week02_SLL.dir/DependInfo.cmake"
   "CMakeFiles/Week02_LinkedList.dir/DependInfo.cmake"
   "CMakeFiles/Week04_Queue.dir/DependInfo.cmake"
+  "CMakeFiles/Week05_QuickSort.dir/DependInfo.cmake"
   )

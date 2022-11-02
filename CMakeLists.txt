@@ -7,6 +7,7 @@ project(Week02_SLL)
 project(Week02_LinkedList)
 project(Week03_Stack)
 project(Week04_Queue)
+project(Week05_QuickSort)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -32,3 +33,6 @@ add_executable(Week02_LinkedList
 
 add_executable(Week04_Queue
         Course2/StructuresOfData/Week04/queue/Queue.cpp Course2/StructuresOfData/Week04/queue/Queue.h)
+
+add_executable(Week05_QuickSort
+        Course2/StructuresOfData/Week05/quicksort/quicksort.cpp)
