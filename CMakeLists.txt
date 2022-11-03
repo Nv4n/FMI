@@ -5,10 +5,11 @@ project(Task01_1Factorial)
 project(Task02Polymorphism)
 project(Week02_SLL)
 project(Week02_LinkedList)
-project(Week03_Stack)
+#project(Week03_Stack)
 project(Week04_Queue)
 project(Week05_QuickSort)
 project(Week05_MergeSort)
+project(Week05_Stack)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -40,3 +41,8 @@ add_executable(Week05_QuickSort
 
 add_executable(Week05_MergeSort
         Course2/StructuresOfData/Week05/sorts/mergeSort.cpp)
+
+add_executable(Week05_Stack
+        Course2/StructuresOfData/Week05/structures/Stack.cpp
+        Course2/StructuresOfData/Week05/structures/Stack.h
+        )
