@@ -1,6 +1,7 @@
 package Zad3;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.shape.Line;
@@ -18,11 +19,20 @@ public class DrawSpiral extends Application {
         setRightScale(scene);
 
         drawSpiral(canvas, scene);
+        ChangeListener<Number> sizeListener = (a, b, c) -> {
+            canvas.getChildren().clear();
+            drawSpiral(canvas, scene);
+            setRightScale(scene);
+
+        };
+
+        scene.heightProperty().addListener(sizeListener);
+        scene.widthProperty().addListener(sizeListener);
 
         // Set the Window title
         stage.setTitle("Draw Square shaped spiral");
         stage.sizeToScene();
-        stage.resizableProperty().setValue(Boolean.FALSE);
+        stage.resizableProperty().setValue(Boolean.TRUE);
         stage.setScene(scene);
         stage.show();
     }

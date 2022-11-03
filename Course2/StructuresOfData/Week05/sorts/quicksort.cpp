@@ -40,14 +40,6 @@ void quickSort(int *arr, int left, int right) {
 
 #pragma endregion
 
-#pragma region MergeSort
-
-
-struct Node {
-    int data;
-    Node *next;
-};
-#pragma endregion
 
 void printArr(int *arr, int size) {
     for (int i = 0; i < size; ++i) {
@@ -58,14 +50,8 @@ void printArr(int *arr, int size) {
 
 int main() {
     int arr[10] = {0, 5, 7, 9, 10, -10, 5, -3, 6, 0};
-    Node *list =
-            new Node{10,
-                     new Node{-10,
-                              new Node{5,
-                                       new Node{23,
-                                                new Node{10,
-                                                         new Node{15,
-                                                                  new Node{0, nullptr}}}}}}};
+
+
     quickSort(arr, 0, 9);
     printArr(arr, 10);
 }
