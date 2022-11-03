@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/Ticket.dir/Course1/OOP-Sem2/Week14/TicketSystem/main.cpp.o -o Ticket 

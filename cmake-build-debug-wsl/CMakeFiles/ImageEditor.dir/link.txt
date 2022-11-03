@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/ImageEditor.dir/Course1/OOP-Sem2/Week14/ImageEditor/main.cpp.o -o ImageEditor 

@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/Templates.dir/Course1/OOP-Sem2/Week13/Templates/main.cpp.o -o Templates 

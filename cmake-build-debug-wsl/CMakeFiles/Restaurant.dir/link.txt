@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/BBQ/main.cpp.o CMakeFiles/Restaurant.dir/Course1/OOP-Sem2/Week14/HW02/InputControl.cpp.o -o Restaurant 
