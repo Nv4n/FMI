@@ -5,6 +5,8 @@
 #ifndef WEEK05_STACK_STACK_H
 #define WEEK05_STACK_STACK_H
 
+#pragma once
+
 template<class T>
 class Stack {
 private:
@@ -29,12 +31,15 @@ public:
 
     virtual ~Stack();
 
-    const T &pop();
+    bool pop();
 
     void push(const T &el);
 
     const T &peek();
+
+    bool isEmpty();
 };
 
+#include "Stack.inl"
 
 #endif //WEEK05_STACK_STACK_H
