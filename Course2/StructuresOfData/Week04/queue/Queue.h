@@ -6,6 +6,8 @@
 #define WEEK03_STACK_QUEUE_H
 
 #include <iostream>
+#include "Week05/structures/queue/Queue.h"
+
 
 #pragma once
 
@@ -94,6 +96,5 @@ public:
         return data[0];
     }
 };
-
 
 #endif //WEEK03_STACK_QUEUE_H
