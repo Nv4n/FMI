@@ -13,6 +13,33 @@ struct Node {
 template<class T>
 bool areEqualLists(Node<T> *a, Node<T> *b);
 
+template<class T>
+Node<T> *copyList(Node<T> *first) {
+    if (first == nullptr) {
+        return nullptr;
+    }
+
+    Node<T> *holder = new Node<T>{first->data, nullptr};
+    first = first->next;
+
+    Node<T> *curr = holder;
+    while (first != nullptr) {
+        curr->next = new Node<T>{first->data, nullptr};
+        curr = curr->next;
+        first = first->next;
+    }
+    return holder;
+}
+
+template<class T>
+void printList(Node<T> *first) {
+    while (first != nullptr) {
+        std::cout << first->data << " -> ";
+        first = first->next;
+    }
+    std::cout << "nullptr" << std::endl;
+}
+
 #pragma  region Task01
 
 void absoluteSort(Node<int> *&first) {
@@ -58,8 +85,7 @@ void sortAbsoluteSorted(Node<int> *&first) {
 
 template<class T = int>
 void reverseList(Node<T> *&first) {
-    //FIXME
-    //  - reverse breaks the lists
+
     if (first == nullptr || first->next == nullptr) {
         return;
     }
@@ -67,6 +93,7 @@ void reverseList(Node<T> *&first) {
     Node<T> *curr = first;
     Node<T> *prev = nullptr;
     Node<T> *next = nullptr;
+
     while (curr != nullptr) {
         next = curr->next;
         curr->next = prev;
@@ -99,9 +126,42 @@ bool areEqualLists(Node<T> *a, Node<T> *b) {
 
 template<class T = int>
 bool isPalindrom(Node<T> *first) {
-    Node<T> *reversed = first;
+    Node<T> *reversed = copyList(first);
     reverseList<T>(reversed);
     return areEqualLists(first, reversed);
+}
+
+#pragma endregion
+
+#pragma region Task03
+
+bool hasCycle(Node<int> *first) {
+    if (!first) {
+        return false;
+    }
+
+    Node<int> *slow = first;
+    Node<int> *fast = first->next;
+
+    while (fast && fast->next) {
+        if (slow == fast) {
+            return true;
+        }
+
+        fast = fast->next;
+        if (fast == slow) {
+            return true;
+        }
+        fast = fast->next;
+        slow = slow->next;
+
+
+        if (slow == nullptr) {
+            return false;
+        }
+    }
+
+    return fast == slow;
 }
 
 #pragma endregion
@@ -195,32 +255,114 @@ void sortOddEvenIndex(Node<T> *&first) {
 
 #pragma region Task06
 
+Node<int> *getFirstN(size_t n) {
+    if (n <= 0) {
+        return nullptr;
+    }
+
+    Node<int> *sequence = new Node<int>{1, nullptr};
+    Node<int> *curr = sequence;
+    for (int i = 1, count = 0, num = 2; i < n; ++i, ++count) {
+        if (count == num) {
+            count = 0;
+            ++num;
+        }
+        curr->next = new Node<int>{num, nullptr};
+        curr = curr->next;
+    }
+
+    return sequence;
+}
 
 #pragma endregion
 
-template<class T>
-void printList(Node<T> *first) {
-    while (first != nullptr) {
-        std::cout << first->data << " -> ";
-        first = first->next;
+#pragma region Task07
+
+Node<int> *mergeSort(Node<int> *&a, Node<int> *&b) {
+    if (!a) {
+        return b;
     }
-    std::cout << "nullptr" << std::endl;
+    if (!b) {
+        return a;
+    }
+
+    Node<int> *res = nullptr;
+    while (!res) {
+        if (a->data < b->data) {
+            res = new Node<int>{a->data, nullptr};
+            res->next = mergeSort(a->next, b);
+        } else {
+            res = new Node<int>{b->data, nullptr};
+            res->next = mergeSort(a, b->next);
+        }
+    }
+
+    return res;
+}
+
+void split(Node<int> *first, Node<int> *&left, Node<int> *&right) {
+    if (first == nullptr) {
+        return;
+    }
+
+    Node<int> *curr = first;
+    while (curr && curr->next) {
+        if (curr->data > curr->next->data) {
+            break;
+        }
+        curr = curr->next;
+    }
+
+    if (curr) {
+        right = curr->next;
+        curr->next = nullptr;
+    }
+    left = first;
+}
+
+void sortSorted(Node<int> *&first) {
+    Node<int> *left = nullptr;
+    Node<int> *right = nullptr;
+    split(first, left, right);
+    first = mergeSort(left, right);
+}
+
+#pragma endregion
+
+void swap(int &a, int &b) {
+    int tmp = b;
+    b = a;
+    a = tmp;
+}
+
+void bubbleSortList(Node<int> *first) {
+    if (!first) {
+        return;
+    }
+
+    Node<int> *fst = first;
+    Node<int> *snd = first->next;
+    Node<int> *end = nullptr;
+    while (end != first) {
+        while (snd != end && snd) {
+            if (fst->data > snd->data) {
+                swap(fst->data, snd->data);
+            }
+
+            snd = snd->next;
+            fst = fst->next;
+        }
+        end = fst;
+        fst = first;
+        snd = first->next;
+    }
 }
 
 int main() {
-//    Node<int> *first = new Node<int>{-5, new Node<int>{12, new Node<int>{-10, new Node<int>{3, nullptr}}}};
-//    absoluteSort(first);
-//    sortAbsoluteSorted(first);
+    Node<int> *first = new Node<int>{1, new Node<int>{2, nullptr}};
+    Node<int> *repeat = new Node<int>{3, new Node<int>{4, nullptr}};
+    first->next->next = repeat;
+    repeat->next->next = new Node<int>{5, repeat};
 
-    Node<int> *first = new Node<int>{1,
-                                     new Node<int>{2,
-                                                   new Node<int>{3,
-                                                                 new Node<int>{4,
-                                                                               new Node<int>{5, nullptr}}}}};
-
-//    std::cout << (isPalindrom(first) ? "YES" : "NO") << std::endl;
-
-    sortOddEvenIndex(first);
-    printList(first);
-
+    std::cout << (hasCycle(first) ? "YES" : "NO") << std::endl;
 }

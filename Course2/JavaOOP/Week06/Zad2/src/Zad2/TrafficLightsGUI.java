@@ -45,7 +45,7 @@ public class TrafficLightsGUI extends Application {
                     @Override
                     protected Void call() throws Exception {
                         changeLights(group, startMilliseconds, System.currentTimeMillis());
-                        Thread.sleep(1000);
+                        Thread.sleep(250);
                         return null;
                     }
                 };
@@ -56,9 +56,11 @@ public class TrafficLightsGUI extends Application {
         lightsChanger.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
             @Override
             public void handle(WorkerStateEvent workerStateEvent) {
+                if (lightI == 3) {
+                    lightI = 0;
+                }
                 lightsChanger.reset();
                 lightsChanger.start();
-
             }
         });
     }
