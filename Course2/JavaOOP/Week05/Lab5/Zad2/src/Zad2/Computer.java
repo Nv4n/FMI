@@ -1,5 +1,7 @@
 package Zad2;
 
+import java.util.Arrays;
+
 public class Computer {
     private String type;
     private int procSpeed;
@@ -20,7 +22,7 @@ public class Computer {
     }
 
     public String getType() {
-        return type;
+        return new String(type);
     }
 
     public void setType(String type) {
@@ -36,10 +38,31 @@ public class Computer {
     }
 
     public String[] getFiles() {
-        return files;
+        String[] res = new String[files.length];
+        for (int i = 0; i < files.length; i++)
+            res[i] = new String(files[i]);
+        return res;
     }
 
     public void setFiles(String[] files) {
-        this.files = files;
+        if (files == null) {
+            this.files = new String[]{""};
+            return;
+        }
+
+        this.files = new String[files.length];
+        for (int i = 0; i < files.length; i++)
+            this.files[i] = new String(files[i]);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                Computer {
+                Type: %s
+                Proc Speed: %5d
+                Files: %s
+                }
+                """, type, procSpeed, Arrays.toString(files));
     }
 }
