@@ -1,10 +1,10 @@
 {
-	"C_Cpp.intelliSenseEngineFallback": "Disabled",
 	"editor.tabSize": 4,
-	"prettier.tabWidth": 4,
-	"prettier.printWidth": 80,
+	"editor.tabCompletion": "on",
+	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
-	"prettier.enable": true,
+"pretty-formatter.correct": true,
+	"html.format.enable": true,
 	"better-comments.tags": [
 		{
 			"tag": "!",
@@ -52,11 +52,6 @@
 			"italic": false
 		}
 	],
-	"prettier.bracketSameLine": true,
-	"prettier.bracketSpacing": true,
-	"prettier.htmlWhitespaceSensitivity": "css",
-	"prettier.singleAttributePerLine": true,
-	"prettier.useTabs": true,
+
 	"cSpell.words": ["Occurances"],
-	"C_Cpp.errorSquiggles": "Disabled"
 }

@@ -12,6 +12,9 @@ project(Week05_MergeSort)
 project(Week05_Stack)
 project(Week05_Queue)
 project(Week06_Lists)
+project(Week07_Task01)
+project(Week07_Task02)
+project(Week07_Task03)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -55,3 +58,13 @@ add_executable(Week05_Queue
 
 add_executable(Week06_Lists
         Course2/StructuresOfData/Week06/main.cpp Course2/StructuresOfData/Week06/Additional/additional.cpp)
+
+add_executable(Week07_Task01
+        Course2/StructuresOfData/Week07/01-fillgaps.cpp)
+
+add_executable(Week07_Task02
+        Course2/StructuresOfData/Week07/02-makeFib.cpp)
+
+add_executable(Week07_Task03
+        Course2/StructuresOfData/Week07/03-reverseList.cpp
+        )
