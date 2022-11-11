@@ -1,0 +1,117 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  border: 1px solid red;
+  box-sizing: border-box;
+  height: 768px;
+  width: 1336px;
+  margin: auto;
+  margin-top: 24px;
+}
+
+.header{
+  background:linear-gradient(green,white);
+  margin-bottom: 1em;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper{
+  margin: 0 2em;
+}
+
+.page-title{
+  margin: 0;
+  font-size: 1.5em;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.nav{
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.nav-link{
+  display: inline-block;
+  margin: 0 0.25em;
+  padding: 0.5em 1em;
+  border: 2px dotted blue;
+}
+
+.nav-link a{
+  color: white;
+  text-decoration: none;
+}
+
+.search-bar{
+  display: flex;
+  justify-content: space-between;
+}
+.search-input{
+  display: inline-block;
+  padding: 1em;
+  width: 75%;
+  border: none;
+}
+
+.search-btn{
+  width: 25%;
+  background-color: purple;
+  color: white;
+  border: 1px dashed white;
+  box-sizing: border-box;
+}
+
+.search-btn:hover{
+  background-color: peru;
+}
+
+.student-list-el{
+  display: flex;
+  position: relative;
+  justify-content:space-between;
+  align-items: center;
+  padding: 0.5em 2em;
+}
+
+.student-list-el:nth-child(odd){
+background-color: pink;
+}
+
+.student-list-el:nth-child(even){
+  background-color: skyblue;
+}
+
+.student-list-el:focus-within,.student-list-el:hover {
+  background-color: white;
+}
+
+.student-list-el.checked {
+  color: white;
+  background-color: green ;
+}
+
+.student-list-el.checked .student-label{
+  text-decoration: line-through;
+}
+
+.student-list-el.checked .student-label::before{
+  content: "✔";
+  position: absolute;
+  left: 0.5em;
+}
+
+.student-grade-input{
+  padding: 0.5em;
+}
+/* Add your CSS here */
