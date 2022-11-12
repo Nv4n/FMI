@@ -32,7 +32,7 @@
             "italic": false
         },
         {
-            "tag": "todo",
+            "tag": "TODO",
             "color": "#FF8C00",
             "strikethrough": false,
             "underline": false,

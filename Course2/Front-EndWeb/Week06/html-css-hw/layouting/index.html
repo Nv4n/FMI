@@ -42,7 +42,9 @@
 	</div>
 
 	<script>
-		Array.from(document.querySelectorAll("#main-nav ul li")).forEach(el => {
+		//if set till li we may click only the li and not the anchor
+		//and get unexpected behavior
+		Array.from(document.querySelectorAll("#main-nav ul li a")).forEach(el => {
 			el.addEventListener("click", event => {
 				document.getElementById("frame").src = event.target.getAttribute("data-url");
 			});
