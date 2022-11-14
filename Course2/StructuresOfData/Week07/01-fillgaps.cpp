@@ -14,8 +14,7 @@ void fillGaps(box<T> *first) {
     if (!first || !first->next) {
         return;
     }
-
-    box<T> *tmp = first;
+    
     box<T> *holder = first->next;
     box<T> *curr = first;
     while (curr && holder) {
@@ -27,8 +26,6 @@ void fillGaps(box<T> *first) {
         curr = curr->next;
         holder = holder->next;
     }
-
-    first = tmp;
 }
 
 

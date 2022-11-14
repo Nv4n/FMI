@@ -53,7 +53,6 @@ void reverseList(box<T> *&first, unsigned int n) {
     if (!first) {
         return;
     }
-    box<T> *hold = copyList(first);
     first = reverse(first, n);
 }
 
