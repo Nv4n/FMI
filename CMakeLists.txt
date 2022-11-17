@@ -1,63 +1,14 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(Task01NRow)
-project(Task01_1Factorial)
-project(Task02Polymorphism)
-project(Week02_SLL)
-project(Week02_LinkedList)
-#project(Week03_Stack)
-project(Week04_Queue)
-project(Week05_QuickSort)
-project(Week05_MergeSort)
-project(Week05_Stack)
-project(Week05_Queue)
-project(Week06_Lists)
 project(Week07_Task01)
 project(Week07_Task02)
 project(Week07_Task03)
+project(Week08_HonoiTowers)
 
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(Course2/StructuresOfData)
 
-add_executable(Task01NRow
-        Course2/StructuresOfData/Week01/Task01.cpp)
-
-add_executable(Task01_1Factorial
-        Course2/StructuresOfData/Week01/Task01_1Factorial.cpp)
-
-add_executable(Task02Polymorphism
-        Course2/StructuresOfData/Week01/Polymorphism/Hero.cpp Course2/StructuresOfData/Week01/Polymorphism/Hero.h Course2/StructuresOfData/Week01/Polymorphism/Magician.cpp Course2/StructuresOfData/Week01/Polymorphism/Magician.h Course2/StructuresOfData/Week01/Polymorphism/Warrior.cpp Course2/StructuresOfData/Week01/Polymorphism/Warrior.h Course2/StructuresOfData/Week01/Polymorphism/Arena.cpp Course2/StructuresOfData/Week01/Polymorphism/Arena.h Course2/StructuresOfData/Week01/Polymorphism/main.cpp)
-
-add_executable(Week02_SLL
-        Course2/StructuresOfData/Week02/SLL.cpp Course2/StructuresOfData/Week02/SLL.h Course2/StructuresOfData/Week02/main.cpp)
-
-add_executable(Week02_LinkedList
-        Course2/StructuresOfData/Week02/list/LList.inl Course2/StructuresOfData/Week02/list/LList.h Course2/StructuresOfData/Week02/list/main.cpp)
-
-#add_executable(Week03_Stack
-#        Course2/StructuresOfData/Week03/stack/Stack.h Course2/StructuresOfData/Week03/stack/IStack.h Course2/StructuresOfData/Week03/stack/VectorStack.h)
-
-add_executable(Week04_Queue
-        Course2/StructuresOfData/Week04/queue/Queue.cpp Course2/StructuresOfData/Week04/queue/Queue.h)
-
-add_executable(Week05_QuickSort
-        Course2/StructuresOfData/Week05/sorts/quicksort.cpp Course2/StructuresOfData/Week05/structures/queue/Queue.inl Course2/StructuresOfData/Week05/structures/queue/Queue.h)
-
-add_executable(Week05_MergeSort
-        Course2/StructuresOfData/Week05/sorts/mergeSort.cpp)
-
-add_executable(Week05_Stack
-        Course2/StructuresOfData/Week05/structures/stack/Stack.inl
-        Course2/StructuresOfData/Week05/structures/stack/Stack.h
-        Course2/StructuresOfData/Week05/structures/stack/main.cpp)
-
-add_executable(Week05_Queue
-        Course2/StructuresOfData/Week05/structures/queue/Queue.h
-        Course2/StructuresOfData/Week05/structures/queue/Queue.inl Course2/StructuresOfData/Week05/structures/queue/main.cpp)
-
-add_executable(Week06_Lists
-        Course2/StructuresOfData/Week06/main.cpp Course2/StructuresOfData/Week06/Additional/additional.cpp)
 
 add_executable(Week07_Task01
         Course2/StructuresOfData/Week07/01-fillgaps.cpp)
@@ -68,3 +19,6 @@ add_executable(Week07_Task02
 add_executable(Week07_Task03
         Course2/StructuresOfData/Week07/03-reverseList.cpp
         )
+
+add_executable(Week07_HonoiTowers
+        Course2/StructuresOfData/Week07/HonoiTowers/honoiTowers.cpp)

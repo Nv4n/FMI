@@ -40,6 +40,7 @@ box<T> *reverse(box<T> *&first, unsigned int n) {
         prev = curr;
         curr = next;
     }
+
     box<T> *tmp = prev;
     while (tmp->next) {
         tmp = tmp->next;
