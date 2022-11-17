@@ -1,0 +1,227 @@
+:root {
+    --black: #111;
+    --menu-color: #F0F3F2;
+    --main-blue: #9EB5CE;
+    --second-blue: #CAE2F9;
+    --page1-color: #EA9CC0;
+    --page2-color: #727C8C;
+    --page3-color: #9BB3CD;
+    --page4-color: #7E7E7E;
+    --headline-color: #E3542C;
+    --footer-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.logo {
+    cursor: pointer;
+    height: 3em;
+}
+
+.close-btn {
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: var(--second-blue);
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.responsive-container {
+    background-color: var(--menu-color);
+    padding: 0 1em;
+}
+
+.responsive-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.15em;
+    padding: 0 2em;
+    position: sticky;
+    top: 0;
+}
+
+.responsive-icon {
+    padding: 0.15em;
+    cursor: pointer;
+}
+
+.responsive-icon:hover {
+    background-color: var(--second-blue);
+}
+
+.wrapper {
+    width: 75%;
+    margin: 1em auto;
+}
+
+.nav-container {
+    gap: 2em;
+}
+
+.nav-pages {
+    position: relative;
+}
+
+.nav-pages>a {
+    font-family: "News Cycle";
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-pages:hover>a {
+    filter: brightness(80%);
+}
+
+.nav-pages:nth-child(1)>a {
+    color: var(--page1-color);
+}
+
+.nav-pages:nth-child(1)::after {
+    position: relative;
+    top: 0;
+    right: -0.25em;
+    content: "🍕";
+}
+
+.nav-pages:nth-child(2)>a {
+    color: var(--page2-color);
+}
+
+.nav-pages:nth-child(3)>a {
+    color: var(--page3-color);
+}
+
+.nav-pages:nth-child(4)>a {
+    color: var(--page4-color);
+}
+
+.main-container {
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-container>.headline {
+    width: 100%;
+    font-family: "News Cycle";
+    font-size: 2em;
+    color: var(--headline-color);
+    font-weight: bolder;
+}
+
+.main-container>.description {
+    width: 50%;
+    font-family: "Caveat";
+    font-size: 1em;
+    color: var(--black);
+}
+
+.pizza-container {
+    position: relative;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pizza-btn-container {
+    position: relative;
+}
+
+.pizza-btn {
+    object-fit: cover;
+    cursor: pointer;
+    width: 10em;
+    height: 10em;
+}
+
+.pizza-chk {
+    appearance: none;
+    cursor: pointer;
+    width: 12em;
+    height: 12em;
+    background-size: cover;
+}
+
+.pizza-chk:checked {
+    width: 13em;
+    height: 13em;
+}
+
+.pizza-chk:hover {
+    filter: brightness(125%);
+}
+
+#pizza1.pizza-chk {
+    background-image: url(../img/blackpizza.jpg);
+}
+
+#pizza2.pizza-chk {
+    background-image: url(../img/cheesepizza.jpg);
+}
+
+#pizza3.pizza-chk {
+    background-image: url(../img/peperonipizza.jpg);
+}
+
+#pizza4.pizza-chk {
+    background-image: url(../img/margaritapizza.jpg);
+}
+
+.main-pizza {
+    height: 50%;
+    width: 50%;
+}
+
+.main-pizza:has(~.pizza-container>.pizza-btn-container>#pizza1.pizza-chk:checked) {
+    content: url(../img/black-mainPizza.png);
+}
+
+.main-pizza:has(~.pizza-container>.pizza-btn-container>#pizza2.pizza-chk:checked) {
+    content: url(../img/cheese-mainPizza.png);
+}
+
+.main-pizza:has(~.pizza-container>.pizza-btn-container>#pizza3.pizza-chk:checked) {
+    content: url(../img/peperoni-mainPizza.png);
+}
+
+.main-pizza:has(~.pizza-container>.pizza-btn-container>#pizza4.pizza-chk:checked) {
+    content: url(../img/margarita-mainPizza.png);
+}
+
+
+.footer {
+    height: 100%;
+    padding: 2.5em;
+    box-shadow: 0 50vh 0 50vh var(--footer-color);
+    background-color: var(--footer-color);
+    color: #fff;
+    font-family: "News Cycle";
+    text-align: center;
+}
+
+.footer>* {
+    margin: 2.5em;
+}
+
+.reference {
+    color: var(--main-blue);
+    text-decoration: underline;
+}
