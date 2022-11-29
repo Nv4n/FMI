@@ -22,10 +22,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(
+        Parent data = FXMLLoader.load(
                 Objects.requireNonNull(getClass().getResource("main.fxml")));
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(data);
 
         // Set the Window title
         stage.setTitle("");

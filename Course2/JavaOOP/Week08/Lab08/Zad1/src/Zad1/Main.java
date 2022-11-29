@@ -21,10 +21,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 //        FlowPane pane = new FlowPane(14, 14);
-        Parent root = FXMLLoader.load((
+        Parent data = FXMLLoader.load((
                 Objects.requireNonNull(getClass().getResource("mainScene.fxml"))));
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(data);
         scene.getStylesheets().add(
                 Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
 
