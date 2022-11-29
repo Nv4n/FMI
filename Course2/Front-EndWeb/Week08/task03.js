@@ -18,14 +18,14 @@ function mostCommonLetters(str) {
         letterCount[l] ??= 0;
         letterCount[l]++;
     }
-    let mostCommonLetters = [];
+    let mostCommonLetters = { ...letterCount };
     let biggestCount = Number.MIN_VALUE;
 
     // const letters = Object.entries(letterCount);
     for (const letter in letterCount) {
         if (letterCount[letter] > biggestCount) {
             biggestCount = letterCount[letter];
-            mostCommonLetters.splice(0);
+            mostCommonLetters = [];
             mostCommonLetters.push(letter);
         } else if (letterCount[letter] === biggestCount) {
             mostCommonLetters.push(letter);
@@ -57,6 +57,6 @@ console.log(contains50(arr));
 console.log(isSum50(arr));
 console.log(whatIsNeededForSumOf50(arr));
 
-console.log(mostCommonLetters("AAABDSDPAPPPP"));
+console.log(mostCommonLetters("AAABDSDPAPPP"));
 
 console.log(biggestPlatform([1, 1, 1, 5, 7, 7, 8, 8, 8, 8, 9]));
