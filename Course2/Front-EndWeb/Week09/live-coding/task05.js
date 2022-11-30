@@ -6,13 +6,13 @@ function countsObjPerType(arr) {
         typeCount[type]++;
     }
     const res = `
-    Strings: ${typeCount['string']}
-    Numbers: ${typeCount['number']}
-    Booleans: ${typeCount['boolean']}
-    Objects: ${typeCount['object']}
-    Functions: ${typeCount['function']}
+Strings: ${typeCount['string']}
+Numbers: ${typeCount['number']}
+Booleans: ${typeCount['boolean']}
+Objects: ${typeCount['object']}
+Functions: ${typeCount['function']}
     `;
-    console.log(res);
+    console.log(res.trim());
 }
 
 const input = [

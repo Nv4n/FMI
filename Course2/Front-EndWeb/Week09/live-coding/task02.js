@@ -1,3 +1,44 @@
+let str = [];
+for (let index = 'а'.charCodeAt(0); index <= 'я'.charCodeAt(0); index++) {
+    str.push(`'${String.fromCharCode(index)}': ''`);
+}
+console.log(str.join('\n'));
+const obj = {
+    'а': ''
+'б': ''
+'в': ''
+'г': ''
+'д': ''
+'е': ''
+'ж': ''
+'з': ''
+'и': ''
+'й': ''
+'к': ''
+'л': ''
+'м': ''
+'н': ''
+'о': ''
+'п': ''
+'р': ''
+'с': ''
+'т': ''
+'у': ''
+'ф': ''
+'х': ''
+'ц': ''
+'ч': ''
+'ш': ''
+'щ': ''
+'ъ': ''
+'ы': ''
+'ь': ''
+'э': ''
+'ю': ''
+'я': ''
+}
+
+
 function translate(name) {
     let [first, last] = name.split(' ');
 
