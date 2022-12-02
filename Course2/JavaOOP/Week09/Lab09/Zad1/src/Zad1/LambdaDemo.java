@@ -46,11 +46,11 @@ class LambdaDemo {
                 {
                         new Salesperson("John Doe", 2000, 949), //1
                         new Salesperson("Jane Doe", 3900, 1500), //2
-                        new Salesperson("June Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //3
+                        new Salesperson("John Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //3
                         new Salesperson("Bine Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //4
                         new Salesperson("Boe Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //5
                         new Salesperson("Kue Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //6
-                        new Salesperson("Lae Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //7
+                        new Salesperson("John Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //7
                         new Salesperson("Cie Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //8
                         new Salesperson("Lee Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //9
                         new Salesperson("Zeene Doe", rand.nextDouble(2000) + 2000, rand.nextInt(1000) + 500), //10
@@ -63,7 +63,7 @@ class LambdaDemo {
         for (Salesperson salesperson : salespersons) {
             System.out.println(salesperson);
             applyBonus(salesperson, predicate1, consumer1);
-            salesperson.printNumSales(salesperson);
+            System.out.println(salesperson.printNumSales(salesperson));
 
         }
         System.out.println("///////////////");
@@ -77,8 +77,14 @@ class LambdaDemo {
         sort(listOfSalespersons, comparator2);
         System.out.println(listOfSalespersons);
         System.out.println("////////////////");
+
+        salespersons[1] = salespersons[0].add(salespersons[0], salespersons[1]);
         group(List.of(salespersons));
+        System.out.println();
+        Set<Salesperson> distinctPeople = distinct(List.of(salespersons));
+        group(distinctPeople);
     }
+
 
     public static void applyBonus(Salesperson salesperson,
                                   Predicate<Salesperson>
@@ -113,7 +119,7 @@ class LambdaDemo {
         for (Salesperson person : salespersons) {
             char firstLetter = person.getName().charAt(0);
             if (!nameGroups.containsKey(firstLetter))
-                nameGroups.put(firstLetter, new ArrayList<Salesperson>());
+                nameGroups.put(firstLetter, new ArrayList<>());
 
             nameGroups.get(firstLetter).add(person);
         }
@@ -126,6 +132,31 @@ class LambdaDemo {
         });
         // Групирайте имената на salespersons по първата буква в
         // името изведете отделните групи на стандартен изход
+    }
+
+    private static void group(Set<Salesperson> salespersons) {
+        TreeMap<Character, Set<Salesperson>> nameGroups = new TreeMap<>();
+        for (Salesperson person : salespersons) {
+            char firstLetter = person.getName().charAt(0);
+            if (!nameGroups.containsKey(firstLetter))
+                nameGroups.put(firstLetter, new HashSet<>());
+
+            nameGroups.get(firstLetter).add(person);
+        }
+
+        nameGroups.forEach((letter, group) -> {
+            System.out.print(letter + ": ");
+            for (Salesperson person : group)
+                System.out.printf("%s, ", person.toString());
+            System.out.println();
+        });
+    }
+
+
+    public static Set<Salesperson> distinct(List<Salesperson>
+                                                    list) {
+        return new HashSet<>(list);
+        // връща Set на Salesperson с различни имена
     }
 }
 
