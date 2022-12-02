@@ -1,7 +1,6 @@
 package Zad3;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
@@ -12,22 +11,27 @@ public class Main {
         System.out.println(
                 numberSequence.reduce((a, b) -> a + "#" + b).get());
 
-        List<Integer> randomSequence = new Random().ints(5, 0, 30).boxed().toList();
+        List<Integer> randomSequence = new Random().ints(20, 0, 30).boxed().toList();
         Supplier<Stream<Object>> streamSupplier
                 = () -> Stream.of(randomSequence.toArray());
         streamSupplier.get().forEach(System.out::println);
 
-        boolean div5 = streamSupplier.get().anyMatch(a -> {
+        boolean isDividableBy5 = streamSupplier.get().anyMatch(a -> {
             if (a.getClass() == Integer.class)
                 return ((Integer) a % 5) == 0;
             else return false;
         });
-        boolean low15 = streamSupplier.get().allMatch(a -> {
+        boolean allLowerThan15 = streamSupplier.get().allMatch(a -> {
             if (a.getClass() == Integer.class)
                 return (Integer) a <= 15;
             else return false;
         });
-        System.out.println(div5);
-        System.out.println(low15);
+        int avg = Integer.parseInt(streamSupplier.get().reduce((a, b) -> (Integer) a + (Integer) b).get().toString()) / 20;
+
+        boolean hasAtLeast5LowerThanAvg = streamSupplier.get().filter(a -> Integer.parseInt(a.toString()) > avg).toArray().length > 5;
+
+        System.out.println(isDividableBy5);
+        System.out.println(allLowerThan15);
+        System.out.println(hasAtLeast5LowerThanAvg);
     }
 }
