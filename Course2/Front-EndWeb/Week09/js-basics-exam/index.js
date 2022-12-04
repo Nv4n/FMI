@@ -1,8 +1,5 @@
 const sumArrays = (arr1, arr2) => {
   // your code here
-  let inp1 = [];
-  let inp2 = [];
-
   function flatten(src, dis) {
     src.forEach(el => {
       if (Array.isArray(el)) {
@@ -13,6 +10,9 @@ const sumArrays = (arr1, arr2) => {
     });
   }
 
+  let inp1 = [];
+  let inp2 = [];
+
   flatten(arr1, inp1);
   flatten(arr2, inp2);
 
@@ -22,16 +22,10 @@ const sumArrays = (arr1, arr2) => {
 
   if (inp1.some(el => typeof el !== 'number') || inp2.some(el => typeof el !== 'number')) {
     let min = Number.MAX_VALUE;
-    inp1.forEach(el => {
-      if (typeof el === 'number' && min > el) {
-        min = el;
-      }
-    });
-    inp2.forEach(el => {
-      if (typeof el === 'number' && min > el) {
-        min = el;
-      }
-    });
+    const findMin = (el) => min = typeof el === 'number' && min > el ? el : min;
+
+    inp1.forEach(el => findMin(el));
+    inp2.forEach(el => findMin(el));
     return `Min number found is ${min}`;
   }
 
@@ -56,20 +50,18 @@ const input = [
 
 const getTopStudents = students => {
   // your code here
-  const res = [...students].map(el => { return { ...el } });
-  return res.filter(stud => stud.mark >= 5.5);
+  return [...students].map(el => { return { ...el } }).filter(stud => stud.mark >= 5.5);
 };
 const getLowStudents = students => {
   // your code here
-  const res = [...students].map(el => { return { ...el } });
-  return res.filter(stud => stud.mark < 3);
+  return [...students].map(el => { return { ...el } }).filter(stud => stud.mark < 3);
 };
 const orderStudents = (students, criteria) => {
   // your code here
   let res;
 
   if (criteria !== undefined
-    && criteria.course !== undefined) {
+    && criteria?.course) {
     res = [...students].filter(stud => stud.course.match(criteria.course));
   } else {
     res = [...students];
@@ -78,27 +70,12 @@ const orderStudents = (students, criteria) => {
   res.map(stud => stud.mark = stud.mark >= 3 ? Math.round(stud.mark) : 2);
 
 
-
   if (criteria !== undefined
-    && criteria.type !== undefined
-    && criteria.type.match('descending')) {
-    res.sort((stud1, stud2) => {
-      if (stud1.mark > stud2.mark) {
-        return -1;
-      } else if (stud1.mark < stud2.mark) {
-        return 1;
-      } else return 0;
-    });
+    && criteria?.type?.match('descending')) {
+    res.sort((stud1, stud2) => stud2.mark - stud1.mark);
   } else {
-    res.sort((stud1, stud2) => {
-      if (stud1.mark > stud2.mark) {
-        return 1;
-      } else if (stud1.mark < stud2.mark) {
-        return -1;
-      } else return 0;
-    });
+    res.sort((stud1, stud2) => stud1.mark - stud2.mark);
   }
-
   return res;
 };
 
