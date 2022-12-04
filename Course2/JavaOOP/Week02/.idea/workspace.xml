@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0ee71237-78e4-4352-8eb0-089634bc098c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Lab2/Lab2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2bZad4/Lab2bZad4.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2bZad5/Lab2bZad5.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Week03/Lab3aPlus_Zad1/Lab3aPlus.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Week03/Lab3aPlus_Zad1/src/Zad1/Geometry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Week03/Lab3aPlus_Zad1/src/Zad2/Ellipse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Week03/Lab3aPlus_Zad1/src/Zad2/EllipseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Week03/Lab3aPlus_Zad1/src/Zad3/Sine.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GM0O4FGriVJMLwFkdxMZSH26Dg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Sybatron/Documents/repos/FMI/Course2/JavaOOP/Week02/Lab2bZad4"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ee71237-78e4-4352-8eb0-089634bc098c" name="Changes" comment="" />
+      <created>1666183109426</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666183109426</updated>
+      <workItem from="1666183110690" duration="32000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
