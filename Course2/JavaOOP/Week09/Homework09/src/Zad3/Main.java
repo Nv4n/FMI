@@ -9,7 +9,7 @@ public class Main {
         Stream<String> numberSequence =
                 Stream.iterate(1, n -> n + 1).limit(100).map(String::valueOf);
         System.out.println(
-                numberSequence.reduce((a, b) -> a + "#" + b).get());
+                numberSequence.reduce((a, b) -> a + "#" + b).orElse(""));
 
         List<Integer> randomSequence = new Random().ints(20, 0, 30).boxed().toList();
         Supplier<Stream<Object>> streamSupplier
@@ -26,7 +26,7 @@ public class Main {
                 return (Integer) a <= 15;
             else return false;
         });
-        int avg = Integer.parseInt(streamSupplier.get().reduce((a, b) -> (Integer) a + (Integer) b).get().toString()) / 20;
+        int avg = Integer.parseInt(streamSupplier.get().reduce((a, b) -> (Integer) a + (Integer) b).orElse(0).toString()) / 20;
 
         boolean hasAtLeast5LowerThanAvg = streamSupplier.get().filter(a -> Integer.parseInt(a.toString()) > avg).toArray().length > 5;
 

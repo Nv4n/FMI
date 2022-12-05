@@ -5,14 +5,7 @@
  */
 package Zad4;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.Random;
-import java.util.stream.Collector;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -20,8 +13,8 @@ import java.util.stream.Collectors;
  */
 public class SummaryStatistics {
 
-    private final List<Double> numbers = new ArrayList<Double>();
-    private final List<Company> companies = new ArrayList<Company>();
+    private final List<Double> numbers = new ArrayList<>();
+    private final List<Company> companies = new ArrayList<>();
     private final Random rand = new Random();
 
     private class Company {
@@ -75,29 +68,32 @@ public class SummaryStatistics {
         // mapToDouble because it is a stream specialized to work with primitives!!!
         OptionalDouble average = numbers.stream().mapToDouble(Double::doubleValue).average();
         System.out.println("Stream Numbers average: " + average);
-        return average.getAsDouble();
+        if (average.isPresent())
+            return average.getAsDouble();
+        else return -1;
     }
 
     public double statsWithStreamMin() {
-        // mapToDouble because it is a stream specialized to work with primnitives!!!
+        // mapToDouble because it is a stream specialized to work with primitives!!!
         OptionalDouble min = numbers.stream().mapToDouble(Double::doubleValue).min();
         System.out.println("Stream Numbers min: " + min);
-        return min.getAsDouble();
+        if (min.isPresent())
+            return min.getAsDouble();
+        else return -1;
     }
 
     public double statsWithStreamReduce() {
         // Find the sum
-        Optional<Double> sum = numbers.stream().reduce((a, b) -> a + b);
+        Optional<Double> sum = numbers.stream().reduce(Double::sum);
         System.out.println("Stream Numbers sum: " + sum);
-        return sum.get();
+        if (sum.isPresent())
+            return sum.get();
+        return -1;
     }
 
     public double allStatsWithStream() {
         // Find the sum
         DoubleSummaryStatistics stats = numbers.stream().collect(Collectors.summarizingDouble(Double::doubleValue));
-        //return stats.getAverage();
-        // return stats.getCount();
-        // return stats.getMin(); 
         System.out.println(stats);// print all the statistics!!!
         System.out.println("Stream Numbers all stats: " + stats);
         return stats.getSum();

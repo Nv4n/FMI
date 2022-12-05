@@ -8,7 +8,6 @@ package Zad4;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author eck
@@ -58,9 +57,7 @@ class Employee {
         Employee p6 = new Employee("Jason", Gender.MALE, LocalDate.of(1976,
                 Month.JUNE, 9), 3211.0);
 
-        List<Employee> persons = Arrays.asList(p1, p2, p3, p4, p5, p6);
-
-        return persons;
+        return Arrays.asList(p1, p2, p3, p4, p5, p6);
     }
 
     public static void statistics() {
