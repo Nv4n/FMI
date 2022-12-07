@@ -7,6 +7,7 @@ project(Week09_TreesT02)
 project(Week09_TreesT03)
 project(Week09_TreesT04)
 project(Week09_TreesT05)
+project(Week09_Ivo)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -33,3 +34,6 @@ add_executable(Week09_TreesT04
 
 add_executable(Week09_TreesT05
         Course2/StructuresOfData/Week09/exercises/tree19_5.cpp)
+
+add_executable(Week09_Ivo
+        Course2/StructuresOfData/Week09/Ivo/ivo.cpp)
