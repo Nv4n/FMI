@@ -8,6 +8,7 @@ package Zad4;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author eck
@@ -15,7 +16,6 @@ import java.util.*;
 class Employee {
 
     public enum Gender {
-
         MALE, FEMALE
     }
 
@@ -73,18 +73,13 @@ class Employee {
     }
 
     public void personsStatsByGenderList() {
-        Map<Gender, ArrayList<Employee>> genderGroups = new HashMap<>();
-        for (Employee e : persons()) {
-            if (!genderGroups.containsKey(e.gender))
-                genderGroups.put(e.gender, new ArrayList<>());
-            genderGroups.get(e.gender).add(e);
-        }
+        Map<Gender, List<Employee>> genderGroups =
+                persons().stream()
+                        .collect(Collectors.groupingBy(e -> e.gender, TreeMap::new, Collectors.toList()));
         genderGroups.forEach((g, employees) -> {
             System.out.printf("%s: ", g);
             System.out.println(employees.stream().map(Employee::toString).reduce((a, b) -> a + ", " + b).orElse("NONE"));
         });
-
-
     }
 
     public boolean equals(Object o) {

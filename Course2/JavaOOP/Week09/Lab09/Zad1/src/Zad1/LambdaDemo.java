@@ -70,7 +70,6 @@ class LambdaDemo {
         System.out.println("////////////////");
 
         salespersons[1] = salespersons[0].add(salespersons[0], salespersons[1]);
-        System.out.println("NEW STUFF");
         group(List.of(salespersons));
         System.out.println();
         Set<Salesperson> distinctPeople = distinct(List.of(salespersons));
