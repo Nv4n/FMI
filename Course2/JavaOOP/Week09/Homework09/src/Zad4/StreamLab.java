@@ -32,6 +32,9 @@ public class StreamLab {
         stats.companyStatsWithStreamAverage();
 
         Employee.statistics();
+        System.out.println();
+        new Employee().personsStatsByGenderList();
+        new Employee().personsStatsByGenderCount();
     }
 
 }

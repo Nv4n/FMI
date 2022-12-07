@@ -68,12 +68,12 @@ class Employee {
     public void personsStatsByGenderCount() {
         TreeMap<Gender, Integer> genderCounts = new TreeMap<>();
         for (Employee e : persons()) genderCounts.merge(e.gender, 1, Integer::sum);
-        genderCounts.forEach((g, v) -> System.out.printf("%s: %d", g, v));
+        genderCounts.forEach((g, v) -> System.out.printf("%s: %d%n", g, v));
 
     }
 
     public void personsStatsByGenderList() {
-        TreeMap<Gender, ArrayList<Employee>> genderGroups = new TreeMap<>();
+        Map<Gender, ArrayList<Employee>> genderGroups = new HashMap<>();
         for (Employee e : persons()) {
             if (!genderGroups.containsKey(e.gender))
                 genderGroups.put(e.gender, new ArrayList<>());
@@ -81,7 +81,7 @@ class Employee {
         }
         genderGroups.forEach((g, employees) -> {
             System.out.printf("%s: ", g);
-            System.out.println(employees.stream().map(Employee::toString).reduce((a, b) -> a + ", " + b).get());
+            System.out.println(employees.stream().map(Employee::toString).reduce((a, b) -> a + ", " + b).orElse("NONE"));
         });
 
 
