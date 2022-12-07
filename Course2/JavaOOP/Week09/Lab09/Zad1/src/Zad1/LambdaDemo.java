@@ -1,12 +1,11 @@
 package Zad1;
 
 import com.sun.source.tree.Tree;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 class LambdaDemo {
     public static void main(String[] args) {
@@ -24,21 +23,13 @@ class LambdaDemo {
             System.out.println(salesperson);
         };
 
-        Comparator<Salesperson> comparator1 = new Comparator<Salesperson>() {
-            @Override
-            public int compare(Salesperson o1, Salesperson o2) {
-                return Double.compare(o2.getSalary(), o1.getSalary());
-            }
-        };
-        Comparator<Salesperson> comparator2 = new Comparator<Salesperson>() {
-            @Override
-            public int compare(Salesperson o1, Salesperson o2) {
-                if (o1.getSalary() > o2.getSalary())
-                    return -1;
-                else if (o1.getSalary() < o2.getSalary())
-                    return 1;
-                else return Integer.compare(o2.getNumSales(), o1.getNumSales());
-            }
+        Comparator<Salesperson> comparator1 = (o1, o2) -> Double.compare(o2.getSalary(), o1.getSalary());
+        Comparator<Salesperson> comparator2 = (o1, o2) -> {
+            if (o1.getSalary() > o2.getSalary())
+                return -1;
+            else if (o1.getSalary() < o2.getSalary())
+                return 1;
+            else return Integer.compare(o2.getNumSales(), o1.getNumSales());
         };
 
         Random rand = new Random();
@@ -79,6 +70,7 @@ class LambdaDemo {
         System.out.println("////////////////");
 
         salespersons[1] = salespersons[0].add(salespersons[0], salespersons[1]);
+        System.out.println("NEW STUFF");
         group(List.of(salespersons));
         System.out.println();
         Set<Salesperson> distinctPeople = distinct(List.of(salespersons));
@@ -114,42 +106,18 @@ class LambdaDemo {
         salespersons.sort(comparator);
     }
 
-    public static void group(List<Salesperson> salespersons) {
-        TreeMap<Character, List<Salesperson>> nameGroups = new TreeMap<>();
-        for (Salesperson person : salespersons) {
-            char firstLetter = person.getName().charAt(0);
-            if (!nameGroups.containsKey(firstLetter))
-                nameGroups.put(firstLetter, new ArrayList<>());
-
-            nameGroups.get(firstLetter).add(person);
-        }
+    private static void group(Collection<Salesperson> salespersons) {
+        Map<Character, List<Salesperson>> nameGroups =
+                salespersons.stream()
+                        .collect(Collectors
+                                .groupingBy(sp -> sp.getName().charAt(0), TreeMap::new, Collectors.toList()));
 
         nameGroups.forEach((letter, group) -> {
             System.out.print(letter + ": ");
-            for (Salesperson person : group)
-                System.out.printf("%s, ", person.toString());
-            System.out.println();
+            System.out.println(group.stream().map(Salesperson::toString).collect(Collectors.joining(", ")));
         });
         // Групирайте имената на salespersons по първата буква в
         // името изведете отделните групи на стандартен изход
-    }
-
-    private static void group(Set<Salesperson> salespersons) {
-        TreeMap<Character, Set<Salesperson>> nameGroups = new TreeMap<>();
-        for (Salesperson person : salespersons) {
-            char firstLetter = person.getName().charAt(0);
-            if (!nameGroups.containsKey(firstLetter))
-                nameGroups.put(firstLetter, new HashSet<>());
-
-            nameGroups.get(firstLetter).add(person);
-        }
-
-        nameGroups.forEach((letter, group) -> {
-            System.out.print(letter + ": ");
-            for (Salesperson person : group)
-                System.out.printf("%s, ", person.toString());
-            System.out.println();
-        });
     }
 
 
