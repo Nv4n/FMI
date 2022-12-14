@@ -1,0 +1,122 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    padding: 0.25em 0.75em;
+    border: 1px solid tomato;
+}
+
+button:hover {
+    filter: brightness(75%);
+    cursor: pointer;
+}
+
+.wrapper {
+    display: flex;
+    width: max-content;
+    margin: 10em auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+#task-input {
+    width: 15em;
+    font-size: 1.5rem;
+    padding: 0.75em;
+}
+
+.filter-container {
+    display: flex;
+    gap: 1em;
+}
+
+.filter {
+    padding: 0.25em 0.75em;
+}
+
+.filter.active {
+    color: white;
+    background-color: black;
+}
+
+
+#list {
+    list-style: none;
+}
+
+#list>:where(:not( :last-child)) {
+    border: 1px solid tomato;
+    border-bottom: none;
+}
+
+#list>:where(:last-child) {
+    border: 1px solid tomato;
+}
+
+.task {
+    padding: 0.25em 1em;
+    position: relative;
+
+    font-size: 1.25rem;
+
+
+    text-align: center;
+}
+
+.btn-remove {
+    padding: 0.25em;
+    position: absolute;
+    right: 0.25em;
+    top: 0.5em;
+
+    font-weight: bold;
+}
+
+.btn-remove:hover {
+    filter: brightness(75%);
+}
+
+.task>input[type="checkbox"] {
+    position: absolute;
+    left: 0.25em;
+    top: 0;
+    bottom: 0;
+}
+
+.task.done {
+    text-decoration: line-through;
+}
+
+.task.hidden {
+    display: none;
+}
+
+.task-stats-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+#tasks-left {
+    font-size: 1.25rem;
+    font-weight: bold;
+    user-select: none;
+}

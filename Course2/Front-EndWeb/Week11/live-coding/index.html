@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Live-coding</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>todos</h1>
+        <div class="todo-list">
+            <div class="task-input-container">
+                <input id="task-input" placeholder="Type your task">
+            </div>
+            <div class="filter-container">
+                <button class="filter" id="all-btn">All</button>
+                <button class="filter" id="active-btn">Active</button>
+                <button class="filter" id="completed-btn">Completed</button>
+            </div>
+            <ul id="list">
+                <li class="task">
+                    <input type="checkbox">
+                    <span>Task01</span>
+                    <button class="btn-remove">X</button>
+                </li>
+            </ul>
+            <div class="task-stats-container">
+                <span id="tasks-left">0 Left</span>
+                <button id="clear-completed">Clear completed</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
