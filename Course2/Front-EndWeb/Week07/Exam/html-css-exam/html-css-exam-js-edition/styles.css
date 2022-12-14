@@ -89,41 +89,15 @@ body {
 	accent-color: var(--brown);
 }
 
-.img-changer-container:has(#slon1-changer.img-changer-rad:checked)~.animal-figure>.animal-img {
-	content: url(./images/slon-1.webp);
-}
-
-.img-changer-container:has(#slon2-changer.img-changer-rad:checked)~.animal-figure>.animal-img {
-	content: url(./images/slon-2.webp);
-}
-
-.img-changer-container:has(#slon3-changer.img-changer-rad:checked)~.animal-figure>.animal-img {
-	content: url(./images/slon-3.jpeg);
-}
-
-.img-changer-container:has(#slon4-changer.img-changer-rad:checked)~.animal-figure>.animal-img {
-	content: url(./images/slon-4.jpeg);
-}
-
-.img-changer-container:has(#slon1-changer.img-changer-rad:checked)~#info-1 {
-	display: block;
-}
-
-.img-changer-container:has(#slon2-changer.img-changer-rad:checked)~#info-2 {
-	display: block;
-}
-
-.img-changer-container:has(#slon3-changer.img-changer-rad:checked)~#info-3 {
-	display: block;
-}
-
-.img-changer-container:has(#slon4-changer.img-changer-rad:checked)~#info-4 {
-	display: block;
-}
-
-
-
 .animal-info {
+	display: block;
+}
+
+.animal-info.hidden {
+	display: block;
+}
+
+.animal-info.hidden {
 	display: none;
 }
 
@@ -230,6 +204,4 @@ body {
 	.footer-nav-el {
 		padding: 2px;
 	}
-
-
 }

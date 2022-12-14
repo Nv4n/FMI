@@ -122,8 +122,11 @@ body {
 }
 
 
-
 .animal-info {
+	display: block;
+}
+
+.animal-info.hidden {
 	display: none;
 }
 
