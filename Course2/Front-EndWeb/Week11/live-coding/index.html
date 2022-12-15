@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Live-coding</title>
 </head>
 
@@ -13,11 +17,11 @@
     <div class="wrapper">
         <h1>todos</h1>
         <div class="todo-list">
-            <div class="task-input-container">
+            <div class="task-input-container material-icons">
                 <input id="task-input" placeholder="Type your task">
             </div>
             <div class="filter-container">
-                <button class="filter" id="all-btn">All</button>
+                <button class="filter active" id="all-btn">All</button>
                 <button class="filter" id="active-btn">Active</button>
                 <button class="filter" id="completed-btn">Completed</button>
             </div>

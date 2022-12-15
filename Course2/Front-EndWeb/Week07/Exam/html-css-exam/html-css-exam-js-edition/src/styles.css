@@ -81,12 +81,26 @@ body {
 	margin: 48px 0;
 	width: 24px;
 	height: 24px;
+
 	cursor: pointer;
+	border-radius: 50%;
+	border: 3px solid #fff;
+	background-color: var(--black);
 	accent-color: var(--black);
+	outline: 2px solid var(--black);
+
+	-webkit-appearance: none;
+	appearance: none;
+	transition: all 50ms ease-out;
 }
 
-.img-changer-rad:checked {
-	accent-color: var(--brown);
+.img-changer-rad:is(:hover, :checked) {
+	background-color: var(--brown);
+	outline: 2px solid var(--brown);
+}
+
+.img-changer-rad:hover {
+	outline-offset: 1px;
 }
 
 .animal-info {
@@ -163,7 +177,7 @@ body {
 	text-decoration: none;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
 	#wrapper {
 		height: 844px;
 		width: 405px;
