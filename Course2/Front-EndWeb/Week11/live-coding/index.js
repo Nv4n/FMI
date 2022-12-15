@@ -103,51 +103,51 @@ function updateCounter() {
 
 updateCounter();
 
-function evalExp(expression) {
-    const nums = [];
-    const ops = [];
-    for (const char of expression) {
-        if (char === " ") {
-            continue;
-        }
-        if (/\d/.test(char)) {
-            nums.push(char.charCodeAt(0) - "0".charCodeAt(0));
-        } else if (/[*/+-]/.test(char)) {
-            ops.push(char);
-        }
-    };
-    //!FIXME Need to make the evaluate accurate
-    function evaluate() {
-        if (nums.length <= 1) {
-            return;
-        }
-        const operand1 = nums.pop();
-        const operand2 = nums.pop();
-        switch (ops.pop()) {
-            case "+":
-                nums.push(operand2 + operand1);
-
-                break;
-            case "-":
-                nums.push(operand2 - operand1);
-                break;
-            case "*":
-                nums.push(operand2 * operand1);
-                break;
-            case "/": {
-                if (operand1 === 0) {
-                    nums.push(NaN);
-                    return;
-                }
-                nums.push(operand2 / operand1);
-                break;
-            }
-            default:
-                console.error('bad stuff happened');
-                break;
-        }
-        evaluate(nums, ops);
+class Node {
+    constructor(value) {
+        this.data = value;
+        this.left = undefined;
+        this.right = undefined;
     }
-    evaluate();
-    return nums.pop();
+};
+
+function expressionParser(tree, i, expression) {
+    if (i >= expression.length - 1) {
+        tree.data = expression[i];
+        return;
+    }
+    const num = expression[i++].charCodeAt(0) - '0'.charCodeAt(0); //getting the int value
+    const operand = expression[i++];
+    tree.data = operand;
+    tree.left = new Node(num);
+    tree.right = new Node(undefined);
+    expressionParser(tree.right, i, expression);
+}
+
+function expressionEval(tree) {
+    if (tree.left === undefined && tree.right === undefined) {
+        return tree.data;
+    }
+    switch (tree.data) {
+        case '+':
+            return tree.left.data + expressionEval(tree.right);
+        case '-':
+            return tree.left.data - expressionEval(tree.right);
+        case '*':
+            return tree.left.data * expressionEval(tree.right);
+        case '/':
+            return tree.left.data / expressionEval(tree.right);
+        default:
+            console.error('Undefined symbol');
+            return;
+    }
+}
+
+function evalExp(expression) {
+
+    const exprArray = Array.from(expression.replaceAll(' ', ''));
+    let tree = new Node(undefined);
+    expressionParser(tree, 0, exprArray);
+    console.log(tree);
+    return expressionEval(tree);
 }

@@ -68,7 +68,7 @@ body {
 	padding-bottom: 170px;
 }
 
-.main-container>* {
+.main-container > * {
 	margin: 0 auto;
 }
 
@@ -91,15 +91,12 @@ body {
 
 	-webkit-appearance: none;
 	appearance: none;
-	transition: all 50ms ease-out;
+	transition: all 75ms ease-out;
 }
 
 .img-changer-rad:is(:hover, :checked) {
 	background-color: var(--brown);
-	outline: 2px solid var(--brown);
-}
-
-.img-changer-rad:hover {
+	outline-color: var(--brown);
 	outline-offset: 1px;
 }
 
@@ -133,11 +130,12 @@ body {
 .form {
 	display: flex;
 	margin-top: 412px;
-
 	padding: 32px;
-	border-radius: 10px;
+
 	flex-direction: column;
 	justify-content: center;
+
+	border-radius: 10px;
 	background-color: var(--brown);
 }
 
@@ -152,16 +150,25 @@ body {
 .form-input {
 	min-height: 2em;
 	border-radius: 8px;
+	padding-top: 0.1rem;
+	padding-left: 0.5rem;
 	resize: none;
 }
 
+.form-input:where(textarea) {
+	padding-top: 0.5rem;
+}
+
 .form-btn {
+	margin: 0 auto;
 	margin-top: 48px;
+	width: 100%;
 	padding: 16px 0;
+	font-weight: bold;
+	cursor: pointer;
 	color: var(--black);
 	background-color: var(--yellow);
 	border-radius: 8px;
-	font-weight: bold;
 }
 
 .footer {

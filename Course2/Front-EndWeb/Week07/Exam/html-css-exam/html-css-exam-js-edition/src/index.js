@@ -1,3 +1,5 @@
+//Styles were changed for the radio buttons compared to exam version
+
 const radioBtns = document.getElementById("img-changer-container");
 const slonImg = document.getElementById("animal-img");
 const slonInfos = document.getElementsByClassName("animal-info");
