@@ -45,6 +45,12 @@ list.addEventListener("click", (event) => {
 
 const filterBtns = document.querySelector(".filter-container");
 filterBtns.addEventListener("click", (event) => {
+    if (!/\w{1,}-btn/.test(event.target.id)) {
+        return;
+    }
+    if (event.target.classList.contains("active")) {
+        return;
+    }
     for (const element of filterBtns.children) {
         element.classList.remove("active");
     }
@@ -109,14 +115,14 @@ class Node {
         this.left = undefined;
         this.right = undefined;
     }
-};
+}
 
 function expressionParser(tree, i, expression) {
     if (i >= expression.length - 1) {
         tree.data = expression[i];
         return;
     }
-    const num = expression[i++].charCodeAt(0) - '0'.charCodeAt(0); //getting the int value
+    const num = expression[i++].charCodeAt(0) - "0".charCodeAt(0); //getting the int value
     const operand = expression[i++];
     tree.data = operand;
     tree.left = new Node(num);
@@ -129,25 +135,23 @@ function expressionEval(tree) {
         return tree.data;
     }
     switch (tree.data) {
-        case '+':
+        case "+":
             return tree.left.data + expressionEval(tree.right);
-        case '-':
+        case "-":
             return tree.left.data - expressionEval(tree.right);
-        case '*':
+        case "*":
             return tree.left.data * expressionEval(tree.right);
-        case '/':
+        case "/":
             return tree.left.data / expressionEval(tree.right);
         default:
-            console.error('Undefined symbol');
+            console.error("Undefined symbol");
             return;
     }
 }
 
 function evalExp(expression) {
-
-    const exprArray = Array.from(expression.replaceAll(' ', ''));
+    const exprArray = Array.from(expression.replaceAll(" ", ""));
     let tree = new Node(undefined);
     expressionParser(tree, 0, exprArray);
-    console.log(tree);
     return expressionEval(tree);
 }
