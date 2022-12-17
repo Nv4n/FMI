@@ -5,7 +5,7 @@
 #include <cmath>
 
 struct Node {
-    int data;
+    const char *data;
     Node *left;
     Node *right;
 };
@@ -94,11 +94,11 @@ int main() {
                                    new Node{6, nullptr, nullptr},
                                    nullptr}};
 
-    std::cout << count(root) << std::endl;
-    std::cout << countEvens(root) << std::endl;
-    std::cout << height(root) << std::endl;
-    std::cout << countLeaves(root) << std::endl;
-    std::cout << getElement(root, "LLR") << std::endl;
-    std::cout << maxLeaf(root) << std::endl;
-//    std::cout << searchCount(root, reinterpret_cast<bool (*)(const int &)>()) << std::endl;
+    std::cout << "count: " << count(root) << std::endl;
+    std::cout << "countEvens: " << countEvens(root) << std::endl;
+    std::cout << "searchCount: " << searchCount(root, [](const int &a) -> bool { return a >= 5; }) << std::endl;
+    std::cout << "height: " << height(root) << std::endl;
+    std::cout << "countLeaves: " << countLeaves(root) << std::endl;
+    std::cout << "maxLeaf: " << maxLeaf(root) << std::endl;
+    std::cout << "getElement: " << getElement(root, "LLR") << std::endl;
 }

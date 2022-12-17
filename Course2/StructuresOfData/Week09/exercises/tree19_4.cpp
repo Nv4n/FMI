@@ -5,7 +5,7 @@
 #include <cassert>
 
 struct Node {
-    char data;
+    const char data;
     Node *left;
     Node *right;
 };
@@ -77,7 +77,7 @@ void prettyPrint(Node *root) {
 
 double calculateExpresisonTree(Node *root) {
     if (!root->left && !root->right) {
-        return root->data - '0';
+        return (root->data - '0') * 1.0;
     }
     switch (root->data) {
         case '+':
@@ -95,5 +95,6 @@ double calculateExpresisonTree(Node *root) {
 int main() {
     Node *root = parseExpression("(1*(2+3)");
     prettyPrint(root);
+    std::cout << std::endl;
     std::cout << calculateExpresisonTree(root) << std::endl;
 }

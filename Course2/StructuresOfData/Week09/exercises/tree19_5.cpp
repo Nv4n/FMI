@@ -30,6 +30,16 @@ std::string serializeTreeHaskell(Node<char> *root, int row = 0) {
            serializeTreeHaskell<char>(root->right, row + 1);
 }
 
+template<class T>
+std::string serializeTreeHaskell(Node<T> *root, int row = 0) {
+    if (root == nullptr) {
+        return " Empty";
+    }
+    std::string spaces(row * 5, ' ');
+    return "\n" + spaces + "Node " + std::to_string(root->data) + serializeTreeHaskell<T>(root->left, row + 1) +
+           serializeTreeHaskell<T>(root->right, row + 1);
+}
+
 
 Node<char> *wordToTree(int h, char *&s, int level = 0) {
     if (*s == '\0') {
@@ -49,14 +59,39 @@ Node<char> *wordToTree(int h, char *&s, int level = 0) {
     return root;
 }
 
+int count(Node<int> *root) {
+    if (!root) {
+        return 0;
+    }
+    return 1 + count(root->left) + count(root->right);
+}
+
+Node<int> *subtreeCountTree(Node<int> *root) {
+    if (!root) {
+        return nullptr;
+    }
+    return new Node<int>{count(root),
+                         subtreeCountTree(root->left),
+                         subtreeCountTree(root->right)};
+}
+
 int main() {
-//    Node *root = createPBT(4);
-//    std::cout << serializeTreeHaskell(root) << std::endl;
-    char *str = new char[6]{'H', 'e', 'l', 'l', 'o',};
-    int n = 5;
+    Node<int> *root = createPBT(4);
+    std::cout << serializeTreeHaskell<int>(root) << std::endl;
+    char *str = new char[6]{'H', 'e', 'l', 'l', 'o'};
+//    int n = 5;
     int h = 0;
-    for (; n >= std::pow(2, h); ++h);
+    for (int n = 5; n >= std::pow(2, h); ++h);
 
     Node<char> *root2 = wordToTree(h, str);
     std::cout << serializeTreeHaskell<char>(root2) << std::endl;
+
+    Node<int> *root3 = new Node<int>{10,
+                                     new Node<int>{5,
+                                                   new Node<int>{2}},
+                                     new Node<int>{20,
+                                                   new Node<int>{15},
+                                                   new Node<int>{25,
+                                                                 new Node<int>{22}}}};
+    std::cout << serializeTreeHaskell<int>(subtreeCountTree(root3)) << std::endl;
 }

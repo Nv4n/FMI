@@ -4,7 +4,7 @@
 #include <iostream>
 
 struct Node {
-    int data;
+    const char *data;
     Node *next;
 };
 

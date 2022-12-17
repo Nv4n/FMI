@@ -9,7 +9,7 @@
 #include <cassert>
 
 struct Node {
-    int data;
+    const char *data;
     Node *left;
     Node *right;
 };
@@ -101,7 +101,7 @@ int main() {
                                    new Node{15},
                                    new Node{25}}};
 
-//    prettyPrint(root);
+    prettyPrint(root);
 //    std::string scheme = serializeTree(root);
 //    Node *root2 = parse(scheme);
 //    prettyPrint(root2);
