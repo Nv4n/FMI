@@ -82,3 +82,95 @@ function triggerValidate(pattern, element) {
 function validate(pattern, element) {
     return pattern.test(element.value.trim())
 }
+
+const sortNameBtn = document.getElementById('sortNameBtn');
+sortNameBtn.addEventListener('click', (event) => {
+    const reversed = event.target.dataset.reversed === 'true';
+    event.target.setAttribute('data-reversed', !reversed);
+    const students = [...studentTable.querySelectorAll('tr')];
+
+    if (!reversed) {
+        students.sort((s1, s2) => {
+            const s1Name = getName(s1);
+            const s2Name = getName(s2);
+            return s1Name.localeCompare(s2Name);
+        });
+    } else {
+        students.sort((s1, s2) => {
+            const s1Name = getName(s1);
+            const s2Name = getName(s2);
+            return s2Name.localeCompare(s1Name);
+        });
+    }
+    studentTable.innerHTML = '';
+    studentTable.append(...students);
+});
+
+function getName(student) {
+    return student.querySelector('td:nth-child(1)').textContent.trim()
+        + ' '
+        + student.querySelector('td:nth-child(2)').textContent.trim();
+}
+
+const sortGradeBtn = document.getElementById('sortGradeBtn');
+sortGradeBtn.addEventListener('click', (event) => {
+    const reversed = event.target.dataset.reversed === 'true';
+    event.target.setAttribute('data-reversed', !reversed);
+    const students = [...studentTable.querySelectorAll('tr')];
+
+    if (!reversed) {
+        students.sort((s1, s2) => {
+            const s1Grade = getGrade(s1);
+            const s2Grade = getGrade(s2);
+            return s1Grade.localeCompare(s2Grade);
+        });
+    } else {
+        students.sort((s1, s2) => {
+            const s1Grade = getGrade(s1);
+            const s2Grade = getGrade(s2);
+            return s2Grade.localeCompare(s1Grade);
+        });
+    }
+    studentTable.innerHTML = '';
+    studentTable.append(...students);
+});
+
+function getGrade(student) {
+    return student.querySelector('td:nth-child(4)').textContent;
+}
+
+const showAllBtn = document.getElementById('showAllBtn');
+showAllBtn.addEventListener('click', (event) => {
+    const students = studentTable.querySelectorAll('tr');
+    students.forEach(el => {
+        el.classList.remove('hidden');
+    });
+});
+
+const showGreenBtn = document.getElementById('showGreenBtn');
+showGreenBtn.addEventListener('click', (event) => {
+    const students = studentTable.querySelectorAll('tr');
+    students.forEach(el => {
+        const grade = Number.parseFloat(
+            el.querySelector('td:nth-child(4)').textContent);
+        if (grade < 5.5) {
+            el.classList.add('hidden');
+        } else {
+            el.classList.remove('hidden');
+        }
+    });
+});
+
+const showNotGreenBtn = document.getElementById('showNotGreenBtn');
+showNotGreenBtn.addEventListener('click', (event) => {
+    const students = studentTable.querySelectorAll('tr');
+    students.forEach(el => {
+        const grade = Number.parseFloat(
+            el.querySelector('td:nth-child(4)').textContent);
+        if (grade >= 5.5) {
+            el.classList.add('hidden');
+        } else {
+            el.classList.remove('hidden');
+        }
+    });
+});
