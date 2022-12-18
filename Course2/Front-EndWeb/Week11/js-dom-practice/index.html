@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JS-DOM</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form id="studentForm">
+            <label for="studentName">Име:</label>
+            <br />
+            <input type="text" id="studentName" placeholder="Въведе име" />
+            <br />
+
+            <label for="studentFamily">Фамилия:</label>
+            <br />
+            <input type="text" id="studentFamily" placeholder="Въведе фамилия" />
+            <br />
+
+            <label for="studentNumber">Факултетен номер:</label>
+            <br />
+            <input id="studentNumber" type="number" placeholder="Въведе факултетен номер" />
+            <br />
+
+            <label for="studentGrade">Успех:</label>
+            <br />
+            <input type="text" id="studentGrade" placeholder="Въведе успех" />
+            <br />
+            <button>Въведи данните</button>
+        </form>
+        <div class="box green hidden">Успешно добавен студент</div>
+        <div class="box red hidden">Грешка!!</div>
+    </div>
+
+    <div class="wrapper">
+        <button id="filterBtn">Сортирай по име</button>
+        <button id="filterBtn">Сортирай по успех</button>
+        <button id="showAllBtn">Всички студенти</button>
+        <button id="showGreenBtn">Всички с достатъчен успех</button>
+        <button id="showNotGreenBtn">Всички без достатъчен успех</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>
+                        Име
+                    </th>
+                    <th>
+                        Фамилия
+                    </th>
+                    <th>
+                        Факултетен номер
+                    </th>
+                    <th>
+                        Успех
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Петър
+                    </td>
+                    <td>
+                        Петров
+                    </td>
+                    <td>
+                        344401
+                    </td>
+                    <td>
+                        3.2
+                    </td>
+                </tr>
+                <tr class="green">
+                    <td>
+                        Петър
+                    </td>
+                    <td>
+                        Петров
+                    </td>
+                    <td>
+                        344401
+                    </td>
+                    <td>
+                        5.9
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Петър
+                    </td>
+                    <td>
+                        Петров
+                    </td>
+                    <td>
+                        344401
+                    </td>
+                    <td>
+                        2.7
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
