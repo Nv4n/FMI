@@ -98,9 +98,7 @@ bool equals(Node<T> *t1, Node<T> *t2) {
     if (!t1 || !t2) {
         return false;
     }
-    if (t1->data != t2->data) {
-        return false;
-    }
+
     return t1->data == t2->data && equals(t1->left, t2->left) && equals(t1->right, t2->right);
 }
 
@@ -109,7 +107,10 @@ bool subtree(Node<T> *t1, Node<T> *t2) {
     if (!t1 || !t2) {
         return false;
     }
-    return equals(t1, t2) || subtree(t1->left, t2) || subtree(t1->right, t2);
+    if (t1->data == t2->data) {
+        return equals(t1, t2);
+    }
+    return subtree(t1->left, t2) || subtree(t1->right, t2);
 }
 
 int main() {
