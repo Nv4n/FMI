@@ -78,7 +78,7 @@ void convertToBST(Node *&root) {
     Node *result = nullptr;
     result = convertToBstHelper(root, result);
     delTree(root);
-//    root = result;
+    root = result;
 }
 
 

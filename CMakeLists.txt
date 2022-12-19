@@ -11,6 +11,7 @@ project(Week11_AdditionalT03)
 project(Week11_AdditionalT04)
 project(Week11_AdditionalT05)
 project(Week11_AdditionalT06)
+project(Week12_TreesT01)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -48,3 +49,6 @@ add_executable(Week11_AdditionalT05
 
 add_executable(Week11_AdditionalT06
         Course2/StructuresOfData/Week11/additional/task06.cpp)
+
+add_executable(Week12_TreesT01
+        Course2/StructuresOfData/Week12/task01.cpp)
