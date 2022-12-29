@@ -1,33 +1,33 @@
-//
-// Created by Sybatron on 12/19/2022.
-//
-#include <iostream>
+#include "PrettyPrint.h"
 
-template<class T>
-struct Node {
-    T data;
-    Node *left;
-    Node *right;
-};
-
-template<class T>
-bool equals(Node<T> *t1, Node<T> *t2) {
-    if (!t1 && !t2) {
-        return true;
+void getSmallestSumOfKHelper(Node<int> *root, int &k, int &sum) {
+    if (!root) {
+        return;
     }
-    if (!t1 || !t2) {
-        return false;
+    getSmallestSumOfKHelper(root->left, k, sum);
+    if (k > 0) {
+        sum += root->data;
+        k--;
     }
-    return t1->data == t2->data && equals(t1->left, t2->left) && equals(t1->right, t2->right);
+    if (k == 0) {
+        return;
+    }
+    getSmallestSumOfKHelper(root->right, k, sum);
 }
 
-template<class T>
-bool isSubTree(Node<T> *t1, Node<T> *t2) {
-    if (!t2) {
-        return true;
-    }
-    if (!t1) {
-        return false;
-    }
-    return equals(t1, t2) || isSubTree(t1->left, t2) || isSubTree(t1->right, t2);
+int getSmallestSumOfK(Node<int> *root, int k) {
+    int sum = 0;
+    getSmallestSumOfKHelper(root, k, sum);
+    return sum;
+}
+
+int main() {
+    Node<int> *root = new Node<int>{5,
+                                    new Node<int>{3,
+                                                  new Node<int>{1},
+                                                  new Node<int>{4}},
+                                    new Node<int>{10,
+                                                  new Node<int>{8},
+                                                  new Node<int>{20}}};
+    std::cout << getSmallestSumOfK(root, 7) << std::endl;
 }
