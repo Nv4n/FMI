@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane hgap="10.0" prefHeight="400.0" prefWidth="650.0" vgap="10.0" xmlns="http://javafx.com/javafx/18"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ProductManagerController">
+    <padding>
+        <Insets topRightBottomLeft="10.0"/>
+    </padding>
+    <Label maxWidth="1.7976931348623157E308" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+        Product details
+    </Label>
+    <Label maxWidth="1.7976931348623157E308" GridPane.rowIndex="1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+
+        Description
+    </Label>
+    <TextField fx:id="txtDescription" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label maxWidth="1.7976931348623157E308" GridPane.rowIndex="2">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+
+        Category
+    </Label>
+    <ComboBox fx:id="cboCategory" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="A"/>
+                <String fx:value="B"/>
+                <String fx:value="C"/>
+                <String fx:value="D"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Label maxWidth="1.7976931348623157E308" GridPane.rowIndex="3">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+
+        Price
+    </Label>
+    <TextField fx:id="txtPrice" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Button maxWidth="1.7976931348623157E308" onAction="#addToList" GridPane.rowIndex="4">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+        Add to List
+    </Button>
+    <Button maxWidth="1.7976931348623157E308" onAction="#sortProducts" GridPane.columnIndex="2" GridPane.rowIndex="1">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+        Sort Products
+    </Button>
+    <Button maxWidth="1.7976931348623157E308" onAction="#showProducts" GridPane.columnIndex="2" GridPane.rowIndex="2">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+        Show Products
+    </Button>
+    <Button maxWidth="1.7976931348623157E308" onAction="#averagePrice" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+        Average Price
+    </Button>
+    <Button maxWidth="1.7976931348623157E308" onAction="#groupByCategory" GridPane.columnIndex="2"
+            GridPane.rowIndex="4">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+        Group By Category
+    </Button>
+    <TextArea fx:id="txtInfo" editable="false" GridPane.columnSpan="2147483647" GridPane.rowIndex="5"/>
+    <columnConstraints>
+        <ColumnConstraints minWidth="-Infinity" prefWidth="125.0"/>
+        <ColumnConstraints prefWidth="350.0"/>
+        <ColumnConstraints maxWidth="-Infinity" prefWidth="125.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints prefHeight="50.0"/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints maxHeight="1.7976931348623157E308"/>
+    </rowConstraints>
+    <opaqueInsets>
+        <Insets left="10.0"/>
+    </opaqueInsets>
+</GridPane>
