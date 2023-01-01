@@ -25,7 +25,6 @@ public class ProductManagerController implements Initializable {
     private ComboBox<String> cboCategory;
     private ListOfProducts<Product> listOfProducts;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listOfProducts = new ListOfProducts<>();

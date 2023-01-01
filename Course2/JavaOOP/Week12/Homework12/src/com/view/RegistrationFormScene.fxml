@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.Tooltip?>
+<GridPane hgap="10.0" prefHeight="400.0" prefWidth="600.0" vgap="10.0" xmlns="http://javafx.com/javafx/18"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.FormController">
+    <Label maxWidth="1.7976931348623157E308">Username:</Label>
+    <TextField fx:id="txtUsername" GridPane.columnIndex="1">
+        <tooltip>
+            <Tooltip text="Only a-z and at least 2 letters"/>
+        </tooltip>
+    </TextField>
+    <Label maxWidth="1.7976931348623157E308" GridPane.rowIndex="1">Phone number:</Label>
+    <TextField fx:id="txtPhoneNumber" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <tooltip>
+            <Tooltip text="Example: (9999) (9999999)"/>
+        </tooltip>
+    </TextField>
+    <Label maxWidth="1.7976931348623157E308" GridPane.rowIndex="2">Email:</Label>
+    <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <tooltip>
+            <Tooltip text="no duplicate @, no spaces inside, no duplicate dots (dots without anything in between"/>
+        </tooltip>
+    </TextField>
+    <Label maxWidth="1.7976931348623157E308" GridPane.rowIndex="3">Password:</Label>
+    <TextField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label maxWidth="1.7976931348623157E308" GridPane.rowIndex="4">Confirm password:</Label>
+    <TextField fx:id="txtRePassword" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <tooltip>
+            <Tooltip text="Should be identical with the password"/>
+        </tooltip>
+    </TextField>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints maxWidth="1.7976931348623157E308" prefWidth="400.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+</GridPane>

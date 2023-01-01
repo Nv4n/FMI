@@ -30,6 +30,39 @@ public class EmployeeTest {
 
     public static void main(String[] args) {
         setup();
+        printSortedEmployeeNumber();
+        printSortedHireDate();
+
+        System.out.println();
+        printLongestTenuredEmployee();
+
+        printSortedFNameDescLName();
+    }
+
+    private static void printSortedFNameDescLName() {
+        System.out.println(employees.stream()
+                .sorted(
+                        Comparator.comparing(Employee::getEmployeeFirstName)
+                                .thenComparing(
+                                        Employee::getEmployeeLastName, Comparator.reverseOrder())
+                )
+                .map(Employee::toString)
+                .reduce("", (acc, el) -> acc + "\n" + el));
+    }
+
+    private static void printLongestTenuredEmployee() {
+        System.out.println(employees.stream().min(Comparator.comparing(Employee::getHireDate)));
+    }
+
+    private static void printSortedHireDate() {
+        System.out.println(employees.stream()
+                .sorted(
+                        Comparator.comparing(Employee::getHireDate))
+                .map(Employee::toString)
+                .reduce("", (acc, el) -> acc + "\n" + el));
+    }
+
+    private static void printSortedEmployeeNumber() {
         System.out.println(employees.stream()
                 .sorted(
                         Comparator.comparing(Employee::getEmployeeNumber))
