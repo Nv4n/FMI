@@ -1,0 +1,111 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-clr: #222333;
+    --icon-size: 3rem;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    min-height: 100vh;
+    background-color: var(--bg-clr);
+}
+
+.navigation {
+    display: flex;
+    padding: 1em;
+    list-style: none;
+    font-size: var(--icon-size);
+    background-color: white;
+    border-radius: 10px;
+    gap: 3rem;
+}
+
+.navigation li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: relative;
+    color: var(--bg-clr);
+    text-decoration: none;
+}
+
+
+.icon {
+    line-height: 1rem;
+    position: relative;
+    transition: 0.5s;
+}
+
+.icon-text {
+    position: absolute;
+    font-size: 2rem;
+    transform: translateY(3rem);
+    opacity: 0;
+
+    transition: 0.5s;
+}
+
+.navigation :where(li:hover, li.active) .icon {
+    transform: translateY(-2.5rem);
+}
+
+.navigation :where(li:hover, li.active) .icon-text {
+    opacity: 1;
+    transform: translateY(2rem);
+}
+
+.icon::before {
+    content: "";
+    transition: border-radius 0.5s;
+}
+
+.navigation li.active .icon::before {
+    --size-increse: 2rem;
+    --position: calc(-1 * var(--size-increse) + 0.25rem);
+    content: " ";
+
+    position: absolute;
+    z-index: -1;
+    left: var(--position);
+    top: var(--position);
+    bottom: 0;
+    width: calc(var(--icon-size) + var(--size-increse));
+    height: calc(var(--icon-size) + var(--size-increse));
+
+    background: greenyellow;
+    border-radius: 50%;
+    border: 0.75rem solid var(--bg-clr);
+}
+
+.navigation li.active .icon::after {
+    --size-increse: 2rem;
+    --position: calc(-0.5 * var(--icon-size) - 0.25rem);
+    content: " ";
+
+    position: absolute;
+    z-index: -2;
+    top: calc(-1 * var(--icon-size));
+    left: var(--position);
+    right: var(--position);
+    height: calc(var(--icon-size) + var(--size-increse));
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    background: var(--bg-clr);
+}
