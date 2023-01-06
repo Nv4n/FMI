@@ -22,5 +22,5 @@ add_executable(Week12_ExamV02T01
 add_executable(Week12_ExamV02T02
         Course2/StructuresOfData/Week12/examV02/tasks/problem2.cpp)
 
-add_executable(Week12_ExamV02T02
-        Course2/StructuresOfData/Week12/examV02/tasks/problem2.cpp)
+add_executable(Week13_JsonParser
+        Course2/StructuresOfData/Week13/JsonParser.cpp Course2/StructuresOfData/Week13/JsonParser.h Course2/StructuresOfData/Week13/CommandInterpreter.cpp Course2/StructuresOfData/Week13/CommandInterpreter.h)
