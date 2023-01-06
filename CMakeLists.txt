@@ -4,7 +4,7 @@ project(Week12_ExamV01T01)
 project(Week12_ExamV01T02)
 project(Week12_ExamV02T01)
 project(Week12_ExamV02T02)
-project(Week13_JsonParser)
+project(JsonParser)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -22,5 +22,10 @@ add_executable(Week12_ExamV02T01
 add_executable(Week12_ExamV02T02
         Course2/StructuresOfData/Week12/examV02/tasks/problem2.cpp)
 
-add_executable(Week13_JsonParser
-        Course2/StructuresOfData/Week13/JsonParser.cpp Course2/StructuresOfData/Week13/JsonParser.h Course2/StructuresOfData/Week13/CommandInterpreter.cpp Course2/StructuresOfData/Week13/CommandInterpreter.h)
+add_executable(JsonParser
+        Course2/StructuresOfData/JsonParser/src/JsonParser.cpp
+        Course2/StructuresOfData/JsonParser/headers/JsonParser.h
+        Course2/StructuresOfData/JsonParser/src/CommandInterpreter.cpp
+        Course2/StructuresOfData/JsonParser/headers/CommandInterpreter.h
+        Course2/StructuresOfData/JsonParser/src/CommandLineValidator.cpp
+        Course2/StructuresOfData/JsonParser/headers/CommandLineValidator.h)

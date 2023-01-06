@@ -3,10 +3,10 @@
 //
 
 #include <string>
-#include "JsonParser.h"
+#include "JsonParser/headers/JsonParser.h"
 
 JsonParser::JsonParser() {
-    
+
 }
 
 JsonParser::~JsonParser() {
