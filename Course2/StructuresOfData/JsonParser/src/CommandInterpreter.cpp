@@ -135,3 +135,5 @@ void CommandInterpreter::setParams(const std::vector<std::string> &params) {
 void CommandInterpreter::setCommandType(COMMAND_TYPE commandType) {
     CommandInterpreter::commandType = commandType;
 }
+
+CommandInterpreter::~CommandInterpreter() = default;

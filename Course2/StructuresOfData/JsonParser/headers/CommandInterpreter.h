@@ -20,6 +20,8 @@ private:
 public:
     CommandInterpreter();
 
+    virtual ~CommandInterpreter();
+
     const std::string &getFileName() const;
 
     const std::string &getCommand() const;
