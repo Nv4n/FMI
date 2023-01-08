@@ -28,4 +28,7 @@ add_executable(JsonParser
         Course2/StructuresOfData/JsonParser/src/CommandInterpreter.cpp
         Course2/StructuresOfData/JsonParser/headers/CommandInterpreter.h
         Course2/StructuresOfData/JsonParser/src/CommandLineValidator.cpp
-        Course2/StructuresOfData/JsonParser/headers/CommandLineValidator.h)
+        Course2/StructuresOfData/JsonParser/headers/CommandLineValidator.h Course2/StructuresOfData/JsonParser/src/main.cpp)
+
+file(COPY Course2/StructuresOfData/JsonParser/organization.json
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

@@ -5,17 +5,20 @@
 #ifndef WEEK13_JSONPARSER_JSONPARSER_H
 #define WEEK13_JSONPARSER_JSONPARSER_H
 
+#include <vector>
+#include <ostream>
+
 #pragma once
-struct JsonNode {
-    std::string value;
-    JsonNode *nextNode;
-    JsonNode *subNode;
-};
 
 class JsonParser {
 private:
-    JsonNode *root;
-    std::string jsonFileName;
+    struct JsonNode {
+        std::string key;
+        std::string value;
+        JsonNode *nextNode;
+        std::vector<JsonNode *> subNodes;
+    };
+    JsonNode *root{};
 public:
     JsonParser();
 
@@ -25,7 +28,18 @@ public:
 
     virtual ~JsonParser();
 
+    void readCmdLine();
+
 private:
+
+    void buildJsonTree(const std::string &fileName);
+
+    void buildNode(JsonNode *&root, std::ifstream &reader);
+
+    void lineInterpreter(const std::string &line, std::string &key, std::string &value);
+
+    bool hasOnlyThisSymbol(const std::string &line, const char searchedSymbol);
+
     void copy(const JsonParser &other);
 
     void copyNodes(JsonNode *&sourceNode, JsonNode *copyNode);
@@ -33,7 +47,6 @@ private:
     void destroy();
 
     void deleteNodes(JsonNode *&node);
-
 };
 
 

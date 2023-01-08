@@ -8,13 +8,19 @@
 #include "JsonParser/headers/CommandInterpreter.h"
 
 #pragma once
+//TODO
+//  Add error type to know which argument caused the error
 
 class CommandLineValidator {
 private:
     std::string commandLine;
-    size_t lastIndex;
+    size_t lastIndex{};
 public:
-    CommandLineValidator(const std::string &commandLine, CommandInterpreter &cmdInterpreter);
+    CommandLineValidator();
+
+    virtual ~CommandLineValidator();
+
+    void validate(const std::string &commandLine, CommandInterpreter &cmdInterpreter);
 
 private:
     bool validateCommandLine(CommandInterpreter &cmdInterpreter);
@@ -23,7 +29,7 @@ private:
 
     bool isFilenameValid(size_t &index, CommandInterpreter &cmdInterpreter);
 
-    bool isCmdValid(size_t &index, CommandInterpreter &cmdInterpreter);
+    bool isCommandValid(size_t &index, CommandInterpreter &cmdInterpreter);
 
     bool isParamsValid(size_t &index, CommandInterpreter &cmdInterpreter);
 

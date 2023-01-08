@@ -4,10 +4,15 @@
 
 #ifndef WEEK13_JSONPARSER_COMMANDINTERPRETER_H
 #define WEEK13_JSONPARSER_COMMANDINTERPRETER_H
+
+#include <string>
+#include <vector>
+
 #pragma once
 enum COMMAND_TYPE {
+    UNKNOWN = -1,
     FIND,
-    CHANGE,
+    OVERWRITE,
     CREATE
 };
 
@@ -16,7 +21,7 @@ private:
     std::string fileName;
     std::string command;
     std::vector<std::string> params;
-    COMMAND_TYPE commandType;
+    COMMAND_TYPE commandType = COMMAND_TYPE::UNKNOWN;
 public:
     CommandInterpreter();
 
@@ -34,13 +39,9 @@ public:
 
     void setCommand(const std::string &command);
 
-    void setParams(const std::vector<std::string> &params);
-
     void setCommandType(COMMAND_TYPE commandType);
 
-private:
-    bool validateCommandLine(const std::string &commandLine);
-
+    void pushToParams(const std::string &param);
 };
 
 

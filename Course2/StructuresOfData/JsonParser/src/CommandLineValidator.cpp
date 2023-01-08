@@ -2,13 +2,20 @@
 // Created by Sybatron on 1/6/2023.
 //
 #include <string>
+#include <stdexcept>
+#include <iostream>
 #include "JsonParser/headers/CommandLineValidator.h"
 
-CommandLineValidator::CommandLineValidator(const std::string &commandLine, CommandInterpreter &cmdInterpreter) {
+CommandLineValidator::CommandLineValidator() = default;
+
+void CommandLineValidator::validate(const std::string &commandLine, CommandInterpreter &cmdInterpreter) {
     this->commandLine = commandLine;
-    lastIndex = commandLine.size() - 1;
-    while (commandLine[lastIndex] != ' ') { lastIndex--; }
-    validateCommandLine(cmdInterpreter);
+    //Get the index of last valid character
+    lastIndex = this->commandLine.size() - 1;
+    while (lastIndex >= 0 && this->commandLine[lastIndex] == ' ') { lastIndex--; }
+    if (!validateCommandLine(cmdInterpreter)) {
+        throw std::runtime_error("Invalid command line");
+    }
 }
 
 bool CommandLineValidator::validateCommandLine(CommandInterpreter &cmdInterpreter) {
@@ -16,6 +23,7 @@ bool CommandLineValidator::validateCommandLine(CommandInterpreter &cmdInterprete
     if (commandLine.empty()) {
         return false;
     }
+    //CmdStart FileName Cmd  Params [changeType depending on conditions]
     size_t index = 0;
     if (!isCmdStartValid(index)) {
         return false;
@@ -23,6 +31,11 @@ bool CommandLineValidator::validateCommandLine(CommandInterpreter &cmdInterprete
 
     skipSpace(index);
     if (!isFilenameValid(index, cmdInterpreter)) {
+        return false;
+    }
+
+    skipSpace(index);
+    if (!isCommandValid(index, cmdInterpreter)) {
         return false;
     }
 
@@ -60,18 +73,18 @@ bool CommandLineValidator::isFilenameValid(size_t &index, CommandInterpreter &cm
     }
 
     //Get and validate the extension of the file
-    std::string fileNameValidator;
+    std::string extensionValidator;
     for (size_t i = fileName.size() - 5; i < fileName.size(); ++i) {
-        fileNameValidator += fileName[i];
+        extensionValidator += fileName[i];
     }
-    if (fileNameValidator != ".json") {
+    if (extensionValidator != ".json") {
         return false;
     }
     cmdInterpreter.setFileName(fileName);
     return true;
 }
 
-bool CommandLineValidator::isCmdValid(size_t &index, CommandInterpreter &cmdInterpreter) {
+bool CommandLineValidator::isCommandValid(size_t &index, CommandInterpreter &cmdInterpreter) {
     //Validate if the command exist
     std::string command;
     while (index <= lastIndex && commandLine[index] != ' ') {
@@ -87,38 +100,40 @@ bool CommandLineValidator::isCmdValid(size_t &index, CommandInterpreter &cmdInte
 bool CommandLineValidator::isParamsValid(size_t &index, CommandInterpreter &cmdInterpreter) {
     //Validate all params
     std::string currParam;
-    COMMAND_TYPE commandType;
 
-    //Find has only one
     if (cmdInterpreter.getCommand() == "-find") {
-        commandType = COMMAND_TYPE::FIND;
+        //Check if there is a find-key
+        cmdInterpreter.setCommandType(COMMAND_TYPE::FIND);
         if (!isParameterValid(index, cmdInterpreter)) {
             return false;
         }
-
-        if (!hasReachedCmdEnd(index)) {
-            return false;
-        }
-    }
-
-    if (cmdInterpreter.getCommand() == "-change") {
+    } else if (cmdInterpreter.getCommand() == "-change") {
+        //Check if we have path and change value
         for (int i = 0; i < 2; ++i) {
             if (!isParameterValid(index, cmdInterpreter)) {
                 return false;
             }
+            skipSpace(index);
         }
-        std::string las
-//GET LAST TYPE
-        if (!hasReachedCmdEnd(index)) {
+
+        //Check if the change type is valid
+        std::string changeType;
+        while (index <= lastIndex) { changeType += commandLine[index++]; }
+        if (changeType != "-overwrite" && changeType != "-create") {
             return false;
         }
+        cmdInterpreter.setCommandType(
+                changeType == "-overwrite" ? COMMAND_TYPE::OVERWRITE : COMMAND_TYPE::CREATE);
+    }
+
+    //Check if we reached command_line's end
+    if (!hasReachedCmdEnd(index)) {
+        return false;
     }
     return true;
 }
 
 bool CommandLineValidator::isParameterValid(size_t &index, CommandInterpreter &cmdInterpreter) {
-    skipSpace(index);
-    index++; //Go to first " symbol
     if (commandLine[index++] != '"') {
         return false;
     }
@@ -127,11 +142,11 @@ bool CommandLineValidator::isParameterValid(size_t &index, CommandInterpreter &c
     while (index != commandLine.size() && commandLine[index] != '"') {
         currParam += commandLine[index++];
     }
-    if (currParam.empty() || index == commandLine.size()) {
+    if (currParam.empty()) {
         return false;
     }
     index++;
-    cmdInterpreter.getParams().push_back(currParam);
+    cmdInterpreter.pushToParams(currParam);
     return true;
 }
 
@@ -140,11 +155,12 @@ void CommandLineValidator::skipSpace(size_t &index) {
 }
 
 bool CommandLineValidator::hasReachedCmdEnd(size_t &index) {
-    index++;
-    if (index != lastIndex ) {
+    if (index != lastIndex + 1) {
         return false;
     }
     return true;
 }
+
+CommandLineValidator::~CommandLineValidator() = default;
 
 
