@@ -127,7 +127,7 @@ void JsonParser::buildNode(JsonParser::JsonNode *&root, std::ifstream &reader) {
     }
     if (value == "[") {
         value = "";
-        while (reader.eof()) {
+        while (!reader.eof()) {
             std::getline(reader, line);
             if (hasOnlyThisSymbol(line, ']')) {
                 break;
@@ -135,7 +135,9 @@ void JsonParser::buildNode(JsonParser::JsonNode *&root, std::ifstream &reader) {
             if (!hasOnlyThisSymbol(line, '{')) {
                 throw std::runtime_error("File is not in json format");
             }
-            root->subNodes.push_back(new JsonNode{});
+            auto *tempNode = new JsonNode{"", ""};
+            //FIXME
+            root->subNodes.push_back(tempNode);
             buildNode(root->subNodes.back(), reader);
         }
 //TODO
@@ -161,7 +163,7 @@ void JsonParser::lineInterpreter(const std::string &line, std::string &key, std:
     size_t index = 0;
     while (index < line.size() && line[index++] != '"') {}
     while (index < line.size() && line[index] != '"') {
-        key += line[index];
+        key += line[index++];
     }
     if (key.empty()) {
         throw std::runtime_error("File is not in json format");
@@ -173,17 +175,17 @@ void JsonParser::lineInterpreter(const std::string &line, std::string &key, std:
         }
     }
     while (index < line.size() &&
-           line[index] != '"' ||
-           line[index] != '[' ||
+           line[index] != '"' &&
+           line[index] != '[' &&
            line[index] != '{') {
         index++;
     }
-    if (index + 1 < line.size() && line[index] != '"') {
+    if (index < line.size() && line[index] != '"') {
         value = line[index];
     } else {
+        index++;//skip the first
         while (index < line.size() && line[index] != '"') {
-            value += line[index];
-            index++;
+            value += line[index++];
         }
     }
 }
@@ -191,7 +193,7 @@ void JsonParser::lineInterpreter(const std::string &line, std::string &key, std:
 bool JsonParser::hasOnlyThisSymbol(const std::string &line, const char searchedSymbol) {
     size_t index = 0;
     if (line[index] == ' ') {
-        while (line[index++] != ' ') {}
+        while (line[index] == ' ') { index++; }
     }
     if (line[index] == searchedSymbol) {
         return true;
