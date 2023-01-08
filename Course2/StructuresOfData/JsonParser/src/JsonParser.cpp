@@ -137,7 +137,7 @@ void JsonParser::buildNode(JsonParser::JsonNode *&root, std::ifstream &reader) {
             }
             auto *tempNode = new JsonNode{"", ""};
             //FIXME
-            root->subNodes.push_back(tempNode);
+            root->subNodes(tempNode);
             buildNode(root->subNodes.back(), reader);
         }
 //TODO
