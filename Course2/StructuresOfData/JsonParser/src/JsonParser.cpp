@@ -97,8 +97,8 @@ void JsonParser::buildJsonTree(const std::string &fileName) {
         throw std::runtime_error("File couldn't be open");
     }
     std::string firstLine;
-    reader >> firstLine;
-    if (firstLine != "{") {
+    std::getline(reader, firstLine);
+    if (!hasOnlyThisSymbol(firstLine, '{')) {
         throw std::runtime_error("File is not in json format");
     }
     destroy();
@@ -112,7 +112,7 @@ void JsonParser::buildNode(JsonParser::JsonNode *&root, std::ifstream &reader) {
         throw std::runtime_error("File is not in json format");
     }
     std::string line;
-    reader >> line;
+    std::getline(reader, line);
     //End of object
     if (hasOnlyThisSymbol(line, '}')) {
         return;
@@ -127,16 +127,27 @@ void JsonParser::buildNode(JsonParser::JsonNode *&root, std::ifstream &reader) {
     }
     if (value == "[") {
         value = "";
-        reader >> line;
-        if (!hasOnlyThisSymbol(line, '{')) {
-            throw std::runtime_error("File is not in json format");
+        while (reader.eof()) {
+            std::getline(reader, line);
+            if (hasOnlyThisSymbol(line, ']')) {
+                break;
+            }
+            if (!hasOnlyThisSymbol(line, '{')) {
+                throw std::runtime_error("File is not in json format");
+            }
+            root->subNodes.push_back(new JsonNode{});
+            buildNode(root->subNodes.back(), reader);
         }
-//        root.
 //TODO
 //  NEED NODE TYPE ENUM
     } else if (value == "{") {
         value = "";
-
+        std::getline(reader, line);
+        if (!hasOnlyThisSymbol(line, '{')) {
+            throw std::runtime_error("File is not in json format");
+        }
+        root->subNodes.push_back(new JsonNode{});
+        buildNode(root->subNodes.back(), reader);
     } else if (root == nullptr) {
         root = new JsonNode{key, value};
     } else {
@@ -179,7 +190,9 @@ void JsonParser::lineInterpreter(const std::string &line, std::string &key, std:
 
 bool JsonParser::hasOnlyThisSymbol(const std::string &line, const char searchedSymbol) {
     size_t index = 0;
-    while (line[index++] != ' ') {}
+    if (line[index] == ' ') {
+        while (line[index++] != ' ') {}
+    }
     if (line[index] == searchedSymbol) {
         return true;
     }
