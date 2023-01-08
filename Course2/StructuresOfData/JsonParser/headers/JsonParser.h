@@ -12,13 +12,21 @@
 
 class JsonParser {
 private:
+    enum JsonNodeType {
+        UNKNOWN = -1,
+        VALUE,
+        OBJECT,
+        ARRAY
+    };
+
     struct JsonNode {
         std::string key;
         std::string value;
         JsonNode *nextNode;
         std::vector<JsonNode *> subNodes;
+        JsonNodeType type = JsonNodeType::UNKNOWN;
     };
-    JsonNode *root{};
+    JsonNode *root;
 public:
     JsonParser();
 

@@ -9,7 +9,9 @@
 #include "JsonParser/headers/CommandLineValidator.h"
 #include "JsonParser/headers/CommandInterpreter.h"
 
-JsonParser::JsonParser() = default;
+JsonParser::JsonParser() {
+    root = new JsonNode{};
+}
 
 JsonParser::~JsonParser() {
     destroy();
@@ -125,9 +127,15 @@ void JsonParser::buildNode(JsonParser::JsonNode *&root, std::ifstream &reader) {
     if (value.empty()) {
         throw std::runtime_error("File is not in json format");
     }
+    if (!root) {
+        root = new JsonNode{key, ""};
+    } else {
+        root->key = key;
+    }
     if (value == "[") {
-        value = "";
+        root->type = JsonNodeType::ARRAY;
         while (!reader.eof()) {
+            std::streampos pos = reader.tellg();
             std::getline(reader, line);
             if (hasOnlyThisSymbol(line, ']')) {
                 break;
@@ -135,25 +143,14 @@ void JsonParser::buildNode(JsonParser::JsonNode *&root, std::ifstream &reader) {
             if (!hasOnlyThisSymbol(line, '{')) {
                 throw std::runtime_error("File is not in json format");
             }
-            auto *tempNode = new JsonNode{"", ""};
-            //FIXME
-            root->subNodes(tempNode);
+            reader.seekg(pos, std::ios::beg);
+            root->subNodes.push_back(new JsonNode{});
             buildNode(root->subNodes.back(), reader);
         }
-//TODO
-//  NEED NODE TYPE ENUM
     } else if (value == "{") {
-        value = "";
-        std::getline(reader, line);
-        if (!hasOnlyThisSymbol(line, '{')) {
-            throw std::runtime_error("File is not in json format");
-        }
         root->subNodes.push_back(new JsonNode{});
         buildNode(root->subNodes.back(), reader);
-    } else if (root == nullptr) {
-        root = new JsonNode{key, value};
     } else {
-        root->key = key;
         root->value = value;
     }
     buildNode(root->nextNode, reader);
