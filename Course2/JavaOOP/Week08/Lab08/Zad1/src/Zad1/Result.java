@@ -32,7 +32,7 @@ public class Result {
 
     @Override
     public String toString() {
-        return "Chars: " + Arrays.toString(chars) +
+        return "Chars: " + Arrays.printNode(chars) +
                 "\nResult: " + data;
     }
 }

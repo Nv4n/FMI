@@ -57,7 +57,7 @@ public class Product {
     }
 
     @Override
-    public String toString() {
+    public String printNode() {
         return String.format("""
                 ID: %d
                 Description: %s

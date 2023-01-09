@@ -26,7 +26,7 @@ private:
         std::vector<JsonNode *> subNodes;
         JsonNodeType type = JsonNodeType::UNKNOWN;
     };
-    JsonNode *root;
+    JsonNode *root{};
 public:
     JsonParser();
 
@@ -39,14 +39,25 @@ public:
     void readCmdLine();
 
 private:
-
+    //TODO
+    //  Put in JsonBuilder.h
     void buildJsonTree(const std::string &fileName);
 
-    void buildNode(JsonNode *&root, std::ifstream &reader);
+    void buildNodes(JsonNode *&root, std::ifstream &reader);
 
     void lineInterpreter(const std::string &line, std::string &key, std::string &value);
 
     bool hasOnlyThisSymbol(const std::string &line, const char searchedSymbol);
+
+    void find(const std::vector<std::string> &params);
+
+    void findAllNodes(const std::string &key, JsonNode *node, std::vector<JsonNode *> &result);
+
+    void printNodes(std::vector<JsonNode *> &nodes);
+
+    void printNode(JsonNode *&node, size_t spaces = 0);
+
+    void printArrayNodes(JsonNode *&node, size_t spaces = 0);
 
     void copy(const JsonParser &other);
 

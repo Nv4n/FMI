@@ -69,7 +69,7 @@ public class Main extends Application {
                 seed);
 
         Alert alert =
-                new Alert(Alert.AlertType.INFORMATION, result.toString());
+                new Alert(Alert.AlertType.INFORMATION, result.printNode());
         alert.setTitle("Generate random subset A-Z");
         alert.setHeaderText("Count distinct characters out of " + size);
         alert.show();

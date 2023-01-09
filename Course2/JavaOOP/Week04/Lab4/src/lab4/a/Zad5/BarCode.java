@@ -28,6 +28,6 @@ public class BarCode {
                 stringBuilder.append(code[index][j] == 0 ? ':' : '|');
         }
 
-        return stringBuilder.toString();
+        return stringBuilder.printNode();
     }
 }

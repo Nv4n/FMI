@@ -48,7 +48,7 @@ public class Rectangle extends Point {
     public String toString() {
         return String.format("TLC %s\tLRC %s",
                 super.toString(),
-                this.lowRightCorner.toString());
+                this.lowRightCorner.printNode());
     }
 
 

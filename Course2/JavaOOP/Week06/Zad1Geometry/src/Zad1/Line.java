@@ -42,6 +42,6 @@ public class Line extends Point {
 
     @Override
     public String toString() {
-        return String.format("Start %s\tEnd %s", super.toString(), ePoint.toString());
+        return String.format("Start %s\tEnd %s", super.toString(), ePoint.printNode());
     }
 }

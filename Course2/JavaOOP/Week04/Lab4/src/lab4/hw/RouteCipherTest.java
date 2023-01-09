@@ -32,6 +32,6 @@ public class RouteCipherTest {
                 decryptInput,
                 decrypt);
 
-        System.out.println(routeCipher.toString());
+        System.out.println(routeCipher.printNode());
     }
 }

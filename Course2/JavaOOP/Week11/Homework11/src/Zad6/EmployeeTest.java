@@ -66,7 +66,7 @@ public class EmployeeTest {
         System.out.println(employees.stream()
                 .sorted(
                         Comparator.comparing(Employee::getEmployeeNumber))
-                .map(Employee::toString)
+                .map(Employee::printNode)
                 .reduce("", (acc, el) -> acc + "\n" + el));
     }
 }

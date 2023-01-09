@@ -29,7 +29,7 @@ public class Point {
     }
 
     @Override
-    public String toString() {
+    public String printNode() {
         return String.format("X:%d\tY:%d",
                 coordinates[0],
                 coordinates[1]);

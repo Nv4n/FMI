@@ -57,7 +57,7 @@ public class RouteCipher {
         return new String(result);
     }
 
-    public String toString() {
+    public String printNode() {
         return "key: " + key;
     }
 

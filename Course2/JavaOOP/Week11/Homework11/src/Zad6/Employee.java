@@ -48,7 +48,7 @@ public class Employee {
     }
 
     @Override
-    public String toString() {
+    public String printNode() {
         return "Employee{" + "employeeNumber=" + employeeNumber +
                 ", employeeFirstName='" + employeeFirstName + '\'' +
                 ", employeeLastName='" + employeeLastName + '\'' +

@@ -33,7 +33,7 @@ public class Salesperson implements IAdder<Salesperson> {
 
 
     @Override
-    public String toString() {
+    public String printNode() {
         return String.format("name: %s, salary: %.2f numsales: %d",
                 name, salary, numsales);
     }

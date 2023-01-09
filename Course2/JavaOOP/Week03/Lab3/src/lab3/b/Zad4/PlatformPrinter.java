@@ -16,7 +16,7 @@ public class PlatformPrinter {
     }
 
     public void printAllPlatforms() {
-        System.out.println(Arrays.toString(sequence));
+        System.out.println(Arrays.printNode(sequence));
         if (sequence.length == 0) {
             alert();
             return;

@@ -15,7 +15,7 @@ public class UseSort {
 
         sort.setCallback(SortOrder.getDownward());
         sort.sort(arr);
-        System.out.printf("Downward: %s%n", Arrays.toString(arr));
+        System.out.printf("Downward: %s%n", Arrays.printNode(arr));
 
     }
 }

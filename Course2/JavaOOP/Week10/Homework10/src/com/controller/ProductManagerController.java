@@ -97,7 +97,7 @@ public class ProductManagerController implements Initializable {
             result.append("\n");
         });
 
-        txtInfo.setText(result.toString());
+        txtInfo.setText(result.printNode());
     }
 
     private void resetFields() {
