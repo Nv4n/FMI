@@ -75,7 +75,6 @@ void JsonParser::copyNodes(JsonNode *&sourceNode, JsonNode *copyNode) {
 void JsonParser::readCmdLine() {
     std::string cmdLine;
     std::getline(std::cin, cmdLine, '\n');
-
     CommandLineValidator cmdValidator;
     CommandInterpreter cmdInterpreter;
     try {
@@ -93,6 +92,7 @@ void JsonParser::readCmdLine() {
                 pathInterpreter(cmdInterpreter.getParams()[0], path);
                 overwrite(path, cmdInterpreter.getParams()[1]);
                 saveJsonTree(cmdInterpreter.getFileName());
+                std::cout << "File was overwritten" << std::endl;
                 break;
             }
             case CREATE: {
@@ -100,17 +100,16 @@ void JsonParser::readCmdLine() {
                 pathInterpreter(cmdInterpreter.getParams()[0], path);
                 create(path, cmdInterpreter.getParams()[1]);
                 saveJsonTree(cmdInterpreter.getFileName());
+                std::cout << "File was overwritten" << std::endl;
                 break;
             }
         }
     } catch (std::exception &err) {
         std::cout << std::endl << err.what() << std::endl;
         destroy();
-        return;
     } catch (...) {
         std::cout << "Unknown exception" << std::endl;
         destroy();
-        return;
     }
 }
 
@@ -131,6 +130,7 @@ void JsonParser::find(const std::vector<std::string> &params) {
               << "3. Save result in find.txt file" << std::endl;
     std::cin >> choice;
     std::string result;
+    std::cin.ignore();
     switch (choice) {
         case 1:
             toString(foundNodes, result);
@@ -139,7 +139,9 @@ void JsonParser::find(const std::vector<std::string> &params) {
         case 2: {
             std::cout << "Choose index between 0-" << foundNodes.size() - 1 << ": ";
             std::cin >> choice;
-            if (!(choice >= 0 && choice <= foundNodes.size())) {
+            std::cin.ignore();
+
+            if (!(choice >= 0 && choice < foundNodes.size())) {
                 throw std::invalid_argument("Invalid index");
             }
             nodeToString(foundNodes[choice], result);
@@ -254,19 +256,6 @@ JsonParser::overwrite(const std::vector<std::string> &path, const std::string &c
     if (!node) {
         throw std::invalid_argument("You can't change nodes that don't exist");
     }
-
-    if (node->type != JsonNodeType::VALUE) {
-        std::string type;
-        switch (node->type) {
-            case OBJECT:
-                type = "OBJECT";
-                break;
-            case ARRAY:
-                type = "ARRAY";
-                break;
-        }
-        throw std::runtime_error("Non-Value nodes can't be changed; Type: " + type);
-    }
     for (JsonNode *&subNode: node->subNodes) {
         deleteNodes(subNode);
     }
@@ -356,8 +345,9 @@ void JsonParser::valueInterpreter(const std::string &changeValue, std::string &r
                 continue;
             }
         }
-        if (index + 1 < changeValue.size() &&
-            changeValue[index + 1] == '}') {
+        if (index + 1 == changeValue.size() ||
+            index + 1 < changeValue.size() && changeValue[index + 1] ==
+                                              '}') {
             result += changeValue[index++];
             result += "\n";
             continue;
@@ -385,7 +375,7 @@ JsonParser::getNodeByPath(JsonParser::JsonNode *&root, const std::vector<std::st
         index++;
         size_t subNodeIndex = 0;
         size_t charIndex = 0;
-        while (charIndex <= path[index].size()) {
+        while (charIndex < path[index].size()) {
             if (path[index][charIndex] < '0' || path[index][charIndex] > '9') {
                 throw std::invalid_argument("Invalid index: " + path[index]);
             }

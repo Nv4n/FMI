@@ -23,28 +23,20 @@ std::string CommandLineValidator::getErrorType() {
 
         case CMD_START:
             return "COMMAND_LINE_START";
-            break;
         case FILENAME:
             return "FILENAME";
-            break;
         case CMD:
             return "COMMAND";
-            break;
         case JSON_PATH:
             return "JSON_PATH";
-            break;
         case CHANGE_VALUE:
             return "CHANGE_VALUE";
-            break;
         case CMD_TYPE:
             return "CHANGE_CMD_TYPE";
-            break;
         case NOT_FINISHED:
             return "DIDNT_FINISH";
-            break;
         case EMPTY:
             return "EMPTY_COMMAND_LINE";
-            break;
     }
 }
 
