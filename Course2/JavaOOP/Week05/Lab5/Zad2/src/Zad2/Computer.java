@@ -63,6 +63,6 @@ public class Computer {
                 Proc Speed: %5d
                 Files: %s
                 }
-                """, type, procSpeed, Arrays.printNode(files));
+                """, type, procSpeed, Arrays.nodeToString(files));
     }
 }

@@ -46,7 +46,7 @@ public class Line {
     public String toString() {
         return String.format("Start %s\tEnd %s",
                 sPoint.toString(),
-                ePoint.printNode());
+                ePoint.nodeToString());
     }
 
     public void draw(Group pane) {

@@ -17,7 +17,7 @@ public class MathArrayTest {
                 mathArray.toString(mathArray.multiplyMatrixByRow()),
                 mathArray.toString(mathArray.squareMatrix()),
                 mathArray.scalarProduct(),
-                mathArray.printNode(mathArray.transposeMatrix()),
+                mathArray.nodeToString(mathArray.transposeMatrix()),
                 mathArray.matrixTrace());
     }
 }

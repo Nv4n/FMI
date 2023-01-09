@@ -98,7 +98,7 @@ class Employee {
     }
 
     @Override
-    public String printNode() {
+    public String nodeToString() {
         return "Employee{" + "name='" + name + '\'' +
                 ", gender=" + gender +
                 ", dob=" + dob +

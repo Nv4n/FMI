@@ -93,7 +93,7 @@ public class MathArray {
         return "table\n" +
                 this.toString(table) +
                 "row\n" +
-                this.printNode(row);
+                this.nodeToString(row);
     }
 
 }

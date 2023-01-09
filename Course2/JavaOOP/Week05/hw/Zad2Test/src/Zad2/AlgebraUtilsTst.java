@@ -51,6 +51,6 @@ public class AlgebraUtilsTst {
         StringBuilder sb = new StringBuilder();
         for (double i : mRow)
             sb.append(String.format("%.1f", i)).append(" ");
-        return sb.printNode();
+        return sb.nodeToString();
     }
 }

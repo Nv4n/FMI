@@ -33,7 +33,9 @@ private:
 
     bool isParamsValid(size_t &index, CommandInterpreter &cmdInterpreter);
 
-    bool isParameterValid(size_t &index, CommandInterpreter &cmdInterpreter);
+    bool isPathValid(size_t &index, CommandInterpreter &cmdInterpreter);
+
+    bool isChangeValueValid(size_t &index, CommandInterpreter &cmdInterpreter);
 
     bool hasReachedCmdEnd(size_t &index);
 

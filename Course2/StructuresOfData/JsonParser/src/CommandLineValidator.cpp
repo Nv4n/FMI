@@ -104,17 +104,20 @@ bool CommandLineValidator::isParamsValid(size_t &index, CommandInterpreter &cmdI
     if (cmdInterpreter.getCommand() == "-find") {
         //Check if there is a find-key
         cmdInterpreter.setCommandType(COMMAND_TYPE::FIND);
-        if (!isParameterValid(index, cmdInterpreter)) {
+        if (!isPathValid(index, cmdInterpreter)) {
             return false;
         }
     } else if (cmdInterpreter.getCommand() == "-change") {
         //Check if we have path and change value
-        for (int i = 0; i < 2; ++i) {
-            if (!isParameterValid(index, cmdInterpreter)) {
-                return false;
-            }
-            skipSpace(index);
+        if (!isPathValid(index, cmdInterpreter)) {
+            return false;
         }
+        skipSpace(index);
+
+        if (!isChangeValueValid(index, cmdInterpreter)) {
+            return false;
+        }
+        skipSpace(index);
 
         //Check if the change type is valid
         std::string changeType;
@@ -133,7 +136,7 @@ bool CommandLineValidator::isParamsValid(size_t &index, CommandInterpreter &cmdI
     return true;
 }
 
-bool CommandLineValidator::isParameterValid(size_t &index, CommandInterpreter &cmdInterpreter) {
+bool CommandLineValidator::isPathValid(size_t &index, CommandInterpreter &cmdInterpreter) {
     if (commandLine[index++] != '"') {
         return false;
     }
@@ -148,6 +151,22 @@ bool CommandLineValidator::isParameterValid(size_t &index, CommandInterpreter &c
     index++;
     cmdInterpreter.pushToParams(currParam);
     return true;
+}
+
+bool CommandLineValidator::isChangeValueValid(size_t &index, CommandInterpreter &cmdInterpreter) {
+    std::string changeValue;
+    while (index <= lastIndex && commandLine[index] != ' ') {
+        changeValue += commandLine[index++];
+    }
+
+    cmdInterpreter.pushToParams(changeValue);
+    if (changeValue[0] == '"' && changeValue[changeValue.size() - 1] == '"' ||
+        changeValue[0] == '{' && changeValue[changeValue.size() - 1] == '}' ||
+        changeValue[0] == '[' && changeValue[changeValue.size() - 1] == ']') {
+        return true;
+    }
+
+    return false;
 }
 
 void CommandLineValidator::skipSpace(size_t &index) {

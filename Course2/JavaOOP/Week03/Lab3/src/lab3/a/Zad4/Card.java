@@ -14,7 +14,7 @@ public class Card {
     public void setCardNumber(long cardNumber) {
         if (cardNumber < 0)
             throw new IllegalArgumentException("Card number can't be negative number!");
-        int size = Long.printNode(cardNumber).length();
+        int size = Long.nodeToString(cardNumber).length();
         if (size < 13 || size > 16)
             throw new IllegalArgumentException("Invalid card number length!");
 

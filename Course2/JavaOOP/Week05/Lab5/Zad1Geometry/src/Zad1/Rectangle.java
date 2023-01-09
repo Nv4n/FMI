@@ -51,7 +51,7 @@ public class Rectangle {
     @Override
     public String toString() {
         return String.format("Upper point\t%s\tWidth: %.2f\tHeight: %.2f",
-                uPoint.printNode(),
+                uPoint.nodeToString(),
                 width,
                 height);
     }

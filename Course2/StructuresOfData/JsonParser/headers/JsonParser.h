@@ -39,25 +39,51 @@ public:
     void readCmdLine();
 
 private:
-    //TODO
-    //  Put in JsonBuilder.h
+#pragma region BUILD_JSON
+
     void buildJsonTree(const std::string &fileName);
 
-    void buildNodes(JsonNode *&root, std::ifstream &reader);
+    void buildNodes(JsonNode *&root, std::istream &reader);
 
     void lineInterpreter(const std::string &line, std::string &key, std::string &value);
 
-    bool hasOnlyThisSymbol(const std::string &line, const char searchedSymbol);
+    bool hasOnlyThisSymbol(const std::string &line, char searchedSymbol);
+
+#pragma endregion
+
+#pragma region FIND_KEY
 
     void find(const std::vector<std::string> &params);
 
     void findAllNodes(const std::string &key, JsonNode *node, std::vector<JsonNode *> &result);
 
-    void printNodes(std::vector<JsonNode *> &nodes);
+    void toString(std::vector<JsonNode *> &nodes, std::string &res);
 
-    void printNode(JsonNode *&node, size_t spaces = 0);
+    void nodeToString(JsonNode *&node, std::string &res, size_t spaces = 0, bool keepKeys = false);
 
-    void printArrayNodes(JsonNode *&node, size_t spaces = 0);
+    void subNodesToString(JsonNode *&node, std::string &res, size_t spaces = 0);
+
+#pragma endregion
+
+#pragma region CHANGE
+
+    void
+    overwrite(const std::vector<std::string> &path, const std::string &changeValue);
+
+    void
+    create(const std::vector<std::string> &path, const std::string &changeValue);
+
+    void saveJsonTree(const std::string &fileName);
+
+    void saveNodes(JsonNode *&root, std::ofstream &writer);
+
+    void pathInterpreter(const std::string &rawPath, std::vector<std::string> &formattedPath);
+
+    void valueInterpreter(const std::string &changeValue, std::string &result);
+
+    JsonNode *&getNodeByPath(JsonNode *&root, const std::vector<std::string> &path, size_t index = 0);
+
+#pragma endregion
 
     void copy(const JsonParser &other);
 

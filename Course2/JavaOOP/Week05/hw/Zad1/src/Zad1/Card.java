@@ -27,5 +27,5 @@ public class Card {
     // return String representation of Card
     public String toString() {
         return face + " of " + suit;
-    } // end method printNode
+    } // end method nodeToString
 } // end class Card

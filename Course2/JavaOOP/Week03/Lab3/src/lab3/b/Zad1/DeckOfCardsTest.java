@@ -36,7 +36,7 @@ public class DeckOfCardsTest {
 
             System.out.print("\t[");
             for (Card c : hand) {
-                System.out.printf(" %s ", c.printNode());
+                System.out.printf(" %s ", c.nodeToString());
             }
             System.out.println("]");
         }

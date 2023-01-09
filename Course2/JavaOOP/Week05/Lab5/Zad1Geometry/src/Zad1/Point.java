@@ -34,7 +34,7 @@ public class Point {
     }
 
     @Override
-    public String printNode() {
+    public String nodeToString() {
         return String.format("X: %.2f\tY: %.2f", x, y);
     }
 }

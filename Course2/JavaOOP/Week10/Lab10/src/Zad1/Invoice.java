@@ -63,7 +63,7 @@ public class Invoice
    } 
 
    @Override
-   public String printNode()
+   public String nodeToString()
    {
       return String.format(
          "Part #: %-2d  Description: %-15s  Quantity: %-4d  Price: $%,6.2f", 

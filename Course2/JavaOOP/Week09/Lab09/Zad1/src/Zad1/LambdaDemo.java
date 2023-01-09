@@ -113,7 +113,7 @@ class LambdaDemo {
 
         nameGroups.forEach((letter, group) -> {
             System.out.print(letter + ": ");
-            System.out.println(group.stream().map(Salesperson::printNode).collect(Collectors.joining(", ")));
+            System.out.println(group.stream().map(Salesperson::nodeToString).collect(Collectors.joining(", ")));
         });
         // Групирайте имената на salespersons по първата буква в
         // името изведете отделните групи на стандартен изход

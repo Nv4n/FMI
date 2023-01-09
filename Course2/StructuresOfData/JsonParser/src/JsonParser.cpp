@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include "JsonParser/headers/JsonParser.h"
 #include "JsonParser/headers/CommandLineValidator.h"
 #include "JsonParser/headers/CommandInterpreter.h"
@@ -42,6 +43,7 @@ void JsonParser::deleteNodes(JsonNode *&node) {
     for (JsonNode *subNode: node->subNodes) {
         deleteNodes(subNode);
     }
+    node->subNodes.clear();
     JsonNode *temp = node;
     node = nullptr;
     delete temp;
@@ -87,14 +89,26 @@ void JsonParser::readCmdLine() {
                 break;
             }
             case OVERWRITE: {
+                std::vector<std::string> path;
+                pathInterpreter(cmdInterpreter.getParams()[0], path);
+                overwrite(path, cmdInterpreter.getParams()[1]);
+                saveJsonTree(cmdInterpreter.getFileName());
                 break;
             }
             case CREATE: {
+                std::vector<std::string> path;
+                pathInterpreter(cmdInterpreter.getParams()[0], path);
+                create(path, cmdInterpreter.getParams()[1]);
+                saveJsonTree(cmdInterpreter.getFileName());
                 break;
             }
         }
-    } catch (std::runtime_error &err) {
+    } catch (std::exception &err) {
         std::cout << std::endl << err.what() << std::endl;
+        destroy();
+        return;
+    } catch (...) {
+        std::cout << "Unknown exception" << std::endl;
         destroy();
         return;
     }
@@ -107,9 +121,44 @@ void JsonParser::readCmdLine() {
 void JsonParser::find(const std::vector<std::string> &params) {
     const std::string &key = params.back();
     JsonNode *currNode = root;
-    std::vector<JsonNode *> result;
-    findAllNodes(key, currNode, result);
-    printNodes(result);
+    std::vector<JsonNode *> foundNodes;
+    findAllNodes(key, currNode, foundNodes);
+    size_t choice;
+    std::cout << "Choose one of the options" << std::endl
+              << "1. Print all values" << std::endl
+              << "2. Choose index of wanted value" << std::endl
+              << "3. Save result in find.txt file" << std::endl;
+    std::cin >> choice;
+    std::string result;
+    switch (choice) {
+        case 1:
+            toString(foundNodes, result);
+            std::cout << result << std::endl;
+            break;
+        case 2: {
+            std::cout << "Choose index between 0-" << foundNodes.size() - 1 << ": ";
+            std::cin >> choice;
+            if (!(choice >= 0 && choice <= foundNodes.size())) {
+                throw std::invalid_argument("Invalid index");
+            }
+            nodeToString(foundNodes[choice], result);
+            std::cout << result << std::endl;
+            break;
+        }
+        case 3: {
+            toString(foundNodes, result);
+            std::ofstream writer("./find.txt", std::ios::out | std::ios::trunc);
+            if (!writer.is_open()) {
+                throw std::runtime_error("find.txt couldn't be opened");
+            }
+            writer << result;
+            writer.close();
+            std::cout << "File saved successfully" << std::endl;
+            break;
+        }
+        default:
+            throw std::invalid_argument("Invalid choice... command is terminated");
+    }
 }
 
 void JsonParser::findAllNodes(const std::string &key,
@@ -128,59 +177,223 @@ void JsonParser::findAllNodes(const std::string &key,
     findAllNodes(key, node->nextNode, result);
 }
 
-void JsonParser::printNodes(std::vector<JsonNode *> &nodes) {
+void JsonParser::toString(std::vector<JsonNode *> &nodes, std::string &res) {
     if (nodes.size() > 1) {
-        std::cout << "[" << std::endl;
+        res += "[\n";
     }
     for (int i = 0; i < nodes.size(); ++i) {
-        printNode(nodes[i]);
-        std::cout << (i + 1 < nodes.size() ? "," : "") << std::endl;
+        nodeToString(nodes[i], res);
+        res += std::string(i + 1 < nodes.size() ? "," : "");
+        res += "\n";
     }
     if (nodes.size() > 1) {
-        std::cout << "]" << std::endl;
+        res += "]\n";
     }
 }
 
-void JsonParser::printNode(JsonParser::JsonNode *&node, size_t spaces) {
-    //TODO
-    // ADD SAVE
-    // ADD CHOOSE INDEX
+void JsonParser::nodeToString(JsonParser::JsonNode *&node, std::string &res, size_t spaces, bool keepKeys) {
+
     if (!node) {
         return;
     }
     if (node->type == JsonNodeType::VALUE) {
-        std::cout << std::string(spaces + 2, ' ') << "\"" << node->value << "\"";
+        if (keepKeys) {
+            res += std::string(spaces + 2, ' ');
+            res += "\"" + node->key + "\": ";
+        } else {
+            res += std::string(spaces + 2, ' ');
+        }
+        res += "\"" + node->value + "\"";
         return;
     }
 
     if (node->type == JsonNodeType::OBJECT) {
-        std::cout << "\"" << node->key << "\":{" << std::endl;
-        printArrayNodes(node->subNodes.back());
-        std::cout << std::string(node->key.size() + 2 + spaces, ' ') << "}" << std::endl;
+        res += std::string(spaces + 2, ' ');
+        res += "\"" + node->key + "\":{\n";
+        subNodesToString(node->subNodes.back(), res, node->key.size() + spaces + 4);
+        res += std::string(node->key.size() + spaces + 4, ' ');
+        res += "}";
     }
 
     if (node->type == JsonNodeType::ARRAY) {
-        std::cout << "\"" << node->key << "\":[" << std::endl;
+        res += std::string(spaces + 2, ' ');
+        res += "\"" + node->key + "\":[\n";
         for (int i = 0; i < node->subNodes.size(); ++i) {
-            std::cout << "\"" << node->key << "\":{" << std::endl;
-            printArrayNodes(node->subNodes[i], node->key.size() + 2 + spaces);
-            std::cout << std::string(node->key.size() + 2 + spaces, ' ') << "}" << std::endl;
+            res += std::string(node->key.size() + spaces + 2, ' ');
+            res += "{\n";
+            subNodesToString(node->subNodes[i], res, node->key.size() + spaces + 2);
+            res += std::string(node->key.size() + spaces + 2, ' ');
+            res += "}";
+            res += (i + 1 < node->subNodes.size() ? "," : "");
+            res += "\n";
         }
-        std::cout << "]" << std::endl;
+        res += std::string(node->key.size() + spaces, ' ');
+        res += "]";
     }
 }
 
-void JsonParser::printArrayNodes(JsonParser::JsonNode *&node, size_t spaces) {
+void JsonParser::subNodesToString(JsonParser::JsonNode *&node, std::string &res, size_t spaces) {
     if (!node) {
         return;
     }
-    std::cout << std::string(spaces + 2, ' ') << "\t";
-    std::cout << "\t\"" << node->key << "\": \"" << node->value << "\"";
-    std::cout << (node->nextNode ? "," : "") << std::endl;
-    printArrayNodes(node->nextNode, spaces);
+    nodeToString(node, res, spaces, true);
+    res += (node->nextNode ? "," : "");
+    res += "\n";
+    subNodesToString(node->nextNode, res, spaces);
 }
 
 #pragma endregion FIND_KEY
+
+
+#pragma  region CHANGE
+
+void
+JsonParser::overwrite(const std::vector<std::string> &path, const std::string &changeValue) {
+    JsonNode *node = getNodeByPath(this->root, path);
+    if (!node) {
+        throw std::invalid_argument("You can't change nodes that don't exist");
+    }
+
+    if (node->type != JsonNodeType::VALUE) {
+        std::string type;
+        switch (node->type) {
+            case OBJECT:
+                type = "OBJECT";
+                break;
+            case ARRAY:
+                type = "ARRAY";
+                break;
+        }
+        throw std::runtime_error("Non-Value nodes can't be changed; Type: " + type);
+    }
+
+    node->value = changeValue;
+}
+
+void JsonParser::create(const std::vector<std::string> &path, const std::string &changeValue) {
+    JsonNode *&node = getNodeByPath(this->root, path);
+    if (node) {
+        throw std::runtime_error("You can't create node on non-empty node address");
+    }
+    std::string jsonChangeValue;
+    valueInterpreter(changeValue, jsonChangeValue);
+    jsonChangeValue = "\"" + path.back() + "\": " + jsonChangeValue + "}";
+    std::istringstream reader(jsonChangeValue);
+    if (!reader.good()) {
+        throw std::runtime_error("Couldn't open change value in stream");
+    }
+    buildNodes(node, reader);
+}
+
+void JsonParser::saveJsonTree(const std::string &fileName) {
+    std::ofstream writer(fileName, std::ios::out | std::ios::trunc);
+    if (!writer.is_open()) {
+        throw std::runtime_error("File couldn't be open");
+    }
+
+    writer << "{\n";
+    saveNodes(this->root, writer);
+    writer << "}";
+    writer.close();
+}
+
+void JsonParser::saveNodes(JsonParser::JsonNode *&root, std::ofstream &writer) {
+    JsonNode *currRoot = root;
+    while (currRoot) {
+        std::string nodeText;
+        nodeToString(currRoot, nodeText, 0, true);
+        writer << nodeText
+               << std::string(currRoot->nextNode ? "," : "")
+               << "\n";
+        currRoot = currRoot->nextNode;
+    }
+}
+
+void JsonParser::pathInterpreter(const std::string &rawPath, std::vector<std::string> &formattedPath) {
+    std::string currKey;
+    size_t index = 0;
+    while (index < rawPath.size()) {
+        if (rawPath[index] == '/') {
+            if (currKey.empty()) {
+                throw std::invalid_argument("Invalid path");
+            }
+            formattedPath.push_back(currKey);
+            currKey = "";
+            index++;
+            continue;
+        }
+        currKey += rawPath[index++];
+    }
+
+    if (currKey.empty()) {
+        throw std::invalid_argument("Invalid path");
+    }
+    formattedPath.push_back(currKey);
+}
+
+void JsonParser::valueInterpreter(const std::string &changeValue, std::string &result) {
+    size_t index = 0;
+    while (index != changeValue.size()) {
+        switch (changeValue[index]) {
+            case '{':
+            case '}':
+            case '[':
+            case ']':
+            case ',': {
+                result += changeValue[index++];
+                result += "\n";
+                continue;
+            }
+        }
+        if (index + 1 < changeValue.size() &&
+            changeValue[index + 1] == '}') {
+            result += changeValue[index++];
+            result += "\n";
+            continue;
+        }
+        result += changeValue[index++];
+    }
+}
+
+JsonParser::JsonNode *&
+JsonParser::getNodeByPath(JsonParser::JsonNode *&root, const std::vector<std::string> &path, size_t index) {
+    if (index >= path.size()) {
+        throw std::invalid_argument("Invalid path");
+    }
+
+    if (!root ||
+        (index + 1 == path.size() && root->key == path.back())) {
+        return root;
+    }
+    if (root->key != path[index]) {
+        return getNodeByPath(root->nextNode, path, index);
+    }
+
+    //Root->Key == currentKey
+    if (root->type == JsonNodeType::ARRAY) {
+        index++;
+        size_t subNodeIndex = 0;
+        size_t charIndex = 0;
+        while (charIndex <= path[index].size()) {
+            if (path[index][charIndex] < '0' || path[index][charIndex] > '9') {
+                throw std::invalid_argument("Invalid index: " + path[index]);
+            }
+            subNodeIndex += (path[index][charIndex++] - '0');
+        }
+        if (subNodeIndex >= root->subNodes.size()) {
+            throw std::invalid_argument("Index is out of range");
+        }
+
+        return getNodeByPath(root->subNodes[subNodeIndex], path, index + 1);
+    } else if (root->type == JsonNodeType::OBJECT) {
+        return getNodeByPath(root->subNodes[0], path, index + 1);
+    }
+
+    throw std::invalid_argument("Invalid path");
+}
+
+
+#pragma endregion
 
 #pragma region BUILD_JSON
 
@@ -199,7 +412,7 @@ void JsonParser::buildJsonTree(const std::string &fileName) {
     reader.close();
 }
 
-void JsonParser::buildNodes(JsonParser::JsonNode *&root, std::ifstream &reader) {
+void JsonParser::buildNodes(JsonParser::JsonNode *&root, std::istream &reader) {
     if (!root) {
         root = new JsonNode{"", ""};
     }

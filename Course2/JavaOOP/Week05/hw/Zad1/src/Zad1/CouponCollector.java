@@ -19,7 +19,7 @@ public class CouponCollector {
                 }
         }
         for (Card c : hand)
-            System.out.println(c.printNode());
+            System.out.println(c.nodeToString());
         System.out.printf("Number of picks: %d", picksCount);
     }
 }

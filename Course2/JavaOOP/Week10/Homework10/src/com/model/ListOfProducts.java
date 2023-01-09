@@ -49,6 +49,6 @@ public class ListOfProducts<E extends Product> {
 
     @Override
     final public String toString() {
-        return "[" + products.stream().map(E::printNode).reduce("", (acc, el) -> acc + "," + el) + "]";
+        return "[" + products.stream().map(E::nodeToString).reduce("", (acc, el) -> acc + "," + el) + "]";
     }
 }
