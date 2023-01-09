@@ -14,33 +14,71 @@ void CommandLineValidator::validate(const std::string &commandLine, CommandInter
     lastIndex = this->commandLine.size() - 1;
     while (lastIndex >= 0 && this->commandLine[lastIndex] == ' ') { lastIndex--; }
     if (!validateCommandLine(cmdInterpreter)) {
-        throw std::runtime_error("Invalid command line");
+        throw std::runtime_error("Invalid command line: " + getErrorType());
     }
 }
+
+std::string CommandLineValidator::getErrorType() {
+    switch (errorCause) {
+
+        case CMD_START:
+            return "COMMAND_LINE_START";
+            break;
+        case FILENAME:
+            return "FILENAME";
+            break;
+        case CMD:
+            return "COMMAND";
+            break;
+        case JSON_PATH:
+            return "JSON_PATH";
+            break;
+        case CHANGE_VALUE:
+            return "CHANGE_VALUE";
+            break;
+        case CMD_TYPE:
+            return "CHANGE_CMD_TYPE";
+            break;
+        case NOT_FINISHED:
+            return "DIDNT_FINISH";
+            break;
+        case EMPTY:
+            return "EMPTY_COMMAND_LINE";
+            break;
+    }
+}
+
 
 bool CommandLineValidator::validateCommandLine(CommandInterpreter &cmdInterpreter) {
     //Nothing was in the input
     if (commandLine.empty()) {
+        errorCause = ErrorCause::EMPTY;
         return false;
     }
     //CmdStart FileName Cmd  Params [changeType depending on conditions]
     size_t index = 0;
     if (!isCmdStartValid(index)) {
+        errorCause = ErrorCause::CMD_START;
         return false;
     }
 
     skipSpace(index);
     if (!isFilenameValid(index, cmdInterpreter)) {
+        errorCause = ErrorCause::FILENAME;
+
         return false;
     }
 
     skipSpace(index);
     if (!isCommandValid(index, cmdInterpreter)) {
+        errorCause = ErrorCause::CMD;
+
         return false;
     }
 
     skipSpace(index);
     if (!isParamsValid(index, cmdInterpreter)) {
+
         return false;
     }
 
@@ -123,6 +161,8 @@ bool CommandLineValidator::isParamsValid(size_t &index, CommandInterpreter &cmdI
         std::string changeType;
         while (index <= lastIndex) { changeType += commandLine[index++]; }
         if (changeType != "-overwrite" && changeType != "-create") {
+            errorCause = ErrorCause::CMD_TYPE;
+
             return false;
         }
         cmdInterpreter.setCommandType(
@@ -138,6 +178,8 @@ bool CommandLineValidator::isParamsValid(size_t &index, CommandInterpreter &cmdI
 
 bool CommandLineValidator::isPathValid(size_t &index, CommandInterpreter &cmdInterpreter) {
     if (commandLine[index++] != '"') {
+        errorCause = ErrorCause::JSON_PATH;
+
         return false;
     }
 
@@ -146,6 +188,8 @@ bool CommandLineValidator::isPathValid(size_t &index, CommandInterpreter &cmdInt
         currParam += commandLine[index++];
     }
     if (currParam.empty()) {
+        errorCause = ErrorCause::JSON_PATH;
+
         return false;
     }
     index++;
@@ -165,6 +209,7 @@ bool CommandLineValidator::isChangeValueValid(size_t &index, CommandInterpreter 
         changeValue[0] == '[' && changeValue[changeValue.size() - 1] == ']') {
         return true;
     }
+    errorCause = ErrorCause::CHANGE_VALUE;
 
     return false;
 }
@@ -179,6 +224,7 @@ bool CommandLineValidator::hasReachedCmdEnd(size_t &index) {
     }
     return true;
 }
+
 
 CommandLineValidator::~CommandLineValidator() = default;
 

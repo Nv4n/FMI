@@ -18,7 +18,6 @@ private:
         OBJECT,
         ARRAY
     };
-
     struct JsonNode {
         std::string key;
         std::string value;

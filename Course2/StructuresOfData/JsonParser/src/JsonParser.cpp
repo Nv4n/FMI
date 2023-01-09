@@ -40,7 +40,7 @@ void JsonParser::deleteNodes(JsonNode *&node) {
         return;
     }
     deleteNodes(node->nextNode);
-    for (JsonNode *subNode: node->subNodes) {
+    for (JsonNode *&subNode: node->subNodes) {
         deleteNodes(subNode);
     }
     node->subNodes.clear();
@@ -74,7 +74,7 @@ void JsonParser::copyNodes(JsonNode *&sourceNode, JsonNode *copyNode) {
 
 void JsonParser::readCmdLine() {
     std::string cmdLine;
-    std::getline(std::cin, cmdLine);
+    std::getline(std::cin, cmdLine, '\n');
 
     CommandLineValidator cmdValidator;
     CommandInterpreter cmdInterpreter;
@@ -112,8 +112,6 @@ void JsonParser::readCmdLine() {
         destroy();
         return;
     }
-
-
 }
 
 #pragma region FIND_KEY
@@ -123,6 +121,9 @@ void JsonParser::find(const std::vector<std::string> &params) {
     JsonNode *currNode = root;
     std::vector<JsonNode *> foundNodes;
     findAllNodes(key, currNode, foundNodes);
+    if (foundNodes.size() == 0) {
+        throw std::invalid_argument("There isn't such key in the file");
+    }
     size_t choice;
     std::cout << "Choose one of the options" << std::endl
               << "1. Print all values" << std::endl
@@ -249,7 +250,7 @@ void JsonParser::subNodesToString(JsonParser::JsonNode *&node, std::string &res,
 
 void
 JsonParser::overwrite(const std::vector<std::string> &path, const std::string &changeValue) {
-    JsonNode *node = getNodeByPath(this->root, path);
+    JsonNode *&node = getNodeByPath(this->root, path);
     if (!node) {
         throw std::invalid_argument("You can't change nodes that don't exist");
     }
@@ -266,8 +267,18 @@ JsonParser::overwrite(const std::vector<std::string> &path, const std::string &c
         }
         throw std::runtime_error("Non-Value nodes can't be changed; Type: " + type);
     }
-
-    node->value = changeValue;
+    for (JsonNode *&subNode: node->subNodes) {
+        deleteNodes(subNode);
+    }
+    node->subNodes.clear();
+    std::string jsonChangeValue;
+    valueInterpreter(changeValue, jsonChangeValue);
+    jsonChangeValue = "\"" + node->key + "\": " + jsonChangeValue + "}";
+    std::istringstream reader(jsonChangeValue);
+    if (!reader.good()) {
+        throw std::runtime_error("Couldn't open change value in stream");
+    }
+    buildNodes(node, reader);
 }
 
 void JsonParser::create(const std::vector<std::string> &path, const std::string &changeValue) {

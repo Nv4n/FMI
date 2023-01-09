@@ -5,6 +5,7 @@
 #include "JsonParser/headers/JsonParser.h"
 
 int main() {
+
     JsonParser jsonParser;
     jsonParser.readCmdLine();
 }

@@ -8,13 +8,23 @@
 #include "JsonParser/headers/CommandInterpreter.h"
 
 #pragma once
-//TODO
-//  Add error type to know which argument caused the error
+enum ErrorCause {
+    CMD_START,
+    FILENAME,
+    CMD,
+    JSON_PATH,
+    CHANGE_VALUE,
+    CMD_TYPE,
+    NOT_FINISHED,
+    EMPTY
+};
 
 class CommandLineValidator {
 private:
     std::string commandLine;
     size_t lastIndex{};
+
+    ErrorCause errorCause;
 public:
     CommandLineValidator();
 
@@ -24,6 +34,8 @@ public:
 
 private:
     bool validateCommandLine(CommandInterpreter &cmdInterpreter);
+
+    std::string getErrorType();
 
     bool isCmdStartValid(size_t &index);
 
