@@ -83,7 +83,6 @@ void JsonParser::readCmdLine() {
 
         switch (cmdInterpreter.getCommandType()) {
             case FIND: {
-                std::string key = cmdInterpreter.getParams().back();
                 find(cmdInterpreter.getParams());
                 break;
             }
@@ -130,7 +129,6 @@ void JsonParser::find(const std::vector<std::string> &params) {
               << "3. Save result in find.txt file" << std::endl;
     std::cin >> choice;
     std::string result;
-    std::cin.ignore();
     switch (choice) {
         case 1:
             toString(foundNodes, result);
@@ -139,7 +137,6 @@ void JsonParser::find(const std::vector<std::string> &params) {
         case 2: {
             std::cout << "Choose index between 0-" << foundNodes.size() - 1 << ": ";
             std::cin >> choice;
-            std::cin.ignore();
 
             if (!(choice >= 0 && choice < foundNodes.size())) {
                 throw std::invalid_argument("Invalid index");
