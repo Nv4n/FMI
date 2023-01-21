@@ -220,4 +220,3 @@ bool CommandLineValidator::hasReachedCmdEnd(size_t &index) {
 
 CommandLineValidator::~CommandLineValidator() = default;
 
-

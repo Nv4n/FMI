@@ -4,6 +4,8 @@
 #include <iostream>
 #include "JsonParser/headers/JsonParser.h"
 
+/// 
+/// \return
 int main() {
 
     JsonParser jsonParser;
