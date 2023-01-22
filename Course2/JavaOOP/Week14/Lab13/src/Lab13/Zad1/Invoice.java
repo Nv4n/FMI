@@ -1,4 +1,4 @@
-package Zad1;
+package Lab13.Zad1;
 // Invoice class
 
 public class Invoice {
