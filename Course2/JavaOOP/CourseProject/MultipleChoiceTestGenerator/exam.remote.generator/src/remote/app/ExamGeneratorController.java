@@ -1,4 +1,13 @@
-package app;
+package remote.app;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.util.converter.IntegerStringConverter;
+import obj.questions.app.QuestionSerializer;
+import obj.questions.obj.Question;
 
 import java.io.IOException;
 import java.net.URL;
@@ -8,15 +17,6 @@ import java.rmi.registry.Registry;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
-
-import obj.questions.app.QuestionSerializer;
-import obj.questions.obj.Question;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
-import javafx.util.converter.IntegerStringConverter;
 
 public class ExamGeneratorController {
     private Exam exam;

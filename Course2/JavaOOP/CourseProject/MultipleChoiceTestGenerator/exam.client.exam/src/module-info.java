@@ -6,6 +6,6 @@ module exam.client.exam {
     requires java.rmi;
     requires exam.remote.generator;
 
-    opens app to javafx.fxml;
-    exports app to javafx.graphics;
+    opens client.app to javafx.fxml;
+    exports client.app to javafx.graphics;
 }

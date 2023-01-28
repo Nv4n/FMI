@@ -1,12 +1,12 @@
-package app;
+package client.app;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import obj.Examinable;
-import obj.StudentAnswerSheet;
 import obj.questions.obj.Question;
+import obj.questions.obj.QuestionOption;
+import remote.obj.*;
 
 import java.net.URL;
 import java.rmi.AccessException;
@@ -14,10 +14,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -72,24 +69,33 @@ public class ClientExamController {
     private StudentAnswerSheet studentAnswerSheet;
 
     @FXML
+    void startExam(ActionEvent event) {
+        if (nameTxt.getText().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Enter your name before starting").showAndWait();
+            return;
+        }
+        Date currentDate = new Date();
+        QuestionOption[] answers = (QuestionOption[]) questions.stream().map(Question::getRightAnswer).toArray();
+        studentAnswerSheet = new StudentAnswerSheet(nameTxt.getText(), currentDate, answers);
+        fillFields(questions.get(index));
+    }
+
+    @FXML
     void goBackQuestion(ActionEvent event) {
         index++;
         setNavQuestionsBtns();
+        System.out.println(selectedAnswer.getSelectedToggle().toString());
+//        QuestionOption answer = ;
+        fillFields(questions.get(index));
     }
 
     @FXML
     void goNextQuestion(ActionEvent event) {
         index++;
         setNavQuestionsBtns();
+        fillFields(questions.get(index));
     }
 
-    @FXML
-    void startExam(ActionEvent event) {
-        if (nameTxt.getText().isEmpty()) {
-            new Alert(Alert.AlertType.INFORMATION, "You need to get the questions first").showAndWait();
-
-        }
-    }
 
     private Runnable stop() {
         return () -> {
@@ -101,6 +107,21 @@ public class ClientExamController {
             }
         };
     }
+
+    private void setNavQuestionsBtns() {
+        goNextBtn.setDisable(index + 1 == questions.size());
+        goBackBtn.setDisable(index == 0);
+    }
+
+    private void fillFields(Question question) {
+        questionTxt.setText(question.getQuestion());
+        fieldATxt.setText(question.getFieldA());
+        fieldBTxt.setText(question.getFieldB());
+        fieldCTxt.setText(question.getFieldC());
+        fieldDTxt.setText(question.getFieldD());
+        selectedAnswer.getToggles().forEach(t -> t.setSelected(false));
+    }
+
 
     @FXML
     void initialize() {
@@ -143,8 +164,5 @@ public class ClientExamController {
         }
     }
 
-    private void setNavQuestionsBtns() {
-        goNextBtn.setDisable(index + 1 == questions.size());
-        goBackBtn.setDisable(index == 0);
-    }
+
 }

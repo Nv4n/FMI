@@ -1,4 +1,4 @@
-package app;
+package remote.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

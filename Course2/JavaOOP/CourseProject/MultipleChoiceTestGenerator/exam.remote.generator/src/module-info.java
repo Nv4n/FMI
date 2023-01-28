@@ -7,8 +7,8 @@ module exam.remote.generator {
     requires java.desktop;
     requires org.jetbrains.annotations;
 
-    opens app to javafx.fxml;
-    exports app to javafx.graphics;
-    opens obj to java.rmi;
-    exports obj;
+    opens remote.app to javafx.fxml;
+    exports remote.app to javafx.graphics;
+    opens remote.obj to java.rmi;
+    exports remote.obj;
 }

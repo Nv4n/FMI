@@ -10,7 +10,7 @@
 
 
 <GridPane hgap="5.0" prefHeight="133.0" prefWidth="454.0" vgap="5.0" xmlns="http://javafx.com/javafx/18"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ExamGeneratorController">
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="remote.app.ExamGeneratorController">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS"/>
         <ColumnConstraints hgrow="ALWAYS"/>

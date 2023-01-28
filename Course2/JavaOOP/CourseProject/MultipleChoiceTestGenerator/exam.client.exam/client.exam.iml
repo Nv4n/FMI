@@ -18,6 +18,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="exam.remote.generator" />
+    <orderEntry type="module" module-name="remote.exam" />
   </component>
 </module>

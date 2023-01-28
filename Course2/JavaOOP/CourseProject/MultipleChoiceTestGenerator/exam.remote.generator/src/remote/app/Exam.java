@@ -1,8 +1,7 @@
-package app;
+package remote.app;
 
-import obj.Examinable;
 import obj.questions.obj.Question;
-import obj.StudentAnswerSheet;
+import remote.obj.Examinable;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

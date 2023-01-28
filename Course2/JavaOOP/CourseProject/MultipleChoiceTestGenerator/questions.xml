@@ -2,7 +2,7 @@
 <java version="19.0.2" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>echo $filenames|cut -f2 -d &quot; &quot;&gt;second</string>
     </void>
@@ -20,14 +20,14 @@
     </void>
     <void property="rightAnswer">
      <object class="java.lang.Enum" id="QuestionOption0" method="valueOf">
-      <class>com.questions.obj.QuestionOption</class>
+      <class>obj.questions.obj.QuestionOption</class>
       <string>D</string>
      </object>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>escape the meaning of next character </string>
     </void>
@@ -45,14 +45,14 @@
     </void>
     <void property="rightAnswer">
      <object class="java.lang.Enum" id="QuestionOption1" method="valueOf">
-      <class>com.questions.obj.QuestionOption</class>
+      <class>obj.questions.obj.QuestionOption</class>
       <string>B</string>
      </object>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>allows fsck to recover orphaned files and directories</string>
     </void>
@@ -71,7 +71,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Block I/O is used to send data to disk and character I/O is not. </string>
     </void>
@@ -89,14 +89,14 @@
     </void>
     <void property="rightAnswer">
      <object class="java.lang.Enum" id="QuestionOption2" method="valueOf">
-      <class>com.questions.obj.QuestionOption</class>
+      <class>obj.questions.obj.QuestionOption</class>
       <string>C</string>
      </object>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>set variable</string>
     </void>
@@ -118,7 +118,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>It is determined by its hardware address.</string>
     </void>
@@ -140,7 +140,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>a hard partition</string>
     </void>
@@ -162,7 +162,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>RobertSmith123</string>
     </void>
@@ -184,7 +184,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>chmod file u+rw,g+r, o+xr file</string>
     </void>
@@ -203,7 +203,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>twice the size of a logical extent</string>
     </void>
@@ -225,7 +225,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>store user data prior to a physical write </string>
     </void>
@@ -247,7 +247,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>/stand </string>
     </void>
@@ -266,7 +266,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>allows 2 users to own the same file </string>
     </void>
@@ -288,7 +288,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>to set carriage return on </string>
     </void>
@@ -310,7 +310,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>lssf </string>
     </void>
@@ -332,7 +332,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>abfg.abcdefg</string>
     </void>
@@ -354,7 +354,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>nothing</string>
     </void>
@@ -376,7 +376,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>a root user</string>
     </void>
@@ -395,7 +395,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>It is a file system</string>
     </void>
@@ -417,7 +417,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>cd</string>
     </void>
@@ -436,7 +436,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>2&gt;</string>
     </void>
@@ -458,7 +458,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>to stdout</string>
     </void>
@@ -477,7 +477,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Print the current screen to the default printer.</string>
     </void>
@@ -499,7 +499,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>usered</string>
     </void>
@@ -521,7 +521,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>/var/motd</string>
     </void>
@@ -543,7 +543,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>copies and removes the files from dir2 to dir3</string>
     </void>
@@ -565,7 +565,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>chmodd 557 file</string>
     </void>
@@ -587,7 +587,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>read,write and execute for owner</string>
     </void>
@@ -606,7 +606,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Upper and lower case letters</string>
     </void>
@@ -628,7 +628,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>lssf</string>
     </void>
@@ -647,7 +647,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>pvcreate -F /dev/dsk/clt2d0</string>
     </void>
@@ -669,7 +669,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>use the lpset command</string>
     </void>
@@ -691,7 +691,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>/etc/mnttab</string>
     </void>
@@ -713,7 +713,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>showmount -a</string>
     </void>
@@ -735,7 +735,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>the relative path names of all files called datafile in your current directory</string>
     </void>
@@ -757,7 +757,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>vgdisplay</string>
     </void>
@@ -776,7 +776,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>/etc/lvmrc</string>
     </void>
@@ -798,7 +798,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>/etc/utmp</string>
     </void>
@@ -820,7 +820,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>cronedit</string>
     </void>
@@ -842,7 +842,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>find string a b c</string>
     </void>
@@ -864,7 +864,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>The ouput of several commands to be appended to the same file.</string>
     </void>
@@ -886,7 +886,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Remove the meaning of special characters.</string>
     </void>
@@ -905,7 +905,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>sort-i filename</string>
     </void>
@@ -927,7 +927,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>ln tmp temp</string>
     </void>
@@ -949,7 +949,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>newgroup</string>
     </void>
@@ -971,7 +971,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Changing your user id.</string>
     </void>
@@ -993,7 +993,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>tar</string>
     </void>
@@ -1012,7 +1012,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>endif</string>
     </void>
@@ -1034,7 +1034,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Shell script</string>
     </void>
@@ -1056,7 +1056,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Variable= (who+date)</string>
     </void>
@@ -1078,7 +1078,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>fcount</string>
     </void>
@@ -1100,7 +1100,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>swapon /dev/vg01/swap</string>
     </void>
@@ -1122,7 +1122,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>No, you specify the printer with the lp command</string>
     </void>
@@ -1144,7 +1144,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>/etc/ioconfig</string>
     </void>
@@ -1166,7 +1166,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>mk group</string>
     </void>
@@ -1188,7 +1188,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Uid</string>
     </void>
@@ -1210,7 +1210,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>The first instance of a device</string>
     </void>
@@ -1232,7 +1232,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>diskinfo -n</string>
     </void>
@@ -1254,7 +1254,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>&quot;cmd   $var&quot;</string>
     </void>
@@ -1273,7 +1273,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>lp -p lj4 /etc/hosts</string>
     </void>
@@ -1295,7 +1295,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>The Number of directory names in a files path.</string>
     </void>
@@ -1317,7 +1317,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>lp</string>
     </void>
@@ -1336,7 +1336,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>The &quot;-eq&quot; is used for numerical tests &amp; the &quot;=&quot; is used for string tests.</string>
     </void>
@@ -1355,7 +1355,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>echo.*</string>
     </void>
@@ -1377,7 +1377,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Complete</string>
     </void>
@@ -1399,7 +1399,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>All queries are empty.</string>
     </void>
@@ -1421,7 +1421,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>vgexport -v</string>
     </void>
@@ -1443,7 +1443,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>pvcreate /dev/rdsk/c1t2d0</string>
     </void>
@@ -1462,7 +1462,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>/adm/busy/spool</string>
     </void>
@@ -1484,7 +1484,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>mv datafile /var</string>
     </void>
@@ -1503,7 +1503,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>a safe way to link files across file system boundaries</string>
     </void>
@@ -1525,7 +1525,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>&quot;begin&quot; and &quot;end&quot;</string>
     </void>
@@ -1547,7 +1547,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>cmd 1&gt;file2&gt;file</string>
     </void>
@@ -1569,7 +1569,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>echo $variable | cut -f2 -d&quot; &quot;</string>
     </void>
@@ -1588,7 +1588,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.questions.obj.Question">
+   <object class="obj.questions.obj.Question">
     <void property="fieldA">
      <string>Every file in a JFS file system has a JFS superblock </string>
     </void>
@@ -1603,28 +1603,6 @@
     </void>
     <void property="question">
      <string>Which one of the following statements is false? </string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="com.questions.obj.Question">
-    <void property="fieldA">
-     <string>2</string>
-    </void>
-    <void property="fieldB">
-     <string>3</string>
-    </void>
-    <void property="fieldC">
-     <string>4</string>
-    </void>
-    <void property="fieldD">
-     <string>5</string>
-    </void>
-    <void property="question">
-     <string>1</string>
-    </void>
-    <void property="rightAnswer">
-     <object idref="QuestionOption0"/>
     </void>
    </object>
   </void>

@@ -1,4 +1,4 @@
-package app;
+package client.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Main extends Application {
 

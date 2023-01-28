@@ -9,7 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="JavaFX19" level="application" />
     <orderEntry type="module" module-name="questions.bank" />
-    <orderEntry type="module" module-name="exam.client.exam" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
