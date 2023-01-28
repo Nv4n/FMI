@@ -5,7 +5,8 @@ project(Week12_ExamV01T02)
 project(Week12_ExamV02T01)
 project(Week12_ExamV02T02)
 project(JsonParser)
-project(BigNumbers)
+project(FastFix)
+
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -34,13 +35,9 @@ add_executable(JsonParser
 file(COPY Course2/StructuresOfData/JsonParser/organization.json
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-add_executable(BigNumbers
-        Course2/StructuresOfData/BigNumbers/BigNumber.h
-        Course2/StructuresOfData/BigNumbers/BigNumber.cpp
-        Course2/StructuresOfData/BigNumbers/BigNumbersTest.cpp
-        Course2/StructuresOfData/BigNumbers/Helpers.cpp
-        Course2/StructuresOfData/BigNumbers/Helpers.h
-        Course2/StructuresOfData/BigNumbers/InputValidator.cpp
-        Course2/StructuresOfData/BigNumbers/InputValidator.h
-        )
+
+add_executable(FastFix
+        Course2/StructuresOfData/FastFix/getQuestions.cpp)
+file(COPY Course2/StructuresOfData/FastFix/inputQuestions.txt
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
