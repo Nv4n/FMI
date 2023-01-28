@@ -1,35 +1,43 @@
 package remote.app;
 
-import obj.StudentAnswerSheet;
+import remote.obj.StudentAnswerSheet;
 
-import java.beans.ExceptionListener;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
 
+/**
+ * Сериализатор и десериализатор на изпитен лист с отговори
+ */
 public class StudentSerializer {
-    public static void serializeToXML(List<StudentAnswerSheet> students) throws IOException {
-        FileOutputStream fos = new FileOutputStream("students.xml");
+    /**
+     * Сериализира единичен ученик до XML
+     *
+     * @param student
+     * @throws IOException
+     */
+    public static void serializeToXML(StudentAnswerSheet student) throws IOException {
+        FileOutputStream fos = new FileOutputStream(String.format("%s.xml", student.getStudentName()));
         XMLEncoder encoder = new XMLEncoder(fos);
-        encoder.setExceptionListener(new ExceptionListener() {
-            public void exceptionThrown(Exception e) {
-                System.out.println("Exception! :" + e.toString());
-            }
-        });
-        encoder.writeObject(students);
+        encoder.setExceptionListener(e -> System.out.println("Exception! :" + e.toString()));
+        encoder.writeObject(student);
         encoder.close();
         fos.close();
     }
 
-    public static List<StudentAnswerSheet> deserializeFromXML() throws IOException {
-        FileInputStream fis = new FileInputStream("students.xml");
+    /**
+     * @param name
+     * @return Връща десериализирания ученик
+     * @throws IOException
+     */
+    public static StudentAnswerSheet deserializeFromXML(String name) throws IOException {
+        FileInputStream fis = new FileInputStream(String.format("%s.xml", name));
         XMLDecoder decoder = new XMLDecoder(fis);
-        List<StudentAnswerSheet> decodedStudents = (List<StudentAnswerSheet>) decoder.readObject();
+        StudentAnswerSheet decodedStudent = (StudentAnswerSheet) decoder.readObject();
         decoder.close();
         fis.close();
-        return decodedStudents;
+        return decodedStudent;
     }
 }

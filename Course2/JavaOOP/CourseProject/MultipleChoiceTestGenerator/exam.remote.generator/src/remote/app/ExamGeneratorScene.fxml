@@ -8,30 +8,27 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<GridPane hgap="5.0" prefHeight="133.0" prefWidth="454.0" vgap="5.0" xmlns="http://javafx.com/javafx/18"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="remote.app.ExamGeneratorController">
+<GridPane hgap="5.0" prefHeight="204.0" prefWidth="454.0" vgap="5.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="remote.app.ExamGeneratorController">
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS"/>
-        <ColumnConstraints hgrow="ALWAYS"/>
+        <ColumnConstraints hgrow="ALWAYS" />
+        <ColumnConstraints hgrow="ALWAYS" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+      <RowConstraints />
     </rowConstraints>
     <children>
-        <Label maxWidth="1.7976931348623157E308" text="Exam time in minutes: "/>
-        <TextField fx:id="examDurationTxt" GridPane.columnIndex="1"/>
-        <Label maxWidth="1.7976931348623157E308" text="Questions count: " GridPane.rowIndex="1"/>
-        <TextField fx:id="questionCountTxt" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                onAction="#getQuestions" text="Get Questions" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS"/>
-        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                onAction="#updateExamSettings" text="Update Exam Settings" GridPane.columnIndex="1"
-                GridPane.rowIndex="2"/>
+        <Label maxWidth="1.7976931348623157E308" text="Exam time in minutes: " />
+        <TextField fx:id="examDurationTxt" GridPane.columnIndex="1" />
+        <Label maxWidth="1.7976931348623157E308" text="Questions count: " GridPane.rowIndex="1" />
+        <TextField fx:id="questionCountTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#getQuestions" text="Get Questions" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#updateExamSettings" text="Update Exam Settings" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#serializeStudents" text="Serialize Students" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
     </children>
     <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
 </GridPane>

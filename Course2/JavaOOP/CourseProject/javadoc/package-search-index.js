@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"questions.editor","l":"app"},{"m":"exam.client.exam","l":"client.app"},{"m":"questions.bank","l":"obj.questions.app"},{"m":"questions.bank","l":"obj.questions.obj"},{"m":"exam.remote.generator","l":"remote.app"},{"m":"exam.remote.generator","l":"remote.obj"}];updateSearchResults();

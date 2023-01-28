@@ -1,4 +1,4 @@
-module server.questions.editor {
+module questions.editor {
     requires javafx.fxml;
     requires javafx.graphics;
     requires javafx.controls;

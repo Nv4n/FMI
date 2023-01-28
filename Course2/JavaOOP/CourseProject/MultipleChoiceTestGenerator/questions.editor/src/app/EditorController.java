@@ -1,12 +1,12 @@
 package app;
 
-import obj.questions.app.QuestionSerializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import obj.questions.app.QuestionSerializer;
 import obj.questions.obj.Question;
 import obj.questions.obj.QuestionOption;
 
@@ -15,6 +15,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Едитор, с който можем да добавяме нови въпроси
+ */
 public class EditorController {
 
     @FXML
@@ -44,6 +47,9 @@ public class EditorController {
     @FXML
     private TextField questionTxt;
 
+    /**
+     * Инициализира първоначалния изглед
+     */
     @FXML
     void initialize() {
         assert addQuestionBtn != null : "fx:id=\"addQuestionBtn\" was not injected: check your FXML file 'EditorScene.fxml'.";
@@ -61,6 +67,12 @@ public class EditorController {
         answerCmb.setValue("A");
     }
 
+    /**
+     * Добавя новия въпрос и рестартира полетата
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void addQuestion(ActionEvent event) throws IOException {
         if (isFieldEmpty(questionTxt, "Question")) return;
@@ -83,6 +95,11 @@ public class EditorController {
         emptyFields();
     }
 
+    /**
+     * @param field
+     * @param fieldName
+     * @return Връща дали полето е празно
+     */
     private boolean isFieldEmpty(TextField field, String fieldName) {
         if (field.getText().isEmpty())
             new Alert(Alert.AlertType.ERROR, String.format("%s is empty", fieldName))
@@ -90,6 +107,9 @@ public class EditorController {
         return field.getText().isEmpty();
     }
 
+    /**
+     * Рестартира полетата до начални стойности
+     */
     private void emptyFields() {
         questionTxt.setText("");
         fieldATxt.setText("");

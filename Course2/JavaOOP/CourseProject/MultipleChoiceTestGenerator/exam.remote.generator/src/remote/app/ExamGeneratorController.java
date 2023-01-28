@@ -8,6 +8,7 @@ import javafx.scene.control.TextFormatter;
 import javafx.util.converter.IntegerStringConverter;
 import obj.questions.app.QuestionSerializer;
 import obj.questions.obj.Question;
+import remote.obj.StudentAnswerSheet;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,6 +35,26 @@ public class ExamGeneratorController {
     @FXML
     private TextField questionCountTxt;
 
+    /**
+     * Сериализира всички предали ученици
+     *
+     * @param event
+     */
+    @FXML
+    void serializeStudents(ActionEvent event) {
+        for (StudentAnswerSheet studentAnswerSheet : exam.getStudents())
+            try {
+                StudentSerializer.serializeToXML(studentAnswerSheet);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+    }
+
+    /**
+     * Взима всички налични въпроси от банката с въпроси и ги десириализира
+     *
+     * @param event
+     */
     @FXML
     void getQuestions(ActionEvent event) {
         try {
@@ -44,6 +65,13 @@ public class ExamGeneratorController {
         }
     }
 
+    /**
+     * Променя настройките на всеки следващ изпит,
+     * после обновява RMI, така че всеки нов изпит ще е
+     * с новите настройки
+     *
+     * @param event
+     */
     @FXML
     void updateExamSettings(ActionEvent event) {
         try {
@@ -74,6 +102,10 @@ public class ExamGeneratorController {
         }
     }
 
+    /**
+     * Инициализира всички полета и ги задава
+     * да бъта само естествени числа
+     */
     @FXML
     void initialize() {
         assert examDurationTxt != null : "fx:id=\"examMinsTxt\" was not injected: check your FXML file 'ExamGeneratorScene.fxml'.";
