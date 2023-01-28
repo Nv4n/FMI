@@ -1,3 +1,7 @@
+package app;
+
+import obj.StudentAnswerSheet;
+
 import java.beans.ExceptionListener;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
@@ -6,26 +10,26 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-public class QuestionSerializer {
-    public static void serializeToXML(List<Question> questions) throws IOException {
-        FileOutputStream fos = new FileOutputStream("questions.xml");
+public class StudentSerializer {
+    public static void serializeToXML(List<StudentAnswerSheet> students) throws IOException {
+        FileOutputStream fos = new FileOutputStream("students.xml");
         XMLEncoder encoder = new XMLEncoder(fos);
         encoder.setExceptionListener(new ExceptionListener() {
             public void exceptionThrown(Exception e) {
                 System.out.println("Exception! :" + e.toString());
             }
         });
-        encoder.writeObject(questions);
+        encoder.writeObject(students);
         encoder.close();
         fos.close();
     }
 
-    public static List<Question> deserializeFromXML() throws IOException {
-        FileInputStream fis = new FileInputStream("questions.xml");
+    public static List<StudentAnswerSheet> deserializeFromXML() throws IOException {
+        FileInputStream fis = new FileInputStream("students.xml");
         XMLDecoder decoder = new XMLDecoder(fis);
-        List<Question> decodedQuestions = (List<Question>) decoder.readObject();
+        List<StudentAnswerSheet> decodedStudents = (List<StudentAnswerSheet>) decoder.readObject();
         decoder.close();
         fis.close();
-        return decodedQuestions;
+        return decodedStudents;
     }
 }

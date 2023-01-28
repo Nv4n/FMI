@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MultipleChoiceTestGenerator.iml" filepath="$PROJECT_DIR$/MultipleChoiceTestGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exam.client.exam/exam.client.exam.iml" filepath="$PROJECT_DIR$/exam.client.exam/exam.client.exam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exam.remote.generator/exam.remote.generator.iml" filepath="$PROJECT_DIR$/exam.remote.generator/exam.remote.generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/questions.bank/questions.bank.iml" filepath="$PROJECT_DIR$/questions.bank/questions.bank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/questions.editor/remote.questions.editor.iml" filepath="$PROJECT_DIR$/questions.editor/remote.questions.editor.iml" />
     </modules>
   </component>
 </project>
