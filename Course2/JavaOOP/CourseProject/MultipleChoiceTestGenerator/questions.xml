@@ -1606,5 +1606,27 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="obj.questions.obj.Question">
+    <void property="fieldA">
+     <string>a</string>
+    </void>
+    <void property="fieldB">
+     <string>b</string>
+    </void>
+    <void property="fieldC">
+     <string>c</string>
+    </void>
+    <void property="fieldD">
+     <string>d</string>
+    </void>
+    <void property="question">
+     <string>New test</string>
+    </void>
+    <void property="rightAnswer">
+     <object idref="QuestionOption2"/>
+    </void>
+   </object>
+  </void>
  </object>
 </java>
