@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lab14.iml" filepath="$PROJECT_DIR$/Lab14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MultiThreadServer/MultiThreadServer.iml" filepath="$PROJECT_DIR$/MultiThreadServer/MultiThreadServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client.app/client.app.iml" filepath="$PROJECT_DIR$/client.app/client.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remote.obj/remote.obj.iml" filepath="$PROJECT_DIR$/remote.obj/remote.obj.iml" />
+    </modules>
+  </component>
+</project>

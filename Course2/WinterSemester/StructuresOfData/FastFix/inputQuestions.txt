@@ -1,0 +1,390 @@
+A journaled file system intent log is used to____________ 
+store user data prior to a physical write 
+log meta data changes 
+improve buffer cache performance 
+provide an audit trial 
+B 
+Which directory contains the HP-UX kernel? 
+/stand 
+/etc 
+/var 
+/kernel 
+A 
+What does a hard link between two files do? 
+allows 2 users to own the same file 
+ensures that 2 files get deleted together 
+allows data to span 2 files 
+allows multiple file names to reference the same data on disk 
+D 
+What is the functionality of cron? 
+to set carriage return on 
+to update the system clock using FTP 
+to order processes chronologically 
+to schedule execution of processes 
+D 
+Which command lists hardware devices? 
+lssf 
+dmsg 
+iomap 
+ioscan 
+D
+Which filenames are matched by ab[cde]fg?
+abfg.abcdefg
+abcfg, abdfg, abefg
+abcfg, abdfg, abdefg, abfg
+abcfg, abdfg, abefg, abcdfg, abcefg, abdefg
+B
+What does the command touch Myfile do if Myfile exixts?
+nothing
+gives an error
+sets the filesize to zero
+updates the date/time stamp
+D
+What does a user id of zero indicate?
+a root user
+an invalid user
+an anonymous user
+a deactivated user
+A
+Which Statement are true for a LVM logical volume
+It is a file system
+It is not a file system
+A logical volume contains one or more volume groups
+A logical volume contains one or more plexes
+B
+How do you change from your current directory to your home directory?
+cd
+cd/
+cd..
+cdhome
+A
+Which symbol is used to append error messages to a file in the POSIX shell?
+2>
+>>2
+2<<
+2>>
+D
+Where does the output from background jobs go by default?
+to stdout
+to/dev/null
+to $HOME/out
+to the system console
+A
+What is the result of the command ps?
+Print the current screen to the default printer.
+Display the status of system processes.
+Pauses the system.
+Displays a status of the default print queue.
+B
+What command is used to change password aging?
+usered
+usermod
+useradd
+userage
+B
+Which file would you edit to display a message when any user logs in?
+/var/motd
+/etc/motd
+$HOME/messages
+/var/adm/messages
+B
+What does the following command do? cp -r dir2 dir3
+copies and removes the files from dir2 to dir3
+renames the directory from dir2 to dir3
+copies all the files and subdirectories from dir2 to dir3
+copies all files and subdirectories from dir3 to dir2
+C
+Which command set the permissions on a file to be rwxr - xr-x?
+chmodd 557 file
+chmod 575 file
+chmod 755 file
+chmod u=rx,g=rwx,0=rx
+C
+Which file permissions are indicated by the value of 721?
+read,write and execute for owner
+read,write and execute for group
+execute only for owner
+execute only for group
+A
+What characteristics are required for a non-root password?
+Upper and lower case letters
+At least to alphabetical and one numeric or special character
+More than eight character
+At least two digits
+B
+Which commands are used to list device file details?
+lssf
+lsdev
+ll -d
+lsf -a
+A
+Which command is used to pvcreate a disk that has been previously used in LVM?
+pvcreate -F /dev/dsk/clt2d0
+pvcreate -f /dev/dsk/clt2d0
+pvcreate -B /dev/rdsk/clt2d0
+pvcreate -f /dev/rdsk/clt2d0
+D
+How does a user define a different default printer for their login session?
+use the lpset command
+use the lpadmin command
+set the LPDEF environment variable
+set the LPDEST environment variable
+D
+Which file is used to automatically check and mount file systems?
+/etc/mnttab
+/var/adm/fstab
+/etc/sbtab
+/etc/fstab
+C
+You attempt to unmount a file system./mydata, and get an error stating \"device busy\". How do you determine the cause?
+showmount -a
+fuser -uk   ./mydata
+showmount ./mydata
+mount -v  ./mydata
+B
+What does find / -name datafile return?
+the relative path names of all files called datafile in your current directory
+the number of files called datafile in your current directory
+the path names of all files called datafile
+the relative path of files called datafile from your current directory down.
+C
+Which command shows all physical volume in a volume group?
+vgdisplay
+pvdisplay
+lvdisplay
+lvmdisplay
+A
+Which folder contains the LVM configuration information?
+/etc/lvmrc
+/etc/lvmpvg
+/etc/lvmconf
+/etc/lvmtab
+C
+Which file contains information about unsuccessful login attempts?
+/etc/utmp
+/etc/btmp
+/etc/wtmp
+/etc/nolog
+B
+Which command makes additional crontab entries?
+cronedit
+crontab -e
+vi /etc/crontab
+/usr/sbin/cron -e
+B
+How do you find the text \"string\" in the files a, b and c?
+find string a b c
+grep string a b c
+fstring string a b c
+search string a b c
+B
+The Shell Pipe Command \"|\"(Certical Bar) Allows:
+The ouput of several commands to be appended to the same file.
+Data to be rapidly transported to another user's session.
+The output of a command to be connected to the input of another command.
+The paralled execution of many commands.
+C
+Quoting is used in shell scripts to:
+Remove the meaning of special characters.
+Ensure capital letters print.
+Establish command substitution.
+Print in bold type face.
+A
+If you wish to extract all lines from a file that do not contain a specified pattern, what command would you use?
+sort-i filename
+grep -v pattern filename
+ext-M pattern filename
+key-n pattern <filename
+B
+How do you rename a directory callled 'tmp' to a directory called \"temp\" in the present working directory?
+ln tmp temp
+rn tmp temp
+mv tmp temp
+cn tmp temp
+C
+Which command shows you your current group?
+newgroup
+who
+id
+whoami
+C
+What is the command chown used for?
+Changing your user id.
+Making you the owner of all files in your directory.
+Changing the time stamp of a file or directory.
+Changing the ownership of a file or directory
+D
+What backup utility is available on the greatest number of operating systems?
+tar
+cpio
+fbackup
+dd
+A
+What signifies the end of an \"if\" statement in the POSIX Shell?
+endif
+fi
+}
+elseif
+B
+The \"break\" command in the POSIX shell is used to break out of a:
+Shell script
+Function
+Loop structure
+Sleep routine
+C
+How would you capture the result of a \"who\" and a \"date\" command into a variable in the POSIX Shell?
+Variable= (who+date)
+Variable=$(who) $(date)
+Variable=(who date)
+who> (Variable;date)> Variable.
+B
+What command counts the number of words in a file?
+fcount
+wc
+wordc
+grep
+B
+Which of the following command could never be used to enable additional swap space on an HP-UX system?
+swapon /dev/vg01/swap
+swapon -a
+swapon /swap
+swapon /dev/rdsk/c1t5d0
+B
+Can a user define a printer for their session (separate from the system's default printer)?
+No, you specify the printer with the lp command
+Yes, using the lpadmin command
+Yes, using the LPDEST environmental variable.
+No, users are not allowed spooler configuration capability.
+C
+Which of the following is not affected by the insf command?
+/etc/ioconfig
+the kernel resident I/O tree
+/devl/*
+/var/adm/iomap
+B
+You have created a directory for the volume group named /dev/vg01. which command would you use to create the group file for this volume group?
+mk group
+insf
+mksf
+mknod
+D
+Which of the following is NOT one of the fields in the password file?
+Uid
+TERM
+HOME
+SHELL
+B
+In the output of an ioscan command the description \"initiator\" refers to:
+The first instance of a device
+The first device to respond to a bus poll
+A SCSI bus controller located on the device adapter
+An \"initial\" configuration template for a; devices on a bus.
+C
+To find the number of disk connected to a SCSI controller and their associated device files, you would use the following command?
+diskinfo -n
+ioscan -fn
+lsdev
+cat  /etc/scsi.conf
+B
+Which of the following methods allow for the variable, $var, to be substituted when the string is evaluated by the POSIX shell?
+\"cmd   $var\"
+'cmd    $var'
+${cmd $var}
+{'cmd\$var'}
+A
+Which of the following commands would print the file /etc/hosts on the printer /j4?
+lp -p lj4 /etc/hosts
+lp -d lj4 /etc/hosts
+lp /etc/host -dlj4
+lp /etc/hosts to lj4
+B
+When discussing UNIX file attributes, the term \"links\" refers to:
+The Number of directory names in a files path.
+the number of file named associated with a single collection of data.
+The Number of identical Copies of a file that exist in a file system.
+A pointer to a file owner's User ID.
+B
+To Print a document on a HP-UX system, the user would enter the __________ command.
+lp
+lpr
+pr
+lpc
+A
+What is the difference between \"[$x-eq $y]\" and \"[$x=$y]\" in the POSIX shell?
+The \"-eq\" is used for numerical tests & the \"=\" is used for string tests.
+The \"-eq\" is used for string  tests & the \"=\" is used numerical tests.
+There is no Difference.
+The \"-eq\" is used to test for inequality & the \"=\" is used to test for equality.
+A
+Which command would print all the dot files to the screen excluding . and ..?
+echo.*
+echo.?*
+echo.[.]*
+echo.[!]*
+D
+A file path description that starts with \"/\" (forward slash) and contains a full list of all directories between the file system root and the object file is said to be a(n)_________ pathname.
+Complete
+Relative
+absolute
+extended
+C
+The lpadmin command can be used to configure a new printer when:
+All queries are empty.
+The scheduler is not running.
+All Printers are online.
+Only in single user mode.
+B
+The command to show all the physical voulmes in a volume group is:
+vgexport -v
+vgdisplay -v
+pvdisplay -v
+lvdisplay -v
+B
+Which of the following represents a valid use of the pvcreate command?
+pvcreate /dev/rdsk/c1t2d0
+pvcreate -f/dev/vgo1/vol1
+pvcreate -M vxfs/dev/dsk/c1t2d0
+pvcreate /dev/vg01
+A
+The file used to ensure that the LP spooling scheduler does not run twice is called:
+/adm/busy/spool
+/usrl/spool/lockfile
+/var/spool/lp/SCHEDLOCK
+/etc/SPOOLER
+C
+How would you move a file called datafile, from your current directory to the /var directory ?
+mv datafile /var
+mv /var datafile
+mv datafile -d/var
+mv datafile ../var
+A
+Hard links are
+a safe way to link files across file system boundaries
+should not be used unless absolutely necessary
+a safe way to link files and directories within a file system
+a safe way to link files within a file system
+D
+What keywords define the scope of an \"until\" loop in the POSIX shell?
+\"begin\" and \"end\"
+\"do\" and 'end\".
+\"do\" and \"done\"
+\"begin\" and \"enduntil\"
+C
+The suggested method for the redirection of std-out and std-error to the same file is:
+cmd 1>file2>file
+cmd 2 & 1>file
+cmd >file2>file1
+cmd >file
+C
+If you wanted to pull the second word out of a variable, how would you do it, assuming that the words were separated by one space?
+echo $variable | cut -f2 -d\" \"
+echo $variable | cut -c2
+cut -f2 -d\" \" < $variable
+cut -f2 -d\" \" $variable
+A 
+Which one of the following statements is false? 
+Every file in a JFS file system has a JFS superblock 
+JFS inodes are created as needed 
+The JFS extend size varies 
+Every file in a JFS file system has an inode 
+A

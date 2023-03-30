@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form
+			action="#"
+			method="post">
+			<fieldset class="col-fieldset">
+				<legend>Employee information</legend>
+				<fieldset>
+					<legend>Personal information</legend>
+					<label for="fname">First name:</label>
+					<br />
+					<input
+						type="text"
+						id="fname"
+						name="first-name"
+						placeholder="First name" />
+					<br />
+					<label for="l   name">Last name:</label>
+					<br />
+					<input
+						type="text"
+						id="lname"
+						name="last-name"
+						placeholder="Last name" />
+					<br />
+					<label for="birth">Birth date: </label>
+					<br />
+					<input
+						type="date"
+						id="birth"
+						name="birth-date"
+						pattern="\d{2}\.\d{2}\.\d{4}"
+						placeholder="dd.mm.yyyy" />
+					<br />
+					<label for="">Title of courtesy:</label>
+					<br />
+					<input
+						type="radio"
+						id="chb-dr"
+						name="dr"
+						value="dr" />
+					<label for="chb-dr">Dr.</label>
+
+					<input
+						type="radio"
+						id="chb-mr"
+						name="mr"
+						value="mr" />
+					<label for="chb-mr">Mr.</label>
+
+					<input
+						type="radio"
+						id="chb-mrs"
+						name="mrs"
+						value="mrs" />
+					<label for="chb-mrs">Mrs.</label>
+
+					<input
+						type="radio"
+						id="chb-ms"
+						name="ms"
+						value="ms" />
+					<label for="chb-ms">Ms.</label>
+				</fieldset>
+				<fieldset>
+					<legend>Contact information</legend>
+					<label for="address">Address:</label>
+					<br />
+					<input
+						type="text"
+						id="address"
+						name="address"
+						placeholder="Address" />
+					<br />
+					<label for="city">City:</label>
+					<br />
+					<input
+						type="text"
+						id="city"
+						name="city"
+						placeholder="City" />
+					<br />
+					<label for="region">Region:</label>
+					<br />
+					<input
+						type="text"
+						id="region"
+						name="region"
+						placeholder="Region" />
+					<br />
+					<label for="postcode">Postal code</label>
+					<br />
+					<input
+						type="number"
+						id="postcode"
+						name="postal-code"
+						placeholder="1000"
+						pattern="\d{4}"
+						min="1000"
+						max="9999" />
+					<br />
+					<label for="country">Country:</label>
+					<br />
+					<input
+						type="text"
+						id="country"
+						name="country"
+						placeholder="Country" />
+					<br />
+					<label for="phone">Mobile phone:</label>
+					<br />
+					<input
+						type="tel"
+						id="phone"
+						name="phone-number"
+						placeholder="+359888123456"
+						pattern="\+\d{1,3}\d{9}" />
+					<br />
+					<label for="email">Email</label>
+					<br />
+					<input
+						type="email"
+						id="email"
+						name="email"
+						placeholder="example@example.com" />
+				</fieldset>
+			</fieldset>
+
+			<fieldset>
+				<legend>Job information</legend>
+				<label for="jobtitle">Job title:</label>
+				<br />
+				<input
+					type="text"
+					id="jobtitle"
+					name="job-title"
+					placeholder="Job title" />
+				<br />
+				<label for="manager">Manager:</label>
+				<br />
+				<select
+					name="manager"
+					id="manager">
+					<option value="">Please choose manager</option>
+					<option value="john">John Doe</option>
+					<option value="bob">Bob Sams</option>
+					<option value="ivan">Ivan Grigorov</option>
+				</select>
+				<br />
+				<label for="pass">Password</label>
+				<br />
+				<input
+					type="password"
+					id="pass"
+					name="password"
+					placeholder="Password" />
+				<br />
+				<label for="reppass">Repeat password:</label>
+				<br />
+				<input
+					type="password"
+					id="reppass"
+					name="repeat-password"
+					placeholder="Repeat password" />
+			</fieldset>
+			<fieldset>
+				<legend>Additional notes</legend>
+				<label for="notes">Notes:</label>
+				<br />
+				<br /><textarea
+					name="additional-notes"
+					id="notes"
+					cols="30"
+					rows="10"
+					placeholder="Some additional notes..."></textarea>
+			</fieldset>
+			<input
+				type="checkbox"
+				name="confirm"
+				id="confirm"
+				required />
+			<label for="confirm">Yes, I confirm</label>
+			<br />
+			<button type="submit">Add employee</button>
+		</form>
+	</body>
+</html>
