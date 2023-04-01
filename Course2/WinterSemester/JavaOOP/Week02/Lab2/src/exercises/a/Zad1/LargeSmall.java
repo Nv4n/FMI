@@ -84,7 +84,7 @@ public class LargeSmall {
         return Integer.parseInt(input.orElse("0"));
     }
 
-    private static Optional<String> getInput(String message) {
+    private static Optional<String> getMenuInput(String message) {
         return Optional.ofNullable(JOptionPane.showInputDialog(message));
     }
 }  // end class LargeSmall

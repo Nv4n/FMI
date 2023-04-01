@@ -27,7 +27,7 @@ public class Arithmetic {
                 "Results", JOptionPane.PLAIN_MESSAGE);
     }
 
-    private static Optional<String> getInput(String message) {
+    private static Optional<String> getMenuInput(String message) {
         return JOptionPane.showInputDialog(message).describeConstable();
     }
 
