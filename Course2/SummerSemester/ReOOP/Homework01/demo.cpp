@@ -73,6 +73,19 @@ void getSendCoinsInput() {
     unsigned receiver;
     double coins;
     std::cin >> sender >> receiver >> coins;
+    if (sender == 0) {
+        std::cout << "You can't use system user as sender" << std::endl;
+        return;
+    }
+    if (receiver == 0) {
+        std::cout << "You can't use system user as receiver" << std::endl;
+        return;
+    }
+
+    if (!UserHelper::hasReceiverSender(receiver, sender)) {
+        std::cout << "Receiver or Sender couldn't be found" << std::endl;
+        return;
+    }
     TransactionHelper::sendCoins(sender, receiver, coins);
 }
 

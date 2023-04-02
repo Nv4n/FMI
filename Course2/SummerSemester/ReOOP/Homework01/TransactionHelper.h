@@ -40,8 +40,6 @@ public:
 private:
     static double getCoins(std::ifstream &in, unsigned sender);
 
-    static void findLastBlock(std::ifstream &in);
-
     static bool
     addTransaction(unsigned sender, unsigned receiver, double coins);
 

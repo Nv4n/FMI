@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cstring>
 #include <ctime>
+#include <cstdio>
 #include "RichDataHelper.h"
 #include "UserHelper.h"
 
@@ -20,7 +21,6 @@ void RichDataHelper::getWealthyUsers(unsigned int entityCount) {
     }
     const unsigned int topN = entityCount;
     WealthyUser wealthUsers[topN];
-
     while (!in.eof()) {
         UserHelper::User currUser{};
         in.read(reinterpret_cast<char *>(&currUser), sizeof(UserHelper::User));
@@ -44,14 +44,18 @@ void RichDataHelper::getWealthyUsers(unsigned int entityCount) {
 
     char cmd[] = "wealthiest-users";
     long long time = std::time(nullptr);
-    std::ofstream out(std::strcat(cmd, reinterpret_cast<const char *>(time)));
+    char *filename = new char[100];
+    sprintf(filename, "%s%lld", cmd, time);
+    std::ofstream out(filename);
     if (!out.is_open()) {
         std::cout << "Couldn't save the wealthiest-users" << std::endl;
         return;
     }
 
     for (int i = 0; i < topN; i++) {
-        out << "Name: " << wealthUsers[i].name << ", coins: " << wealthUsers[i].coins << "\n";
+        if (wealthUsers[i].coins > 0) {
+            out << "Name: " << wealthUsers[i].name << ", coins: " << wealthUsers[i].coins << "\n";
+        }
     }
     out.close();
 }
@@ -91,7 +95,9 @@ void RichDataHelper::getBigBlocks(unsigned int entityCount) {
 
     char cmd[] = "biggest-blocks";
     long long time = std::time(nullptr);
-    std::ofstream out(std::strcat(cmd, reinterpret_cast<const char *>(time)));
+    char *filename = new char[100];
+    sprintf(filename, "%s%lld", cmd, time);
+    std::ofstream out(filename);
     if (!out.is_open()) {
         std::cout << "Couldn't save the biggest-blocks" << std::endl;
         return;
@@ -101,4 +107,5 @@ void RichDataHelper::getBigBlocks(unsigned int entityCount) {
         out << "Id: " << bigBlocks[i].id << ", coins: " << bigBlocks[i].coins << "\n";
     }
     out.close();
+    delete[] filename;
 }

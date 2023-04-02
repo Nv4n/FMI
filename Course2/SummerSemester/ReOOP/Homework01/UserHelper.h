@@ -24,6 +24,8 @@ public:
 
     static void calibrateId();
 
+    static bool hasReceiverSender(unsigned receiver, unsigned sender);
+
 private:
     UserHelper() {};
 

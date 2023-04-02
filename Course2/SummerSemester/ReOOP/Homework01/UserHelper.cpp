@@ -9,7 +9,7 @@
 #include "UserHelper.h"
 #include "TransactionHelper.h"
 
-unsigned UserHelper::UserId = 1;
+unsigned UserHelper::UserId = 0;
 
 void UserHelper::createUser(const char name[128], double levs) {
     User user{};
@@ -54,6 +54,7 @@ void UserHelper::removeUser(const char name[128]) {
                 std::cout << "Unable to transfer all coins from user: " << user.id << std::endl;
                 return;
             }
+            in.read(reinterpret_cast<char *>(&user), sizeof(User));
         }
     }
     in.close();
@@ -68,7 +69,6 @@ void UserHelper::removeUser(const char name[128]) {
     } else {
         std::cout << "User removed successfully" << std::endl;
     }
-
 }
 
 unsigned UserHelper::getNextId() {
@@ -81,10 +81,40 @@ void UserHelper::calibrateId() {
     if (in.is_open()) {
         while (!in.eof()) {
             in.read(reinterpret_cast<char *>(&user), sizeof(User));
-            UserId = user.id;
+            if (user.id > UserId) {
+                UserId = user.id;
+            }
         }
     }
+    UserId++;
 
     in.close();
     std::cout << "User Id is calibrated" << std::endl;
+}
+
+bool UserHelper::hasReceiverSender(unsigned int receiver, unsigned int sender) {
+    std::ifstream in("users.dat", std::ios::binary);
+    if (!in.is_open()) {
+        std::cout << "users.dat couldn't be opened" << std::endl;
+        return false;
+    }
+    bool hasReceiver = false;
+    bool hasSender = false;
+
+    User user{};
+    while (!in.eof()) {
+        if (hasSender && hasReceiver) {
+            break;
+        }
+        in.read(reinterpret_cast<char *>(&user), sizeof(User));
+        if (receiver == user.id) {
+            hasReceiver = true;
+        }
+        if (sender == user.id) {
+            hasSender = true;
+        }
+    }
+    in.close();
+
+    return hasSender && hasReceiver;
 }
