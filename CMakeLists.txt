@@ -11,4 +11,4 @@ add_executable(Week05_OOPCoin_Homework01
         Course2/SummerSemester/ReOOP/Homework01/UserHelper.cpp
         Course2/SummerSemester/ReOOP/Homework01/UserHelper.h
         Course2/SummerSemester/ReOOP/Homework01/TransactionHelper.cpp
-        Course2/SummerSemester/ReOOP/Homework01/TransactionHelper.h)
+        Course2/SummerSemester/ReOOP/Homework01/TransactionHelper.h Course2/SummerSemester/ReOOP/Homework01/RichDataHelper.cpp Course2/SummerSemester/ReOOP/Homework01/RichDataHelper.h)

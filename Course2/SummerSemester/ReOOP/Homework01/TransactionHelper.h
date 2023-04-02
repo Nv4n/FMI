@@ -31,6 +31,8 @@ public:
 
     static bool sendAll(unsigned sender);
 
+    static double getUserCoins(unsigned userId);
+
     static void calibrateId();
 
 private:

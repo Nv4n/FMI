@@ -10,6 +10,8 @@
 unsigned TransactionHelper::TsBlockId = 0;
 
 bool TransactionHelper::sendCoins(unsigned int sender, unsigned int receiver, double coins) {
+    //TODO
+    // UPDATE SO YOU DON'T UPDATE POSITION IF TSBLOCK IS NOT FULL
     if (coins <= 0) {
         std::cout << "coins can't be less than 0" << std::endl;
         return false;
@@ -76,7 +78,6 @@ bool TransactionHelper::addTransaction(TransactionHelper::TransactionBlock tsblo
         TransactionHelper::TsBlockId++;
         tsblock.prevBlockId = prevId;
         tsblock.prevBlockHash = prevHash;
-    } else {
         out.seekp(pos);
     }
 
@@ -147,4 +148,17 @@ void TransactionHelper::calibrateId() {
 
     in.close();
     std::cout << "TransactionBlocks Id is calibrated" << std::endl;
+}
+
+double TransactionHelper::getUserCoins(unsigned int userId) {
+    std::ifstream in("blocks.dat", std::ios::binary);
+    if (!in.is_open()) {
+        std::cout << "Reader couldn't open blocks.dat" << std::endl;
+        return -1;
+    }
+
+    TransactionBlock tsblock{};
+    long long pos = 0;
+    double currentCoinsSender = getCoins(in, userId, pos, tsblock);
+    in.close();
 }
