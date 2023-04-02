@@ -49,7 +49,7 @@ bool TransactionHelper::sendAll(unsigned int sender) {
     }
 
     TransactionBlock tsblock{};
-    long long pos;
+    long long pos = 0;
     double currentCoinsSender = getCoins(in, sender, pos, tsblock);
     in.close();
 
@@ -70,7 +70,7 @@ bool TransactionHelper::addTransaction(TransactionHelper::TransactionBlock tsblo
 
     if (tsblock.validTransactions == 16) {
         unsigned prevId = tsblock.id;
-        unsigned prevHash = computeHash(reinterpret_cast<unsigned char *>(&tsblock), sizeof(tsblock));
+        unsigned prevHash = computeHash(reinterpret_cast<unsigned char *>(&tsblock), sizeof(TransactionBlock));
         tsblock = {};
         tsblock.id = TransactionHelper::TsBlockId;
         TransactionHelper::TsBlockId++;
@@ -87,8 +87,8 @@ bool TransactionHelper::addTransaction(TransactionHelper::TransactionBlock tsblo
     ts.time = std::time(nullptr);
 
     tsblock.transactions[tsblock.validTransactions] = ts;
-    tsblock.validTransactions++;
-    out.write(reinterpret_cast<const char *>(&tsblock), sizeof(tsblock));
+    tsblock.validTransactions = tsblock.validTransactions + 1;
+    out.write(reinterpret_cast<const char *>(&tsblock), sizeof(TransactionBlock));
     out.close();
     return true;
 }
@@ -99,10 +99,10 @@ TransactionHelper::getCoins(std::ifstream &in, unsigned int sender, long long in
     while (!in.eof()) {
         pos = in.tellg();
 
-        in.read(reinterpret_cast<char *>(&tsblock), sizeof(tsblock.transactions));
+        in.read(reinterpret_cast<char *>(&tsblock), sizeof(TransactionBlock));
         for (int i = 0; i < tsblock.validTransactions; ++i) {
             if (tsblock.transactions[i].sender == sender) {
-                currentCoinsSender -= tsblock.transactions[i].coins;
+                currentCoinsSender = currentCoinsSender - tsblock.transactions[i].coins;
             } else if (tsblock.transactions[i].receiver == sender) {
                 currentCoinsSender += tsblock.transactions[i].coins;
             }
@@ -116,7 +116,7 @@ TransactionHelper::findLastBlock(std::ifstream &in, long long int &pos, Transact
     double currentCoinsSender = 0;
     while (!in.eof()) {
         pos = in.tellg();
-        in.read(reinterpret_cast<char *>(&tsblock), sizeof(tsblock.transactions));
+        in.read(reinterpret_cast<char *>(&tsblock), sizeof(TransactionBlock));
     }
 }
 

@@ -22,19 +22,13 @@ int main() {
 }
 
 void getMenuInput() {
-    for (;;) {
-        //19 characters is the longest command length
-        char cmd[19];
-        char c;
-        int i = 0;
-        while (std::cin.get(c) && c != ' ' && c != '\n') {
-            if (i == 19) {
-                cmd[0] = '\0'; //Invalidating the whole command
-                break;
-            }
-            cmd[i++] = c;
-        }
-        cmd[i] = '\0';
+    while (true) {
+        // 19 characters is the longest command length
+        // Adding more symbols if we have
+        // invalid commands with more than 19 symbols
+        char cmd[21];
+        std::cin >> cmd;
+
         if (std::strcmp(cmd, "create-user") == 0) {
             getCreateUserInput();
         } else if (std::strcmp(cmd, "remove-user") == 0) {
@@ -52,39 +46,19 @@ void getMenuInput() {
         } else {
             std::cout << "Invalid command" << std::endl;
         }
-        std::cin.ignore();
     }
 }
 
 void getCreateUserInput() {
     char tempName[128];
-    char c;
-    int i = 0;
-    while (std::cin.get(c) && c != ' ' && c != '\n') {
-        if (i == 128) {
-            std::cout << "Invalid length of name";
-            return;
-        }
-        tempName[i++] = c;
-    }
-    tempName[i] = i != 127 ? '\0' : tempName[i];
     double levs;
-    std::cin >> levs;
+    std::cin >> tempName >> levs;
     UserHelper::createUser(tempName, levs);
 }
 
 void getRemoveUserInput() {
     char tempName[128];
-    char c;
-    int i = 0;
-    while (std::cin.get(c) && c != ' ' && c != '\n') {
-        if (i == 128) {
-            std::cout << "Invalid length of name";
-            return;
-        }
-        tempName[i++] = c;
-    }
-    tempName[i] = i != 127 ? '\0' : tempName[i];
+    std::cin >> tempName;
     UserHelper::removeUser(tempName);
 }
 
