@@ -18,17 +18,12 @@ bool TransactionHelper::sendCoins(unsigned int sender, unsigned int receiver, do
     }
 
     std::ifstream in("blocks.dat", std::ios::binary);
-    TransactionBlock tsblock{};
-    long long pos = 0;
     double currentCoinsSender = 0;
 
-    if (!in) {
-        currentCoinsSender = coins;
-    } else if (sender != 0) {
-        currentCoinsSender = getCoins(in, sender, pos, tsblock);
+    if (in && sender != 0) {
+        currentCoinsSender = getCoins(in, sender);
     } else {
         currentCoinsSender = coins;
-        findLastBlock(in, pos, tsblock);
     }
     in.close();
 
@@ -37,10 +32,11 @@ bool TransactionHelper::sendCoins(unsigned int sender, unsigned int receiver, do
         return false;
     }
 
+    TransactionBlock tsblock{};
     if (tsblock.id == 0) {
         tsblock.prevBlockId = 0;
     }
-    return addTransaction(tsblock, sender, receiver, coins, pos);
+    return addTransaction(sender, receiver, coins);
 }
 
 bool TransactionHelper::sendAll(unsigned int sender) {
@@ -50,24 +46,96 @@ bool TransactionHelper::sendAll(unsigned int sender) {
         return false;
     }
 
-    TransactionBlock tsblock{};
-    long long pos = 0;
-    double currentCoinsSender = getCoins(in, sender, pos, tsblock);
+    double currentCoinsSender = getCoins(in, sender);
     in.close();
 
+    TransactionBlock tsblock{};
     if (tsblock.id == 0) {
         tsblock.prevBlockId = 0;
     }
-    return addTransaction(tsblock, sender, 0, currentCoinsSender, pos);
+    return addTransaction(sender, 0, currentCoinsSender);
+}
+
+double TransactionHelper::getUserCoins(unsigned int userId) {
+    std::ifstream in("blocks.dat", std::ios::binary);
+    if (!in.is_open()) {
+        std::cout << "Reader couldn't open blocks.dat" << std::endl;
+        return -1;
+    }
+
+    double currentCoinsSender = getCoins(in, userId);
+    in.close();
+    return currentCoinsSender;
 }
 
 
-bool TransactionHelper::addTransaction(TransactionHelper::TransactionBlock tsblock, unsigned int sender,
-                                       unsigned int receiver, double coins, long long int pos) {
-    std::ofstream out("blocks.dat", std::ios::binary | std::ios::app);
-    if (!out.is_open()) {
-        std::cout << "Writer couldn't open blocks.dat" << std::endl;
+void TransactionHelper::verifyTransactions() {
+    std::ifstream in("blocks.dat", std::ios::binary);
+    if (!in.is_open()) {
+        std::cout << "blocks.dat couldn't be opened" << std::endl;
+        return;
+    }
+
+    TransactionBlock tsblock{};
+    unsigned prevId = -1;
+    unsigned prevHash = -1;
+    while (!in.eof()) {
+        in.read(reinterpret_cast<char *>(&tsblock), sizeof(TransactionBlock));
+        unsigned currentId = tsblock.id;
+        unsigned currentHash = computeHash(reinterpret_cast<unsigned char *>(&tsblock), sizeof(TransactionBlock));
+
+        //The same result is in multiple ifs for readability
+        if (currentId == 0 && tsblock.prevBlockId != 0) {
+            std::cout << "TransactionBlock #" << tsblock.id << " is invalid" << std::endl;
+        } else if (currentId <= prevId) {
+            std::cout << "TransactionBlock #" << tsblock.id << " is invalid" << std::endl;
+        } else if (currentId != 0 && prevHash != tsblock.prevBlockHash) {
+            std::cout << "TransactionBlock #" << tsblock.id << " is invalid" << std::endl;
+        }
+
+        prevId = currentId;
+        prevHash = currentHash;
+    }
+    in.close();
+}
+
+void TransactionHelper::calibrateId() {
+    std::ifstream in("blocks.dat", std::ios::binary);
+    TransactionBlock tsblock{};
+    if (in.is_open()) {
+        while (!in.eof()) {
+            in.read(reinterpret_cast<char *>(&tsblock), sizeof(tsblock));
+            TsBlockId = tsblock.id;
+        }
+    }
+
+    in.close();
+    std::cout << "TransactionBlocks Id is calibrated" << std::endl;
+}
+
+bool TransactionHelper::addTransaction(unsigned int sender,
+                                       unsigned int receiver, double coins) {
+    std::ifstream in("tempblocks.dat", std::ios::binary);
+    if (!in.is_open()) {
+        std::cout << "Reader couldn't open blocks.dat" << std::endl;
         return false;
+    }
+
+    std::ofstream out("tempblocks.dat", std::ios::binary);
+    if (!out.is_open()) {
+        std::cout << "Writer couldn't open tempblocks.dat" << std::endl;
+        return false;
+    }
+    TransactionBlock tsblock{};
+    while (!in.eof()) {
+        in.read(reinterpret_cast<char *>(&tsblock), sizeof(TransactionBlock));
+        if (tsblock.validTransactions < 16) {
+            out.write(reinterpret_cast<char *>(&tsblock), sizeof(TransactionBlock));
+        }
+    }
+
+    if (tsblock.id == 0) {
+        tsblock.prevBlockId = 0;
     }
 
     if (tsblock.validTransactions == 16) {
@@ -78,7 +146,6 @@ bool TransactionHelper::addTransaction(TransactionHelper::TransactionBlock tsblo
         TransactionHelper::TsBlockId++;
         tsblock.prevBlockId = prevId;
         tsblock.prevBlockHash = prevHash;
-        out.seekp(pos);
     }
 
     Transaction ts{};
@@ -91,15 +158,16 @@ bool TransactionHelper::addTransaction(TransactionHelper::TransactionBlock tsblo
     tsblock.validTransactions = tsblock.validTransactions + 1;
     out.write(reinterpret_cast<const char *>(&tsblock), sizeof(TransactionBlock));
     out.close();
+
+    
     return true;
 }
 
 double
-TransactionHelper::getCoins(std::ifstream &in, unsigned int sender, long long int &pos, TransactionBlock &tsblock) {
+TransactionHelper::getCoins(std::ifstream &in, unsigned int sender) {
     double currentCoinsSender = 0;
+    TransactionBlock tsblock;
     while (!in.eof()) {
-        pos = in.tellg();
-
         in.read(reinterpret_cast<char *>(&tsblock), sizeof(TransactionBlock));
         for (int i = 0; i < tsblock.validTransactions; ++i) {
             if (tsblock.transactions[i].sender == sender) {
@@ -110,15 +178,6 @@ TransactionHelper::getCoins(std::ifstream &in, unsigned int sender, long long in
         }
     }
     return currentCoinsSender;
-}
-
-void
-TransactionHelper::findLastBlock(std::ifstream &in, long long int &pos, TransactionBlock &tsblock) {
-    double currentCoinsSender = 0;
-    while (!in.eof()) {
-        pos = in.tellg();
-        in.read(reinterpret_cast<char *>(&tsblock), sizeof(TransactionBlock));
-    }
 }
 
 unsigned TransactionHelper::computeHash(const unsigned char *memory, int length) {
@@ -136,29 +195,3 @@ unsigned TransactionHelper::computeHash(const unsigned char *memory, int length)
     return hash;
 }
 
-void TransactionHelper::calibrateId() {
-    std::ifstream in("blocks.dat", std::ios::binary);
-    TransactionBlock tsblock{};
-    if (in.is_open()) {
-        while (!in.eof()) {
-            in.read(reinterpret_cast<char *>(&tsblock), sizeof(tsblock));
-            TsBlockId = tsblock.id;
-        }
-    }
-
-    in.close();
-    std::cout << "TransactionBlocks Id is calibrated" << std::endl;
-}
-
-double TransactionHelper::getUserCoins(unsigned int userId) {
-    std::ifstream in("blocks.dat", std::ios::binary);
-    if (!in.is_open()) {
-        std::cout << "Reader couldn't open blocks.dat" << std::endl;
-        return -1;
-    }
-
-    TransactionBlock tsblock{};
-    long long pos = 0;
-    double currentCoinsSender = getCoins(in, userId, pos, tsblock);
-    in.close();
-}

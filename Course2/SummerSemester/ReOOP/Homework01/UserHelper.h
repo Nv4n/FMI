@@ -10,13 +10,14 @@
 
 class UserHelper {
 private:
+    static unsigned UserId;
+
+public:
     struct User {
         unsigned id;
         char name[128];
     };
-    static unsigned UserId;
 
-public:
     static void createUser(const char name[128], double levs);
 
     static void removeUser(const char name[128]);

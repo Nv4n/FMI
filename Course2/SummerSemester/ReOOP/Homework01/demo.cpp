@@ -2,6 +2,7 @@
 #include <cstring>
 #include "UserHelper.h"
 #include "TransactionHelper.h"
+#include "RichDataHelper.h"
 
 //
 // Created by Sybatron on 3/28/2023.
@@ -14,6 +15,11 @@ void getCreateUserInput();
 void getRemoveUserInput();
 
 void getSendCoinsInput();
+
+void getWealthyInput();
+
+void getBigBlockInput();
+
 
 int main() {
     UserHelper::calibrateId();
@@ -36,11 +42,11 @@ void getMenuInput() {
         } else if (std::strcmp(cmd, "send-coins") == 0) {
             getSendCoinsInput();
         } else if (std::strcmp(cmd, "verify-transactions") == 0) {
-            std::cout << "success" << std::endl;
+            TransactionHelper::verifyTransactions();
         } else if (std::strcmp(cmd, "wealthiest-users") == 0) {
-            std::cout << "success" << std::endl;
+            getWealthyInput();
         } else if (std::strcmp(cmd, "biggest-blocks") == 0) {
-            std::cout << "success" << std::endl;
+            getBigBlockInput();
         } else if (std::strcmp(cmd, "exit") == 0) {
             return;
         } else {
@@ -68,4 +74,16 @@ void getSendCoinsInput() {
     double coins;
     std::cin >> sender >> receiver >> coins;
     TransactionHelper::sendCoins(sender, receiver, coins);
+}
+
+void getWealthyInput() {
+    unsigned count;
+    std::cin >> count;
+    RichDataHelper::getWealthyUsers(count);
+}
+
+void getBigBlockInput() {
+    unsigned count;
+    std::cin >> count;
+    RichDataHelper::getBigBlocks(count);
 }

@@ -17,6 +17,8 @@ private:
         long long time;
     };
 
+    static unsigned TsBlockId;
+public:
     struct TransactionBlock {
         unsigned id;
         unsigned prevBlockId;
@@ -25,23 +27,23 @@ private:
         Transaction transactions[16];
     };
 
-    static unsigned TsBlockId;
-public:
     static bool sendCoins(unsigned sender, unsigned receiver, double coins);
 
     static bool sendAll(unsigned sender);
 
     static double getUserCoins(unsigned userId);
 
+    static void verifyTransactions();
+
     static void calibrateId();
 
 private:
-    static double getCoins(std::ifstream &in, unsigned sender, long long &pos, TransactionBlock &tsblock);
+    static double getCoins(std::ifstream &in, unsigned sender);
 
-    static void findLastBlock(std::ifstream &in, long long int &pos, TransactionBlock &tsblock);
+    static void findLastBlock(std::ifstream &in);
 
     static bool
-    addTransaction(TransactionBlock tsblock, unsigned sender, unsigned receiver, double coins, long long pos);
+    addTransaction(unsigned sender, unsigned receiver, double coins);
 
     static unsigned computeHash(const unsigned char *memory, int length);
 };
