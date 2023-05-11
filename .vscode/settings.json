@@ -3,7 +3,7 @@
 	"editor.tabCompletion": "on",
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
-"pretty-formatter.correct": true,
+	"pretty-formatter.correct": true,
 	"html.format.enable": true,
 	"better-comments.tags": [
 		{
@@ -52,6 +52,11 @@
 			"italic": false
 		}
 	],
-
-	"cSpell.words": ["Occurances"],
+	"cSpell.words": [
+		"Occurances"
+	],
+	"docwriter.style": "Auto-detect",
+	"docwriter.progress.trackClasses": true,
+	"docwriter.progress.trackTypes": true,
+	"docwriter.language": "English",
 }

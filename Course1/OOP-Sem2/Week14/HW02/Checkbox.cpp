@@ -17,6 +17,7 @@ Checkbox &Checkbox::operator=(const Checkbox &other) {
     return *this;
 }
 
+
 Checkbox::Checkbox(const char *text, const size_t positionX, const size_t positionY, const bool isChecked) {
     setControlId();
     setPosition(positionX, positionY);
