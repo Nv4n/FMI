@@ -5,6 +5,3 @@
 
 #include "Set.h"
 
-template<typename T>
-Set<T>::~Set() {
-}

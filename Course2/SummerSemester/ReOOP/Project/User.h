@@ -2,29 +2,23 @@
 // Created by Sybatron on 5/10/2023.
 //
 
-#ifndef WEEK05_OOPCOIN_HOMEWORK01_USER_H
-#define WEEK05_OOPCOIN_HOMEWORK01_USER_H
+#ifndef PROJECT_SOCIALMEDIA_USER_H
+#define PROJECT_SOCIALMEDIA_USER_H
 
 #pragma once
 
 class User {
-//    Всеки потребител се характеризира с:
-//    ● собствено име;
-//    ●фамилно име;
-//    ●потребителско име (уникално за системата);
-//    ●парола;
-//    ●уникален идентификатор (неотрицателно число), който се генерира при създаването на потребителския акаунт;
-//    ●точки.
 private:
     std::string fname;
     std::string lname;
-    std::string username;
+    std::string username; //UNIQUE
     std::string password;
-    const static std::size_t id;
-    unsigned int points;
+    size_t uid;
+    static size_t modId;
+    static size_t id;
+    unsigned int points{};
 public:
-    User(const std::string &fname, const std::string &lname, const std::string &username, const std::string &password,
-         size_t id, unsigned int points);
+    User(const std::string &fname, const std::string &lname, const std::string &username, const std::string &password);
 
     virtual ~User();
 
@@ -46,12 +40,20 @@ public:
 
     size_t getId() const;
 
-    void setId(size_t id);
-
     unsigned int getPoints() const;
 
     void setPoints(unsigned int points);
+
+    static size_t getModId();
+
+    static void setModId(size_t modId);
+
+    //TODO
+    //  ADD COMPARE USER SO I CAN PUT THEM IN SET
 };
 
+size_t User::id = 1;
+size_t User::modId = 0;
 
-#endif //WEEK05_OOPCOIN_HOMEWORK01_USER_H
+
+#endif //PROJECT_SOCIALMEDIA_USER_H

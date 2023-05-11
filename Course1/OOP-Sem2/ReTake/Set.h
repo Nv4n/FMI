@@ -22,7 +22,7 @@ class Set {
 protected:
     SetType type;
 public:
-    virtual ~Set();
+    [[noreturn]] virtual ~Set();
 
     virtual bool doesContains(const T &element) = 0;
 };

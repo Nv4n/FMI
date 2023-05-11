@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HW9.iml" filepath="$PROJECT_DIR$/HW9.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.zad1/com.zad1.iml" filepath="$PROJECT_DIR$/com.zad1/com.zad1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.zad2/com.zad2.iml" filepath="$PROJECT_DIR$/com.zad2/com.zad2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.zad2/app/com.zad2.app.iml" filepath="$PROJECT_DIR$/com.zad2/app/com.zad2.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.zad2/models/com.zad2.models.iml" filepath="$PROJECT_DIR$/com.zad2/models/com.zad2.models.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.zad3/com.zad3.iml" filepath="$PROJECT_DIR$/com.zad3/com.zad3.iml" />
     </modules>
   </component>
 </project>

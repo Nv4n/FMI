@@ -6,15 +6,20 @@
 #include <string>
 #include "User.h"
 
-User::User(const std::string &fname, const std::string &lname, const std::string &username, const std::string &password,
-           size_t id, unsigned int points) : fname(fname), lname(lname), username(username), password(password), id(id),
-                                             points(points) {
+User::User(const std::string &fname, const std::string &lname, const std::string &username, const std::string &password,) {
+    setFName(fname);
+    setLName(lname);
+    setUsername(username);
+    setPassword(password);
+    setPoints(0);
+    uid = id++;
 
+    //TODO
+    //  CHECK IF IT'S FIRST USER
+    //  TO SET IT AS MOD
 }
 
-User::~User() {
-
-}
+User::~User() = default;
 
 const std::string &User::getFName() const {
     return fname;
@@ -49,11 +54,7 @@ void User::setPassword(const std::string &password) {
 }
 
 size_t User::getId() const {
-    return id;
-}
-
-void User::setId(size_t id) {
-    User::id = id;
+    return uid;
 }
 
 unsigned int User::getPoints() const {
@@ -64,4 +65,11 @@ void User::setPoints(unsigned int points) {
     User::points = points;
 }
 
+size_t User::getModId() {
+    return modId;
+}
+
+void User::setModId(size_t modId) {
+    User::modId = modId;
+}
 
