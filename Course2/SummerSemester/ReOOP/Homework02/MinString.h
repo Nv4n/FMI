@@ -15,18 +15,9 @@ private:
 public:
     MinString();
 
-    MinString(const char *_data) {
-        length = strlen(_data);
-        data = new char[length + 1];
-        std::strcpy(data, _data);
-    }
-
-    // Copy constructor
-    MinString(const MinString &other) {
-        length = other.length;
-        data = new char[length + 1];
-        strcpy(data, other.data);
-    }
+    MinString(const char *_data);
+    
+    MinString(const MinString &other);
 
     // Move constructor
     MinString(MinString &&other) noexcept: data(other.data), length(other.length) {
@@ -107,35 +98,17 @@ public:
         return length;
     }
 
-    // Getter for the raw string data
-    const char *getData() const {
-        return data;
-    }
+    const char *getData() const;
 
-    // Insertion operator (<<)
-    friend std::ostream &operator<<(std::ostream &os, const MinString &str) {
-        os << str.data;
-        return os;
-    }
+    friend std::ostream &operator<<(std::ostream &os, const MinString &str);
 
-    // Extraction operator (>>)
-    friend std::istream &operator>>(std::istream &is, MinString &str) {
-        std::string input;
-        std::getline(is, input);
+    friend std::istream &operator>>(std::istream &is, MinString &str);
 
-        // Reallocate memory for the new string data
-        delete[] str.data;
-        str.length = input.length();
-        str.data = new char[str.length + 1];
-        strcpy(str.data, input.c_str());
 
-        return is;
-    }
+    friend bool operator==(const MinString &lhs, const MinString &rhs);
 
-    // Equality operator (==)
-    friend bool operator==(const MinString &lhs, const MinString &rhs) {
-        return strcmp(lhs.data, rhs.data) == 0;
-    }
+private:
+
 };
 
 

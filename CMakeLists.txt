@@ -11,4 +11,4 @@ add_executable(Project_SocialMedia
         Course2/SummerSemester/ReOOP/Project/User.cpp Course2/SummerSemester/ReOOP/Project/User.h Course2/SummerSemester/ReOOP/Project/Set.inl Course2/SummerSemester/ReOOP/Project/Set.h Course2/SummerSemester/ReOOP/Project/SystemCommander.cpp Course2/SummerSemester/ReOOP/Project/SystemCommander.h Course2/SummerSemester/ReOOP/Project/Topic.cpp Course2/SummerSemester/ReOOP/Project/Topic.h)
 
 add_executable(HW02_LIBRARY
-        Course2/SummerSemester/ReOOP/Homework02/MinString.cpp Course2/SummerSemester/ReOOP/Homework02/MinString.h)
+        Course2/SummerSemester/ReOOP/Homework02/MinString.cpp Course2/SummerSemester/ReOOP/Homework02/MinString.h Course2/SummerSemester/ReOOP/Homework02/Vector.inl Course2/SummerSemester/ReOOP/Homework02/Vector.h)
