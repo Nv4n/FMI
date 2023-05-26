@@ -5,6 +5,7 @@
 #ifndef HW02_LIBRARY_MINSTRING_H
 #define HW02_LIBRARY_MINSTRING_H
 
+#pragma once
 
 class MinString {
 private:
@@ -34,6 +35,10 @@ public:
     MinString &operator+=(const MinString &other);
 
     friend MinString &operator+(const MinString &lvs, const MinString &rvs);
+
+    MinString &operator+=(const char *_data);
+
+    friend MinString &operator+(const MinString &lvs, const char *_data);
 
     friend std::ostream &operator<<(std::ostream &os, const MinString &str);
 

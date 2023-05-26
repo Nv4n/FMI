@@ -3,7 +3,6 @@
 //
 #include <iostream>
 #include <cstring>
-#include <sstream>
 #include "MinString.h"
 
 MinString::MinString() {
@@ -69,19 +68,35 @@ MinString &operator+(const MinString &lvs, const MinString &rvs) {
 }
 
 MinString &MinString::operator+=(const MinString &other) {
-    if (length + other.length + 1 < size) {
-        scaleUp();
+    size_t minLength = length + other.length + 1;
+    if (minLength < size) {
+        scaleUp(minLength);
     }
-    char *temp = new char[length + other.length + 1];
-    std::strcpy(temp, data);
-    std::strcat(temp, other.data);
-
-    delete[] data;
+    std::strcat(data, other.data);
     length += other.length;
-    data = temp;
 
     return *this;
 }
+
+MinString &operator+(const MinString &lvs, const char *_data) {
+    MinString result;
+    result += lvs;
+    result += _data;
+    return result;
+}
+
+MinString &MinString::operator+=(const char *_data) {
+    size_t _dataLength = std::strlen(_data);
+    size_t minLength = length + _dataLength + 1;
+    if (minLength < size) {
+        scaleUp(minLength);
+    }
+    std::strcat(data, _data);
+    length += _dataLength;
+
+    return *this;
+}
+
 
 // Comparators
 bool operator==(const MinString &lvs, const MinString &rvs) {
@@ -160,8 +175,6 @@ void MinString::scaleUp(size_t minLength) {
     delete[]data;
     data = tmp;
 }
-
-
 
 
 
