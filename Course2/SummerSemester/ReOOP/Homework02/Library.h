@@ -18,6 +18,10 @@ private:
 
     //TODO READ AND WRITE LIBRARY in binary format
 public:
+    void addItem(Item *&item);
+
+    void removeItem(size_t libraryID);
+
     friend std::ostream &operator<<(std::ostream &os, const Library &library);
 
 };
