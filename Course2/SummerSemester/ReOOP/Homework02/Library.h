@@ -22,8 +22,8 @@ public:
 
     void removeItem(size_t libraryID);
 
-    friend std::ostream &operator<<(std::ostream &os, const Library &library);
-
+    void printItems();
+    
 };
 
 

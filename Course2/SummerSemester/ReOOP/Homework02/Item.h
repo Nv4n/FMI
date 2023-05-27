@@ -5,20 +5,41 @@
 #ifndef HW02_LIBRARY_ITEM_H
 #define HW02_LIBRARY_ITEM_H
 
-#include <iostream>
 #include "MinString.h"
 
 #pragma once
+enum class ItemType {
+    UNKNOWN = -1,
+    BOOK,
+    PERIODIC_PUBLICATION,
+    COMIC,
+};
+
 
 class Item {
 protected:
     MinString title;
     MinString shortDescr;
-    size_t libraryID;
-    unsigned int publishYear;
+    size_t libraryID{};
+    unsigned short publishYear{};
+    ItemType type{};
 
 public:
+    Item();
+
     virtual ~Item();
+
+    size_t getLibraryId() const;
+
+    ItemType getType() const;
+
+    const MinString &getTitle() const;
+
+    const MinString &getShortDescr() const;
+
+    unsigned short getPublishYear() const;
+
+    friend std::ostream &operator<<(std::ostream &os, const Item &item);
 };
 
 

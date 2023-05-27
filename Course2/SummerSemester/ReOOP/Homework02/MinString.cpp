@@ -1,7 +1,7 @@
 //
 // Created by Sybatron on 5/25/2023.
 //
-#include <iostream>
+
 #include <cstring>
 #include "MinString.h"
 
@@ -107,6 +107,23 @@ bool operator!=(const MinString &lvs, const MinString &rvs) {
     return !(lvs == rvs);
 }
 
+bool operator>(const MinString &lvs, const MinString &rvs) {
+    return std::strcmp(lvs.data, rvs.data) > 0;
+}
+
+bool operator>=(const MinString &lvs, const MinString &rvs) {
+    return lvs > rvs && lvs == rvs;
+}
+
+bool operator<(const MinString &lvs, const MinString &rvs) {
+    return !(lvs >= rvs);
+}
+
+bool operator<=(const MinString &lvs, const MinString &rvs) {
+    return !(lvs > rvs);
+}
+
+
 // Read and write
 std::istream &operator>>(std::istream &is, MinString &str) {
     const int bufferSize = 1024;
@@ -175,9 +192,3 @@ void MinString::scaleUp(size_t minLength) {
     delete[]data;
     data = tmp;
 }
-
-
-
-
-
-

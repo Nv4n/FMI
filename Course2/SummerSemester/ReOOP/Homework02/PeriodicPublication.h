@@ -8,7 +8,7 @@
 #include "Item.h"
 
 #pragma once
-enum PeriodicPeriod {
+enum class PeriodicPeriod {
     UNKNOWN = -1,
     WEEKLY,
     MONTHLY,

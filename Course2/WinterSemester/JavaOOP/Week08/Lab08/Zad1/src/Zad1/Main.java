@@ -86,7 +86,7 @@ public class Main extends Application {
         }
 
         if (!txtSequenceSize.getText().matches("^\\d+$")) {
-            new Alert(Alert.AlertType.ERROR, "Size must be a number").show();
+            new Alert(Alert.AlertType.ERROR, "getSize must be a number").show();
             return true;
         }
 

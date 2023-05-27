@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <iostream>
+
 class MinString {
 private:
     char *data{};
@@ -47,6 +49,14 @@ public:
     friend bool operator==(const MinString &lvs, const MinString &rvs);
 
     friend bool operator!=(const MinString &lvs, const MinString &rvs);
+
+    friend bool operator>(const MinString &lvs, const MinString &rvs);
+
+    friend bool operator>=(const MinString &lvs, const MinString &rvs);
+
+    friend bool operator<(const MinString &lvs, const MinString &rvs);
+
+    friend bool operator<=(const MinString &lvs, const MinString &rvs);
 
 private:
     void copy(const MinString &other);

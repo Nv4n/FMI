@@ -32,7 +32,6 @@ MinVector<T> &MinVector<T>::operator=(const MinVector<T> &other) {
     return *this;
 }
 
-
 // Move
 template<typename T>
 MinVector<T>::MinVector(MinVector<T> &&other) noexcept {
@@ -52,12 +51,12 @@ MinVector<T> &MinVector<T>::operator=(MinVector<T> &&other) noexcept {
 
 // Getters and Setters
 template<typename T>
-size_t MinVector<T>::Size() const {
+size_t MinVector<T>::getSize() const {
     return size;
 }
 
 template<typename T>
-bool MinVector<T>::Empty() const {
+bool MinVector<T>::isEmpty() const {
     return size == 0;
 }
 
@@ -102,6 +101,26 @@ void MinVector<T>::remove(size_t index) {
         data[i] = data[i + 1];
     }
     --size;
+}
+
+// Sort
+
+template<typename T>
+void MinVector<T>::exchange(T &lvs, T &rvs) {
+    T temp = lvs;
+    lvs = rvs;
+    rvs = temp;
+}
+
+template<typename T>
+void MinVector<T>::sort(int (*comparator)(T &, T &)) {
+    for (size_t i = 0; i < size - 1; ++i) {
+        for (size_t j = 0; j < size - 1 - i; ++j) {
+            if (comparator(data[j], data[j + 1]) > 0) {
+                exchange(data[j], data[j + 1]);
+            }
+        }
+    }
 }
 
 // Read and Write

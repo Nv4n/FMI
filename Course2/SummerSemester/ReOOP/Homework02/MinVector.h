@@ -30,9 +30,9 @@ public:
 
     MinVector<T> &operator=(MinVector<T> &&other) noexcept;
 
-    size_t Size() const;
+    size_t getSize() const;
 
-    bool Empty() const;
+    bool isEmpty() const;
 
     T &operator[](size_t index);
 
@@ -48,7 +48,11 @@ public:
 
     friend std::istream &operator>>(std::istream &is, MinVector<T> &vec);
 
+    void sort(int (*comparator)(T &, T &));
+
 private:
+    void exchange(T &lvs, T &rvs);
+
     void copy(const MinVector<T> &other);
 
     void move(MinVector<T> &other) noexcept;

@@ -7,11 +7,13 @@
 
 
 #include "MinString.h"
+#include "Item.h"
+#include "MinVector.h"
 
 class User {
 private:
     MinString name;
-Vector
+    MinVector<Item *> books;
 };
 
 
