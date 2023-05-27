@@ -5,9 +5,9 @@
 #ifndef HW02_LIBRARY_MINSTRING_H
 #define HW02_LIBRARY_MINSTRING_H
 
-#pragma once
-
 #include <iostream>
+
+#pragma once
 
 class MinString {
 private:

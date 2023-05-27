@@ -6,6 +6,7 @@
 #define HW02_LIBRARY_BOOK_H
 
 #include "Item.h"
+#include "Genre.h"
 
 #pragma once
 
@@ -14,8 +15,7 @@ protected:
     MinString author;
     //TODO Genre
     MinString publisher;
-//    жанр - 16 битово цяло число - прочетете по-долу
-//            кратко описание;
+    Genre genre;
 public:
     virtual ~Book() override;
 };
