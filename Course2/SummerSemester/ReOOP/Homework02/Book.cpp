@@ -3,3 +3,5 @@
 //
 
 #include "Book.h"
+
+Book::~Book() = default;

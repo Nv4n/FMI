@@ -17,7 +17,7 @@ protected:
 //    жанр - 16 битово цяло число - прочетете по-долу
 //            кратко описание;
 public:
-    virtual ~Book();
+    virtual ~Book() override;
 };
 
 

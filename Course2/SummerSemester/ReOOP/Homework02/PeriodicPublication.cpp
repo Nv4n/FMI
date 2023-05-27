@@ -3,3 +3,9 @@
 //
 
 #include "PeriodicPublication.h"
+
+PeriodicPublication::~PeriodicPublication() = default;
+
+unsigned int PeriodicPublication::getCount() const {
+    return count;
+}

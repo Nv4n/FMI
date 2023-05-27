@@ -19,9 +19,11 @@ enum class PeriodicPeriod {
 class PeriodicPublication : public virtual Item {
 protected:
     PeriodicPeriod period;
-    size_t count;
+    unsigned int count;
 public:
-    virtual ~PeriodicPublication();
+    virtual ~PeriodicPublication() override;
+
+    unsigned int getCount() const;
 };
 
 

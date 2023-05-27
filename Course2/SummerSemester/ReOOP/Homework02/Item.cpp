@@ -31,7 +31,26 @@ unsigned short Item::getPublishYear() const {
     return publishYear;
 }
 
+const char *Item::getTypeText() const {
+    switch (type) {
+        case ItemType::BOOK:
+            return "BOOK";
+        case ItemType::PERIODIC_PUBLICATION:
+            return "PERIODIC_PUBLICATION";
+        case ItemType::COMIC:
+            return "COMIC";
+        default:
+            return "UNKNOWN";
+    }
+}
+
 // Read and Write
 std::ostream &operator<<(std::ostream &os, const Item &item) {
-    
+//  заглавие, тип, кратко описание, библиотечен номер.
+    os << "Title: " << item.title
+       << " Type: " << item.getTypeText()
+       << " Short description: " << item.shortDescr
+       << " ID: " << item.libraryID;
+    return os;
 }
+

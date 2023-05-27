@@ -15,7 +15,6 @@ enum class ItemType {
     COMIC,
 };
 
-
 class Item {
 protected:
     MinString title;
@@ -33,6 +32,8 @@ public:
 
     ItemType getType() const;
 
+    const char *getTypeText() const;
+
     const MinString &getTitle() const;
 
     const MinString &getShortDescr() const;
@@ -40,6 +41,7 @@ public:
     unsigned short getPublishYear() const;
 
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
+
 };
 
 
