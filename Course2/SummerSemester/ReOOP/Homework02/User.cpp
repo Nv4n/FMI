@@ -3,3 +3,11 @@
 //
 
 #include "User.h"
+
+User::User() = default;
+
+User::~User() = default;
+
+const MinString &User::getName() const {
+    return name;
+}

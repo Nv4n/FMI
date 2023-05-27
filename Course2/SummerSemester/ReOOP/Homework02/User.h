@@ -14,6 +14,12 @@ class User {
 private:
     MinString name;
     MinVector<Item *> books;
+public:
+    User();
+
+    ~User();
+
+    const MinString &getName() const;
 };
 
 

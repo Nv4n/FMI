@@ -5,6 +5,7 @@
 #include "Library.h"
 #include "PeriodicPublication.h"
 
+// Add and Remove
 void Library::addItem(Item *&item) {
     items.pushBack(item);
 }
@@ -18,9 +19,62 @@ void Library::removeItem(const size_t libraryID) {
     }
 }
 
+
+void Library::addUser(User &user) {
+    users.pushBack(user);
+}
+
+void Library::removeUser(MinString &username) {
+    for (int i = 0; i < users.getSize(); ++i) {
+        if (username == users[i].getName()) {
+            users.remove(i);
+            break;
+        }
+    }
+}
+
+// Print
 void Library::printItems() {
 
-    items.sort([](Item *&lvs, Item *&rvs) -> int {
+    items.sort(getSortFunc());
+
+    for (int i = 0; i < items.getSize(); ++i) {
+        std::cout << "#" << i + 1 << " " << items[i] << std::endl;
+    }
+}
+
+void Library::printOverdueItems() {
+    items.sort(getSortFunc());
+// TODO ALGORITHM OVERDUE ITEMS
+//  Go trough users
+//  Get books with STATUS = OVERDUE
+//  Remove duplicates ids
+//  Get all books with these ids
+//  Sort
+//  Print
+}
+
+void Library::printUsersByBorrowedId() {
+// TODO ALGORITHM BORROWED ID ITEMS
+//  Go trough users
+//  Get books with STATUS = BORROWED
+//  Remove duplicates ids
+//  Get all books with these ids
+//  Sort
+//  Print
+}
+
+void Library::printUsers() {
+// TODO ALGORITHM PRINT USERS
+//  Go trough users
+//  Count books with STATUS = READ
+//  Sort
+//  Print
+}
+
+// Private
+SortLambdaType Library::getSortFunc() {
+    return [](Item *&lvs, Item *&rvs) -> int {
         int yearComparison = lvs->getPublishYear() - rvs->getPublishYear();
         if (yearComparison != 0) {
             return yearComparison > 0 ? 1 : -1;
@@ -56,9 +110,5 @@ void Library::printItems() {
             return countComparison > 0 ? 1 : -1;
         }
         return 0;
-    });
-
-    for (int i = 0; i < items.getSize(); ++i) {
-        std::cout << "#" << i + 1 << " " << items[i] << std::endl;
-    }
+    };
 }
