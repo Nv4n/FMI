@@ -35,6 +35,10 @@ unsigned short Genre::getGenre() const {
     return genre;
 }
 
+/**
+ * @param _genre
+ * @throws invalid_argument When given invalid genre
+ */
 void Genre::setGenre(unsigned short _genre) {
     bool isEvenParity = isEvenBitCount(_genre);
     bool isValid = (isEvenParity && ((_genre >> 15) & 0x1) == 0)
@@ -73,5 +77,3 @@ bool Genre::isEvenBitCount(unsigned short number) {
 
     return count % 2 == 0;
 }
-
-

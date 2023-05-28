@@ -4,7 +4,7 @@
 
 #ifndef HW02_LIBRARY_MINVECTOR_H
 #define HW02_LIBRARY_MINVECTOR_H
-//TODO DELETE OR REFACTOR
+
 #include <iostream>
 #include <stdexcept>
 

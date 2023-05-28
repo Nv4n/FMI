@@ -60,6 +60,13 @@ bool MinVector<T>::isEmpty() const {
     return size == 0;
 }
 
+/**
+ *
+ * @tparam T
+ * @param index
+ * @return T element
+ * @throw out_of_range("Index out of range")
+ */
 template<typename T>
 T &MinVector<T>::operator[](size_t index) {
     if (index >= size) {
@@ -68,6 +75,13 @@ T &MinVector<T>::operator[](size_t index) {
     return data[index];
 }
 
+/**
+ *
+ * @tparam T
+ * @param index
+ * @return T element
+ * @throw out_of_range("Index out of range")
+ */
 template<typename T>
 const T &MinVector<T>::operator[](size_t index) const {
     if (index >= size) {

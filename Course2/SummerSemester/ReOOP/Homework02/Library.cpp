@@ -2,8 +2,8 @@
 // Created by Sybatron on 5/26/2023.
 //
 
+#include <stdexcept>
 #include "Library.h"
-#include "PeriodicPublication.h"
 
 // Add and Remove
 void Library::addItem(Item *&item) {
@@ -72,7 +72,72 @@ void Library::printUsers() {
 //  Print
 }
 
+// Borrow and Return books
+/**
+ *
+ * @param username
+ * @param libraryId
+ * @throws invalid_argument When either username or libraryId doesn't exist
+ */
+void Library::borrowItem(const MinString &username, size_t libraryId) {
+    try {
+        size_t ind = hasUserAndItem(username, libraryId);
+        users[ind] -= libraryId;
+
+    } catch (std::invalid_argument &e) {
+        throw std::invalid_argument(e.what());
+    }
+}
+
+/**
+ *
+ * @param username
+ * @param libraryId
+ * @throws invalid_argument When either username or libraryId doesn't exist
+ */
+void Library::returnItem(const MinString &username, size_t libraryId) {
+    try {
+        size_t ind = hasUserAndItem(username, libraryId);
+        users[ind] += libraryId;
+
+    } catch (std::invalid_argument &e) {
+        throw std::invalid_argument(e.what());
+    }
+}
+
 // Private
+
+/**
+ *
+ * @param username
+ * @param libraryId
+ * @return <b>userIndex</b>
+ * @throws invalid_argument When either username or libraryId doesn't exist
+ */
+size_t Library::hasUserAndItem(const MinString &username, size_t libraryId) {
+    size_t userIndex = 0;
+    for (; userIndex < users.getSize(); ++userIndex) {
+        if (users[userIndex].getName() == username) {
+            break;
+        }
+    }
+    if (userIndex == users.getSize()) {
+        throw std::invalid_argument("User doesn't exist");
+    }
+
+    size_t i = 0;
+    for (; i < items.getSize(); ++i) {
+        if (items[i]->getLibraryId() == libraryId) {
+            break;
+        }
+    }
+    if (i == items.getSize()) {
+        throw std::invalid_argument("Item doesn't exist");
+    }
+    return userIndex;
+}
+
+
 SortLambdaType Library::getSortFunc() {
     return [](Item *&lvs, Item *&rvs) -> int {
         int yearComparison = lvs->getPublishYear() - rvs->getPublishYear();
@@ -112,3 +177,4 @@ SortLambdaType Library::getSortFunc() {
         return 0;
     };
 }
+

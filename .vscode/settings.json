@@ -55,8 +55,10 @@
 	"cSpell.words": [
 		"Occurances"
 	],
-	"docwriter.style": "Auto-detect",
+	"docwriter.style": "Doxygen",
 	"docwriter.progress.trackClasses": true,
 	"docwriter.progress.trackTypes": true,
 	"docwriter.language": "English",
+	"C_Cpp.errorSquiggles": "disabled",
+	"docwriter.progress.trackFunctions": true,
 }

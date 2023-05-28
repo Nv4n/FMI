@@ -5,7 +5,6 @@
 #ifndef HW02_LIBRARY_LIBRARY_H
 #define HW02_LIBRARY_LIBRARY_H
 
-
 #include <ostream>
 #include "MinVector.h"
 #include "User.h"
@@ -38,14 +37,15 @@ public:
     void printUsersByBorrowedId();
 
     void printUsers();
+    
+    void borrowItem(const MinString &username, size_t libraryId);
 
-    //TODO BORROW AND RETURN ITEMS
-    void borrowItem(size_t libraryId);
-
-    void returnItem(size_t libraryId);
+    void returnItem(const MinString &username, size_t libraryId);
 
 private:
     SortLambdaType getSortFunc();
+
+    size_t hasUserAndItem(const MinString &username, size_t libraryId);
 };
 
 

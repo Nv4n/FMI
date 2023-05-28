@@ -71,6 +71,12 @@ bool operator<=(const User &lvs, const User &rvs) {
     return !(lvs > rvs);
 }
 
+/**
+ *
+ * @param index
+ * @return User's book status
+ * @throw out_of_range("Index out of range")
+ */
 ItemStatus User::operator[](size_t index) const {
     if (index >= items.getSize()) {
         throw std::out_of_range("Index out of range");

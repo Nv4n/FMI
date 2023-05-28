@@ -5,3 +5,27 @@
 #include "Book.h"
 
 Book::~Book() = default;
+
+const MinString &Book::getAuthor() const {
+    return author;
+}
+
+void Book::setAuthor(const MinString &_author) {
+    Book::author = _author;
+}
+
+const MinString &Book::getPublisher() const {
+    return publisher;
+}
+
+void Book::setPublisher(const MinString &_publisher) {
+    Book::publisher = _publisher;
+}
+
+const Genre &Book::getGenre() const {
+    return genre;
+}
+
+void Book::setGenre(const Genre &_genre) {
+    Book::genre = _genre;
+}

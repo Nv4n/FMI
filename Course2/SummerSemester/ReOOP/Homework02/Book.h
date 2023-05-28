@@ -13,11 +13,22 @@
 class Book : public virtual Item {
 protected:
     MinString author;
-    //TODO Genre
     MinString publisher;
     Genre genre;
 public:
     virtual ~Book() override;
+
+    const MinString &getAuthor() const;
+
+    void setAuthor(const MinString &_author);
+
+    const MinString &getPublisher() const;
+
+    void setPublisher(const MinString &_publisher);
+
+    const Genre &getGenre() const;
+
+    void setGenre(const Genre &_genre);
 };
 
 
