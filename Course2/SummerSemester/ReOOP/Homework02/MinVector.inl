@@ -90,6 +90,14 @@ const T &MinVector<T>::operator[](size_t index) const {
     return data[index];
 }
 
+template<typename T>
+void MinVector<T>::erase() {
+    delete[] data;
+    size = 0;
+    capacity = 8;
+    data = new T[capacity];
+}
+
 // Adds and Removes
 template<typename T>
 void MinVector<T>::pushBack(const T &element) {

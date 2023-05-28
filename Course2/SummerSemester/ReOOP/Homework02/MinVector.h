@@ -50,6 +50,8 @@ public:
 
     void sort(int (*comparator)(T &, T &));
 
+    void erase();
+
 private:
     void exchange(T &lvs, T &rvs);
 

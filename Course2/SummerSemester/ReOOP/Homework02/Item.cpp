@@ -9,6 +9,30 @@ Item::~Item() = default;
 
 Item::Item() = default;
 
+// Copy and Move
+
+Item::Item(const Item &other) {
+    copy(other);
+}
+
+Item &Item::operator=(const Item &other) {
+    if (this != &other) {
+        copy(other);
+    }
+    return *this;
+}
+
+Item::Item(Item &&other) noexcept {
+    move(other);
+}
+
+Item &Item::operator=(Item &&other) noexcept {
+    if (this != &other) {
+        move(other);
+    }
+    return *this;
+}
+
 // Getters and Setters
 size_t Item::getLibraryId() const {
     return libraryID;
@@ -51,5 +75,27 @@ std::ostream &operator<<(std::ostream &os, const Item &item) {
        << " Short description: " << item.shortDescr
        << " ID: " << item.libraryID;
     return os;
+}
+
+
+// Private
+void Item::copy(const Item &other) {
+    title = other.title;
+    shortDescr = other.shortDescr;
+    libraryID = other.libraryID;
+    publishYear = other.publishYear;
+    type = other.type;
+}
+
+void Item::move(Item &other) {
+    title = other.title;
+    shortDescr = other.shortDescr;
+    libraryID = other.libraryID;
+    publishYear = other.publishYear;
+    type = other.type;
+    other.title.erase();
+    other.libraryID = 0;
+    other.shortDescr.erase();
+    other.publishYear = 1900;
 }
 

@@ -11,7 +11,7 @@ const MinString &Book::getAuthor() const {
 }
 
 void Book::setAuthor(const MinString &_author) {
-    Book::author = _author;
+    author = _author;
 }
 
 const MinString &Book::getPublisher() const {
@@ -19,7 +19,7 @@ const MinString &Book::getPublisher() const {
 }
 
 void Book::setPublisher(const MinString &_publisher) {
-    Book::publisher = _publisher;
+    publisher = _publisher;
 }
 
 const Genre &Book::getGenre() const {

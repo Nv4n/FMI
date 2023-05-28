@@ -28,6 +28,14 @@ public:
 
     virtual ~Item();
 
+    Item(const Item &other);
+
+    Item &operator=(const Item &other);
+
+    Item(Item &&other) noexcept;
+
+    Item &operator=(Item &&other) noexcept;
+
     size_t getLibraryId() const;
 
     ItemType getType() const;
@@ -42,6 +50,10 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
 
+protected:
+    virtual void copy(const Item &other);
+
+    virtual void move(Item &other);
 };
 
 

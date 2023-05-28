@@ -2,6 +2,8 @@
 // Created by Sybatron on 5/25/2023.
 //
 
+#include <iostream>
+#include <stdexcept>
 #include <cstring>
 #include "MinString.h"
 
@@ -59,6 +61,28 @@ size_t MinString::getLength() const {
     return length;
 }
 
+/**
+ *
+ * @param index
+ * @return <b>sybmbol on index position</b>
+ * @throw out_of_range("Index out of range");
+ */
+char MinString::operator[](size_t index) {
+    if (index >= length) {
+        throw std::out_of_range("Index out of range");
+    }
+    return data[index];
+}
+
+
+void MinString::erase() {
+    delete[] data;
+    length = 0;
+    size = 8;
+    data = new char[size];
+}
+
+
 // Operators
 MinString &operator+(const MinString &lvs, const MinString &rvs) {
     MinString result;
@@ -78,14 +102,14 @@ MinString &MinString::operator+=(const MinString &other) {
     return *this;
 }
 
-MinString &operator+(const MinString &lvs, const char *_data) {
+MinString &operator+(const MinString &lvs, const char *&_data) {
     MinString result;
     result += lvs;
     result += _data;
     return result;
 }
 
-MinString &MinString::operator+=(const char *_data) {
+MinString &MinString::operator+=(const char *&_data) {
     size_t _dataLength = std::strlen(_data);
     size_t minLength = length + _dataLength + 1;
     if (minLength < size) {
