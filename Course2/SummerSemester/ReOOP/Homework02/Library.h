@@ -14,9 +14,13 @@
 #pragma once
 using SortLambdaType = int (*)(Item *&, Item *&);
 
+struct LibraryItem {
+//    item:
+};
+
 class Library {
 private:
-
+// TODO USE CHRONO OR TIME FOR THE DATETIME
     MinVector<User> users;
     MinVector<Item *> items;
 
@@ -37,7 +41,7 @@ public:
     void printUsersByBorrowedId();
 
     void printUsers();
-    
+
     void borrowItem(const MinString &username, size_t libraryId);
 
     void returnItem(const MinString &username, size_t libraryId);

@@ -9,7 +9,6 @@
 
 #pragma once
 enum class ItemType {
-    UNKNOWN = -1,
     BOOK,
     PERIODIC_PUBLICATION,
     COMIC,
@@ -23,8 +22,12 @@ protected:
     unsigned short publishYear{};
     ItemType type{};
 
-public:
     Item();
+
+    Item(const MinString &_title, const MinString &_shortDescr, size_t _libraryId, unsigned short _publishYear
+    );
+
+public:
 
     virtual ~Item();
 
@@ -32,9 +35,7 @@ public:
 
     Item &operator=(const Item &other);
 
-    Item(Item &&other) noexcept;
-
-    Item &operator=(Item &&other) noexcept;
+    virtual Item *clone() const = 0;
 
     size_t getLibraryId() const;
 
@@ -48,12 +49,18 @@ public:
 
     unsigned short getPublishYear() const;
 
+    void setTitle(const MinString &_title);
+
+    void setShortDescr(const MinString &_shortDescr);
+
+    void setLibraryId(size_t libraryId);
+
+    void setPublishYear(unsigned short _publishYear);
+
     friend std::ostream &operator<<(std::ostream &os, const Item &item);
 
 protected:
     virtual void copy(const Item &other);
-
-    virtual void move(Item &other);
 };
 
 

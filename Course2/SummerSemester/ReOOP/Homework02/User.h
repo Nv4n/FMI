@@ -11,11 +11,9 @@
 
 #pragma once
 enum class ItemStatus {
-    UNKNOWN = -1,
     READ,
     BORROWED,
-    REREAD,
-    NOT_BORROWED
+    REREAD
 };
 
 struct UserItem {

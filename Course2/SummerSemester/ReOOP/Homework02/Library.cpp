@@ -170,7 +170,7 @@ SortLambdaType Library::getSortFunc() {
             return -1;
         }
 
-        long countComparison = lvsPeriodic->getCount() - rvsPeriodic->getCount();
+        long countComparison = lvsPeriodic->getIssue() - rvsPeriodic->getIssue();
         if (countComparison != 0) {
             return countComparison > 0 ? 1 : -1;
         }

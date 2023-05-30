@@ -53,7 +53,6 @@ public:
     void erase();
 
 private:
-    void exchange(T &lvs, T &rvs);
 
     void copy(const MinVector<T> &other);
 

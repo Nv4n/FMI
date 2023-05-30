@@ -5,11 +5,11 @@
 #ifndef HW02_LIBRARY_PERIODICPUBLICATION_H
 #define HW02_LIBRARY_PERIODICPUBLICATION_H
 
+#include <cstddef>
 #include "Item.h"
 
 #pragma once
 enum class PeriodicPeriod {
-    UNKNOWN = -1,
     WEEKLY,
     MONTHLY,
     YEARLY
@@ -18,12 +18,30 @@ enum class PeriodicPeriod {
 
 class PeriodicPublication : public virtual Item {
 protected:
-    PeriodicPeriod period;
-    unsigned int count;
+    PeriodicPeriod period{};
+    unsigned int issue{};
 public:
     virtual ~PeriodicPublication() override;
 
-    unsigned int getCount() const;
+    PeriodicPublication(const MinString &_title, const MinString &_shortDescr, const size_t &_libraryId,
+                        unsigned short _publishYear, PeriodicPeriod _period, unsigned int _issue);
+
+    PeriodicPublication(const PeriodicPublication &other);
+
+    PeriodicPublication &operator=(const PeriodicPublication &other);
+
+    Item *clone() const override;
+    
+    PeriodicPeriod getPeriod() const;
+
+    void setPeriod(PeriodicPeriod _period);
+
+    void setIssue(unsigned int _issue);
+
+    unsigned int getIssue() const;
+
+protected:
+    void copy(const PeriodicPublication &other);
 };
 
 

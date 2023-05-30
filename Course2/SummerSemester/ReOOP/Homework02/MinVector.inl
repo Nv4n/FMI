@@ -120,26 +120,18 @@ void MinVector<T>::remove(size_t index) {
         throw std::out_of_range("Index out of range");
     }
     for (size_t i = index; i < size - 1; ++i) {
-        data[i] = data[i + 1];
+        std::swap(data[i], data[i + 1]);
     }
     --size;
 }
 
 // Sort
-
-template<typename T>
-void MinVector<T>::exchange(T &lvs, T &rvs) {
-    T temp = lvs;
-    lvs = rvs;
-    rvs = temp;
-}
-
 template<typename T>
 void MinVector<T>::sort(int (*comparator)(T &, T &)) {
     for (size_t i = 0; i < size - 1; ++i) {
         for (size_t j = 0; j < size - 1 - i; ++j) {
             if (comparator(data[j], data[j + 1]) > 0) {
-                exchange(data[j], data[j + 1]);
+                std::swap(data[j], data[j + 1]);
             }
         }
     }

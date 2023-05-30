@@ -14,9 +14,20 @@ class Book : public virtual Item {
 protected:
     MinString author;
     MinString publisher;
-    Genre genre;
+    Genre genre{};
 public:
+    Book();
+
+    Book(const MinString &_title, const MinString &_shortDescr, size_t _libraryId, unsigned short _publishYear,
+         const MinString &_author, const MinString &_publisher, const Genre &_genre);
+
     virtual ~Book() override;
+
+    Book(const Book &other);
+
+    Book &operator=(const Book &other);
+
+    Item *clone() const override;
 
     const MinString &getAuthor() const;
 
@@ -29,6 +40,9 @@ public:
     const Genre &getGenre() const;
 
     void setGenre(const Genre &_genre);
+
+protected:
+    void copy(const Book &other);
 };
 
 

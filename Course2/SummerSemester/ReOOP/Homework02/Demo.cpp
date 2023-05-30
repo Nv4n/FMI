@@ -5,4 +5,5 @@
 
 int main() {
     std::cout << "Hello DEMO" << std::endl;
+    Library library;
 }

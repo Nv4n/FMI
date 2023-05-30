@@ -5,6 +5,8 @@
 #ifndef HW02_LIBRARY_MINSTRING_H
 #define HW02_LIBRARY_MINSTRING_H
 
+#include <fstream>
+
 #pragma once
 
 class MinString {
