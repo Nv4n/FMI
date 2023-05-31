@@ -49,7 +49,7 @@ std::istream &operator>>(std::istream &is, Comic &comic) {
     unsigned short publishYear;
     MinString title;
     MinString shortDescr;
-    Genre genre{};
+    Genre genre;
     MinString author;
     MinString publisher;
     int period;

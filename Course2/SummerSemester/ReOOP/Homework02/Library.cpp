@@ -9,7 +9,7 @@ Library::Library() = default;
 Library::~Library() = default;
 
 // Add and Remove
-void Library::addItem(const Item *&item, size_t count) {
+void Library::addItem(Item *&item, size_t count) {
     for (int i = 0; i < items.getSize(); ++i) {
         if (items[i].item->getLibraryId() == item->getLibraryId()) {
             std::cout << "Item Id is already taken" << std::endl;

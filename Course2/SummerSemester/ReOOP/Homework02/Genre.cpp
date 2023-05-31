@@ -5,6 +5,13 @@
 #include <stdexcept>
 #include "Genre.h"
 
+
+Genre::Genre(Character character, Type type, Audience audience) : character(
+        character), type(type), audience(audience) {
+    combineGenre();
+}
+
+
 // Getters and Setters
 Character Genre::getCharacter() const {
     return character;
@@ -94,6 +101,8 @@ bool Genre::isEvenBitCount(unsigned short number) {
 
     return count % 2 == 0;
 }
+
+Genre::Genre() = default;
 
 
 

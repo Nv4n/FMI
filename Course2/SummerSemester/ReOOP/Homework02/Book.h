@@ -14,7 +14,7 @@ class Book : public virtual Item {
 protected:
     MinString author;
     MinString publisher;
-    Genre genre{};
+    Genre genre;
 public:
     Book();
 

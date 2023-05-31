@@ -30,10 +30,14 @@ private:
     Character character;
     Type type;
     Audience audience;
-    bool parity;
-    unsigned short genre;
+    bool parity{};
+    unsigned short genre{};
 
 public:
+    Genre();
+
+    Genre(Character character, Type type, Audience audience);
+
     Character getCharacter() const;
 
     void setCharacter(Character _character);

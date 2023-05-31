@@ -33,7 +33,7 @@ public:
 
     ~Library();
 
-    void addItem(const Item *&item, size_t count);
+    void addItem(Item *&item, size_t count);
 
     void removeItem(size_t libraryID);
 
