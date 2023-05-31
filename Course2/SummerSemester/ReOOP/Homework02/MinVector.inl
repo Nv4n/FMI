@@ -140,7 +140,7 @@ void MinVector<T>::sort(int (*comparator)(T &, T &)) {
 // Comparators
 template<typename T>
 bool MinVector<T>::includes(const T &el) {
-    for (int i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size; ++i) {
         if (data[i] == el) {
             return true;
         }
@@ -150,7 +150,7 @@ bool MinVector<T>::includes(const T &el) {
 
 template<typename T>
 bool MinVector<T>::includes(bool (*comparator)(T &)) {
-    for (int i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size; ++i) {
         if (comparator(data[i])) {
             return true;
         }

@@ -59,18 +59,21 @@ void PeriodicPublication::copy(const PeriodicPublication &other) {
 }
 
 std::ostream &PeriodicPublication::out(std::ostream &os) const {
-    os << static_cast<int>(type);
-    os << libraryID;
-    os << publishYear;
-    os << title;
-    os << shortDescr;
-    os << static_cast<int>(period);
-    os << issue;
+    os << static_cast<int>(type) << '\n';
+    os << libraryID << '\n';
+    os << publishYear << '\n';
+    os << title << '\n';
+    os << shortDescr << '\n';
+    os << static_cast<int>(period) << '\n';
+    os << issue << '\n';
 
     return os;
 }
 
 std::istream &operator>>(std::istream &is, PeriodicPublication &perPublicat) {
+    if (is.eof()) {
+        return is;
+    }
     size_t libraryID;
     unsigned short publishYear;
     MinString title;

@@ -10,7 +10,7 @@ Library::~Library() = default;
 
 // Add and Remove
 void Library::addItem(Item *&item, size_t count) {
-    for (int i = 0; i < items.getSize(); ++i) {
+    for (size_t i = 0; i < items.getSize(); ++i) {
         if (items[i].item->getLibraryId() == item->getLibraryId()) {
             std::cout << "Item Id is already taken" << std::endl;
             return;
@@ -20,7 +20,7 @@ void Library::addItem(Item *&item, size_t count) {
 }
 
 void Library::removeItem(const size_t libraryID) {
-    for (int i = 0; i < items.getSize(); ++i) {
+    for (size_t i = 0; i < items.getSize(); ++i) {
         if (libraryID == items[i].item->getLibraryId()) {
             items.remove(i);
             break;
@@ -29,7 +29,7 @@ void Library::removeItem(const size_t libraryID) {
 }
 
 void Library::addUser(const User &user) {
-    for (int i = 0; i < users.getSize(); ++i) {
+    for (size_t i = 0; i < users.getSize(); ++i) {
         if (users[i].getName() == user.getName()) {
             std::cout << "Username is already taken" << std::endl;
             return;
@@ -39,7 +39,7 @@ void Library::addUser(const User &user) {
 }
 
 void Library::removeUser(const MinString &username) {
-    for (int i = 0; i < users.getSize(); ++i) {
+    for (size_t i = 0; i < users.getSize(); ++i) {
         if (username == users[i].getName()) {
             users.remove(i);
             break;
@@ -51,7 +51,7 @@ void Library::removeUser(const MinString &username) {
 void Library::printItems() {
     items.sort(getSortFunc());
 
-    for (int i = 0; i < items.getSize(); ++i) {
+    for (size_t i = 0; i < items.getSize(); ++i) {
         std::cout << "#" << i + 1 << " "
                   << items[i].item->getLibraryId()
                   << ", " << items[i].item->getTitle()
@@ -106,7 +106,7 @@ void Library::printUsers() {
         }
         return 0;
     });
-    for (int i = 0; i < users.getSize(); ++i) {
+    for (size_t i = 0; i < users.getSize(); ++i) {
         std::cout << "#" << i + 1 << " " << users[i].getName()
                   << ", READ: " << users[i].getReadCount() << std::endl;
     }
@@ -227,24 +227,40 @@ SortLambdaType Library::getSortFunc() {
 }
 
 std::ostream &operator<<(std::ostream &os, const Library &library) {
-    os << library.items.getSize();
-    for (int i = 0; i < library.items.getSize(); ++i) {
-        os << library.items[i].copiesCount;
-        os << library.items[i].borrowedCopiesCount;
-        os << library.items[i].item;
+    os << library.items.getSize() << '\n';
+    for (size_t i = 0; i < library.items.getSize(); ++i) {
+        os << library.items[i].copiesCount << '\n';
+        os << library.items[i].borrowedCopiesCount << '\n';
+        if (library.items[i].item->getType() == ItemType::BOOK) {
+            Book *book = dynamic_cast<Book *>(library.items[i].item);
+            book->out(os);
+        }
+        if (library.items[i].item->getType() == ItemType::PERIODIC_PUBLICATION) {
+            PeriodicPublication *publication = dynamic_cast<PeriodicPublication *>(library.items[i].item);
+            publication->out(os);
+        }
+        if (library.items[i].item->getType() == ItemType::COMIC) {
+            Comic *comic = dynamic_cast<Comic *>(library.items[i].item);
+            comic->out(os);
+        }
+        os << '\n';
     }
-    os << library.users.getSize();
-    for (int i = 0; i < library.items.getSize(); ++i) {
-        os << library.users[i];
+    os << library.users.getSize() << '\n';
+    for (size_t i = 0; i < library.users.getSize(); ++i) {
+        os << library.users[i] << '\n';
     }
     return os;
 }
 
 std::istream &operator>>(std::istream &is, Library &library) {
+    if (is.eof()) {
+        return is;
+    }
     size_t size;
+    char endline;
     is >> size;
     library.items.erase();
-    for (int i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size; ++i) {
         size_t copiesCount;
         size_t borrowedCopiesCount;
         is >> copiesCount;
@@ -252,7 +268,7 @@ std::istream &operator>>(std::istream &is, Library &library) {
         int itemTypeValue;
         is >> itemTypeValue;
         ItemType itemType = static_cast<ItemType>(itemTypeValue);
-        Item *item;
+        Item *item = nullptr;
         if (itemType == ItemType::BOOK) {
             Book book;
             is >> book;
@@ -266,11 +282,12 @@ std::istream &operator>>(std::istream &is, Library &library) {
             is >> comic;
             item = comic.clone();
         }
+        is;
         library.items.pushBack({item, copiesCount, borrowedCopiesCount});
     }
     is >> size;
     library.users.erase();
-    for (int i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size; ++i) {
         User user;
         is >> user;
         library.users.pushBack(user);

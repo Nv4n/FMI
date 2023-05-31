@@ -210,7 +210,7 @@ void MinString::scaleUp(size_t minLength) {
         size *= 2;
     }
     char *tmp = new char[size];
-    for (int i = 0; i < length; ++i) {
+    for (size_t i = 0; i < length; ++i) {
         tmp[i] = data[i];
     }
     delete[]data;

@@ -5,34 +5,41 @@
 #include "Library.h"
 #include "Menu.h"
 
+
+bool isEmpty(std::ifstream &isFile) {
+    return isFile.peek() == std::ifstream::traits_type::eof();
+}
+
 int main() {
     //TODO
     //  MAKE NOT MENU DEMO
+    std::cout << "Demo Library" << std::endl;
     Library library;
-    std::ifstream is("library.txt");
-    if (is.is_open()) {
-        is >> library;
-    }
-    is.close();
+//    std::ifstream is("library.txt", std::ios::in);
+//    if (is.is_open() && !isEmpty(is)) {
+//        is >> library;
+//    }
+//    is.close();
     Genre genre(Character::CRIME, Type::DRAMA, Audience::TEEN);
-    Item *item = (new Book("THEBOOK",
-                           "description",
-                           132,
-                           1990,
-                           "Georgi",
-                           "Ciela",
-                           genre))->clone();
+    Book book("THEBOOK",
+              "description",
+              132,
+              1990,
+              "Georgi",
+              "Ciela",
+              genre);
+    Item *item = book.clone();
 
     library.addItem(item, 10);
-
-//    Item *item2 = (new PeriodicPublication("Jargon",
-//                                           "magazine",
-//                                           132,
-//                                           2000,
-//                                           PeriodicPeriod::WEEKLY,
-//                                           10))->clone();
-//    library.addItem(item2, 5);
-    std::ofstream os("library.txt", std::ios::trunc);
+    PeriodicPublication publication("Jargon",
+                                    "magazine",
+                                    42,
+                                    2000,
+                                    PeriodicPeriod::WEEKLY,
+                                    10);
+    Item *item2 = publication.clone();
+    library.addItem(item2, 5);
+    std::ofstream os("library.txt", std::ios::out | std::ios::trunc);
     if (os.is_open()) {
         os << library;
     }

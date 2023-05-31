@@ -31,15 +31,15 @@ Item *Comic::clone() const {
 
 std::ostream &Comic::out(std::ostream &os) const {
     os << static_cast<int>(type);
-    os << libraryID;
-    os << publishYear;
-    os << title;
-    os << shortDescr;
-    os << genre;
-    os << author;
-    os << publisher;
-    os << static_cast<int>(period);
-    os << issue;
+    os << libraryID << '\n';
+    os << publishYear << '\n';
+    os << title << '\n';
+    os << shortDescr << '\n';
+    os << genre << '\n';
+    os << author << '\n';
+    os << publisher << '\n';
+    os << static_cast<int>(period) << '\n';
+    os << issue << '\n';
 
     return os;
 }

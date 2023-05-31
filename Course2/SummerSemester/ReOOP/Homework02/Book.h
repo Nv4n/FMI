@@ -43,10 +43,11 @@ public:
 
     friend std::istream &operator>>(std::istream &is, Book &book);
 
-protected:
-    void copy(const Book &other);
-
     std::ostream &out(std::ostream &) const override;
+
+protected:
+
+    void copy(const Book &other);
 
 };
 

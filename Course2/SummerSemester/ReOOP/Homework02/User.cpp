@@ -37,7 +37,7 @@ unsigned short User::getReadCount() const {
 
 MinVector<size_t> &User::getOverDueIds(const MinDate &dateCompare) {
     MinVector<size_t> overDueIds;
-    for (int i = 0; i < items.getSize(); ++i) {
+    for (size_t i = 0; i < items.getSize(); ++i) {
         if (!(items[i].status == ItemStatus::BORROWED
               || items[i].status == ItemStatus::REREAD)) {
             continue;
@@ -51,7 +51,7 @@ MinVector<size_t> &User::getOverDueIds(const MinDate &dateCompare) {
 
 
 bool User::isOverDue(size_t libraryId, const MinDate &dateCompare) {
-    for (int i = 0; i < items.getSize(); ++i) {
+    for (size_t i = 0; i < items.getSize(); ++i) {
         if (items[i].libraryId != libraryId) {
             continue;
         }
@@ -98,7 +98,7 @@ ItemStatus User::operator[](size_t libraryId) const {
     if (borrowedCount == 0) {
         return ItemStatus::NOT_BORROWED;
     }
-    for (int i = 0; i < items.getSize(); ++i) {
+    for (size_t i = 0; i < items.getSize(); ++i) {
         if (items[i].libraryId == libraryId) {
             return items[i].status;
         }
@@ -153,7 +153,7 @@ User &operator+(const User &lvs, const size_t libraryId) {
 }
 
 User &User::operator-=(size_t libraryId) {
-    for (int i = 0; i < items.getSize(); ++i) {
+    for (size_t i = 0; i < items.getSize(); ++i) {
         if (items[i].libraryId != libraryId) {
             continue;
         }
@@ -189,7 +189,7 @@ void User::copy(const User &other) {
     name = other.name;
     borrowedCount = other.borrowedCount;
     readCount = other.borrowedCount;
-    for (int i = 0; i < other.items.getSize(); ++i) {
+    for (size_t i = 0; i < other.items.getSize(); ++i) {
         ItemStatus _status = other.items[i].status;
         size_t _libraryId = other.items[i].libraryId;
         MinDate _borrowDate = other.items[i].borrowDate;
@@ -202,35 +202,39 @@ void User::copy(const User &other) {
 }
 
 std::ostream &operator<<(std::ostream &os, const User &user) {
-    os << user.name;
-    os << user.borrowedCount;
-    os << user.readCount;
-    os << user.items.getSize();
-    for (int i = 0; i < user.items.getSize(); ++i) {
-        os << static_cast<int>(user.items[i].status);
-        os << user.items[i].libraryId;
-        os << user.items[i].borrowDate;
-        os << user.items[i].dueDate;
+    os << user.name << '\n';
+    os << user.borrowedCount << '\n';
+    os << user.readCount << '\n';
+    os << user.items.getSize() << '\n';
+    for (size_t i = 0; i < user.items.getSize(); ++i) {
+        os << static_cast<int>(user.items[i].status) << '\n';
+        os << user.items[i].libraryId << '\n';
+        os << user.items[i].borrowDate << '\n';
+        os << user.items[i].dueDate << '\n';
     }
     return os;
 }
 
 std::istream &operator>>(std::istream &is, User &user) {
-    is >> user.name;
-    is >> user.borrowedCount;
-    is >> user.readCount;
+    if (is.eof()) {
+        return is;
+    }
+    char endline;
+    is >> user.name >> endline;
+    is >> user.borrowedCount >> endline;
+    is >> user.readCount >> endline;
     size_t size;
-    is >> size;
+    is >> size >> endline;
     user.items.erase();
-    for (int i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size; ++i) {
         int status;
         size_t libraryId;
         MinDate borrowDate;
         MinDate dueDate;
-        is >> status;
-        is >> libraryId;
-        is >> borrowDate;
-        is >> dueDate;
+        is >> status >> endline;
+        is >> libraryId >> endline;
+        is >> borrowDate >> endline;
+        is >> dueDate >> endline;
         ItemStatus itemStatus = static_cast<ItemStatus>(status);
 
         user.items.pushBack({itemStatus, libraryId, borrowDate, dueDate});
