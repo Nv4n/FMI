@@ -29,3 +29,51 @@ Item *Comic::clone() const {
     return new Comic(*this);
 }
 
+std::ostream &Comic::out(std::ostream &os) const {
+    os << static_cast<int>(type);
+    os << libraryID;
+    os << publishYear;
+    os << title;
+    os << shortDescr;
+    os << genre;
+    os << author;
+    os << publisher;
+    os << static_cast<int>(period);
+    os << issue;
+
+    return os;
+}
+
+std::istream &operator>>(std::istream &is, Comic &comic) {
+    size_t libraryID;
+    unsigned short publishYear;
+    MinString title;
+    MinString shortDescr;
+    Genre genre{};
+    MinString author;
+    MinString publisher;
+    int period;
+    unsigned int issue;
+    is >> libraryID;
+    is >> publishYear;
+    is >> title;
+    is >> shortDescr;
+    is >> genre;
+    is >> author;
+    is >> publisher;
+    is >> period;
+    is >> issue;
+    comic.type = ItemType::COMIC;
+    comic.title = title;
+    comic.shortDescr = shortDescr;
+    comic.libraryID = libraryID;
+    comic.publishYear = publishYear;
+    comic.author = author;
+    comic.publisher = publisher;
+    comic.genre = genre;
+    comic.period = static_cast<PeriodicPeriod>(period);
+    comic.issue = issue;
+
+    return is;
+}
+

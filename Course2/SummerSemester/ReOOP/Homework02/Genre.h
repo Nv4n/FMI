@@ -4,6 +4,9 @@
 
 #ifndef HW02_LIBRARY_GENRE_H
 #define HW02_LIBRARY_GENRE_H
+
+#include <ostream>
+
 enum class Character {
     FICTION = 0,
     THRILLER,
@@ -47,10 +50,14 @@ public:
 
     void setGenre(unsigned short _genre);
 
+    friend std::ostream &operator<<(std::ostream &os, const Genre &genre);
+
+    friend std::istream &operator>>(std::istream &is, Genre &genre);
+
 private:
     void combineGenre();
 
-    bool isEvenBitCount(unsigned short number);
+    static bool isEvenBitCount(unsigned short number);
 };
 
 

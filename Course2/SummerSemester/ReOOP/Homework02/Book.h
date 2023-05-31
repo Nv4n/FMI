@@ -41,8 +41,13 @@ public:
 
     void setGenre(const Genre &_genre);
 
+    friend std::istream &operator>>(std::istream &is, Book &book);
+
 protected:
     void copy(const Book &other);
+
+    std::ostream &out(std::ostream &) const override;
+
 };
 
 

@@ -42,8 +42,12 @@ public:
 
     unsigned int getIssue() const;
 
+    friend std::istream &operator>>(std::istream &is, PeriodicPublication &perPublicat);
+
 protected:
     void copy(const PeriodicPublication &other);
+
+    std::ostream &out(std::ostream &os) const override;
 };
 
 

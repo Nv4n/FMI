@@ -26,6 +26,13 @@ public:
 
     Item *clone() const override;
 
+    friend std::istream &operator>>(std::istream &is, Comic &comic);
+
+
+protected:
+    std::ostream &out(std::ostream &os) const override;
+
+
 };
 
 

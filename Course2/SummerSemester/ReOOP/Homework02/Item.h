@@ -12,6 +12,7 @@ enum class ItemType {
     BOOK,
     PERIODIC_PUBLICATION,
     COMIC,
+    COUNT
 };
 
 class Item {
@@ -21,13 +22,11 @@ protected:
     size_t libraryID{};
     unsigned short publishYear{};
     ItemType type{};
-
+public:
     Item();
 
     Item(const MinString &_title, const MinString &_shortDescr, size_t _libraryId, unsigned short _publishYear
     );
-
-public:
 
     virtual ~Item();
 
@@ -57,10 +56,13 @@ public:
 
     void setPublishYear(unsigned short _publishYear);
 
-    friend std::ostream &operator<<(std::ostream &os, const Item &item);
+    friend std::ostream &operator<<(std::ostream &os, const Item *&item);
+
 
 protected:
     virtual void copy(const Item &other);
+
+    virtual std::ostream &out(std::ostream &) const = 0;
 };
 
 

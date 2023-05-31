@@ -64,15 +64,9 @@ const char *Item::getTypeText() const {
 }
 
 // Read and Write
-std::ostream &operator<<(std::ostream &os, const Item &item) {
-//  заглавие, тип, кратко описание, библиотечен номер.
-    os << "Title: " << item.title
-       << " Type: " << item.getTypeText()
-       << " Short description: " << item.shortDescr
-       << " ID: " << item.libraryID;
-    return os;
+std::ostream &operator<<(std::ostream &os, const Item *&item) {
+    return item->out(os);
 }
-
 
 // Private
 void Item::copy(const Item &other) {
@@ -122,3 +116,4 @@ void Item::setPublishYear(unsigned short _publishYear) {
     }
     Item::publishYear = _publishYear;
 }
+

@@ -1,9 +1,11 @@
 //
 // Created by Sybatron on 5/27/2023.
 //
+#include <fstream>
 #include <stdexcept>
 #include "Genre.h"
 
+// Getters and Setters
 Character Genre::getCharacter() const {
     return character;
 }
@@ -53,7 +55,22 @@ void Genre::setGenre(unsigned short _genre) {
     parity = isEvenParity;
     genre = _genre;
 }
+// Write and Read
 
+std::ostream &operator<<(std::ostream &os, const Genre &genre) {
+    os << genre.genre;
+    return os;
+}
+
+std::istream &operator>>(std::istream &is, Genre &genre) {
+    unsigned short _genre;
+    is >> _genre;
+    genre.setGenre(_genre);
+    return is;
+}
+
+
+// Private
 void Genre::combineGenre() {
     unsigned short _genre = 0;
     _genre |= (unsigned short) character & 0xF;
@@ -77,3 +94,6 @@ bool Genre::isEvenBitCount(unsigned short number) {
 
     return count % 2 == 0;
 }
+
+
+

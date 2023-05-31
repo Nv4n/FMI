@@ -82,12 +82,51 @@ void Book::setGenre(const Genre &_genre) {
     Book::genre = _genre;
 }
 
+// Write and Read
+std::ostream &Book::out(std::ostream &os) const {
+    os << static_cast<int>(type);
+    os << libraryID;
+    os << publishYear;
+    os << title;
+    os << shortDescr;
+    os << genre;
+    os << author;
+    os << publisher;
+
+    return os;
+}
+
+std::istream &operator>>(std::istream &is, Book &book) {
+    size_t libraryID;
+    unsigned short publishYear;
+    MinString title;
+    MinString shortDescr;
+    Genre genre{};
+    MinString author;
+    MinString publisher;
+    is >> libraryID;
+    is >> publishYear;
+    is >> title;
+    is >> shortDescr;
+    is >> genre;
+    is >> author;
+    is >> publisher;
+    book.type = ItemType::BOOK;
+    book.title = title;
+    book.shortDescr = shortDescr;
+    book.libraryID = libraryID;
+    book.publishYear = publishYear;
+    book.author = author;
+    book.publisher = publisher;
+    book.genre = genre;
+
+    return is;
+}
+
 // Private
 void Book::copy(const Book &other) {
     author = other.author;
     publisher = other.publisher;
     genre = other.genre;
 }
-
-
 
