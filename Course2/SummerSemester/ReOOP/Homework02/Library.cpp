@@ -10,7 +10,12 @@ Library::~Library() = default;
 
 // Add and Remove
 void Library::addItem(const Item *&item, size_t count) {
-    
+    for (int i = 0; i < items.getSize(); ++i) {
+        if (items[i].item->getLibraryId() == item->getLibraryId()) {
+            std::cout << "Item Id is already taken" << std::endl;
+            return;
+        }
+    }
     items.pushBack({item->clone(), count, 0});
 }
 
@@ -23,7 +28,13 @@ void Library::removeItem(const size_t libraryID) {
     }
 }
 
-void Library::addUser(User &user) {
+void Library::addUser(const User &user) {
+    for (int i = 0; i < users.getSize(); ++i) {
+        if (users[i].getName() == user.getName()) {
+            std::cout << "Username is already taken" << std::endl;
+            return;
+        }
+    }
     users.pushBack(user);
 }
 
@@ -64,7 +75,6 @@ void Library::printOverdueItems() {
     }
 
     for (size_t i = 0, counter = 1; i < items.getSize(); ++i) {
-//        заглавие, тип, кратко описание, библиотечен номер.
         if (overDueIds.includes(items[i].item->getLibraryId())) {
             std::cout << "#" << counter++ << " "
                       << items[i].item->getLibraryId()
@@ -75,6 +85,7 @@ void Library::printOverdueItems() {
         }
     }
 }
+
 
 void Library::printUsersByBorrowedId(size_t libraryId) {
     for (size_t i = 0, counter = 1; i < users.getSize(); ++i) {

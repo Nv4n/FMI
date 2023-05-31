@@ -37,7 +37,7 @@ public:
 
     void removeItem(size_t libraryID);
 
-    void addUser(User &user);
+    void addUser(const User &user);
 
     void removeUser(const MinString &username);
 
