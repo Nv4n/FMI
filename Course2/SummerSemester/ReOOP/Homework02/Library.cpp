@@ -9,19 +9,18 @@ Library::Library() = default;
 Library::~Library() = default;
 
 // Add and Remove
-void Library::addItem(Item *&item) {
-    items.pushBack(item);
+void Library::addItem(Item *&item, size_t count) {
+    items.pushBack({item, count, 0});
 }
 
 void Library::removeItem(const size_t libraryID) {
     for (int i = 0; i < items.getSize(); ++i) {
-        if (libraryID == items[i]->getLibraryId()) {
+        if (libraryID == items[i].item->getLibraryId()) {
             items.remove(i);
             break;
         }
     }
 }
-
 
 void Library::addUser(User &user) {
     users.pushBack(user);
@@ -38,11 +37,10 @@ void Library::removeUser(MinString &username) {
 
 // Print
 void Library::printItems() {
-
     items.sort(getSortFunc());
 
     for (int i = 0; i < items.getSize(); ++i) {
-        std::cout << "#" << i + 1 << " " << items[i] << std::endl;
+        std::cout << "#" << i + 1 << " " << items[i].item << std::endl;
     }
 }
 
@@ -88,6 +86,7 @@ void Library::printUsers() {
 void Library::borrowItem(const MinString &username, size_t libraryId) {
     try {
         size_t ind = hasUserAndItem(username, libraryId);
+
         users[ind] += libraryId;
 
     } catch (std::invalid_argument &e) {
@@ -118,9 +117,26 @@ void Library::returnItem(const MinString &username, size_t libraryId) {
  * @param username
  * @param libraryId
  * @return <b>userIndex</b>
- * @throws invalid_argument When either username or libraryId doesn't exist
+ * @throws invalid_argument("Item is out of available copies")
+ * @throws invalid_argument("Item doesn't exist")
+ * @throws invalid_argument("User doesn't exist")
  */
 size_t Library::hasUserAndItem(const MinString &username, size_t libraryId) {
+    size_t itemIndex = 0;
+    for (; itemIndex < items.getSize(); ++itemIndex) {
+        if (items[itemIndex].item->getLibraryId() != libraryId) {
+            continue;
+        }
+        if (items[itemIndex].copiesCount <= items[itemIndex].borrowedCopiesCount) {
+            throw std::invalid_argument("Item is out of available copies");
+        }
+        break;
+
+    }
+    if (itemIndex == items.getSize()) {
+        throw std::invalid_argument("Item doesn't exist");
+    }
+
     size_t userIndex = 0;
     for (; userIndex < users.getSize(); ++userIndex) {
         if (users[userIndex].getName() == username) {
@@ -130,42 +146,31 @@ size_t Library::hasUserAndItem(const MinString &username, size_t libraryId) {
     if (userIndex == users.getSize()) {
         throw std::invalid_argument("User doesn't exist");
     }
-
-    size_t i = 0;
-    for (; i < items.getSize(); ++i) {
-        if (items[i]->getLibraryId() == libraryId) {
-            break;
-        }
-    }
-    if (i == items.getSize()) {
-        throw std::invalid_argument("Item doesn't exist");
-    }
     return userIndex;
 }
 
 
 SortLambdaType Library::getSortFunc() {
-    //TODO FIX THIS TO HAVE EXAMPLES
-    return [](Item *&lvs, Item *&rvs) -> int {
-        int yearComparison = lvs->getPublishYear() - rvs->getPublishYear();
+    return [](LibraryItem &lvs, LibraryItem &rvs) -> int {
+        int yearComparison = lvs.item->getPublishYear() - rvs.item->getPublishYear();
         if (yearComparison != 0) {
             return yearComparison > 0 ? 1 : -1;
         }
 
-        ItemType lvsType = lvs->getType();
-        ItemType rvsType = rvs->getType();
+        ItemType lvsType = lvs.item->getType();
+        ItemType rvsType = rvs.item->getType();
 
         if (!((lvsType == ItemType::COMIC || lvsType == ItemType::PERIODIC_PUBLICATION)
               && (rvsType == ItemType::COMIC || rvsType == ItemType::PERIODIC_PUBLICATION))) {
 
-            if (lvs->getTitle() > rvs->getTitle()) {
+            if (lvs.item->getTitle() > rvs.item->getTitle()) {
                 return 1;
             }
             return -1;
         }
 
-        PeriodicPublication *lvsPeriodic = dynamic_cast<PeriodicPublication *>(lvs);
-        PeriodicPublication *rvsPeriodic = dynamic_cast<PeriodicPublication *>(rvs);
+        PeriodicPublication *lvsPeriodic = dynamic_cast<PeriodicPublication *>(lvs.item);
+        PeriodicPublication *rvsPeriodic = dynamic_cast<PeriodicPublication *>(rvs.item);
         if (!(lvsPeriodic != nullptr && rvsPeriodic != nullptr)) {
             return -1;
         }

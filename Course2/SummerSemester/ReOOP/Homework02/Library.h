@@ -13,18 +13,19 @@
 #include "MinDate.h"
 
 #pragma once
-using SortLambdaType = int (*)(Item *&, Item *&);
-
 struct LibraryItem {
-//    item:
+    Item *item;
+    size_t copiesCount;
+    size_t borrowedCopiesCount;
 };
+
+using SortLambdaType = int (*)(LibraryItem &, LibraryItem &);
 
 class Library {
 private:
-// TODO USE CHRONO OR TIME FOR THE DATETIME
     MinDate currentDate;
     MinVector<User> users;
-    MinVector<Item *> items;
+    MinVector<LibraryItem> items;
 
     //TODO READ AND WRITE LIBRARY in binary format
 public:
@@ -32,7 +33,7 @@ public:
 
     ~Library();
 
-    void addItem(Item *&item);
+    void addItem(Item *&item, size_t count);
 
     void removeItem(size_t libraryID);
 
