@@ -10,7 +10,8 @@ Library::~Library() = default;
 
 // Add and Remove
 void Library::addItem(const Item *&item, size_t count) {
-    items.pushBack({item, count, 0});
+    
+    items.pushBack({item->clone(), count, 0});
 }
 
 void Library::removeItem(const size_t libraryID) {
@@ -40,41 +41,64 @@ void Library::printItems() {
     items.sort(getSortFunc());
 
     for (int i = 0; i < items.getSize(); ++i) {
-        std::cout << "#" << i + 1 << " " << items[i].item << std::endl;
+        std::cout << "#" << i + 1 << " "
+                  << items[i].item->getLibraryId()
+                  << ", " << items[i].item->getTitle()
+                  << ", " << items[i].item->getTypeText()
+                  << ", " << items[i].item->getShortDescr()
+                  << std::endl;
     }
 }
 
 void Library::printOverdueItems() {
     items.sort(getSortFunc());
-    MinVector<size_t> ids;
-    for (int i = 0; i < users.getSize(); ++i) {
+    MinVector<size_t> overDueIds;
+    for (size_t i = 0; i < users.getSize(); ++i) {
+        MinVector<size_t> currentOverDues = users[i].getOverDueIds(currentDate);
 
+        for (size_t idIndex = 0; idIndex < currentOverDues.getSize(); ++idIndex) {
+            if (!overDueIds.includes(currentOverDues[idIndex])) {
+                overDueIds.pushBack(currentOverDues[idIndex]);
+            }
+        }
     }
-// TODO ALGORITHM OVERDUE ITEMS
-//  Go trough users
-//  Get books with STATUS = OVERDUE
-//  Remove duplicates ids
-//  Get all books with these ids
-//  Sort
-//  Print
+
+    for (size_t i = 0, counter = 1; i < items.getSize(); ++i) {
+//        заглавие, тип, кратко описание, библиотечен номер.
+        if (overDueIds.includes(items[i].item->getLibraryId())) {
+            std::cout << "#" << counter++ << " "
+                      << items[i].item->getLibraryId()
+                      << ", " << items[i].item->getTitle()
+                      << ", " << items[i].item->getTypeText()
+                      << ", " << items[i].item->getShortDescr()
+                      << std::endl;
+        }
+    }
 }
 
-void Library::printUsersByBorrowedId() {
-// TODO ALGORITHM BORROWED ID ITEMS
-//  Go trough users
-//  Get books with STATUS = BORROWED
-//  Remove duplicates ids
-//  Get all books with these ids
-//  Sort
-//  Print
+void Library::printUsersByBorrowedId(size_t libraryId) {
+    for (size_t i = 0, counter = 1; i < users.getSize(); ++i) {
+        ItemStatus status = users[i][libraryId];
+        if (status == ItemStatus::BORROWED || status == ItemStatus::REREAD) {
+            std::cout << "#" << counter++ << " " << users[i].getName() << std::endl;
+        }
+    }
 }
 
 void Library::printUsers() {
-// TODO ALGORITHM PRINT USERS
-//  Go trough users
-//  Count books with STATUS = READ
-//  Sort
-//  Print
+    users.sort([](User &a, User &b) -> int {
+        if (a > b) {
+            return 1;
+        }
+        if (a < b) {
+            return -1;
+        }
+        return 0;
+    });
+    for (int i = 0; i < users.getSize(); ++i) {
+        std::cout << "#" << i + 1 << " " << users[i].getName()
+                  << ", READ: " << users[i].getReadCount() << std::endl;
+    }
 }
 
 // Borrow and Return books

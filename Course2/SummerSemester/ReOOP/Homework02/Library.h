@@ -45,7 +45,7 @@ public:
 
     void printOverdueItems();
 
-    void printUsersByBorrowedId();
+    void printUsersByBorrowedId(size_t libraryId);
 
     void printUsers();
 
