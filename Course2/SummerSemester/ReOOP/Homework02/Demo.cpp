@@ -4,5 +4,7 @@
 #include "Menu.h"
 
 int main() {
+    //TODO
+    //  MAKE NOT MENU DEMO
     Menu menu;
 }

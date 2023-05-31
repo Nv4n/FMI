@@ -7,10 +7,12 @@
 
 #include <ostream>
 #include "MinVector.h"
+#include "MinDate.h"
 #include "User.h"
 #include "Item.h"
+#include "Book.h"
 #include "PeriodicPublication.h"
-#include "MinDate.h"
+#include "Comic.h"
 
 #pragma once
 struct LibraryItem {
@@ -26,8 +28,6 @@ private:
     MinDate currentDate;
     MinVector<User> users;
     MinVector<LibraryItem> items;
-
-    //TODO READ AND WRITE LIBRARY in binary format
 public:
     Library();
 
@@ -52,6 +52,10 @@ public:
     void borrowItem(const MinString &username, size_t libraryId);
 
     void returnItem(const MinString &username, size_t libraryId);
+
+    friend std::ostream &operator<<(std::ostream &os, const Library &library);
+
+    friend std::istream &operator>>(std::istream &is, Library &library);
 
 private:
     SortLambdaType getSortFunc();

@@ -201,3 +201,40 @@ void User::copy(const User &other) {
     }
 }
 
+std::ostream &operator<<(std::ostream &os, const User &user) {
+    os << user.name;
+    os << user.borrowedCount;
+    os << user.readCount;
+    os << user.items.getSize();
+    for (int i = 0; i < user.items.getSize(); ++i) {
+        os << static_cast<int>(user.items[i].status);
+        os << user.items[i].libraryId;
+        os << user.items[i].borrowDate;
+        os << user.items[i].dueDate;
+    }
+    return os;
+}
+
+std::istream &operator>>(std::istream &is, User &user) {
+    is >> user.name;
+    is >> user.borrowedCount;
+    is >> user.readCount;
+    size_t size;
+    is >> size;
+    user.items.erase();
+    for (int i = 0; i < size; ++i) {
+        int status;
+        size_t libraryId;
+        MinDate borrowDate;
+        MinDate dueDate;
+        is >> status;
+        is >> libraryId;
+        is >> borrowDate;
+        is >> dueDate;
+        ItemStatus itemStatus = static_cast<ItemStatus>(status);
+
+        user.items.pushBack({itemStatus, libraryId, borrowDate, dueDate});
+    }
+    return is;
+}
+

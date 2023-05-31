@@ -126,7 +126,7 @@ void Library::borrowItem(const MinString &username, size_t libraryId) {
         users[ind] += libraryId;
 
     } catch (std::invalid_argument &e) {
-        throw std::invalid_argument(e.what());
+        throw e;
     }
 }
 
@@ -142,7 +142,7 @@ void Library::returnItem(const MinString &username, size_t libraryId) {
         users[ind] -= libraryId;
 
     } catch (std::invalid_argument &e) {
-        throw std::invalid_argument(e.what());
+        throw e;
     }
 }
 
@@ -224,6 +224,58 @@ SortLambdaType Library::getSortFunc() {
         }
         return 0;
     };
+}
+
+std::ostream &operator<<(std::ostream &os, const Library &library) {
+    os << library.items.getSize();
+    for (int i = 0; i < library.items.getSize(); ++i) {
+        os << library.items[i].copiesCount;
+        os << library.items[i].borrowedCopiesCount;
+        os << library.items[i].item;
+    }
+    os << library.users.getSize();
+    for (int i = 0; i < library.items.getSize(); ++i) {
+        os << library.users[i];
+    }
+    return os;
+}
+
+std::istream &operator>>(std::istream &is, Library &library) {
+    size_t size;
+    is >> size;
+    library.items.erase();
+    for (int i = 0; i < size; ++i) {
+        size_t copiesCount;
+        size_t borrowedCopiesCount;
+        is >> copiesCount;
+        is >> borrowedCopiesCount;
+        int itemTypeValue;
+        is >> itemTypeValue;
+        ItemType itemType = static_cast<ItemType>(itemTypeValue);
+        Item *item;
+        if (itemType == ItemType::BOOK) {
+            Book book;
+            is >> book;
+            item = book.clone();
+        } else if (itemType == ItemType::PERIODIC_PUBLICATION) {
+            PeriodicPublication periodPubl;
+            is >> periodPubl;
+            item = periodPubl.clone();
+        } else if (itemType == ItemType::COMIC) {
+            Comic comic;
+            is >> comic;
+            item = comic.clone();
+        }
+        library.items.pushBack({item, copiesCount, borrowedCopiesCount});
+    }
+    is >> size;
+    library.users.erase();
+    for (int i = 0; i < size; ++i) {
+        User user;
+        is >> user;
+        library.users.pushBack(user);
+    }
+    return is;
 }
 
 

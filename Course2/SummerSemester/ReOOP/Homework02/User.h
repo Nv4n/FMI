@@ -5,6 +5,7 @@
 #ifndef HW02_LIBRARY_USER_H
 #define HW02_LIBRARY_USER_H
 
+#include <ostream>
 #include "MinString.h"
 #include "MinVector.h"
 #include "MinDate.h"
@@ -71,6 +72,10 @@ public:
     User &operator-=(size_t libraryId);
 
     friend User &operator-(const User &lvs, size_t libraryId);
+
+    friend std::ostream &operator<<(std::ostream &os, const User &user);
+
+    friend std::istream &operator>>(std::istream &is, User &user);
 
 private:
     void copy(const User &other);

@@ -9,6 +9,8 @@
 
 #pragma once
 
+//TODO
+// IMPLEMENT DEMO
 enum class MenuOptions {
     ADD_ITEM = 0,
     REMOVE_ITEM = 1,
