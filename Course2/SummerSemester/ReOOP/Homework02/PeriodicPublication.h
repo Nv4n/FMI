@@ -28,10 +28,12 @@ public:
 
     PeriodicPublication(const PeriodicPublication &other);
 
+    PeriodicPublication();
+
     PeriodicPublication &operator=(const PeriodicPublication &other);
 
     Item *clone() const override;
-    
+
     PeriodicPeriod getPeriod() const;
 
     void setPeriod(PeriodicPeriod _period);

@@ -52,6 +52,8 @@ public:
 
     void erase();
 
+    bool includes(const T &el);
+
 private:
 
     void copy(const MinVector<T> &other);

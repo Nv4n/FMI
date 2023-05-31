@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 
 project(Project_SocialMedia)
 project(HW02_LIBRARY)
+#project(TestProj)
 
 set(CMAKE_CXX_STANDARD 14)
 

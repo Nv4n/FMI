@@ -10,6 +10,7 @@
 #include "User.h"
 #include "Item.h"
 #include "PeriodicPublication.h"
+#include "MinDate.h"
 
 #pragma once
 using SortLambdaType = int (*)(Item *&, Item *&);
@@ -21,11 +22,16 @@ struct LibraryItem {
 class Library {
 private:
 // TODO USE CHRONO OR TIME FOR THE DATETIME
+    MinDate currentDate;
     MinVector<User> users;
     MinVector<Item *> items;
 
     //TODO READ AND WRITE LIBRARY in binary format
 public:
+    Library();
+
+    ~Library();
+
     void addItem(Item *&item);
 
     void removeItem(size_t libraryID);

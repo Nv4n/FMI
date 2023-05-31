@@ -1,9 +1,12 @@
 //
 // Created by Sybatron on 5/26/2023.
 //
-
 #include <stdexcept>
 #include "Library.h"
+
+Library::Library() = default;
+
+Library::~Library() = default;
 
 // Add and Remove
 void Library::addItem(Item *&item) {
@@ -45,6 +48,9 @@ void Library::printItems() {
 
 void Library::printOverdueItems() {
     items.sort(getSortFunc());
+    for (int i = 0; i < users.getSize(); ++i) {
+
+    }
 // TODO ALGORITHM OVERDUE ITEMS
 //  Go trough users
 //  Get books with STATUS = OVERDUE
@@ -82,7 +88,7 @@ void Library::printUsers() {
 void Library::borrowItem(const MinString &username, size_t libraryId) {
     try {
         size_t ind = hasUserAndItem(username, libraryId);
-        users[ind] -= libraryId;
+        users[ind] += libraryId;
 
     } catch (std::invalid_argument &e) {
         throw std::invalid_argument(e.what());
@@ -98,7 +104,7 @@ void Library::borrowItem(const MinString &username, size_t libraryId) {
 void Library::returnItem(const MinString &username, size_t libraryId) {
     try {
         size_t ind = hasUserAndItem(username, libraryId);
-        users[ind] += libraryId;
+        users[ind] -= libraryId;
 
     } catch (std::invalid_argument &e) {
         throw std::invalid_argument(e.what());
@@ -139,6 +145,7 @@ size_t Library::hasUserAndItem(const MinString &username, size_t libraryId) {
 
 
 SortLambdaType Library::getSortFunc() {
+    //TODO FIX THIS TO HAVE EXAMPLES
     return [](Item *&lvs, Item *&rvs) -> int {
         int yearComparison = lvs->getPublishYear() - rvs->getPublishYear();
         if (yearComparison != 0) {
@@ -177,4 +184,6 @@ SortLambdaType Library::getSortFunc() {
         return 0;
     };
 }
+
+
 

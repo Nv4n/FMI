@@ -12,6 +12,8 @@
 
 class Comic final : public Book, public PeriodicPublication {
 public:
+    Comic();
+
     ~Comic() override;
 
     Comic(const MinString &_title, const MinString &_shortDescr, size_t _libraryId, unsigned short _publishYear,

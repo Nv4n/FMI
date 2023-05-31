@@ -4,6 +4,8 @@
 
 #include "PeriodicPublication.h"
 
+PeriodicPublication::PeriodicPublication() = default;
+
 PeriodicPublication::~PeriodicPublication() = default;
 
 PeriodicPublication::PeriodicPublication(const MinString &_title, const MinString &_shortDescr,
@@ -55,4 +57,5 @@ void PeriodicPublication::copy(const PeriodicPublication &other) {
     period = other.period;
     issue = other.issue;
 }
+
 

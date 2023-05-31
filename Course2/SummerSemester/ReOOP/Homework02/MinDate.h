@@ -13,7 +13,9 @@ private:
     unsigned int month{};
     unsigned int day{};
 public:
-    MinDate(unsigned int _year = 1900, unsigned int _month = 1, unsigned int _day = 1);
+    MinDate();
+
+    MinDate(unsigned int _year, unsigned int _month, unsigned int _day);
 
     MinDate(const MinDate &other);
 
@@ -25,9 +27,24 @@ public:
 
     unsigned int getDay() const;
 
+    void advanceMonth();
+
     friend std::ostream &operator<<(std::ostream &os, const MinDate &date);
 
     friend std::istream &operator>>(std::istream &is, MinDate &date);
+
+    friend bool operator==(const MinDate &lvs, const MinDate &rvs);
+
+    friend bool operator!=(const MinDate &lvs, const MinDate &rvs);
+
+    friend bool operator>(const MinDate &lvs, const MinDate &rvs);
+
+    friend bool operator>=(const MinDate &lvs, const MinDate &rvs);
+
+    friend bool operator<(const MinDate &lvs, const MinDate &rvs);
+
+    friend bool operator<=(const MinDate &lvs, const MinDate &rvs);
+
 
 private:
     void setYear(unsigned int _year);

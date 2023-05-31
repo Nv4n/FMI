@@ -4,6 +4,8 @@
 
 #include "Comic.h"
 
+Comic::Comic() = default;
+
 Comic::~Comic() = default;
 
 Comic::Comic(const MinString &_title, const MinString &_shortDescr, size_t _libraryId, unsigned short _publishYear,
@@ -26,3 +28,4 @@ Comic &Comic::operator=(const Comic &other) {
 Item *Comic::clone() const {
     return new Comic(*this);
 }
+

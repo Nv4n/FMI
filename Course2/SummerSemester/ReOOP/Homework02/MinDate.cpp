@@ -3,10 +3,25 @@
 //
 #include <iostream>
 #include <stdexcept>
+#include <ctime>
 #include "MinDate.h"
 #include "MinString.h"
 
 // Constructors
+MinDate::MinDate() {
+    std::time_t currentTime = std::time(nullptr);
+
+    std::tm *localTime = std::localtime(&currentTime);
+
+    unsigned int _day = localTime->tm_mday;
+    unsigned int _month = localTime->tm_mon + 1;
+    unsigned int _year = localTime->tm_year + 1900;
+
+    setDay(_day);
+    setMonth(_month);
+    setYear(_year);
+}
+
 MinDate::MinDate(unsigned int _year, unsigned int _month, unsigned int _day) {
     setYear(_year);
     setMonth(_month);
@@ -25,6 +40,10 @@ MinDate &MinDate::operator=(const MinDate &other) {
 }
 
 // Getters and Setters
+void MinDate::advanceMonth() {
+    month = month == 12 ? 1 : month + 1;
+}
+
 unsigned int MinDate::getYear() const {
     return year;
 }
@@ -136,6 +155,32 @@ std::istream &operator>>(std::istream &is, MinDate &date) {
     date.setDay(_day);
     return is;
 }
+
+// Comparators
+bool operator==(const MinDate &lvs, const MinDate &rvs) {
+    return lvs.year == rvs.year && lvs.month == rvs.month && lvs.day == rvs.day;
+}
+
+bool operator!=(const MinDate &lvs, const MinDate &rvs) {
+    return !(lvs == rvs);
+}
+
+bool operator>(const MinDate &lvs, const MinDate &rvs) {
+    return lvs.year > rvs.year && lvs.month > rvs.month && lvs.day > rvs.day;
+}
+
+bool operator>=(const MinDate &lvs, const MinDate &rvs) {
+    return lvs > rvs && lvs == rvs;
+}
+
+bool operator<(const MinDate &lvs, const MinDate &rvs) {
+    return !(lvs >= rvs);
+}
+
+bool operator<=(const MinDate &lvs, const MinDate &rvs) {
+    return !(lvs > rvs);
+}
+
 
 // Private
 bool MinDate::isDigit(char symbol) {

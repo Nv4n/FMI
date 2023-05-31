@@ -137,6 +137,17 @@ void MinVector<T>::sort(int (*comparator)(T &, T &)) {
     }
 }
 
+// Comparators
+template<typename T>
+bool MinVector<T>::includes(const T &el) {
+    for (int i = 0; i < size; ++i) {
+        if (data[i] == el) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // Read and Write
 template<typename T>
 std::ostream &operator<<(std::ostream &os, const MinVector<T> &vec) {

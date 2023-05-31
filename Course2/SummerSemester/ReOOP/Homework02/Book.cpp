@@ -4,7 +4,11 @@
 #include <iostream>
 #include "Book.h"
 
+
+Book::Book() = default;
+
 Book::~Book() = default;
+
 
 Book::Book(const MinString &_title, const MinString &_shortDescr, size_t _libraryId, unsigned short _publishYear,
            const MinString &_author, const MinString &_publisher, const Genre &_genre)
@@ -17,7 +21,6 @@ Book::Book(const MinString &_title, const MinString &_shortDescr, size_t _librar
     setGenre(_genre);
     type = ItemType::BOOK;
 }
-
 
 // Copy
 
