@@ -33,13 +33,13 @@ public:
 
     ~Library();
 
-    void addItem(Item *&item, size_t count);
+    void addItem(const Item *&item, size_t count);
 
     void removeItem(size_t libraryID);
 
     void addUser(User &user);
 
-    void removeUser(MinString &username);
+    void removeUser(const MinString &username);
 
     void printItems();
 

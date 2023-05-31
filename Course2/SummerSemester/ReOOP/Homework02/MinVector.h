@@ -50,9 +50,9 @@ public:
 
     void sort(int (*comparator)(T &, T &));
 
-    void erase();
-
     bool includes(const T &el);
+    
+    void erase();
 
 private:
 

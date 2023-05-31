@@ -197,6 +197,13 @@ void User::copy(const User &other) {
     }
 }
 
-
-
-
+const MinVector<size_t> &User::getOverDueIds(const MinDate &dateCompare) {
+    MinVector<size_t> overDueIds;
+    for (int i = 0; i < items.getSize(); ++i) {
+        if (items[i].status == ItemStatus::BORROWED
+            || items[i].status == ItemStatus::REREAD) {
+            return items[i].dueDate < dateCompare;
+        }
+    }
+    return overDueIds;
+}

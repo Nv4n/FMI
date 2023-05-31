@@ -9,7 +9,7 @@ Library::Library() = default;
 Library::~Library() = default;
 
 // Add and Remove
-void Library::addItem(Item *&item, size_t count) {
+void Library::addItem(const Item *&item, size_t count) {
     items.pushBack({item, count, 0});
 }
 
@@ -26,7 +26,7 @@ void Library::addUser(User &user) {
     users.pushBack(user);
 }
 
-void Library::removeUser(MinString &username) {
+void Library::removeUser(const MinString &username) {
     for (int i = 0; i < users.getSize(); ++i) {
         if (username == users[i].getName()) {
             users.remove(i);
@@ -46,6 +46,7 @@ void Library::printItems() {
 
 void Library::printOverdueItems() {
     items.sort(getSortFunc());
+    MinVector<size_t> ids;
     for (int i = 0; i < users.getSize(); ++i) {
 
     }

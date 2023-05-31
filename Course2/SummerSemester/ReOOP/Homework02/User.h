@@ -31,8 +31,6 @@ private:
     MinVector<UserItem> items;
     unsigned short borrowedCount;
 public:
-    //TODO
-    //  ADD MOVE, COPY CONSTRUCTORS
     User();
 
     ~User();
@@ -46,6 +44,8 @@ public:
     unsigned short getBorrowedCount() const;
 
     bool isOverDue(size_t libraryId, const MinDate &dateCompare);
+
+    const MinVector<size_t> &getOverDueIds(const MinDate &dateCompare);
 
     friend bool operator==(const User &lvs, const User &rvs);
 
