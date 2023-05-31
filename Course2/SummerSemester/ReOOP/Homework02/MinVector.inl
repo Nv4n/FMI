@@ -148,6 +148,16 @@ bool MinVector<T>::includes(const T &el) {
     return false;
 }
 
+template<typename T>
+bool MinVector<T>::includes(bool (*comparator)(T &)) {
+    for (int i = 0; i < size; ++i) {
+        if (comparator(data[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // Read and Write
 template<typename T>
 std::ostream &operator<<(std::ostream &os, const MinVector<T> &vec) {

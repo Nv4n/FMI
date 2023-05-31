@@ -5,5 +5,16 @@
     <sourceRoots>
       <file path="$PROJECT_DIR$" />
     </sourceRoots>
+    <excludeRoots>
+      <file path="$PROJECT_DIR$/Course1" />
+      <file path="$PROJECT_DIR$/Course2/SummerSemester/ComputerNetworks" />
+      <file path="$PROJECT_DIR$/Course2/SummerSemester/Databases" />
+      <file path="$PROJECT_DIR$/Course2/SummerSemester/Java" />
+      <file path="$PROJECT_DIR$/Course2/SummerSemester/ReOOP/Homework01" />
+      <file path="$PROJECT_DIR$/Course2/SummerSemester/ReOOP/Week03" />
+      <file path="$PROJECT_DIR$/Course2/SummerSemester/ReOOP/Week04" />
+      <file path="$PROJECT_DIR$/Course2/SummerSemester/Statistics" />
+      <file path="$PROJECT_DIR$/Course2/WinterSemester" />
+    </excludeRoots>
   </component>
 </project>

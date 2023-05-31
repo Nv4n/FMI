@@ -29,7 +29,8 @@ class User {
 private:
     MinString name;
     MinVector<UserItem> items;
-    unsigned short borrowedCount;
+    unsigned short borrowedCount{};
+    unsigned short readCount{};
 public:
     User();
 
@@ -43,9 +44,11 @@ public:
 
     unsigned short getBorrowedCount() const;
 
+    unsigned short getReadCount() const;
+
     bool isOverDue(size_t libraryId, const MinDate &dateCompare);
 
-    const MinVector<size_t> &getOverDueIds(const MinDate &dateCompare);
+    MinVector<size_t> &getOverDueIds(const MinDate &dateCompare);
 
     friend bool operator==(const User &lvs, const User &rvs);
 

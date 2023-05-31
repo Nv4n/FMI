@@ -30,6 +30,25 @@ unsigned short User::getBorrowedCount() const {
     return borrowedCount;
 }
 
+unsigned short User::getReadCount() const {
+    return readCount;
+}
+
+
+MinVector<size_t> &User::getOverDueIds(const MinDate &dateCompare) {
+    MinVector<size_t> overDueIds;
+    for (int i = 0; i < items.getSize(); ++i) {
+        if (!(items[i].status == ItemStatus::BORROWED
+              || items[i].status == ItemStatus::REREAD)) {
+            continue;
+        }
+        if (items[i].dueDate < dateCompare) {
+            overDueIds.pushBack(items[i].libraryId);
+        }
+    }
+    return overDueIds;
+}
+
 
 bool User::isOverDue(size_t libraryId, const MinDate &dateCompare) {
     for (int i = 0; i < items.getSize(); ++i) {
@@ -55,23 +74,7 @@ bool operator!=(const User &lvs, const User &rvs) {
 }
 
 bool operator>(const User &lvs, const User &rvs) {
-    size_t lvsRead = 0;
-    for (int i = 0; i < lvs.items.getSize(); ++i) {
-        if (lvs.items[i].status == ItemStatus::READ
-            || lvs.items[i].status == ItemStatus::REREAD) {
-            lvsRead++;
-        }
-    }
-
-    size_t rvsRead = 0;
-    for (int i = 0; i < rvs.items.getSize(); ++i) {
-        if (rvs.items[i].status == ItemStatus::READ
-            || rvs.items[i].status == ItemStatus::REREAD) {
-            rvsRead++;
-        }
-    }
-
-    return lvsRead > rvsRead;
+    return lvs.readCount > rvs.readCount;
 }
 
 bool operator>=(const User &lvs, const User &rvs) {
@@ -79,23 +82,7 @@ bool operator>=(const User &lvs, const User &rvs) {
 }
 
 bool operator<(const User &lvs, const User &rvs) {
-    size_t lvsRead = 0;
-    for (int i = 0; i < lvs.items.getSize(); ++i) {
-        if (lvs.items[i].status == ItemStatus::READ
-            || lvs.items[i].status == ItemStatus::REREAD) {
-            lvsRead++;
-        }
-    }
-
-    size_t rvsRead = 0;
-    for (int i = 0; i < rvs.items.getSize(); ++i) {
-        if (rvs.items[i].status == ItemStatus::READ
-            || rvs.items[i].status == ItemStatus::REREAD) {
-            rvsRead++;
-        }
-    }
-
-    return lvsRead < rvsRead;
+    return lvs.readCount < rvs.readCount;
 }
 
 bool operator<=(const User &lvs, const User &rvs) {
@@ -106,9 +93,11 @@ bool operator<=(const User &lvs, const User &rvs) {
  *
  * @param index
  * @return User's book status
- * @throw out_of_range("Index out of range")
  */
 ItemStatus User::operator[](size_t libraryId) const {
+    if (borrowedCount == 0) {
+        return ItemStatus::NOT_BORROWED;
+    }
     for (int i = 0; i < items.getSize(); ++i) {
         if (items[i].libraryId == libraryId) {
             return items[i].status;
@@ -139,11 +128,20 @@ User &User::operator+=(const size_t libraryId) {
         if (items[i].status == ItemStatus::READ) {
             borrowedCount++;
             items[i].status = ItemStatus::REREAD;
+            MinDate currDate;
+            MinDate dueDate;
+            dueDate.advanceMonth();
+            items[i].borrowDate = currDate;
+            items[i].dueDate = dueDate;
             return *this;
         }
     }
 
-    UserItem item = {ItemStatus::BORROWED, libraryId};
+    borrowedCount++;
+    MinDate currDate;
+    MinDate dueDate = currDate;
+    dueDate.advanceMonth();
+    UserItem item = {ItemStatus::BORROWED, libraryId, currDate, dueDate};
     items.pushBack(item);
     return *this;
 }
@@ -161,6 +159,10 @@ User &User::operator-=(size_t libraryId) {
         }
         if (items[i].status == ItemStatus::BORROWED
             || items[i].status == ItemStatus::REREAD) {
+
+            if (items[i].status == ItemStatus::BORROWED) {
+                readCount++;
+            }
             items[i].status = ItemStatus::READ;
             borrowedCount--;
             return *this;
@@ -185,6 +187,8 @@ User &operator-(const User &lvs, size_t libraryId) {
 
 void User::copy(const User &other) {
     name = other.name;
+    borrowedCount = other.borrowedCount;
+    readCount = other.borrowedCount;
     for (int i = 0; i < other.items.getSize(); ++i) {
         ItemStatus _status = other.items[i].status;
         size_t _libraryId = other.items[i].libraryId;
@@ -197,13 +201,3 @@ void User::copy(const User &other) {
     }
 }
 
-const MinVector<size_t> &User::getOverDueIds(const MinDate &dateCompare) {
-    MinVector<size_t> overDueIds;
-    for (int i = 0; i < items.getSize(); ++i) {
-        if (items[i].status == ItemStatus::BORROWED
-            || items[i].status == ItemStatus::REREAD) {
-            return items[i].dueDate < dateCompare;
-        }
-    }
-    return overDueIds;
-}

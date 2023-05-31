@@ -51,7 +51,9 @@ public:
     void sort(int (*comparator)(T &, T &));
 
     bool includes(const T &el);
-    
+
+    bool includes(bool (*comparator)(T &));
+
     void erase();
 
 private:
