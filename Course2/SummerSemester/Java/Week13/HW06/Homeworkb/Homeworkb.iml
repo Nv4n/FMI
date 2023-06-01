@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <dependencies>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.13.0</version>
+      </dependency>
+    </dependencies>
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library name="jackson-annotations-2.15.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/jackson-annotations-2.15.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/jackson-databind-2.15.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/jackson-dataformat-xml-2.15.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/jackson-dataformat-xml-2.15.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="jackson-databind-2.15.0" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.15.2" level="project" />
+  </component>
+</module>
