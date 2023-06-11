@@ -28,8 +28,7 @@ VALUES ('FHG3T6KL9P', 'Гошо', 'Петров', 'Факултет по Гло�
 SELECT *
 FROM V_STUDENTS_ALL;
 
-
--- DROP VIEW V_STUDENTS_ALL_WITH_CK;
+DROP VIEW V_STUDENTS_ALL_WITH_CK;
 CREATE VIEW V_STUDENTS_ALL_WITH_CK
 AS
 SELECT FN, FNAME, LNAME, FACULTY, COURSE
@@ -39,6 +38,10 @@ WITH CHECK OPTION;
 
 SELECT *
 FROM V_STUDENTS_ALL_WITH_CK;
+
+DELETE
+FROM V_STUDENTS_ALL_WITH_CK
+WHERE FN = 'M5N8D3K7T9';
 
 INSERT INTO V_STUDENTS_ALL_WITH_CK(FN, FNAME, LNAME, FACULTY, COURSE)
 VALUES ('M5N8D3K7T9', 'Калина', 'Марипосова', 'Факултет по кулинарни изкуства', 4); -- ОК

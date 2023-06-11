@@ -80,7 +80,7 @@ std::istream &operator>>(std::istream &is, Genre &genre) {
 // Private
 void Genre::combineGenre() {
     unsigned short _genre = 0;
-    _genre |= (unsigned short) character & 0xF;
+    _genre |= (unsigned short) character & 0x7F;
     _genre |= ((unsigned short) type & 0xF) << 7;
     _genre |= ((unsigned short) audience & 0xF) << 11;
     parity = !isEvenBitCount(_genre);

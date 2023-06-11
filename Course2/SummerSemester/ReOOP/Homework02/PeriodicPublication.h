@@ -5,7 +5,6 @@
 #ifndef HW02_LIBRARY_PERIODICPUBLICATION_H
 #define HW02_LIBRARY_PERIODICPUBLICATION_H
 
-#include <cstddef>
 #include "Item.h"
 
 #pragma once

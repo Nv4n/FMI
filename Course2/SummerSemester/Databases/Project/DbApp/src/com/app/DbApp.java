@@ -3,7 +3,6 @@ package com.app;
 public class DbApp {
     public static void main(String[] args) {
         DB2Manager db2 = new DB2Manager();
-
         String statement = " INSERT INTO FN3MI0700035.STUDENTS (FN, FNAME, LNAME, FACULTY, COURSE) " +
                 "VALUES ('BGFD4324FW', 'Мартин', 'Самуилов', 'Богословски', 3)";
         db2.insert(statement);
