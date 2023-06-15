@@ -2,8 +2,8 @@
 // Created by Sybatron on 6/15/2023.
 //
 
-#ifndef HW02_LIBRARY_DATABASE_H
-#define HW02_LIBRARY_DATABASE_H
+#ifndef PROJECT_SOCIALMEDIA_DATABASE_H
+#define PROJECT_SOCIALMEDIA_DATABASE_H
 
 #include "User.h"
 #include "Question.h"
@@ -27,4 +27,4 @@ public:
 };
 
 
-#endif //HW02_LIBRARY_DATABASE_H
+#endif //PROJECT_SOCIALMEDIA_DATABASE_H

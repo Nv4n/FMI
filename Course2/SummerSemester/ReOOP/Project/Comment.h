@@ -2,8 +2,8 @@
 // Created by Sybatron on 6/15/2023.
 //
 
-#ifndef HW02_LIBRARY_COMMENT_H
-#define HW02_LIBRARY_COMMENT_H
+#ifndef PROJECT_SOCIALMEDIA_COMMENT_H
+#define PROJECT_SOCIALMEDIA_COMMENT_H
 
 
 #pragma once
@@ -41,4 +41,4 @@ private:
 size_t Comment::id = 1;
 
 
-#endif //HW02_LIBRARY_COMMENT_H
+#endif //PROJECT_SOCIALMEDIA_COMMENT_H
