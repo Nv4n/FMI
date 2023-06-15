@@ -13,7 +13,7 @@ private:
     std::string content;
     size_t creatorId{};
     size_t uid{};
-    static size_t id;
+    static size_t questionId;
 public:
     Question(const std::string &title, const std::string &content, size_t creatorId);
 
@@ -34,8 +34,6 @@ public:
 private:
     void setCreatorId(size_t _creatorId);
 };
-
-size_t Question::id = 1;
 
 
 #endif //PROJECT_SOCIALMEDIA_QUESTION_H

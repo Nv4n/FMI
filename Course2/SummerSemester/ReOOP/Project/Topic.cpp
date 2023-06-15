@@ -4,11 +4,13 @@
 #include <string>
 #include "Topic.h"
 
+size_t Topic::topicId = 1;
+
 Topic::Topic(const std::string &title, const std::string &description, size_t creatorId) {
     setTitle(title);
     setDescription(description);
     setCreatorId(creatorId);
-    uid = id++;
+    uid = topicId++;
 }
 
 Topic::~Topic() = default;

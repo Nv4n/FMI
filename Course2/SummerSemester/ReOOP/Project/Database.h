@@ -5,10 +5,13 @@
 #ifndef PROJECT_SOCIALMEDIA_DATABASE_H
 #define PROJECT_SOCIALMEDIA_DATABASE_H
 
-#include "User.h"
-#include "Question.h"
 
 #pragma once
+
+#include <string>
+#include <vector>
+#include "User.h"
+#include "Question.h"
 
 class Database {
 private:
@@ -21,7 +24,7 @@ public:
 
     bool hasUser(const std::string &username);
 
-    bool didLogin(const std::string &username, const std::string &password);
+    size_t didLogin(const std::string &username, const std::string &password);
 
     void addUser(User &user);
 };

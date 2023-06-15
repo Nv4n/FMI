@@ -19,7 +19,7 @@ private:
     Node *root;
     int size;
 public:
-    Set() : root(nullptr), size(0) {}
+    Set();
 
     ~Set();
 

@@ -13,7 +13,7 @@ private:
     size_t creatorId{};
     std::string description;
     size_t uid{};
-    static size_t id;
+    static size_t topicId;
 public:
     Topic(const std::string &title, const std::string &description, size_t creatorId);
 
@@ -37,6 +37,5 @@ private:
 
 };
 
-size_t Topic::id = 1;
 
 #endif //PROJECT_SOCIALMEDIA_TOPIC_H

@@ -18,7 +18,7 @@ private:
     std::string content;
     int rating;
     size_t uid;
-    static size_t id;
+    static size_t commentId;
 public:
     Comment(const std::string &content, size_t authorId);
 
@@ -37,8 +37,6 @@ public:
 private:
     void setAuthorId(size_t _authorId);
 };
-
-size_t Comment::id = 1;
 
 
 #endif //PROJECT_SOCIALMEDIA_COMMENT_H

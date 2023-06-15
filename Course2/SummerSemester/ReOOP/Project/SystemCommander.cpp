@@ -58,13 +58,12 @@ void SystemCommander::login() {
     std::string password;
 
     std::cin >> username >> password;
-    if (!sysUsernames.contains(username)) {
-        std::cout << "User doesn't exist... login is unsuccessful" << std::endl;
+    size_t userId = database.didLogin(username, password);
+    if (userId == 0) {
+        std::cout << "Password or Username are wrong" << std::endl;
         return;
     }
-//TODO
-//  SOME IF USER EXIST WITH THIS PASS
-//  CHECK
+    loggedUserId = userId;
     std::cout << "You logged in" << std::endl;
 }
 

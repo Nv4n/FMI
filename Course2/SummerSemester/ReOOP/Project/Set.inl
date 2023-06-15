@@ -5,6 +5,9 @@
 #include "Set.h"
 
 template<typename T>
+Set<T>::Set() : root(nullptr), size(0) {}
+
+template<typename T>
 Set<T>::~Set() {
     Node *curr = root;
     while (curr) {

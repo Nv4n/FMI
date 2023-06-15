@@ -4,10 +4,12 @@
 #include <string>
 #include "Comment.h"
 
+size_t Comment::commentId = 1;
+
 Comment::Comment(const std::string &content, size_t authorId) {
     setContent(content);
     setAuthorId(authorId);
-    uid = id++;
+    uid = commentId++;
     rating = 0;
 }
 

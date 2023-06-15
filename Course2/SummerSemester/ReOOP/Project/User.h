@@ -9,6 +9,7 @@
 
 #include "Set.h"
 
+
 class User {
 
 private:
@@ -18,7 +19,7 @@ private:
     std::string password;
     size_t uid;
     static Set<size_t> modIds;
-    static size_t id;
+    static size_t userId;
     unsigned int points{};
 public:
     User(const std::string &fname, const std::string &lname, const std::string &username, const std::string &password);
@@ -60,8 +61,6 @@ public:
 
     bool operator!=(const std::string &rvs) const;
 };
-
-size_t User::id = 1;
 
 
 #endif //PROJECT_SOCIALMEDIA_USER_H

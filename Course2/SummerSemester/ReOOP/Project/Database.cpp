@@ -1,8 +1,6 @@
 //
 // Created by Sybatron on 6/15/2023.
 //
-#include <vector>
-#include <string>
 #include "Database.h"
 
 Database::Database() = default;
@@ -18,19 +16,19 @@ bool Database::hasUser(const std::string &username) {
     return false;
 }
 
-bool Database::didLogin(const std::string &username, const std::string &password) {
+size_t Database::didLogin(const std::string &username, const std::string &password) {
     for (size_t i = 0; i < users.size(); ++i) {
         if (users[i] != username) {
             continue;
         }
 
         if (users[i].getPassword() == password) {
-            return true;
+            return users[i].getUid();
         }
-        return false;
+        return 0;
 
     }
-    return false;
+    return 0;
 }
 
 void Database::addUser(User &user) {

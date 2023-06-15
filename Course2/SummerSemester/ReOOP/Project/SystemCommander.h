@@ -5,12 +5,14 @@
 #ifndef PROJECT_SOCIALMEDIA_SYSTEMCOMMANDER_H
 #define PROJECT_SOCIALMEDIA_SYSTEMCOMMANDER_H
 
+#pragma once
+
 #include "Database.h"
 
-#pragma once
 
 class SystemCommander {
     Database database;
+    size_t loggedUserId{};
 public:
     SystemCommander();
 

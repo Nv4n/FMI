@@ -4,12 +4,13 @@
 #include <string>
 #include "Question.h"
 
+size_t Question::questionId = 1;
 
 Question::Question(const std::string &title, const std::string &content, size_t creatorId) {
     setTitle(title);
     setContent(content);
     setCreatorId(creatorId);
-    uid = id++;
+    uid = questionId++;
 }
 
 Question::~Question() = default;

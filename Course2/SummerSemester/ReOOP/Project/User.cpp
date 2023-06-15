@@ -5,6 +5,9 @@
 #include <string>
 #include "User.h"
 
+Set<size_t> User::modIds = Set<size_t>();
+size_t User::userId = 1;
+
 User::User(const std::string &fname, const std::string &lname, const std::string &username,
            const std::string &password) {
     setFName(fname);
@@ -12,7 +15,7 @@ User::User(const std::string &fname, const std::string &lname, const std::string
     setUsername(username);
     setPassword(password);
     setPoints(0);
-    uid = id++;
+    uid = userId++;
 
     if (uid == 1) {
         modIds.insert(uid);
