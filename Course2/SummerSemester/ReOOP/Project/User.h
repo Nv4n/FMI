@@ -7,14 +7,17 @@
 
 #pragma once
 
+#include "Set.h"
+
 class User {
+
 private:
     std::string fname;
     std::string lname;
     std::string username; //UNIQUE
     std::string password;
     size_t uid;
-    static std::vector<size_t> modIds;
+    static Set<size_t> modIds;
     static size_t id;
     unsigned int points{};
 public:
@@ -49,9 +52,13 @@ public:
 
     void setPoints(unsigned int _points);
 
+    bool operator==(const User &rvs) const;
 
-    //TODO
-    //  ADD COMPARE USER SO I CAN PUT THEM IN SET
+    bool operator!=(const User &rvs) const;
+
+    bool operator==(const std::string &rvs) const;
+
+    bool operator!=(const std::string &rvs) const;
 };
 
 size_t User::id = 1;

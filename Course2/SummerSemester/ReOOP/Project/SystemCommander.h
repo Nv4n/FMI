@@ -5,14 +5,12 @@
 #ifndef PROJECT_SOCIALMEDIA_SYSTEMCOMMANDER_H
 #define PROJECT_SOCIALMEDIA_SYSTEMCOMMANDER_H
 
-
-#include "Set.h"
-#include "User.h"
+#include "Database.h"
 
 #pragma once
 
 class SystemCommander {
-    Set<std::string> sysUsernames;
+    Database database;
 public:
     SystemCommander();
 

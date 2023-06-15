@@ -34,13 +34,13 @@ void SystemCommander::readCmd() {
 }
 
 void SystemCommander::signup() {
-    std::string fname;
-    std::string lname;
     std::string username;
     std::string password;
+    std::string fname;
+    std::string lname;
 
     std::cin >> username >> password >> fname >> lname;
-    if (!sysUsernames.insert(username)) {
+    if (database.hasUser(username)) {
         std::cout << "Username already exist... signup is unsuccessful" << std::endl;
         return;
     }
@@ -48,6 +48,7 @@ void SystemCommander::signup() {
     std::cout << "You signup successfully" << std::endl;
 
     User user(fname, lname, username, password);
+    database.addUser(user);
     //TODO
     //  ADD USER TO FILE OR SOMEWHERE
 }

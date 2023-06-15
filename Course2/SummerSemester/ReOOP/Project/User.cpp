@@ -2,7 +2,6 @@
 // Created by Sybatron on 5/10/2023.
 //
 
-#include <vector>
 #include <string>
 #include "User.h"
 
@@ -16,7 +15,7 @@ User::User(const std::string &fname, const std::string &lname, const std::string
     uid = id++;
 
     if (uid == 1) {
-        modIds.push_back(uid);
+        modIds.insert(uid);
     }
 }
 
@@ -64,4 +63,20 @@ unsigned int User::getPoints() const {
 
 void User::setPoints(unsigned int _points) {
     points = _points;
+}
+
+bool User::operator==(const User &rvs) const {
+    return username == rvs.username;
+}
+
+bool User::operator!=(const User &rvs) const {
+    return !(*this == rvs);
+}
+
+bool User::operator==(const std::string &rvs) const {
+    return username == rvs;
+}
+
+bool User::operator!=(const std::string &rvs) const {
+    return !(*this == rvs);
 }
