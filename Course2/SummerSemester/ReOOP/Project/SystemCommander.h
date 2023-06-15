@@ -9,6 +9,8 @@
 #include "Set.h"
 #include "User.h"
 
+#pragma once
+
 class SystemCommander {
     Set<std::string> sysUsernames;
 public:
@@ -26,6 +28,30 @@ private:
     void edit();
 
     void edit(size_t id);
+
+    void create();
+
+    void search();
+
+    void open();
+
+    void list();
+
+    void post();
+
+    void post_open();
+
+    void post_quit();
+
+    void quit();
+
+    void logout();
+
+    void exit();
+
+    void createUser();
+
+    void createTopic();
 };
 
 

@@ -15,12 +15,22 @@ void SystemCommander::readCmd() {
     std::cin >> cmd;
     if (cmd == "signup") {
         signup();
+        return;
     }
     if (cmd == "login") {
-
-    } else {
-        throw std::runtime_error(cmd + ": invalid cmd");
+        login();
+        return;
     }
+    if (cmd == "edit") {
+        edit();
+        return;
+    }
+    if (cmd == "create") {
+        create();
+    }
+
+    throw std::runtime_error(cmd + ": invalid cmd");
+
 }
 
 void SystemCommander::signup() {
@@ -68,5 +78,9 @@ void SystemCommander::edit() {
 }
 
 void SystemCommander::edit(size_t id) {
+
+}
+
+void SystemCommander::create() {
 
 }

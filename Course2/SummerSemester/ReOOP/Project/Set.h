@@ -4,6 +4,7 @@
 
 #ifndef PROJECT_SOCIALMEDIA_SET_H
 #define PROJECT_SOCIALMEDIA_SET_H
+#pragma once
 
 template<typename T>
 class Set {

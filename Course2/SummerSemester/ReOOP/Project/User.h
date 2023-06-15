@@ -14,7 +14,7 @@ private:
     std::string username; //UNIQUE
     std::string password;
     size_t uid;
-    static size_t modId;
+    static std::vector<size_t> modIds;
     static size_t id;
     unsigned int points{};
 public:
@@ -24,36 +24,37 @@ public:
 
     const std::string &getFName() const;
 
-    void setFName(const std::string &fname);
+//TODO
+// THROW Arg exception on empty args
+
+//TODO
+// Test with spaces data
+    void setFName(const std::string &_fname);
 
     const std::string &LName() const;
 
-    void setLName(const std::string &lname);
+    void setLName(const std::string &_lname);
 
     const std::string &getUsername() const;
 
-    void setUsername(const std::string &username);
+    void setUsername(const std::string &_username);
 
     const std::string &getPassword() const;
 
-    void setPassword(const std::string &password);
+    void setPassword(const std::string &_password);
 
-    size_t getId() const;
+    size_t getUid() const;
 
     unsigned int getPoints() const;
 
-    void setPoints(unsigned int points);
+    void setPoints(unsigned int _points);
 
-    static size_t getModId();
-
-    static void setModId(size_t modId);
 
     //TODO
     //  ADD COMPARE USER SO I CAN PUT THEM IN SET
 };
 
 size_t User::id = 1;
-size_t User::modId = 0;
 
 
 #endif //PROJECT_SOCIALMEDIA_USER_H
