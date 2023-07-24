@@ -11,7 +11,8 @@ cashew <- 103  # брой на кашу
 almond <- 500 - peanut - hazelnut - cashew  # брой на бадеми
 
 observed <- c(peanut, hazelnut, cashew, almond)
-
+mean(observed)
+median(observed)
 expected <- c(5, 2, 2, 1)
 expected <- expected / sum(expected)
 result <- chisq.test(observed, p = expected)
@@ -211,3 +212,4 @@ summary(model)
 ## 13
 expected_waist <- coefs[1] + coefs[2] * 173 + coefs[3] * 85
 expected_waist
+

@@ -7,5 +7,6 @@
 #include "SystemCommander.h"
 
 int main() {
+    SystemCommander systemCommander;
     std::cout << "DEMO" << std::endl;
 }
