@@ -5,6 +5,11 @@
 #include "Sound.h"
 
 template<typename SampleType>
+Sound<SampleType>::~Sound() {
+    destroy();
+}
+
+template<typename SampleType>
 SampleType Sound<SampleType>::operator[](size_t index) {
     if (index >= sampleSize) {
         throw std::out_of_range("Index is out of range");
@@ -29,8 +34,10 @@ Sound<SampleType>::Sound(const Sound<SampleType> &other) {
 template<typename SampleType>
 void Sound<SampleType>::copy(const Sound<SampleType> &other) {
     sampleSize = other.sampleSize;
+    sampleCount = other.sampleCount;
+    soundType = other.soundType;
     samples = new SampleType[sampleSize];
-    for (size_t i = 0; i < other.sampleSize; ++i) {
+    for (size_t i = 0; i < sampleCount; ++i) {
         samples[i] = other.samples[i];
     }
 }

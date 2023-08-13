@@ -5,6 +5,7 @@
 #ifndef RETAKE_SOUNDS_SILENCE_H
 #define RETAKE_SOUNDS_SILENCE_H
 
+#pragma once
 
 #include "Sound.h"
 
@@ -14,5 +15,6 @@ public:
     Silence(size_t size);
 };
 
+#include "Silence.inl"
 
 #endif //RETAKE_SOUNDS_SILENCE_H

@@ -6,17 +6,29 @@
 #define RETAKE_SOUNDS_SOUND_H
 #pragma once
 
+#include "iostream"
+
+enum class SoundType {
+    SILENCE,
+    FILE_SOUND,
+    PERIODIC_SOUND,
+    MIX,
+    SEQUENCE,
+    EFFECT,
+};
+
 template<typename SampleType>
 class Sound {
 protected:
     size_t sampleSize{};
+    size_t sampleCount{};
     SampleType *samples;
+    SoundType soundType;
+
 public:
     SampleType operator[](size_t index);
 
-    virtual ~Sound() {
-        destroy();
-    }
+    virtual ~Sound();
 
     Sound(const Sound<SampleType> &other);
 
@@ -28,5 +40,6 @@ private:
     void destroy();
 };
 
+#include "Sound.inl"
 
 #endif //RETAKE_SOUNDS_SOUND_H
