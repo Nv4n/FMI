@@ -19,7 +19,6 @@ private:
 
 };
 
-
 #include "FileSound.inl"
 
 #endif //RETAKE_SOUNDS_FILESOUND_H

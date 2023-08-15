@@ -7,8 +7,10 @@
 template<typename SampleType>
 Silence<SampleType>::Silence(size_t size) {
     this->sampleSize = size;
+    this->sampleCount = this->sampleCount;
     this->samples = new SampleType[size];
     for (int i = 0; i < this->sampleSize; ++i) {
         this->samples[i] = 0;
     }
+    this->soundType = 0;
 }

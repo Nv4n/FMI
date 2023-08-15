@@ -31,10 +31,10 @@ FileSound<SampleType>::FileSound(const char *&fileName) {
 template<typename SampleType>
 void FileSound<SampleType>::resizeSamples() {
     this->sampleSize *= 2;
-    SampleType *temp = new SampleType[this->sampleSize];
+    SampleType *resizedSamples = new SampleType[this->sampleSize];
     for (size_t i = 0; i < this->sampleCount; ++i) {
-        temp[i] = this->samples[i];
+        resizedSamples[i] = this->samples[i];
     }
     delete[] this->samples;
-    this->samples = temp;
+    this->samples = resizedSamples;
 }

@@ -30,9 +30,13 @@ public:
 
     virtual ~Sound();
 
+//TODO FIX POLYMORPHIC COPY
     Sound(const Sound<SampleType> &other);
 
     Sound<SampleType> &operator=(const Sound<SampleType> &other);
+
+    //TODO POLYMORPHIC CLONE
+    virtual Sound<SampleType> *clone() const = 0;
 
 private:
     void copy(const Sound<SampleType> &other);

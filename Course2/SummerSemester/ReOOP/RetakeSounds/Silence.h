@@ -12,6 +12,8 @@
 template<typename SampleType>
 class Silence : public Sound<SampleType> {
 public:
+    //TODO
+    //  No specific Silence constructor
     Silence(size_t size);
 };
 
