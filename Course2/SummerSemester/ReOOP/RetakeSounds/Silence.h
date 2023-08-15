@@ -12,10 +12,11 @@
 template<typename SampleType>
 class Silence : public Sound<SampleType> {
 public:
-    //TODO
-    //  No specific Silence constructor
     Silence(size_t size);
+
+    Sound<SampleType> *clone() const override;
 };
+
 
 #include "Silence.inl"
 

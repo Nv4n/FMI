@@ -14,10 +14,12 @@ class FileSound : public Sound<SampleType> {
 public:
     FileSound(const char *&fileName);
 
+    Sound<SampleType> *clone() const override;
+
 private:
     void resizeSamples();
-
 };
+
 
 #include "FileSound.inl"
 

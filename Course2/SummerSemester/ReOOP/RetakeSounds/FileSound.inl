@@ -17,7 +17,7 @@ FileSound<SampleType>::FileSound(const char *&fileName) {
     this->samples = new SampleType[this->sampleSize];
     while (!reader.eof()) {
         SampleType sample;
-        reader.read(reinterpret_cast<char *>(sample), sizeof(sample));
+        reader.read(reinterpret_cast<char *>(&sample), sizeof(sample));
         if (this->sampleCount == this->sampleSize) {
             resizeSamples();
         }
@@ -37,4 +37,9 @@ void FileSound<SampleType>::resizeSamples() {
     }
     delete[] this->samples;
     this->samples = resizedSamples;
+}
+
+template<typename SampleType>
+Sound<SampleType> *FileSound<SampleType>::clone() const {
+    return new FileSound<SampleType>(*this);
 }

@@ -22,7 +22,7 @@ Mix<SampleType>::Mix(const Sound<SampleType> **sounds) {
         if (this->sampleCount < currSound->sampleCount) {
             this->sampleCount = currSound->sampleCount;
         }
-        for (int i = 0; i < currSound->sampleCount; ++i) {
+        for (size_t i = 0; i < currSound->sampleCount; ++i) {
             this->samples[i] += currSound->samples[i];
         }
         soundsSequence++;

@@ -9,6 +9,7 @@
 #include "iostream"
 
 enum class SoundType {
+    ERROR_SOUND = -1,
     SILENCE,
     FILE_SOUND,
     PERIODIC_SOUND,
@@ -20,10 +21,13 @@ enum class SoundType {
 template<typename SampleType>
 class Sound {
 protected:
-    size_t sampleSize{};
     size_t sampleCount{};
+    size_t sampleSize{};
     SampleType *samples;
+
     SoundType soundType;
+
+    Sound();
 
 public:
     SampleType operator[](size_t index);
@@ -38,11 +42,21 @@ public:
     //TODO POLYMORPHIC CLONE
     virtual Sound<SampleType> *clone() const = 0;
 
+    SampleType operator[](size_t index) const;
+
+    size_t getLength() const;
+
+    size_t getSampleSize() const;
+
+
+    SoundType getSoundType() const;
+
 private:
     void copy(const Sound<SampleType> &other);
 
     void destroy();
 };
+
 
 #include "Sound.inl"
 

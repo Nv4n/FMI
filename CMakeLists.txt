@@ -22,5 +22,5 @@ add_executable(Retake_Sounds
         Course2/SummerSemester/ReOOP/RetakeSounds/FileSound.h
         Course2/SummerSemester/ReOOP/RetakeSounds/PeriodicSound.inl
         Course2/SummerSemester/ReOOP/RetakeSounds/PeriodicSound.h
-        Course2/SummerSemester/ReOOP/RetakeSounds/main.cpp Course2/SummerSemester/ReOOP/RetakeSounds/Mix.inl Course2/SummerSemester/ReOOP/RetakeSounds/Mix.h Course2/SummerSemester/ReOOP/RetakeSounds/Sequence.inl Course2/SummerSemester/ReOOP/RetakeSounds/Sequence.h)
+        Course2/SummerSemester/ReOOP/RetakeSounds/main.cpp Course2/SummerSemester/ReOOP/RetakeSounds/Mix.inl Course2/SummerSemester/ReOOP/RetakeSounds/Mix.h Course2/SummerSemester/ReOOP/RetakeSounds/Sequence.inl Course2/SummerSemester/ReOOP/RetakeSounds/Sequence.h Course2/SummerSemester/ReOOP/RetakeSounds/Effect.inl Course2/SummerSemester/ReOOP/RetakeSounds/Effect.h Course2/SummerSemester/ReOOP/RetakeSounds/Playlist.cpp Course2/SummerSemester/ReOOP/RetakeSounds/Playlist.h)
 
