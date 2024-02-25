@@ -6,7 +6,8 @@
 #define RETAKE_SOUNDS_SOUND_H
 #pragma once
 
-#include "iostream"
+#include <iostream>
+#include <fstream>
 
 enum class SoundType {
     ERROR_SOUND = -1,
@@ -48,8 +49,9 @@ public:
 
     size_t getSampleSize() const;
 
-
     SoundType getSoundType() const;
+
+    friend std::ofstream &operator<<(std::ofstream &writer, Sound<SampleType> *&sound);
 
 private:
     void copy(const Sound<SampleType> &other);

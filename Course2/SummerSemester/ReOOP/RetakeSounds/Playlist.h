@@ -7,11 +7,42 @@
 
 #pragma once
 
+#include "Sound.h"
+
+enum class SongType {
+    PAUSE,
+    SONG
+};
+
 class Playlist {
+private:
+    struct PlaylistSongs {
+        Sound<double> *sound;
+        SongType songType;
+        size_t index;
+        PlaylistSongs *next;
+    };
+
+    struct PublicSongInfo {
+        Sound<double> *&sound;
+        SongType songType;
+    };
+    size_t songCount;
+    PlaylistSongs *songs = nullptr;
 public:
     Playlist(const char *filename);
 
+    ~Playlist();
+
+    void playPlaylist();
+
+    PublicSongInfo &operator[](size_t index);
+
 private:
+    void destroy();
+
+    void destroyRecursive(PlaylistSongs *&currSong);
+
     void initSong(const char *filename, double volumeCoefficient);
 
     void initPause(size_t pauseLength);

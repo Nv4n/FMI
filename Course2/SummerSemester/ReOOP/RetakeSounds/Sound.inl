@@ -61,9 +61,7 @@ SampleType Sound<SampleType>::operator[](size_t index) const {
 }
 
 template<typename SampleType>
-Sound<SampleType>::Sound() {
-    soundType = SoundType::ERROR_SOUND;
-    sampleCount = 0;
+Sound<SampleType>::Sound() : sampleCount(0), soundType(SoundType::ERROR_SOUND) {
 }
 
 template<typename SampleType>
@@ -76,3 +74,11 @@ size_t Sound<SampleType>::getSampleSize() const {
     return sampleSize;
 }
 
+template<typename SampleType>
+std::ofstream &operator<<(std::ofstream &writer, Sound<SampleType> *&sound) {
+    for (size_t i = 0; i < sound->getLength(); ++i) {
+        SampleType sample = sound->operator[](i);
+        writer.write(reinterpret_cast<const char *>(sample), sizeof(SampleType));
+    }
+    return writer;
+}
