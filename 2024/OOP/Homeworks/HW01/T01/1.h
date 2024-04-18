@@ -2,29 +2,50 @@
 // Created by Sybatron on 4/15/2024.
 //
 
-#ifndef OOPSTRUCTURES_МULTISET_H
-#define OOPSTRUCTURES_МULTISET_H
+#ifndef OOPSTRUCTURES_MULTISET_H
+#define OOPSTRUCTURES_MULTISET_H
 #pragma once
 
 #include <iostream>
 #include <fstream>
+#include <exception>
+#include <stdexcept>
+
 
 class MultiSet {
 private:
-    unsigned int maxValue;
-    unsigned char valueCountBitSize;
-    unsigned int *data;
-    unsigned char *dataCount;
-    size_t length;
-    size_t capacity;
+    struct DataFrequency {
+        unsigned int number;
+        unsigned char frequency;
+    };
+    unsigned int maxNumber{};
+    unsigned char maxFrequency{};
+    DataFrequency *data{};
+    size_t length{};
+    size_t capacity{};
+
+    MultiSet();
+
 public:
-    MultiSet(unsigned int maxValue, unsigned char valueCountBitSize);
+    MultiSet(unsigned int maxNumber, unsigned char frequencyBits);
 
     MultiSet(const MultiSet &other);
 
     MultiSet &operator=(const MultiSet &other);
 
     virtual ~MultiSet();
+
+    void add(unsigned int number);
+
+    unsigned char frequencyOf(unsigned int number);
+
+    void printAllNumbers();
+
+    void printMemoryRepresentation();
+
+    MultiSet intersect(const MultiSet &set);
+
+    MultiSet except(const MultiSet &set);
 
     friend std::ofstream &operator<<(std::ofstream &writer, const MultiSet &set);
 
@@ -37,7 +58,11 @@ private:
     void destroy();
 
     void resize();
+
+    void insertNumber(unsigned int number, size_t index);
+
+    unsigned char frequencyBits();
 };
 
 
-#endif //OOPSTRUCTURES_МULTISET_H
+#endif //OOPSTRUCTURES_MULTISET_H
