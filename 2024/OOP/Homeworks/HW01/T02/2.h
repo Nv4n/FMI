@@ -8,8 +8,11 @@
 #pragma once
 
 #include <iostream>
+#include <functional>
+#include <cstdint>
 
-using INTEGER_FUNCTION = short (*)(short);
+
+using INTEGER_FUNCTION = std::function<int16_t(int16_t)>;
 struct SpecificValuePair {
     short inputValue;
     short outputValue;
@@ -35,7 +38,7 @@ public:
 
     short apply(short input);
 
-ModifiableIntegerFunction 
+//ModifiableIntegerFunction
 private:
     void destroy();
 

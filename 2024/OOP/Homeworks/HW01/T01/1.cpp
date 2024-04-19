@@ -20,6 +20,11 @@ MultiSet::MultiSet(unsigned int maxNumber, unsigned char frequencyBits) :
     data = new DataFrequency[capacity];
 }
 
+MultiSet::~MultiSet() {
+    destroy();
+}
+
+
 MultiSet::MultiSet(const MultiSet &other) {
     copy(other);
 }
@@ -32,8 +37,9 @@ MultiSet &MultiSet::operator=(const MultiSet &other) {
     return *this;
 }
 
-MultiSet::~MultiSet() {
-    destroy();
+void MultiSet::destroy() {
+    delete[] data;
+    data = nullptr;
 }
 
 void MultiSet::copy(const MultiSet &other) {
@@ -49,24 +55,12 @@ void MultiSet::copy(const MultiSet &other) {
     }
 }
 
-void MultiSet::destroy() {
-    delete[] data;
-    data = nullptr;
-}
-
-void MultiSet::resize() {
-    capacity *= 2;
-    DataFrequency *temp = new DataFrequency[capacity];
-    for (size_t i = 0; i < length; ++i) {
-        temp[i].number = data[i].number;
-        temp[i].frequency = data[i].frequency;
-    }
-    delete[] data;
-    data = temp;
-}
-
 std::ifstream &operator>>(std::ifstream &reader, const MultiSet &set) {
-
+    reader.read(reinterpret_cast<char *>(set.maxNumber), sizeof(set.maxNumber));
+    reader.read(reinterpret_cast<char *>(set.maxFrequency), sizeof(set.maxFrequency));
+    reader.read(reinterpret_cast<char *>(set.capacity), sizeof(set.length));
+    reader.read(reinterpret_cast<char *>(set.length), sizeof(set.length));
+    reader.read(reinterpret_cast<char *>(set.data), sizeof(MultiSet::DataFrequency) * set.length);
     return reader;
 }
 
@@ -81,6 +75,10 @@ std::ofstream &operator<<(std::ofstream &writer, const MultiSet &set) {
 }
 
 void MultiSet::add(unsigned int number) {
+    add(number, 1);
+}
+
+void MultiSet::add(unsigned int number, unsigned char frequency) {
     if (number > maxNumber) {
         throw std::invalid_argument("The number is over the max value");
     }
@@ -90,7 +88,7 @@ void MultiSet::add(unsigned int number) {
     size_t i = 0;
     for (; i < length; ++i) {
         if (data[i].number > number) {
-            insertNumber(number, i);
+            insertNumber(number, frequency, i);
             break;
         }
         if (data[i].number != number) {
@@ -106,13 +104,14 @@ void MultiSet::add(unsigned int number) {
     length++;
 }
 
-void MultiSet::insertNumber(unsigned int number, size_t index) {
+
+void MultiSet::insertNumber(unsigned int number, unsigned char frequency, size_t index) {
     for (size_t i = length; i > index; --i) {
         data[i].number = data[i - 1].number;
         data[i].frequency = data[i - 1].frequency;
     }
     data[index].number = number;
-    data[index].frequency = 1;
+    data[index].frequency = frequency;
 }
 
 unsigned char MultiSet::frequencyOf(unsigned int number) {
@@ -142,18 +141,45 @@ void MultiSet::printAllNumbers() {
     std::cout << "}" << std::endl;
 }
 
-MultiSet MultiSet::intersect(const MultiSet &set) {
+MultiSet MultiSet::intersect(const MultiSet &other) {
     unsigned char freqBits = frequencyBits();
     MultiSet result(maxNumber, freqBits);
-    for (size_t i = 0; i < length; ++i) {
-        
+    for (size_t i = 0, j = 0; i < length; ++i) {
+        for (; j < other.length; ++j) {
+            if (data[i].number < other.data[j].number) {
+                break;
+            }
+            if (data[i].number != other.data[j].number) {
+                continue;
+            }
+            if (data[i].frequency > other.data[j].frequency) {
+                result.add(data[i].number, other.data[j].frequency);
+            } else {
+                result.add(data[i].number, data[i].frequency);
+            }
+        }
     }
 
-    return MultiSet(0, 0);
+    return result;
 }
 
-MultiSet MultiSet::except(const MultiSet &set) {
-    return MultiSet(0, 0);
+MultiSet MultiSet::except(const MultiSet &other) {
+    unsigned char freqBits = frequencyBits();
+    MultiSet result(maxNumber, freqBits);
+    for (size_t i = 0, j = 0; i < length; ++i) {
+        for (; j < other.length; ++j) {
+            if (data[i].number > other.data[j].number) {
+                continue;
+            }
+            if (data[i].number == other.data[j].number) {
+                break;
+            }
+            result.add(data[i].number, data[i].frequency);
+            break;
+        }
+    }
+
+    return result;
 }
 
 MultiSet::MultiSet() {
@@ -173,3 +199,22 @@ unsigned char MultiSet::frequencyBits() {
     return bits;
 }
 
+
+void MultiSet::resize() {
+    capacity *= 2;
+    DataFrequency *temp = new DataFrequency[capacity];
+    for (size_t i = 0; i < length; ++i) {
+        temp[i].number = data[i].number;
+        temp[i].frequency = data[i].frequency;
+    }
+    delete[] data;
+    data = temp;
+}
+
+MultiSet MultiSet::addition() {
+    MultiSet result(*this);
+    for (size_t i = 0; i < length; ++i) {
+        result.data[i].frequency = maxFrequency - result.data[i].frequency;
+    }
+    return result;
+}

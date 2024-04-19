@@ -43,14 +43,15 @@ public:
 
     void printMemoryRepresentation();
 
-    MultiSet intersect(const MultiSet &set);
+    MultiSet intersect(const MultiSet &other);
 
-    MultiSet except(const MultiSet &set);
+    MultiSet except(const MultiSet &other);
 
     friend std::ofstream &operator<<(std::ofstream &writer, const MultiSet &set);
 
     friend std::ifstream &operator>>(std::ifstream &reader, const MultiSet &set);
 
+    MultiSet addition();
 
 private:
     void copy(const MultiSet &other);
@@ -59,9 +60,11 @@ private:
 
     void resize();
 
-    void insertNumber(unsigned int number, size_t index);
+    void insertNumber(unsigned int number, unsigned char frequency, size_t index);
 
     unsigned char frequencyBits();
+
+    void add(unsigned int number, unsigned char frequency);
 };
 
 
