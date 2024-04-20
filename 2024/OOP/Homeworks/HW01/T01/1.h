@@ -50,7 +50,7 @@ public:
 
     friend std::ofstream &operator<<(std::ofstream &writer, const MultiSet &set);
 
-    friend std::ifstream &operator>>(std::ifstream &reader, const MultiSet &set);
+    friend std::ifstream &operator>>(std::ifstream &reader, MultiSet &set);
 
     MultiSet addition();
 
@@ -65,6 +65,5 @@ private:
 
     void add(unsigned int number, unsigned char frequency);
 };
-
 
 #endif //OOPSTRUCTURES_MULTISET_H

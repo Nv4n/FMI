@@ -27,7 +27,13 @@ ModifiableIntegerFunction::~ModifiableIntegerFunction() {
     destroy();
 }
 
-int16_t ModifiableIntegerFunction::apply(int16_t input) {
+/**
+ *
+ * @param input
+ * @throws out_of_range value is excluded
+ * @return
+ */
+int16_t ModifiableIntegerFunction::apply(int16_t input) const {
     for (int i = 0; i < length; ++i) {
         if (changedVals[i].inputValue != input) {
             continue;
@@ -95,8 +101,8 @@ ModifiableIntegerFunction ModifiableIntegerFunction::operator+(const ModifiableI
     result.func = [savedThisFunc, savedOtherFunc](int16_t x) -> int16_t {
         return static_cast<int16_t>(savedThisFunc(x) + savedOtherFunc(x));
     };
-    for (int i = 0; i < ; ++i) {
-        
+    for (int i = 0; i < length; ++i) {
+
     }
     return result;
 }
@@ -120,6 +126,201 @@ ModifiableIntegerFunction ModifiableIntegerFunction::compose(const ModifiableInt
     };
     return result;
 }
+
+/**
+ *
+ * @param fileName
+ * @throws runtime_error file not opened
+ * @throws runtime_error cannot serialize func
+ */
+void ModifiableIntegerFunction::serialize(const char *fileName) {
+    std::ofstream writer(fileName, std::ios::binary);
+    if (!writer.is_open()) {
+        throw std::runtime_error("File couldn't be opened for serialization");
+    }
+    writer.write(reinterpret_cast<const char *>(capacity), sizeof(capacity));
+    writer.write(reinterpret_cast<const char *>(length), sizeof(length));
+    writer.write(reinterpret_cast<const char *>(changedVals), length * sizeof(ChangedValueRes));
+    int16_t (**ptr)(int16_t) = func.target<int16_t (*)(int16_t)>();
+    if (ptr) {
+        writer.write(reinterpret_cast<const char *>(&(*ptr)), sizeof(ptr));
+    } else {
+        throw std::runtime_error("Cannot serialize the function");
+    }
+}
+
+/**
+ *
+ * @param fileName
+ * @throws runtime_error cannot open file
+ */
+void ModifiableIntegerFunction::deserialize(const char *fileName) {
+    std::ifstream reader(fileName, std::ios::binary);
+    if (!reader.is_open()) {
+        throw std::runtime_error("File couldn't be opened for deserialization");
+    }
+    reader.read(reinterpret_cast< char *>(capacity), sizeof(capacity));
+    reader.read(reinterpret_cast< char *>(length), sizeof(length));
+    reader.read(reinterpret_cast< char *>(changedVals), length * sizeof(ChangedValueRes));
+    int16_t (*ptr)(int16_t);
+
+    reader.read(reinterpret_cast< char *>(&ptr), sizeof(ptr));
+    func = ptr;
+}
+
+/**
+ *
+ * @return
+ * @throws invalid_argument not invertible func
+ * @throws runtime_error function is not defined
+ */
+ModifiableIntegerFunction ModifiableIntegerFunction::inverse() {
+    if (length > 0) {
+        throw std::invalid_argument("Function is not invertible");
+        // If some point is changed or excluded then the functions is not defined there
+    }
+
+    INTEGER_FUNCTION function = [](int16_t x) -> int16_t {
+        throw std::runtime_error("Function is not defined");
+    };
+    ModifiableIntegerFunction result(function);
+    for (int16_t i = INT16_MIN; i <= INT16_MAX; ++i) {
+        result.specifyResult(func(i), i);
+    }
+    return result;
+}
+
+bool ModifiableIntegerFunction::operator>(const ModifiableIntegerFunction &other) const {
+    for (int16_t x = INT16_MIN; x <= INT16_MAX; ++x) {
+        bool isExcluded = false;
+        int16_t currY;
+        bool otherIsExcluded = false;
+        int16_t otherCurrY;
+        try {
+            currY = apply(x);
+        }
+        catch (std::out_of_range &e) {
+            isExcluded = true;
+        } catch (...) {
+            return false;
+        }
+
+        try {
+            otherCurrY = other.apply(x);
+        }
+        catch (std::out_of_range &e) {
+            otherIsExcluded = true;
+        } catch (...) {
+            return true;
+        }
+        if (isExcluded && !otherIsExcluded) {
+            return false;
+        }
+        if (!isExcluded && otherIsExcluded) {
+            return true;
+        }
+        if (isExcluded && otherIsExcluded) {
+            continue;
+        }
+        if (currY < otherCurrY) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool ModifiableIntegerFunction::operator<(const ModifiableIntegerFunction &other) const {
+    for (int16_t x = INT16_MIN; x <= INT16_MAX; ++x) {
+        bool isExcluded = false;
+        int16_t currY;
+        bool otherIsExcluded = false;
+        int16_t otherCurrY;
+        try {
+            currY = apply(x);
+        }
+        catch (std::out_of_range &e) {
+            isExcluded = true;
+        } catch (...) {
+            return false;
+        }
+
+        try {
+            otherCurrY = other.apply(x);
+        }
+        catch (std::out_of_range &e) {
+            otherIsExcluded = true;
+        } catch (...) {
+            return true;
+        }
+
+        if (isExcluded && !otherIsExcluded) {
+            return true;
+        }
+        if (!isExcluded && otherIsExcluded) {
+            return false;
+        }
+        if (isExcluded && otherIsExcluded) {
+            continue;
+        }
+        if (currY > otherCurrY) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool ModifiableIntegerFunction::operator==(const ModifiableIntegerFunction &other) const {
+    if (length != other.length) {
+        return false;
+    }
+    for (int16_t x = INT16_MIN; x <= INT16_MAX; ++x) {
+        bool isExcluded = false;
+        int16_t currY;
+        bool otherIsExcluded = false;
+        int16_t otherCurrY;
+        try {
+            currY = apply(x);
+        }
+        catch (std::out_of_range &e) {
+            isExcluded = true;
+        } catch (...) {
+            return false;
+        }
+
+        try {
+            otherCurrY = other.apply(x);
+        }
+        catch (std::out_of_range &e) {
+            otherIsExcluded = true;
+        } catch (...) {
+            return false;
+        }
+
+        if (isExcluded != otherIsExcluded) {
+            return false;
+        }
+        if (currY != otherCurrY) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool ModifiableIntegerFunction::operator<=(const ModifiableIntegerFunction &other) const {
+    return !(*this > other);
+}
+
+bool ModifiableIntegerFunction::operator>=(const ModifiableIntegerFunction &other) const {
+    return !(*this < other);
+}
+
+
+bool ModifiableIntegerFunction::operator!=(const ModifiableIntegerFunction &other) const {
+    return !(*this == other);
+}
+
 
 void ModifiableIntegerFunction::destroy() {
     delete[]changedVals;
@@ -149,21 +350,136 @@ void ModifiableIntegerFunction::resize() {
     changedVals = temp;
 }
 
-void ModifiableIntegerFunction::insert(int16_t input, int16_t value, bool isExcluded, size_t index) {
-    if (length >= capacity) {
-        return;
+bool ModifiableIntegerFunction::isInjection() {
+    size_t size = INT16_MAX - INT16_MIN + 1;
+    int16_t *yValues = new int16_t[size];
+    for (size_t i = 0; i < length; ++i) {
+        if (changedVals[i].isExcluded) {
+            delete[]yValues;
+            return false;
+        }
     }
-    for (size_t i = length; i > index; --i) {
-        changedVals[i].inputValue = changedVals[i - 1].inputValue;
-        changedVals[i].outputValue = changedVals[i - 1].outputValue;
-        changedVals[i].isExcluded = changedVals[i - 1].isExcluded;
+
+    for (int16_t x = INT16_MIN; x <= INT16_MAX; ++x) {
+        try {
+            int16_t currY = apply(x);
+            size_t yIndex = currY - INT16_MIN;
+            if (yValues[yIndex] > 0) {
+                delete[]yValues;
+                return false;
+            }
+            yValues[yIndex]++;
+        } catch (...) {
+            delete[]yValues;
+            return false;
+        }
     }
-    changedVals[index].inputValue = input;
-    changedVals[index].outputValue = value;
-    changedVals[index].isExcluded = isExcluded;
+    delete[]yValues;
+    return true;
+}
+
+bool ModifiableIntegerFunction::isSurjection() {
+    size_t size = INT16_MAX - INT16_MIN + 1;
+    int16_t *yValues = new int16_t[size];
+    for (size_t i = 0; i < length; ++i) {
+        if (changedVals[i].isExcluded) {
+            delete[]yValues;
+            return false;
+        }
+    }
+
+    for (int16_t x = INT16_MIN; x <= INT16_MAX; ++x) {
+        try {
+            int16_t currY = apply(x);
+            size_t yIndex = currY - INT16_MIN;
+            yValues[yIndex]++;
+        } catch (...) {
+            delete[]yValues;
+            return false;
+        }
+    }
+
+    for (int16_t y = INT16_MIN; y <= INT16_MAX; ++y) {
+        size_t yIndex = y - INT16_MIN;
+        if (yValues[y] == 0) {
+            delete[]yValues;
+            return false;
+        }
+    }
+    delete[]yValues;
+    return true;
+}
+
+bool ModifiableIntegerFunction::isBijection() {
+    return isInjection() && isSurjection();
+}
+
+/**
+ *
+ * @param fromX
+ * @param toX
+ * @param fromY
+ * @param toY
+ * @throws invalid_argument either X or Y range is not 20
+ */
+void ModifiableIntegerFunction::plot(int16_t fromX, int16_t toX, int16_t fromY, int16_t toY) {
+    if (toX - fromX != 20 || toY - fromY != 20) {
+        throw std::invalid_argument("Either axis range is not 20");
+    }
+    size_t matrixSide = 21;
+    char **plotMatrix = new char *[matrixSide];
+    for (int row = 0; row < matrixSide; ++row) {
+        plotMatrix[row] = new char[matrixSide];
+    }
+    for (int row = 0; row < matrixSide; ++row) {
+        plotMatrix[row][0] = '|';
+    }
+    for (int col = 0; col < matrixSide; ++col) {
+        plotMatrix[matrixSide - 1][col] = '_';
+    }
+
+    int16_t prevY = fromY;
+    for (int16_t x = fromX, col = 1; x < toY && col < matrixSide; ++x, ++col) {
+        int16_t currY;
+bool isExcluded=false;
+        try {
+            currY = apply(x);
+        } catch (std::out_of_range &e) {
+            currY = prevY;
+
+        } catch (...) {
+            currY = prevY;
+        }
+        prevY = currY;
+        if (currY > toY) {
+            plotMatrix[0][col] = '^';
+        } else if (currY < fromY) {
+            plotMatrix[matrixSide - 2][col] = '.';
+        } else {
+            int16_t rowIndex= currY-fromY;
+            plotMatrix[rowIndex][col]=*;
+        }
+    }
+    for (int row = 0; row < matrixSide; ++row) {
+        delete[] plotMatrix[row];
+    }
+    delete[]plotMatrix;
 }
 
 
+//`void ModifiableIntegerFunction::insert(int16_t input, int16_t value, bool isExcluded, size_t index) {
+//    if (length >= capacity) {
+//        return;
+//    }
+//    for (size_t i = length; i > index; --i) {
+//        changedVals[i].inputValue = changedVals[i - 1].inputValue;
+//        changedVals[i].outputValue = changedVals[i - 1].outputValue;
+//        changedVals[i].isExcluded = changedVals[i - 1].isExcluded;
+//    }
+//    changedVals[index].inputValue = input;
+//    changedVals[index].outputValue = value;
+//    changedVals[index].isExcluded = isExcluded;
+//}`
 
 
 

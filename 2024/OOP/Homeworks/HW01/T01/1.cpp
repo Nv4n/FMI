@@ -56,12 +56,14 @@ void MultiSet::copy(const MultiSet &other) {
     }
 }
 
-std::ifstream &operator>>(std::ifstream &reader, const MultiSet &set) {
+std::ifstream &operator>>(std::ifstream &reader, MultiSet &set) {
     reader.read(reinterpret_cast<char *>(set.maxNumber), sizeof(set.maxNumber));
     reader.read(reinterpret_cast< char *>(set.maxBits), sizeof(set.maxBits));
     reader.read(reinterpret_cast<char *>(set.maxFrequency), sizeof(set.maxFrequency));
-    reader.read(reinterpret_cast<char *>(set.capacity), sizeof(set.length));
+    reader.read(reinterpret_cast<char *>(set.capacity), sizeof(set.capacity));
     reader.read(reinterpret_cast<char *>(set.length), sizeof(set.length));
+    delete[] set.data;
+    set.data = new MultiSet::DataFrequency[set.capacity];
     reader.read(reinterpret_cast<char *>(set.data), sizeof(MultiSet::DataFrequency) * set.length);
     return reader;
 }
@@ -70,7 +72,7 @@ std::ofstream &operator<<(std::ofstream &writer, const MultiSet &set) {
     writer.write(reinterpret_cast<const char *>(set.maxNumber), sizeof(set.maxNumber));
     writer.write(reinterpret_cast<const char *>(set.maxBits), sizeof(set.maxBits));
     writer.write(reinterpret_cast<const char *>(set.maxFrequency), sizeof(set.maxFrequency));
-    writer.write(reinterpret_cast<const char *>(set.capacity), sizeof(set.length));
+    writer.write(reinterpret_cast<const char *>(set.capacity), sizeof(set.capacity));
     writer.write(reinterpret_cast<const char *>(set.length), sizeof(set.length));
     writer.write(reinterpret_cast<const char *>(set.data), sizeof(MultiSet::DataFrequency) * set.length);
 
@@ -98,10 +100,10 @@ void MultiSet::add(unsigned int number, unsigned char frequency) {
             continue;
         }
 
-        if (data[i].frequency + 1 > maxFrequency) {
+        if (data[i].frequency + frequency > maxFrequency) {
             throw std::out_of_range("This value was entered too many times");
         }
-        data[i].frequency++;
+        data[i].frequency += frequency;
         break;
     }
     length++;
@@ -215,4 +217,3 @@ void MultiSet::resize() {
     delete[] data;
     data = temp;
 }
-

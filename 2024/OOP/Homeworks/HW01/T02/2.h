@@ -12,6 +12,7 @@
 #include <stdexcept>
 #include <functional>
 #include <cstdint>
+#include <fstream>
 
 
 using INTEGER_FUNCTION = std::function<int16_t(int16_t)>;
@@ -24,9 +25,9 @@ struct ChangedValueRes {
 class ModifiableIntegerFunction {
 private:
     INTEGER_FUNCTION func;
-    ChangedValueRes *changedVals;
-    size_t length;
-    size_t capacity;
+    ChangedValueRes *changedVals{};
+    size_t length{};
+    size_t capacity{};
 
 public:
     ModifiableIntegerFunction(INTEGER_FUNCTION &func);
@@ -37,7 +38,7 @@ public:
 
     virtual ~ModifiableIntegerFunction();
 
-    int16_t apply(int16_t input);
+    int16_t apply(int16_t input) const;
 
     void specifyResult(int16_t input, int16_t result);
 
@@ -51,9 +52,17 @@ public:
 
     ModifiableIntegerFunction compose(const ModifiableIntegerFunction &other);
 
-    bool operator>(const ModifiableIntegerFunction &other);
+    bool operator>(const ModifiableIntegerFunction &other) const;
 
-    bool operator<(const ModifiableIntegerFunction &other);
+    bool operator<(const ModifiableIntegerFunction &other) const;
+
+    bool operator==(const ModifiableIntegerFunction &other) const;
+
+    bool operator!=(const ModifiableIntegerFunction &other) const;
+
+    bool operator<=(const ModifiableIntegerFunction &other) const;
+
+    bool operator>=(const ModifiableIntegerFunction &other) const;
 
     ModifiableIntegerFunction inverse();
 
@@ -70,7 +79,7 @@ public:
     void deserialize(const char *fileName);
 
     void plot(int16_t fromX, int16_t toX, int16_t fromY, int16_t toY);
-//ModifiableIntegerFunction
+
 private:
     void destroy();
 
@@ -78,8 +87,7 @@ private:
 
     void resize();
 
-    void insert(int16_t input, int16_t value, bool isExcluded, size_t index);
+//    void insert(int16_t input, int16_t value, bool isExcluded, size_t index);
 };
-
 
 #endif //OOPSTRUCTURES_MODIFIABLEINTEGERFUNCTION_H
