@@ -20,6 +20,7 @@ private:
     };
     unsigned int maxNumber{};
     unsigned char maxFrequency{};
+    unsigned char maxBits{};
     DataFrequency *data{};
     size_t length{};
     size_t capacity{};
@@ -61,8 +62,6 @@ private:
     void resize();
 
     void insertNumber(unsigned int number, unsigned char frequency, size_t index);
-
-    unsigned char frequencyBits();
 
     void add(unsigned int number, unsigned char frequency);
 };
