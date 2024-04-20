@@ -321,33 +321,72 @@ bool ModifiableIntegerFunction::operator!=(const ModifiableIntegerFunction &othe
     return !(*this == other);
 }
 
-
-void ModifiableIntegerFunction::destroy() {
-    delete[]changedVals;
-}
-
-void ModifiableIntegerFunction::copy(const ModifiableIntegerFunction &other) {
-    func = other.func;
-    length = other.length;
-    capacity = other.capacity;
-    changedVals = new ChangedValueRes[capacity];
-    for (size_t i = 0; i < length; ++i) {
-        changedVals[i].inputValue = other.changedVals[i].inputValue;
-        changedVals[i].outputValue = other.changedVals[i].outputValue;
-        changedVals[i].isExcluded = other.changedVals[i].isExcluded;
+/**
+ *
+ * @param fromX
+ * @param toX
+ * @param fromY
+ * @param toY
+ * @throws invalid_argument either X or Y range is not 20
+ */
+void ModifiableIntegerFunction::plot(int16_t fromX, int16_t toX, int16_t fromY, int16_t toY) {
+    if (toX - fromX != 20 || toY - fromY != 20) {
+        throw std::invalid_argument("Either axis range is not 20");
     }
-}
-
-void ModifiableIntegerFunction::resize() {
-    capacity *= 2;
-    ChangedValueRes *temp = new ChangedValueRes[capacity];
-    for (int i = 0; i < length; ++i) {
-        temp[i].inputValue = changedVals[i].inputValue;
-        temp[i].outputValue = changedVals[i].outputValue;
-        temp[i].isExcluded = changedVals[i].isExcluded;
+    size_t matrixSide = 21;
+    char **plotMatrix = new char *[matrixSide];
+    for (int row = 0; row < matrixSide; ++row) {
+        plotMatrix[row] = new char[matrixSide];
     }
-    delete[] changedVals;
-    changedVals = temp;
+    for (int row = 0; row < matrixSide; ++row) {
+        plotMatrix[row][0] = '|';
+    }
+    for (int col = 0; col < matrixSide; ++col) {
+        plotMatrix[matrixSide - 1][col] = '_';
+    }
+
+    int16_t prevY = fromY;
+    for (int16_t x = fromX, col = 1; x < toY && col < matrixSide; ++x, ++col) {
+        int16_t currY;
+        bool isExcluded = false;
+        try {
+            currY = apply(x);
+        } catch (std::out_of_range &e) {
+            isExcluded = true;
+            currY = prevY;
+
+        } catch (...) {
+            isExcluded = true;
+            currY = prevY;
+        }
+
+        prevY = currY;
+        if (currY > toY) {
+            if (isExcluded) {
+                plotMatrix[0][col] = 'o';
+                continue;
+            }
+            plotMatrix[0][col] = '^';
+        } else if (currY < fromY) {
+            if (isExcluded) {
+                plotMatrix[matrixSide - 2][col] = 'o';
+                continue;
+            }
+            plotMatrix[matrixSide - 2][col] = '.';
+        } else {
+            int16_t rowIndex = currY - fromY;
+            if (isExcluded) {
+                plotMatrix[rowIndex][col] = 'o';
+                continue;
+            }
+            plotMatrix[rowIndex][col] = '*';
+        }
+    }
+
+    for (int row = 0; row < matrixSide; ++row) {
+        delete[] plotMatrix[row];
+    }
+    delete[]plotMatrix;
 }
 
 bool ModifiableIntegerFunction::isInjection() {
@@ -414,57 +453,83 @@ bool ModifiableIntegerFunction::isBijection() {
     return isInjection() && isSurjection();
 }
 
-/**
- *
- * @param fromX
- * @param toX
- * @param fromY
- * @param toY
- * @throws invalid_argument either X or Y range is not 20
- */
-void ModifiableIntegerFunction::plot(int16_t fromX, int16_t toX, int16_t fromY, int16_t toY) {
-    if (toX - fromX != 20 || toY - fromY != 20) {
-        throw std::invalid_argument("Either axis range is not 20");
-    }
-    size_t matrixSide = 21;
-    char **plotMatrix = new char *[matrixSide];
-    for (int row = 0; row < matrixSide; ++row) {
-        plotMatrix[row] = new char[matrixSide];
-    }
-    for (int row = 0; row < matrixSide; ++row) {
-        plotMatrix[row][0] = '|';
-    }
-    for (int col = 0; col < matrixSide; ++col) {
-        plotMatrix[matrixSide - 1][col] = '_';
-    }
 
-    int16_t prevY = fromY;
-    for (int16_t x = fromX, col = 1; x < toY && col < matrixSide; ++x, ++col) {
+bool ModifiableIntegerFunction::isParallel(const ModifiableIntegerFunction &other) const {
+    int distance;
+    bool isCalculatedOnce = false;
+    for (int16_t x = INT16_MIN; x <= INT16_MAX; ++x) {
+        bool isExcluded = false;
         int16_t currY;
-bool isExcluded=false;
+        bool otherIsExcluded = false;
+        int16_t otherCurrY;
         try {
             currY = apply(x);
-        } catch (std::out_of_range &e) {
-            currY = prevY;
-
+        }
+        catch (std::out_of_range &e) {
+            isExcluded = true;
         } catch (...) {
-            currY = prevY;
+            return false;
         }
-        prevY = currY;
-        if (currY > toY) {
-            plotMatrix[0][col] = '^';
-        } else if (currY < fromY) {
-            plotMatrix[matrixSide - 2][col] = '.';
-        } else {
-            int16_t rowIndex= currY-fromY;
-            plotMatrix[rowIndex][col]=*;
+
+        try {
+            otherCurrY = other.apply(x);
+        }
+        catch (std::out_of_range &e) {
+            otherIsExcluded = true;
+        } catch (...) {
+            return true;
+        }
+        if (isExcluded && !otherIsExcluded ||
+            !isExcluded && otherIsExcluded) {
+            return false;
+        }
+        if (isExcluded && otherIsExcluded) {
+            continue;
+        }
+        if (!isCalculatedOnce) {
+            distance = currY - otherCurrY;
+            isCalculatedOnce = true;
+            continue;
+        }
+
+        int currDistance = currY - otherCurrY;
+        if (currDistance != distance) {
+            return false;
         }
     }
-    for (int row = 0; row < matrixSide; ++row) {
-        delete[] plotMatrix[row];
-    }
-    delete[]plotMatrix;
+    return true;
 }
+
+void ModifiableIntegerFunction::destroy() {
+    delete[]changedVals;
+}
+
+void ModifiableIntegerFunction::copy(const ModifiableIntegerFunction &other) {
+    func = other.func;
+    length = other.length;
+    capacity = other.capacity;
+    changedVals = new ChangedValueRes[capacity];
+    for (size_t i = 0; i < length; ++i) {
+        changedVals[i].inputValue = other.changedVals[i].inputValue;
+        changedVals[i].outputValue = other.changedVals[i].outputValue;
+        changedVals[i].isExcluded = other.changedVals[i].isExcluded;
+    }
+}
+
+void ModifiableIntegerFunction::resize() {
+    capacity *= 2;
+    ChangedValueRes *temp = new ChangedValueRes[capacity];
+    for (int i = 0; i < length; ++i) {
+        temp[i].inputValue = changedVals[i].inputValue;
+        temp[i].outputValue = changedVals[i].outputValue;
+        temp[i].isExcluded = changedVals[i].isExcluded;
+    }
+    delete[] changedVals;
+    changedVals = temp;
+}
+
+
+
 
 
 //`void ModifiableIntegerFunction::insert(int16_t input, int16_t value, bool isExcluded, size_t index) {

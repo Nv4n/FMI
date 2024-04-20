@@ -66,7 +66,7 @@ public:
 
     ModifiableIntegerFunction inverse();
 
-    bool isParallelPlot(const ModifiableIntegerFunction &other);
+    bool isParallel(const ModifiableIntegerFunction &other) const;
 
     bool isInjection();
 
