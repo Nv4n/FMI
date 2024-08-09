@@ -15,4 +15,5 @@ add_executable(HW01_T01
 add_executable(HW01_T02
         HW01/T02/2.cpp
         HW01/T02/2.h
+        HW01/T02/main.cpp
 )
