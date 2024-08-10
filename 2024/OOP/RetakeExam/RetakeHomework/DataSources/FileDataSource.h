@@ -12,11 +12,12 @@ template<typename T>
 class FileDataSource : public DataSource<T> {
 private:
     T *data;
-    size_t currentIndex;
-    size_t length;
-    size_t size;
+    size_t currentIndex{};
+    size_t length{};
+    size_t size{};
 public:
-    FileDataSource(const char *filename);
+
+    explicit FileDataSource(const char *fileDir);
 
     FileDataSource(const FileDataSource<T> &other);
 
@@ -44,6 +45,10 @@ private:
     void copy(const FileDataSource<T> &other);
 
     void destroy();
+
+    void initFromFile(const char *fileDir);
+
+    void resize();
 };
 
 

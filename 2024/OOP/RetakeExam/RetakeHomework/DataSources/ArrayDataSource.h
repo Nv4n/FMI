@@ -11,11 +11,19 @@
 template<typename T>
 class ArrayDataSource : public DataSource<T> {
 private:
-    size_t index;
-    size_t length;
-    size_t size;
-    T *elements;
+    size_t currentIndex{};
+    size_t length{};
+    size_t size{};
+    T *data;
 public:
+    ArrayDataSource(const T *arr, size_t arrSize);
+
+    ArrayDataSource(const ArrayDataSource<T> &other);
+
+    ArrayDataSource<T> &operator=(const ArrayDataSource<T> &other);
+
+    ~ArrayDataSource() override;
+
     T get() override;
 
     T *get(size_t count) override;
@@ -31,6 +39,22 @@ public:
     explicit operator bool() const override;
 
     DataSource<T> *clone() override;
+
+    ArrayDataSource<T> &operator+=(T element);
+
+    ArrayDataSource<T> operator+(T element);
+
+    ArrayDataSource<T> operator--(int);
+
+    ArrayDataSource<T> &operator--();
+
+
+private:
+    void destroy();
+
+    void copy(const ArrayDataSource<T> &other);
+
+    void resize();
 };
 
 
