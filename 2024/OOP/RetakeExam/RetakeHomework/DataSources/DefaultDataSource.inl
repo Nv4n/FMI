@@ -12,8 +12,8 @@ T DefaultDataSource<T>::get() {
 template<typename T>
 T *DefaultDataSource<T>::get(size_t count) {
     T *elements = new T[count];
-    T defaultElement;
     for (size_t i = 0; i < count; ++i) {
+        T defaultElement;
         elements[i] = defaultElement;
     }
     return elements;
