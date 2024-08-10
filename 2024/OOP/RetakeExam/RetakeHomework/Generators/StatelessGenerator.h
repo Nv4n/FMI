@@ -5,16 +5,22 @@
 #ifndef OOPRETAKE_STATELESSGENERATOR_H
 #define OOPRETAKE_STATELESSGENERATOR_H
 
+#pragma once
+
 #include "Generator.h"
 
 template<typename T>
 class StatelessGenerator : public Generator<T> {
 public:
     using LambdaGenerator = T(*)();
-
+private:
+    LambdaGenerator generator;
+public:
     explicit StatelessGenerator(LambdaGenerator lambda);
 
-    StatelessGenerator(const StatelessGenerator<T> &statelessGen);
+    StatelessGenerator(const StatelessGenerator<T> &other);
+
+    StatelessGenerator<T> &operator=(const StatelessGenerator<T> &other);
 
     Generator<T> *clone() override;
 
@@ -22,9 +28,12 @@ public:
 
     bool hasNext() override;
 
+    bool reset() override;
+
 private:
-    LambdaGenerator generator;
+    void copy(const StatelessGenerator<T> &other);
 };
+
 
 #include "StatelessGenerator.inl"
 

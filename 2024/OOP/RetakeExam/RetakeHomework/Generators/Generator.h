@@ -4,6 +4,7 @@
 
 #ifndef OOPRETAKE_GENERATOR_H
 #define OOPRETAKE_GENERATOR_H
+#pragma once
 
 template<typename T>
 class Generator {
@@ -13,6 +14,8 @@ public:
     virtual bool hasNext() = 0;
 
     virtual Generator *clone() = 0;
+
+    virtual bool reset() = 0;
 };
 
 #include "Generator.inl"

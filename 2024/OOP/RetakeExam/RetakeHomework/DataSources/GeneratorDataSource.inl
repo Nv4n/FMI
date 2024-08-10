@@ -3,7 +3,9 @@
 //
 
 template<typename T>
-GeneratorDataSource<T>::GeneratorDataSource(Generator <T> gen) : generator(gen) {}
+GeneratorDataSource<T>::GeneratorDataSource(Generator<T> gen) {
+    generator = gen.clone();
+}
 
 template<typename T>
 T GeneratorDataSource<T>::get() {
@@ -13,7 +15,7 @@ T GeneratorDataSource<T>::get() {
 template<typename T>
 T *GeneratorDataSource<T>::get(size_t count) {
     T *elements = new T[count];
-    for (int i = 0; i < count; ++i) {
+    for (size_t i = 0; i < count; ++i) {
         elements[i] = get();
     }
     return elements;
@@ -26,7 +28,7 @@ bool GeneratorDataSource<T>::hasNext() {
 
 template<typename T>
 bool GeneratorDataSource<T>::reset() {
-    return true;
+    return generator.reset();
 }
 
 template<typename T>
@@ -35,7 +37,7 @@ T GeneratorDataSource<T>::operator()() {
 }
 
 template<typename T>
-DataSource <T> &GeneratorDataSource<T>::operator>>(T &output) {
+DataSource<T> &GeneratorDataSource<T>::operator>>(T &output) {
     output = get();
     return *this;
 }
@@ -46,6 +48,6 @@ GeneratorDataSource<T>::operator bool() const {
 }
 
 template<typename T>
-DataSource <T> *GeneratorDataSource<T>::clone() {
+DataSource<T> *GeneratorDataSource<T>::clone() {
     return new GeneratorDataSource<T>(generator);
 }

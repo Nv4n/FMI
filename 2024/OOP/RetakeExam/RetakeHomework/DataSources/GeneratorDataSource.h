@@ -33,7 +33,6 @@ public:
     explicit operator bool() const override;
 
     DataSource<T> *clone() override;
-
 };
 
 #include "GeneratorDataSource.inl"
