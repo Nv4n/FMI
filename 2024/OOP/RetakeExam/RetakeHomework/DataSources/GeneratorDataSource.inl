@@ -3,13 +3,14 @@
 //
 
 template<typename T>
-GeneratorDataSource<T>::GeneratorDataSource(Generator<T> gen) {
-    generator = gen.clone();
+GeneratorDataSource<T>::GeneratorDataSource(Generator<T> *gen) {
+    generator = gen->clone();
 }
 
 template<typename T>
 T GeneratorDataSource<T>::get() {
-    return generator();
+    T result = generator->get();
+    return result;
 }
 
 template<typename T>
@@ -23,12 +24,12 @@ T *GeneratorDataSource<T>::get(size_t count) {
 
 template<typename T>
 bool GeneratorDataSource<T>::hasNext() {
-    return generator.hasNext();
+    return generator->hasNext();
 }
 
 template<typename T>
 bool GeneratorDataSource<T>::reset() {
-    return generator.reset();
+    return generator->reset();
 }
 
 template<typename T>
@@ -44,7 +45,7 @@ DataSource<T> &GeneratorDataSource<T>::operator>>(T &output) {
 
 template<typename T>
 GeneratorDataSource<T>::operator bool() const {
-    return generator.hasNext();
+    return generator->hasNext();
 }
 
 template<typename T>

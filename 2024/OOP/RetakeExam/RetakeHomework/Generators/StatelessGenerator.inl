@@ -5,7 +5,7 @@
 #include "StatelessGenerator.h"
 
 template<typename T>
-T StatelessGenerator<T>::operator()() {
+T StatelessGenerator<T>::get() {
     return generator();
 }
 

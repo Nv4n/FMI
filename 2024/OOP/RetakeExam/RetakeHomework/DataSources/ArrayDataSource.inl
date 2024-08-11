@@ -1,6 +1,8 @@
 //
 // Created by Sybatron on 7/21/2024.
 //
+#include <stdexcept>
+
 template<typename T>
 ArrayDataSource<T>::ArrayDataSource(const T *arr, size_t arrSize) {
     currentIndex = 0;
@@ -60,6 +62,7 @@ T *ArrayDataSource<T>::get(size_t count) {
     if (currentIndex >= length) {
         throw std::runtime_error("No next element");
     }
+
     size_t returnLength = length - currentIndex;
     if (length - currentIndex >= count) {
         returnLength = count;
@@ -97,7 +100,7 @@ T ArrayDataSource<T>::operator()() {
  *
  * @tparam T
  * @throws runtime_error when there are no more elements
- * @return T element
+ * @return DataSource<T>& (*this)
  */
 template<typename T>
 DataSource<T> &ArrayDataSource<T>::operator>>(T &output) {

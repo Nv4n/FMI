@@ -21,7 +21,9 @@ add_library(DataSource_Headers
         DataSources/ArrayDataSource.h
         DataSources/FileDataSource.inl
         DataSources/FileDataSource.h
-        DataSources/FileDataSource.inl)
+        DataSources/FileDataSource.inl
+        DataSources/AlternateDataSource.inl
+        DataSources/AlternateDataSource.h)
 
 set_target_properties(DataSource_Headers PROPERTIES LINKER_LANGUAGE CXX)
 

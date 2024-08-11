@@ -13,10 +13,10 @@
 template<typename T>
 class GeneratorDataSource : public DataSource<T> {
 private:
-    Generator<T> generator;
+    Generator<T> *generator;
 public:
 
-    explicit GeneratorDataSource(Generator<T> generator);
+    explicit GeneratorDataSource(Generator<T> *generator);
 
     T get() override;
 

@@ -131,7 +131,7 @@ T FileDataSource<T>::operator()() {
  *
  * @tparam T
  * @throws runtime_error when there are no more elements
- * @return T element
+ * @return DataSource<T>& (*this)
  */
 template<typename T>
 DataSource<T> &FileDataSource<T>::operator>>(T &output) {

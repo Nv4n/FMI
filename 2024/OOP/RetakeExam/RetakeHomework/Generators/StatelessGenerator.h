@@ -24,7 +24,7 @@ public:
 
     Generator<T> *clone() override;
 
-    T operator()() override;
+    T get() override;
 
     bool hasNext() override;
 
