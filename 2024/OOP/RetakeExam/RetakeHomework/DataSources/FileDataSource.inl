@@ -140,7 +140,7 @@ DataSource<T> &FileDataSource<T>::operator>>(T &output) {
 }
 
 template<typename T>
-FileDataSource<T>::operator bool() const {
+FileDataSource<T>::operator bool() {
     return hasNext();
 }
 

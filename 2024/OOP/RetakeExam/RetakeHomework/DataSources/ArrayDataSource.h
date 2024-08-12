@@ -16,7 +16,7 @@ private:
     size_t size{};
     T *data;
 public:
-    ArrayDataSource(const T *arr, size_t arrSize);
+    ArrayDataSource(T *arr, size_t arrSize);
 
     ArrayDataSource(const ArrayDataSource<T> &other);
 
@@ -36,7 +36,7 @@ public:
 
     DataSource<T> &operator>>(T &output) override;
 
-    explicit operator bool() const override;
+    explicit operator bool() override;
 
     DataSource<T> *clone() override;
 

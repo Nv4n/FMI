@@ -74,6 +74,7 @@ T AlternateDataSource<T>::get() {
 // TODO
 template<typename T>
 T *AlternateDataSource<T>::get(size_t count) {
+
     return nullptr;
 }
 
@@ -122,7 +123,7 @@ DataSource<T> &AlternateDataSource<T>::operator>>(T &output) {
 }
 
 template<typename T>
-AlternateDataSource<T>::operator bool() const {
+AlternateDataSource<T>::operator bool() {
     return hasNext();
 }
 

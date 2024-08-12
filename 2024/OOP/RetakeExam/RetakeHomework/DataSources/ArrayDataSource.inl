@@ -4,7 +4,10 @@
 #include <stdexcept>
 
 template<typename T>
-ArrayDataSource<T>::ArrayDataSource(const T *arr, size_t arrSize) {
+ArrayDataSource<T>::ArrayDataSource(T *arr, size_t arrSize) {
+    if (arr == nullptr) {
+        throw std::invalid_argument("Can't pass nullptr");
+    }
     currentIndex = 0;
     size = arrSize;
     length = arrSize;
@@ -109,7 +112,7 @@ DataSource<T> &ArrayDataSource<T>::operator>>(T &output) {
 }
 
 template<typename T>
-ArrayDataSource<T>::operator bool() const {
+ArrayDataSource<T>::operator bool() {
     return hasNext();
 }
 

@@ -50,7 +50,7 @@ public:
     */
     virtual DataSource &operator>>(T &output) = 0;
 
-    virtual explicit operator bool() const = 0;
+    virtual explicit operator bool() = 0;
 
     virtual DataSource *clone() = 0;
 };

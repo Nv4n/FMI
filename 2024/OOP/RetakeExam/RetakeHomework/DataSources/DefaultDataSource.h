@@ -24,7 +24,7 @@ public:
 
     DataSource<T> &operator>>(T &output) override;
 
-    explicit operator bool() const override;
+    explicit operator bool() override;
 
     DataSource<T> *clone() override;
 

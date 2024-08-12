@@ -8,6 +8,18 @@
 #include "Generators/StatelessGenerator.h"
 #include "Generators/PrimeNumberGenerator.h"
 
+
+int *fibonacciNumbersSample() {
+    size_t sampleSize = 25; //must be at least 2
+    int *sample = new int[sampleSize];
+    sample[0] = 1;
+    sample[1] = 1;
+    for (size_t i = 2; i < sampleSize; ++i) {
+        sample[i] = sample[i - 1] + sample[i - 2];
+    }
+    return sample;
+}
+
 void task1() {
     bool seed;
     std::srand((size_t) &seed);
@@ -29,12 +41,10 @@ void task1() {
     }
 }
 
-int main() {
-//    task1();
-
+void task2() {
     PrimeNumberGenerator<int> primeGen;
     Generator<int> *gen = primeGen.clone();
-    GeneratorDataSource<int> primeDataSourceGen(gen);
+    GeneratorDataSource<int> primesGenDataSource(gen);
     delete gen;
 
     bool seed;
@@ -45,8 +55,28 @@ int main() {
 
     StatelessGenerator<int> integerGen(getNumber);
     gen = integerGen.clone();
-    GeneratorDataSource<int> genDataSource(gen);
+    GeneratorDataSource<int> integerGenDataSource(gen);
     delete gen;
-//    std::cout << genDataSource.get() << std::endl;
+
+    int *sampleFibonacci = fibonacciNumbersSample();
+    ArrayDataSource<int> fibonacciDataSource(sampleFibonacci, 25);
+    delete[] sampleFibonacci;
+
+    DataSource<int> **sources = new DataSource<int> *[3];
+    sources[0] = primesGenDataSource.clone();
+    sources[1] = integerGenDataSource.clone();
+    sources[2] = integerGenDataSource.clone();
+
+
+    for (int i = 0; i < 3; ++i) {
+        delete sources[i];
+    }
+    delete[] sources;
+};
+
+int main() {
+//    task1();
+
+//    task2();
     return 0;
 }

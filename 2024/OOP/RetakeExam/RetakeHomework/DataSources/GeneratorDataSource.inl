@@ -65,7 +65,7 @@ DataSource<T> &GeneratorDataSource<T>::operator>>(T &output) {
 }
 
 template<typename T>
-GeneratorDataSource<T>::operator bool() const {
+GeneratorDataSource<T>::operator bool() {
     return generator->hasNext();
 }
 

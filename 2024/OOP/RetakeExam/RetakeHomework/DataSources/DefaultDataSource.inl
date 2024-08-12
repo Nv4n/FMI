@@ -42,7 +42,7 @@ DataSource<T> &DefaultDataSource<T>::operator>>(T &output) {
 }
 
 template<typename T>
-DefaultDataSource<T>::operator bool() const {
+DefaultDataSource<T>::operator bool() {
     return true;
 }
 
