@@ -4,7 +4,7 @@
 #include <stdexcept>
 
 template<typename T>
-AlternateDataSource<T>::AlternateDataSource(const DataSource<T> **sources, size_t length) {
+AlternateDataSource<T>::AlternateDataSource(DataSource<T> **sources, size_t length) {
     size = length;
     currentIndex = 0;
     data = new DataSource<T> *[size];
@@ -71,11 +71,22 @@ T AlternateDataSource<T>::get() {
  * @throws runtime_error when there are no more elements
  * @return T* array
  */
-// TODO
 template<typename T>
 T *AlternateDataSource<T>::get(size_t count) {
-
-    return nullptr;
+    if (!hasNext()) {
+        throw std::runtime_error("No next element");
+    }
+    size_t length = 0;
+    T *sequence = new T[count];
+    for (size_t i = 0; i < count; ++i) {
+        try {
+            sequence[i] = get();
+        } catch (std::runtime_error &e) {
+            delete[] sequence;
+            throw e;
+        }
+    }
+    return sequence;
 }
 
 template<typename T>

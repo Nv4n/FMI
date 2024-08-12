@@ -15,7 +15,7 @@ private:
     size_t size{};
     size_t currentIndex{};
 public:
-    AlternateDataSource(const DataSource<T> **sources, size_t length);
+    AlternateDataSource(DataSource<T> **sources, size_t length);
 
     ~AlternateDataSource() override;
 

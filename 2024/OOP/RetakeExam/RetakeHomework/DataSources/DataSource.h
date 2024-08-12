@@ -27,7 +27,7 @@ public:
 
     /**
     * @tparam T
-    * @throws runtime_error when there are no more elements
+    * @throws runtime_error when there are no more elements or bad length calculations
     * @return T element
     */
     virtual T *get(size_t count) = 0;

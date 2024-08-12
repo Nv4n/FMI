@@ -100,7 +100,12 @@ T *FileDataSource<T>::get(size_t count) {
     }
     T *elements = new T[returnLength];
     for (size_t countdown = returnLength; countdown > 0; --countdown) {
-        elements[currentIndex] = get();
+        try {
+            elements[currentIndex] = get();
+        } catch (std::runtime_error &e) {
+            delete[] elements;
+            throw std::runtime_error("Bad length calculations");
+        }
     }
     return elements;
 }

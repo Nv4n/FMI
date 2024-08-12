@@ -65,18 +65,25 @@ void task2() {
     DataSource<int> **sources = new DataSource<int> *[3];
     sources[0] = primesGenDataSource.clone();
     sources[1] = integerGenDataSource.clone();
-    sources[2] = integerGenDataSource.clone();
+    sources[2] = fibonacciDataSource.clone();
 
-
+    AlternateDataSource<int> alternateDataSource(sources, 3);
     for (int i = 0; i < 3; ++i) {
         delete sources[i];
     }
     delete[] sources;
+
+    int *sequence = alternateDataSource.get(1000);
+    for (int i = 0; i < 1000; ++i) {
+        std::cout << sequence[i] << " ";
+    }
+    std::cout << std::endl;
+    delete[]sequence;
 };
 
 int main() {
 //    task1();
 
-//    task2();
+    task2();
     return 0;
 }
