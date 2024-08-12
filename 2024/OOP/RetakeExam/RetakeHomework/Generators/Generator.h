@@ -9,6 +9,8 @@
 template<typename T>
 class Generator {
 public:
+    virtual ~Generator() = default;
+
     virtual T get() = 0;
 
     virtual bool hasNext() = 0;

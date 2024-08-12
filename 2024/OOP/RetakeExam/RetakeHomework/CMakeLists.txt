@@ -23,7 +23,9 @@ add_library(DataSource_Headers
         DataSources/FileDataSource.h
         DataSources/FileDataSource.inl
         DataSources/AlternateDataSource.inl
-        DataSources/AlternateDataSource.h)
+        DataSources/AlternateDataSource.h
+        Generators/PrimeNumberGenerator.inl
+        Generators/PrimeNumberGenerator.h)
 
 set_target_properties(DataSource_Headers PROPERTIES LINKER_LANGUAGE CXX)
 

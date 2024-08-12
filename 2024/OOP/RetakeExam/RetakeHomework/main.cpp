@@ -6,6 +6,7 @@
 #include "DataSources/GeneratorDataSource.h"
 #include "DataSources/AlternateDataSource.h"
 #include "Generators/StatelessGenerator.h"
+#include "Generators/PrimeNumberGenerator.h"
 
 void task1() {
     bool seed;
@@ -30,14 +31,22 @@ void task1() {
 
 int main() {
 //    task1();
+
+    PrimeNumberGenerator<int> primeGen;
+    Generator<int> *gen = primeGen.clone();
+    GeneratorDataSource<int> primeDataSourceGen(gen);
+    delete gen;
+
     bool seed;
     std::srand((size_t) &seed);
     int (*getNumber)() =[]() -> int {
-        std::rand();
+        return std::rand();
     };
-    StatelessGenerator<int> generator(getNumber);
-    Generator<int> *gen = &generator;
+
+    StatelessGenerator<int> integerGen(getNumber);
+    gen = integerGen.clone();
     GeneratorDataSource<int> genDataSource(gen);
-    std::cout << genDataSource.get() << std::endl;
+    delete gen;
+//    std::cout << genDataSource.get() << std::endl;
     return 0;
 }

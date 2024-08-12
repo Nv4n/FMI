@@ -1,7 +1,7 @@
 //
 // Created by Sybatron on 8/11/2024.
 //
-
+#include <stdexcept>
 
 template<typename T>
 AlternateDataSource<T>::AlternateDataSource(const DataSource<T> **sources, size_t length) {
@@ -38,10 +38,31 @@ AlternateDataSource<T> &AlternateDataSource<T>::operator=(const AlternateDataSou
  * @throws runtime_error when there are no more elements
  * @return T element
  */
-// TODO
 template<typename T>
 T AlternateDataSource<T>::get() {
-    return nullptr;
+    if (currentIndex >= size) {
+        currentIndex = 0;
+    }
+    size_t startIndex = currentIndex;
+    T returnElement;
+    bool firstPass = true;
+    while (true) {
+        if (currentIndex == startIndex) {
+            if (!firstPass) {
+                throw std::runtime_error("No next element");
+            }
+            firstPass = false;
+        }
+
+        if (data[currentIndex]->hasNext()) {
+            returnElement = data[currentIndex]->get();
+            break;
+        }
+
+        currentIndex = (currentIndex + 1) % size;
+    }
+    currentIndex++;
+    return returnElement;
 }
 
 /**
@@ -114,6 +135,7 @@ template<typename T>
 void AlternateDataSource<T>::copy(const AlternateDataSource<T> &other) {
     size = other.size;
     currentIndex = other.currentIndex;
+    data = new DataSource<T> *[size];
     for (size_t i = 0; i < size; ++i) {
         data[i] = other.data[i]->clone();
     }

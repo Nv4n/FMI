@@ -18,6 +18,12 @@ public:
 
     explicit GeneratorDataSource(Generator<T> *generator);
 
+    ~GeneratorDataSource() override;
+
+    GeneratorDataSource(const GeneratorDataSource<T> &other);
+
+    GeneratorDataSource<T> &operator=(const GeneratorDataSource<T> &other);
+
     T get() override;
 
     T *get(size_t count) override;
@@ -33,7 +39,13 @@ public:
     explicit operator bool() const override;
 
     DataSource<T> *clone() override;
+
+private:
+    void destroy();
+
+    void copy(const GeneratorDataSource<T> &other);
 };
+
 
 #include "GeneratorDataSource.inl"
 

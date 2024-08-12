@@ -7,6 +7,27 @@ GeneratorDataSource<T>::GeneratorDataSource(Generator<T> *gen) {
     generator = gen->clone();
 }
 
+
+template<typename T>
+GeneratorDataSource<T>::~GeneratorDataSource() {
+    destroy();
+}
+
+template<typename T>
+GeneratorDataSource<T>::GeneratorDataSource(const GeneratorDataSource<T> &other) {
+    copy(other);
+}
+
+template<typename T>
+GeneratorDataSource<T> &GeneratorDataSource<T>::operator=(const GeneratorDataSource<T> &other) {
+    if (this != &other) {
+        destroy();
+        copy(other);
+    }
+    return *this;
+}
+
+
 template<typename T>
 T GeneratorDataSource<T>::get() {
     T result = generator->get();
@@ -51,4 +72,15 @@ GeneratorDataSource<T>::operator bool() const {
 template<typename T>
 DataSource<T> *GeneratorDataSource<T>::clone() {
     return new GeneratorDataSource<T>(generator);
+}
+
+
+template<typename T>
+void GeneratorDataSource<T>::destroy() {
+    delete generator;
+}
+
+template<typename T>
+void GeneratorDataSource<T>::copy(const GeneratorDataSource<T> &other) {
+    generator = other.generator->clone();
 }
