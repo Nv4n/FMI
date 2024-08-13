@@ -8,7 +8,7 @@
 #pragma once
 
 #include "DataSource.h"
-#include "../Generators/Generator.h"
+#include "Generator.h"
 
 template<typename T>
 class GeneratorDataSource : public DataSource<T> {

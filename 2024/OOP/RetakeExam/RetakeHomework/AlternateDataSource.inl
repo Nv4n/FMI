@@ -81,9 +81,14 @@ T *AlternateDataSource<T>::get(size_t count) {
     for (size_t i = 0; i < count; ++i) {
         try {
             sequence[i] = get();
+            length++;
         } catch (std::runtime_error &e) {
-            delete[] sequence;
-            throw e;
+            T *returnSequence = new T[length];
+            for (size_t k = 0; k < length; ++k) {
+                returnSequence[k] = sequence[k];
+            }
+            delete[]sequence;
+            return returnSequence;
         }
     }
     return sequence;

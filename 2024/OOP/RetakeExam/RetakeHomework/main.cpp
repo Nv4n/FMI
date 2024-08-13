@@ -1,23 +1,31 @@
 #include <iostream>
 #include <cstdlib>
-#include "DataSources/DefaultDataSource.h"
-#include "DataSources/FileDataSource.h"
-#include "DataSources/ArrayDataSource.h"
-#include "DataSources/GeneratorDataSource.h"
-#include "DataSources/AlternateDataSource.h"
-#include "Generators/StatelessGenerator.h"
-#include "Generators/PrimeNumberGenerator.h"
+#include "DefaultDataSource.h"
+#include "FileDataSource.h"
+#include "ArrayDataSource.h"
+#include "GeneratorDataSource.h"
+#include "AlternateDataSource.h"
+#include "StatelessGenerator.h"
+#include "PrimeNumberGenerator.h"
 
 
-int *fibonacciNumbersSample() {
-    size_t sampleSize = 25; //must be at least 2
-    int *sample = new int[sampleSize];
-    sample[0] = 1;
-    sample[1] = 1;
-    for (size_t i = 2; i < sampleSize; ++i) {
-        sample[i] = sample[i - 1] + sample[i - 2];
-    }
-    return sample;
+int *fibonacciNumbersSample();
+
+char *getDirectory();
+
+void saveSequence(int *sequence, int size, const char *directory);
+
+void copyFileToTxt(const char *fromDir, const char *toDir);
+
+void task1();
+
+void task2();
+
+int main() {
+    task1();
+
+    task2();
+    return 0;
 }
 
 void task1() {
@@ -74,16 +82,79 @@ void task2() {
     delete[] sources;
 
     int *sequence = alternateDataSource.get(1000);
-    for (int i = 0; i < 1000; ++i) {
-        std::cout << sequence[i] << " ";
+    std::cout << "Enter binary file directory" << std::endl;
+    char *binaryDir = getDirectory();
+    std::cout << "Enter txt file directory" << std::endl;
+    char *txtDir = getDirectory();
+    saveSequence(sequence, 1000, binaryDir);
+    copyFileToTxt(binaryDir, txtDir);
+    delete[] binaryDir;
+    delete[]sequence;
+    
+    std::cout << std::endl << std::endl;
+    FileDataSource<int> fileDataSource(txtDir);
+    delete[] txtDir;
+
+    for (size_t i = 0; i < 1000; ++i) {
+        std::cout << fileDataSource.get() << " ";
     }
     std::cout << std::endl;
-    delete[]sequence;
+
 };
 
-int main() {
-//    task1();
+int *fibonacciNumbersSample() {
+    size_t sampleSize = 25; //must be at least 2
+    int *sample = new int[sampleSize];
+    sample[0] = 1;
+    sample[1] = 1;
+    for (size_t i = 2; i < sampleSize; ++i) {
+        sample[i] = sample[i - 1] + sample[i - 2];
+    }
+    return sample;
+}
 
-    task2();
-    return 0;
+
+char *getDirectory() {
+    unsigned int buffer = 256;
+    char *dir = new char[buffer];
+    std::cin.clear();
+    std::cin.getline(dir, buffer);
+    return dir;
+}
+
+void saveSequence(int *sequence, int size, const char *directory) {
+    std::ofstream writer(directory,
+                         std::ios::binary);
+    if (!writer.is_open()) {
+        throw std::invalid_argument("Can't open binary file");
+    }
+
+    writer.write(reinterpret_cast< const char *>(&size), sizeof(size));
+    writer.write(reinterpret_cast< const char *>(sequence), size * sizeof(int));
+    writer.close();
+}
+
+void copyFileToTxt(const char *fromDir, const char *toDir) {
+    std::ifstream reader(fromDir, std::ios::binary);
+    if (!reader.is_open()) {
+        throw std::invalid_argument("Can't open fromDir file");
+    }
+    int size = 0;
+    reader.read(reinterpret_cast<char *>(&size), sizeof(size));
+
+    int *sequence = new int[size + 1];
+    reader.read(reinterpret_cast<char *>(sequence), size * sizeof(int));
+    reader.close();
+
+    std::ofstream writer(toDir);
+    if (!writer.is_open()) {
+        delete[] sequence;
+        throw std::invalid_argument("Can't open toDir file");
+    }
+
+    for (size_t i = 0; i < size; ++i) {
+        writer << sequence[i] << "\n";
+    }
+    writer.close();
+    delete[] sequence;
 }

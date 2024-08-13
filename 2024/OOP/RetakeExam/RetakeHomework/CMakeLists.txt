@@ -7,25 +7,25 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 add_library(DataSource_Headers
-        DataSources/DataSource.inl
-        DataSources/DataSource.h
-        DataSources/DefaultDataSource.inl
-        DataSources/DefaultDataSource.h
-        DataSources/GeneratorDataSource.inl
-        DataSources/GeneratorDataSource.h
-        Generators/Generator.inl
-        Generators/Generator.h
-        Generators/StatelessGenerator.inl
-        Generators/StatelessGenerator.h
-        DataSources/ArrayDataSource.inl
-        DataSources/ArrayDataSource.h
-        DataSources/FileDataSource.inl
-        DataSources/FileDataSource.h
-        DataSources/FileDataSource.inl
-        DataSources/AlternateDataSource.inl
-        DataSources/AlternateDataSource.h
-        Generators/PrimeNumberGenerator.inl
-        Generators/PrimeNumberGenerator.h)
+        DataSource.inl
+        DataSource.h
+        DefaultDataSource.inl
+        DefaultDataSource.h
+        GeneratorDataSource.inl
+        GeneratorDataSource.h
+        Generator.inl
+        Generator.h
+        StatelessGenerator.inl
+        StatelessGenerator.h
+        ArrayDataSource.inl
+        ArrayDataSource.h
+        FileDataSource.inl
+        FileDataSource.h
+        FileDataSource.inl
+        AlternateDataSource.inl
+        AlternateDataSource.h
+        PrimeNumberGenerator.inl
+        PrimeNumberGenerator.h)
 
 set_target_properties(DataSource_Headers PROPERTIES LINKER_LANGUAGE CXX)
 
