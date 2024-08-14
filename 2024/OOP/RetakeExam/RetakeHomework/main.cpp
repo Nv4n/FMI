@@ -33,7 +33,6 @@ void task1() {
     std::srand((size_t) &seed);
 
     char *(*getRandomText)() = []() -> char * {
-
         char *elements = new char[11];
         for (int i = 0; i < 10; ++i) {
             elements[i] = static_cast<char>(static_cast<int>('a') + std::rand() % 26);
@@ -41,17 +40,20 @@ void task1() {
         elements[10] = '\0';
         return elements;
     };
-    StatelessGenerator<char *> charSequenceGen(getRandomText);
+
+    Generator<char *> *gen = new StatelessGenerator<char *>(getRandomText);
+    GeneratorDataSource<char *> textGeneratorDataSource(gen);
+    delete gen;
     for (int i = 0; i < 25; ++i) {
-        char *text = charSequenceGen.get();
+        char *text;
+        text = textGeneratorDataSource.get();
         std::cout << "#" << i + 1 << ": " << text << std::endl;
         delete[] text;
     }
 }
 
 void task2() {
-    PrimeNumberGenerator<int> primeGen;
-    Generator<int> *gen = primeGen.clone();
+    Generator<int> *gen = new PrimeNumberGenerator<int>();
     GeneratorDataSource<int> primesGenDataSource(gen);
     delete gen;
 
@@ -61,8 +63,7 @@ void task2() {
         return std::rand();
     };
 
-    StatelessGenerator<int> integerGen(getNumber);
-    gen = integerGen.clone();
+    gen = new StatelessGenerator<int>(getNumber);
     GeneratorDataSource<int> integerGenDataSource(gen);
     delete gen;
 
@@ -90,13 +91,19 @@ void task2() {
     copyFileToTxt(binaryDir, txtDir);
     delete[] binaryDir;
     delete[]sequence;
-    
+
     std::cout << std::endl << std::endl;
     FileDataSource<int> fileDataSource(txtDir);
     delete[] txtDir;
 
     for (size_t i = 0; i < 1000; ++i) {
-        std::cout << fileDataSource.get() << " ";
+        try {
+            std::cout << fileDataSource.get() << " ";
+        }
+        catch (std::runtime_error &e) {
+            std::cerr << std::endl << e.what() << std::endl;
+            break;
+        }
     }
     std::cout << std::endl;
 
@@ -153,7 +160,11 @@ void copyFileToTxt(const char *fromDir, const char *toDir) {
     }
 
     for (size_t i = 0; i < size; ++i) {
-        writer << sequence[i] << "\n";
+
+        writer << sequence[i];
+        if (i < size - 1) {
+            writer << "\n";
+        }
     }
     writer.close();
     delete[] sequence;
