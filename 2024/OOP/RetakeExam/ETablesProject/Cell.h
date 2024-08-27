@@ -42,7 +42,7 @@ public:
 
     Cell &operator=(const Cell &other);
 
-    ~Cell();
+    virtual ~Cell();
 
     CellType getType() const;
 

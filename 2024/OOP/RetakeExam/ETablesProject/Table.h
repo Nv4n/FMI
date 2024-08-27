@@ -5,6 +5,7 @@
 #ifndef OOP_TABLE_H
 #define OOP_TABLE_H
 
+#pragma once
 
 #include <vector>
 #include "Optional.h"
@@ -17,13 +18,13 @@ class Table {
 private:
     TableRows rows;
 public:
-    Table();
+    Table() = default;
 
     Table(const Table &other);
 
     Table &operator=(const Table &other);
 
-    ~Table();
+    virtual ~Table() = default;
 
     void addRow(Row row);
 

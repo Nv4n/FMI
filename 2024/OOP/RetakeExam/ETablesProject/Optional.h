@@ -23,7 +23,7 @@ public:
 
     Optional<T> &operator=(const T &val);
 
-    ~Optional();
+    virtual ~Optional();
 
     bool hasValue() const;
 
