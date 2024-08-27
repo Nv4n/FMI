@@ -5,6 +5,7 @@
 #ifndef ETABLES_CMDINTERPRETER_H
 #define ETABLES_CMDINTERPRETER_H
 
+#pragma once
 
 class CmdInterpreter {
 

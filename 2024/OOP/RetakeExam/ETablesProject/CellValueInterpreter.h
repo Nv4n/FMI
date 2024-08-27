@@ -5,6 +5,7 @@
 #ifndef ETABLES_CELLVALUEINTERPRETER_H
 #define ETABLES_CELLVALUEINTERPRETER_H
 
+#pragma once
 
 class CellValueInterpreter {
 

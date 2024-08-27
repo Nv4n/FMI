@@ -11,8 +11,13 @@
 #include "Optional.h"
 #include "Cell.h"
 
-typedef std::vector<Optional<Cell>> Row;
-typedef std::vector<Row> TableRows;
+using Row = std::vector<Optional<Cell>>;
+using TableRows = std::vector<Row>;
+
+struct Coordinates {
+    size_t row;
+    size_t col;
+};
 
 class Table {
 private:
@@ -26,11 +31,11 @@ public:
 
     virtual ~Table() = default;
 
-    void addRow(Row row);
+    void addRow(const Row &row);
 
-    void editCell(size_t row, size_t column, Optional<Cell> cell);
+    void editCell(Coordinates coords, const Optional<Cell> &cell);
 
-    friend std::ostream &operator<<(std::ostream &os, const Table &tb);
+    friend std::ostream &operator<<(std::ostream &os, const Table &table);
 
 private:
     void copy(const Table &other);

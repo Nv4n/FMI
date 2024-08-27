@@ -4,13 +4,13 @@
 
 #ifndef ETABLES_CELL_H
 #define ETABLES_CELL_H
+#pragma once
 
 #include <string>
 #include <stdexcept>
 #include "Utility.h"
 
-
-typedef union Data {
+using CellValues = union Data {
     int integer;
     double fractional;
     std::string text;
@@ -18,7 +18,7 @@ typedef union Data {
     Data() {};
 
     ~Data() {};
-} CellValues;
+};
 
 enum class CellType {
     NONE,
