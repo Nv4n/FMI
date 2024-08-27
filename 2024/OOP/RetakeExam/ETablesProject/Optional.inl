@@ -20,15 +20,20 @@ Optional<T> &Optional<T>::operator=(const Optional<T> &other) {
     return *this;
 }
 
+/**
+ *@brief Assignment operator= for changing the value of Optional
+ *
+ * @tparam T The type of Optional saved value
+ * @param val The new value
+ */
 template<typename T>
 Optional<T> &Optional<T>::operator=(const T &val) {
     if (hasVal) {
-        //TODO IT MAY LEAK HERE TO BE NOTICED
-        value = val;
-    } else {
-        hasVal = true;
-        new(&value) T(val);
+        destroy();
     }
+
+    hasVal = true;
+    new(&value) T(val);
 
     return *this;
 }
@@ -38,6 +43,10 @@ Optional<T>::~Optional() {
     destroy();
 }
 
+/**
+ *
+ * @return hasVal If the value is not empty
+ */
 template<typename T>
 bool Optional<T>::hasValue() const {
     return hasVal;
@@ -48,7 +57,12 @@ Optional<T>::operator bool() const {
     return hasValue();
 }
 
-
+/**
+ *
+ * @tparam T The type of the saved value
+ * @return value saved value if exist
+ * @throws logic_error When the value is empty
+ */
 template<typename T>
 T &Optional<T>::getValue() {
     if (!hasVal) {
@@ -57,6 +71,12 @@ T &Optional<T>::getValue() {
     return value;
 }
 
+/**
+ *
+ * @tparam T The type of the saved value
+ * @return value saved value if exist
+ * @throws logic_error When the value is empty
+ */
 template<typename T>
 const T &Optional<T>::getValue() const {
     if (!hasVal) {

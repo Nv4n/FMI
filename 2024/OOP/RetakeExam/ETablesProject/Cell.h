@@ -6,8 +6,9 @@
 #define ETABLES_CELL_H
 
 #include <string>
-#include "Utility.h"
 #include <stdexcept>
+#include "Utility.h"
+
 
 typedef union Data {
     int integer;
@@ -20,13 +21,12 @@ typedef union Data {
 } CellValues;
 
 enum class CellType {
+    NONE,
     INTEGER,
     FRACTIONAL,
     STRING,
     FORMULA,
-    NONE
 };
-
 
 class Cell {
 private:
@@ -34,6 +34,7 @@ private:
         CellType type;
         CellValues vals;
     } cell;
+
 public:
     Cell();
 
@@ -43,13 +44,15 @@ public:
 
     ~Cell();
 
+    CellType getType() const;
+
     template<typename T>
     T get();
 
     template<typename T>
-    void set(T val);
+    void set(T val, CellType type);
 
-    void empty();
+    void reset();
 
 private:
     void copy(const Cell &other);
@@ -57,18 +60,94 @@ private:
     void destroy();
 };
 
+/**
+* @brief Get active value
+ *
+ * Gets active value when there is such one
+ * and requested type aligns with the active value type
+ *
+* @tparam T requested type
+ *
+* @return value active value
+ *
+* @throws logic_error When the active value type is not same with requested type
+ *
+ *@throws logic_error When active value is empty
+ *
+* @throws logic_error When requested type is invalid
+*/
 template<typename T>
 T Cell::get() {
-    if (!is_same<T, int>()) {
-        throw std::logic_error("can't do this");
+    //TODO might break on return
+    // May need to add T data=value;
+    if (is_same<T, int>()) {
+        if (cell.type != CellType::INTEGER) {
+            throw std::logic_error("active value is not integer");
+        }
+        return cell.vals.integer;
     }
-    T dada{};
-    return dada;
+    if (is_same<T, double>()) {
+        if (cell.type != CellType::FRACTIONAL) {
+            throw std::logic_error("active value is not fractional");
+        }
+        return cell.vals.fractional;
+    }
+    if (is_same<T, std::string>()) {
+        if (cell.type != CellType::STRING && cell.type != CellType::FORMULA) {
+            throw std::logic_error("active value is not string or formula");
+        }
+        return cell.vals.text;
+    }
+    if (cell.type == CellType::NONE) {
+        throw std::logic_error("active value is empty");
+    }
+
+    throw std::logic_error("invalid return type");
 }
 
+/**
+ *
+ * @tparam T the type of the new value
+ * @param val new value
+ * @param type Cell type of the value
+ *
+ * @throws logic_error When requested type doesn't match the given CellType
+ */
 template<typename T>
-void Cell::set(T val) {
+void Cell::set(T val, CellType type) {
+    //TODO might break on return
+    // May need to add T data=value;
+    if (is_same<T, int>()) {
+        if (type != CellType::INTEGER) {
+            throw std::logic_error("can't save integer as non-CellType::INTEGER");
+        }
+        destroy();
+        cell.type = type;
+        cell.vals.integer = val;
+        return;
+    }
 
+    if (is_same<T, double>()) {
+        if (type != CellType::FRACTIONAL) {
+            throw std::logic_error("can't save fractional as non-CellType::FRACTIONAL");
+        }
+        destroy();
+        cell.type = type;
+        cell.vals.fractional = val;
+        return;
+    }
+
+    if (is_same<T, std::string>()) {
+        if (type != CellType::STRING && type != CellType::FORMULA) {
+            throw std::logic_error("can't save text as non-CellType::STRING or CellType::FORMULA");
+        }
+
+        destroy();
+        cell.type = type;
+        new(&cell.vals.text)std::string(val);
+    }
+
+    throw std::logic_error("invalid new value type");
 }
 
 #endif //ETABLES_CELL_H
