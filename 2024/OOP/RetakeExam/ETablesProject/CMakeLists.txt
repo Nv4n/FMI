@@ -19,8 +19,10 @@ add_executable(ETable
         main.cpp
         Cell.cpp
         Cell.h
-        Interpretator.cpp
-        Interpretator.h
+        CmdInterpreter.cpp
+        CmdInterpreter.h
+        CellValueInterpreter.cpp
+        CellValueInterpreter.h
 )
 
 target_link_libraries(ETable ETable_Headers)
