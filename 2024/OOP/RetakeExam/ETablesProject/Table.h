@@ -8,6 +8,8 @@
 #pragma once
 
 #include <vector>
+#include <fstream>
+
 #include "Optional.h"
 #include "Cell.h"
 
@@ -21,6 +23,7 @@ struct Coordinates {
 
 class Table {
 private:
+    size_t colCount{};
     TableRows rows;
 public:
     Table() = default;
@@ -36,6 +39,12 @@ public:
     void editCell(Coordinates coords, const Optional<Cell> &cell);
 
     friend std::ostream &operator<<(std::ostream &os, const Table &table);
+
+    friend std::ofstream &operator<<(std::ofstream &os, const Table &table);
+
+    size_t getRowCount() const;
+
+    size_t getColCount() const;
 
 private:
     void copy(const Table &other);

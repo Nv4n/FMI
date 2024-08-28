@@ -80,23 +80,23 @@ template<typename T>
 T Cell::get() {
     //TODO might break on return
     // May need to add T data=value;
-    if (is_same<T, int>()) {
+    if constexpr (is_same<T, int>::value) {
         if (cell.type != CellType::INTEGER) {
             throw std::logic_error("active value is not integer");
         }
         return cell.vals.integer;
     }
-    if (is_same<T, double>()) {
+    if constexpr (is_same<T, double>::value) {
         if (cell.type != CellType::FRACTIONAL) {
             throw std::logic_error("active value is not fractional");
         }
         return cell.vals.fractional;
     }
-    if (is_same<T, std::string>()) {
+    if constexpr (is_same<T, std::string>::value) {
         if (cell.type != CellType::STRING && cell.type != CellType::FORMULA) {
             throw std::logic_error("active value is not string or formula");
         }
-        return cell.vals.text;
+        return cell.vals.text;;
     }
     if (cell.type == CellType::NONE) {
         throw std::logic_error("active value is empty");
