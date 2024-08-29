@@ -6,8 +6,12 @@
 #include "Cell.h"
 
 int main() {
-    std::cout << "HI" << std::endl;
-    Cell test;
-    auto x = test.get<int>();
-    std::cout << x;
+//    std::cout << "HI" << std::endl;
+//    Cell test;
+//    auto x = test.get<int>();
+//    std::cout << x;
+    std::cout << "Do you want to save your changes [Y/N]" << std::endl;
+    char answer;
+    std::cin.get(answer);
+    std::cout << answer;
 }
