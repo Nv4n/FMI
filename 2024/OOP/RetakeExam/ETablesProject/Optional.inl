@@ -45,7 +45,7 @@ Optional<T>::~Optional() {
 
 /**
  *
- * @return hasVal If the value is not empty
+ * @return hasVal If the value is not reset
  */
 template<typename T>
 bool Optional<T>::hasValue() const {
@@ -60,8 +60,8 @@ Optional<T>::operator bool() const {
 /**
  *
  * @tparam T The type of the saved value
- * @return value saved value if exist
- * @throws logic_error When the value is empty
+ * @return value The saved value if it isn't empty
+ * @throws logic_error When the value is reset
  */
 template<typename T>
 T &Optional<T>::getValue() {
@@ -74,8 +74,8 @@ T &Optional<T>::getValue() {
 /**
  *
  * @tparam T The type of the saved value
- * @return value saved value if exist
- * @throws logic_error When the value is empty
+ * @return value The saved value if it isn't empty
+ * @throws logic_error When the value is reset
  */
 template<typename T>
 const T &Optional<T>::getValue() const {

@@ -7,6 +7,12 @@
 
 #pragma once
 
+/**
+ * @brief Custom Optional class that maybe saves T value
+ * or is empty
+ *
+ * @tparam T The type of the saved value
+ */
 template<typename T>
 class Optional {
 private:

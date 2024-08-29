@@ -96,7 +96,7 @@ T Cell::get() {
         if (cell.type != CellType::STRING && cell.type != CellType::FORMULA) {
             throw std::logic_error("active value is not string or formula");
         }
-        return cell.vals.text;;
+        return cell.vals.text;
     }
     if (cell.type == CellType::NONE) {
         throw std::logic_error("active value is empty");

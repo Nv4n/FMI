@@ -16,13 +16,26 @@ Table &Table::operator=(const Table &other) {
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &os, const Table &table) {
-    //TODO print in right way
-    return os;
+/**
+ * @brief operator<< For printing on the console
+ * @param osWriter Expected std::cout
+ * @param table Table to be written on the terminal
+ * @return osWriter
+ */
+std::ostream &operator<<(std::ostream &osWriter, const Table &table) {
+    //TODO Print std::cout
+    return osWriter;
 }
 
-std::ofstream &operator<<(std::ofstream &ofs, const Table &table) {
-    return ofs;
+/**
+ * @brief operator<< For writing in text file
+ * @param ofsWriter Expected std::ofstream to text file
+ * @param table Table to be written in file
+ * @return ofsWriter
+ */
+std::ofstream &operator<<(std::ofstream &ofsWriter, const Table &table) {
+    //TODO Print in file
+    return ofsWriter;
 }
 
 /**
@@ -32,7 +45,6 @@ std::ofstream &operator<<(std::ofstream &ofs, const Table &table) {
  * @throws invalid_argumen When either row or col coordinate is out of range
  */
 void Table::editCell(Coordinates coords, const Optional<Cell> &cell) {
-//TODO check the task what i should do with out of range coords
     if (rows.size() < coords.row) {
         throw std::invalid_argument("Row is out of range");
     }
@@ -43,6 +55,10 @@ void Table::editCell(Coordinates coords, const Optional<Cell> &cell) {
     rows[coords.row - 1][coords.col - 1] = cell;
 }
 
+/**
+ * @brief Method to add new row in the end of the table
+ * @param row Vector of Table Cells
+ */
 void Table::addRow(const Row &row) {
     if (row.size() > colCount) {
         colCount = row.size();
@@ -50,14 +66,29 @@ void Table::addRow(const Row &row) {
     rows.push_back(row);
 }
 
+/**
+ * @brief Resets table to default state
+ */
+void Table::reset() {
+    destroy();
+    colCount = 0;
+}
+
+/**
+ *
+ * @return Rows count of the table
+ */
 size_t Table::getRowCount() const {
     return rows.size();
 }
 
+/**
+ *
+ * @return Columns count of the table
+ */
 size_t Table::getColCount() const {
     return colCount;
 }
-
 
 void Table::copy(const Table &other) {
     colCount = other.colCount;
@@ -70,6 +101,5 @@ void Table::copy(const Table &other) {
 void Table::destroy() {
     rows.clear();
 }
-
 
 
