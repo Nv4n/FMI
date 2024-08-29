@@ -7,8 +7,18 @@
 
 #pragma once
 
-class CellValueInterpreter {
+#include "Cell.h"
 
+class CellValueInterpreter {
+public:
+    Cell convertToCell(const std::string &cellInput);
+
+private:
+    bool isInteger(const std::string &cellInput);
+
+    bool isFractional(const std::string &cellInput);
+
+    std::string trim(const std::string &cellInput);
 };
 
 

@@ -40,6 +40,8 @@ private:
 
     std::vector<std::string> splitArguments(const std::string &input);
 
+    std::vector<std::string> splitTableRow(const std::string &input);
+
     ExecutedCommand runCommand(const std::vector<std::string> &args);
 };
 

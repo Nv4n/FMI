@@ -85,7 +85,12 @@ ExecutedCommand CmdInterpreter::runCommand(const std::vector<std::string> &args)
  */
 void CmdInterpreter::open(std::string filedir) {
     //TODO
-    std::ofstream writer(filedir);
+    std::ifstream reader(filedir);
+    if (!reader.is_open()) {
+        throw std::runtime_error("file directory can't be opened");
+    }
+    std::string line;
+    reader >> line;
 }
 
 /**
@@ -151,6 +156,42 @@ std::vector<std::string> CmdInterpreter::splitArguments(const std::string &input
     std::vector<std::string> result;
     std::string token;
     bool inQuotes = false;
+
+    for (size_t i = 0; i < input.size(); ++i) {
+        char current = input[i];
+
+        if (current == '"') {
+            inQuotes = !inQuotes;
+
+            if (!inQuotes && token.empty()) {
+                return {};
+            }
+            if (!inQuotes) {
+                result.push_back(token);
+                token.clear();
+            }
+            continue;
+        }
+        if (current == ' ' && !inQuotes && !token.empty()) {
+            result.push_back(token);
+            token.clear();
+            continue;
+        }
+        token += current;
+    }
+
+    if (!token.empty()) {
+        result.push_back(token);
+    }
+
+    return result;
+}
+
+std::vector<std::string> CmdInterpreter::splitTableRow(const std::string &input) {
+    std::vector<std::string> result;
+    std::string token;
+    bool inQuotes = false;
+    bool isFormula = false;
 
     for (size_t i = 0; i < input.size(); ++i) {
         char current = input[i];
