@@ -37,7 +37,7 @@ std::ofstream &operator<<(std::ofstream &ofsWriter, const Table &table) {
     for (size_t row = 0; row < table.getRowCount(); ++row) {
         for (int col = 0; col < table.getColCount(); ++col) {
             try {
-                ofsWriter << table.rows[row][col].getValue() << ",";
+                ofsWriter << table.rows[row][col] << ",";
             } catch (std::logic_error &e) {
                 ofsWriter << ",";
             }
@@ -53,7 +53,7 @@ std::ofstream &operator<<(std::ofstream &ofsWriter, const Table &table) {
  * @param cell The new cell value
  * @throws invalid_argumen When either row or col coordinate is out of range
  */
-void Table::editCell(Coordinates coords, const Optional<Cell> &cell) {
+void Table::editCell(Coordinates coords, const Cell &cell) {
     if (rows.size() < coords.row) {
         throw std::invalid_argument("Row is out of range");
     }

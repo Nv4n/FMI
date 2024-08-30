@@ -10,10 +10,10 @@
 #include <vector>
 #include <fstream>
 
-#include "Optional.h"
+
 #include "Cell.h"
 
-using Row = std::vector<Optional<Cell>>;
+using Row = std::vector<Cell>;
 using TableRows = std::vector<Row>;
 
 /**
@@ -45,7 +45,7 @@ public:
 
     void addRow(const Row &row);
 
-    void editCell(Coordinates coords, const Optional<Cell> &cell);
+    void editCell(Coordinates coords, const Cell &cell);
 
     friend std::ostream &operator<<(std::ostream &osWriter, const Table &table);
 
