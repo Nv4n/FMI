@@ -14,9 +14,17 @@ public:
     Cell convertToCell(const std::string &cellInput);
 
 private:
-    bool isInteger(const std::string &cellInput);
+    bool isInteger(const std::string &trimmed);
 
-    bool isFractional(const std::string &cellInput);
+    bool isFractional(const std::string &trimmed);
+
+    bool isString(const std::string &trimmed);
+
+    bool isFormula(const std::string &trimmed);
+
+    bool isCellCoordinates(const std::string &trimmed);
+
+    bool isOperator(const std::string &trimmed);
 
     std::string trim(const std::string &cellInput);
 };

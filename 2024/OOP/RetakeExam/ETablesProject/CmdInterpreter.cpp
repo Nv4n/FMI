@@ -43,9 +43,6 @@ ExecutedCommand CmdInterpreter::runCommand(const std::vector<std::string> &args)
     if (args.empty()) {
         throw std::invalid_argument("Can't enter empty command");
     }
-    if (args.size() > 2) {
-        throw std::invalid_argument("Too many arguments");
-    }
 
     if (args[0] == "save") {
         if (args.size() != 1) {
@@ -83,8 +80,8 @@ ExecutedCommand CmdInterpreter::runCommand(const std::vector<std::string> &args)
  * @brief Command for opening and reading the table
  * @param filedir File directory of the table text file
  */
-void CmdInterpreter::open(std::string filedir) {
-    //TODO
+void CmdInterpreter::open(const std::string &filedir) {
+    //TODO Read table file
     std::ifstream reader(filedir);
     if (!reader.is_open()) {
         throw std::runtime_error("file directory can't be opened");

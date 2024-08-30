@@ -17,6 +17,13 @@ enum class ExecutedCommand {
     OPEN,
 };
 
+/**
+ * @brief Class for entering and executing commands
+ *
+ * @var fileDir The directory of the table text file
+ * @var table The storage variable of the table data
+ * @var hasChanges Flag variable if changes were made
+ */
 class CmdInterpreter {
 private:
     std::string fileDir;
@@ -30,7 +37,7 @@ public:
     void getCmdLine();
 
 private:
-    void open(std::string filedir);
+    void open(const std::string &filedir);
 
     void save();
 

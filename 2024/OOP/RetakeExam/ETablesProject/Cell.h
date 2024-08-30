@@ -78,8 +78,6 @@ private:
 */
 template<typename T>
 T Cell::get() {
-    //TODO might break on return
-    // May need to add T data=value;
     if constexpr (is_same<T, int>::value) {
         if (cell.type != CellType::INTEGER) {
             throw std::logic_error("active value is not integer");
@@ -115,8 +113,6 @@ T Cell::get() {
  */
 template<typename T>
 void Cell::set(T val, CellType type) {
-    //TODO might break on return
-    // May need to add T data=value;
     if (is_same<T, int>()) {
         if (type != CellType::INTEGER) {
             throw std::logic_error("can't save integer as non-CellType::INTEGER");

@@ -10,8 +10,7 @@ int main() {
 //    Cell test;
 //    auto x = test.get<int>();
 //    std::cout << x;
-    std::cout << "Do you want to save your changes [Y/N]" << std::endl;
-    char answer;
-    std::cin.get(answer);
-    std::cout << answer;
+    std::string test;
+    std::cin >> test;
+    std::cout << test;
 }
