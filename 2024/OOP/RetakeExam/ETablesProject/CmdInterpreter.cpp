@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "CmdInterpreter.h"
+#include "CellValueInterpreter.h"
 
 CmdInterpreter::CmdInterpreter() : hasChanges(false) {}
 
@@ -15,7 +16,7 @@ void CmdInterpreter::getCmdLine() {
     while (true) {
         std::string line;
         std::cin >> line;
-        std::vector<std::string> args = splitArguments(line);
+        std::vector<std::string> args = splitCmdArguments(line);
         try {
             ExecutedCommand cmdType = runCommand(args);
             if (cmdType == ExecutedCommand::CLOSE) {
@@ -28,7 +29,7 @@ void CmdInterpreter::getCmdLine() {
 }
 
 /**
- * @brief Choose command from args and executing it
+ * @brief Method for choosing command from the args and executing it
  *
  * @param args Arguments from the command line
  *
@@ -78,20 +79,29 @@ ExecutedCommand CmdInterpreter::runCommand(const std::vector<std::string> &args)
 
 /**
  * @brief Command for opening and reading the table
- * @param filedir File directory of the table text file
+ * @param fileDir File directory of the table text file
  */
-void CmdInterpreter::open(const std::string &filedir) {
+void CmdInterpreter::open(const std::string &fileDir) {
     //TODO Read table file
-    std::ifstream reader(filedir);
+    std::ifstream reader(fileDir);
     if (!reader.is_open()) {
         throw std::runtime_error("file directory can't be opened");
     }
     std::string line;
-    reader >> line;
+    while (!reader.eof()) {
+        reader >> line;
+        std::vector<std::string> tableRowStrings = splitTableRow(line);
+        Row tableRow;
+        for (size_t i = 0; i < tableRowStrings.size(); ++i) {
+            Optional<Cell> curr = CellValueInterpreter::convertToCell(tableRowStrings[i]);
+            Optional<Cell> opt = curr;
+            tableRow.push_back();
+        }
+    }
 }
 
 /**
- * @brief Save method for current active file
+ * @brief Command for saving to current active file
  * @throws logic_error When filedir is empty (haven't opened file at least one time)
  * @throws runtime_error When file directory can't be opened
  */
@@ -108,7 +118,7 @@ void CmdInterpreter::save() {
 }
 
 /**
- * @brief Save As method for saving the table to new file
+ * @brief Command for saving the table to new file
  *
  * @param newFileDir String parameter with file directory
  *
@@ -131,7 +141,7 @@ void CmdInterpreter::saveAs(const std::string &newFileDir) {
  */
 void CmdInterpreter::close() {
 
-    if (fileDir.empty() || hasChanges) {
+    if (fileDir.empty() || !hasChanges) {
         return;
     }
 
@@ -149,15 +159,31 @@ void CmdInterpreter::close() {
     throw std::invalid_argument("Invalid argument for close");
 }
 
-std::vector<std::string> CmdInterpreter::splitArguments(const std::string &input) {
+/**
+ *
+ * @param cmd Command line
+ * @return vector of all command arguments
+ */
+std::vector<std::string> CmdInterpreter::splitCmdArguments(const std::string &cmd) {
     std::vector<std::string> result;
     std::string token;
     bool inQuotes = false;
+//TODO " breaks all the time
+    for (size_t i = 0; i < cmd.size(); ++i) {
+        if (cmd[i] == '\\' && i + 1 < cmd.size()) {
+            if (!inQuotes) {
+                return {};
+            }
+            if (cmd[i + 1] != '\\' && cmd[i + 1] != '"') {
+                return {};
+            }
+            token += cmd[i];
+            i++;
+            token += cmd[i];
+            continue;
+        }
 
-    for (size_t i = 0; i < input.size(); ++i) {
-        char current = input[i];
-
-        if (current == '"') {
+        if (cmd[i] == '"') {
             inQuotes = !inQuotes;
 
             if (!inQuotes && token.empty()) {
@@ -169,12 +195,13 @@ std::vector<std::string> CmdInterpreter::splitArguments(const std::string &input
             }
             continue;
         }
-        if (current == ' ' && !inQuotes && !token.empty()) {
+
+        if (cmd[i] == ' ' && !inQuotes && !token.empty()) {
             result.push_back(token);
             token.clear();
             continue;
         }
-        token += current;
+        token += cmd[i];
     }
 
     if (!token.empty()) {
@@ -184,38 +211,32 @@ std::vector<std::string> CmdInterpreter::splitArguments(const std::string &input
     return result;
 }
 
+/**
+ *
+ * @param input Table row in string form
+ * @return Cell values as strings
+ */
 std::vector<std::string> CmdInterpreter::splitTableRow(const std::string &input) {
     std::vector<std::string> result;
-    std::string token;
+    std::string current;
     bool inQuotes = false;
-    bool isFormula = false;
 
-    for (size_t i = 0; i < input.size(); ++i) {
-        char current = input[i];
+    for (size_t ind = 0; ind < input.size(); ++ind) {
 
-        if (current == '"') {
+        if (input[ind] == '\\' && ind + 1 < input.size() && (input[ind + 1] == '"' || input[ind + 1] == '\\')) {
+            current += input[ind];
+            current += input[++ind];
+        } else if (input[ind] == '"') {
             inQuotes = !inQuotes;
-
-            if (!inQuotes && token.empty()) {
-                return {};
-            }
-            if (!inQuotes) {
-                result.push_back(token);
-                token.clear();
-            }
-            continue;
+        } else if (input[ind] == ',' && !inQuotes) {
+            result.push_back(current);
+            current.clear();
+        } else {
+            current += input[ind];
         }
-        if (current == ' ' && !inQuotes && !token.empty()) {
-            result.push_back(token);
-            token.clear();
-            continue;
-        }
-        token += current;
     }
 
-    if (!token.empty()) {
-        result.push_back(token);
-    }
+    result.push_back(current);
 
     return result;
 }

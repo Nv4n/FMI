@@ -37,7 +37,7 @@ public:
     void getCmdLine();
 
 private:
-    void open(const std::string &filedir);
+    void open(const std::string &fileDir);
 
     void save();
 
@@ -45,7 +45,7 @@ private:
 
     void close();
 
-    std::vector<std::string> splitArguments(const std::string &input);
+    std::vector<std::string> splitCmdArguments(const std::string &cmd);
 
     std::vector<std::string> splitTableRow(const std::string &input);
 

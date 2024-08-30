@@ -5,20 +5,31 @@
 #include <vector>
 #include "CellValueInterpreter.h"
 
+/**
+ *
+ * @param cellInput Initial cell value as string
+ * @return Processed string value as Cell
+ */
 Cell CellValueInterpreter::convertToCell(const std::string &cellInput) {
     std::string trimmed = trim(cellInput);
+    Cell cell;
+    if (trimmed.empty()) {
+        return cell;
+    }
 
     if (isInteger(trimmed)) {
-        int result = std::stoi(trimmed);
+        int val = std::stoi(trimmed);
+        cell.set<int>(val, CellType::INTEGER);
+    } else if (isFractional(trimmed)) {
+        double val = std::stod(trimmed);
+        cell.set<double>(val, CellType::FRACTIONAL);
+    } else if (isString(trimmed)) {
+        cell.set<std::string>(trimmed, CellType::STRING);
+    } else if (isFormula(trimmed)) {
+        cell.set<std::string>(trimmed, CellType::FORMULA);
     }
-    if (isFractional(trimmed)) {
-        double result = std::stod(trimmed);
-    }
-    if (isString(trimmed)) {
-        //TODO Just use trimmed
-    }
-//    if()
-    return Cell();
+
+    throw std::invalid_argument("Invalid cell value");
 }
 
 /**
@@ -126,7 +137,7 @@ bool CellValueInterpreter::isFormula(const std::string &trimmed) {
     if (tokens.size() != 3) {
         return false;
     }
-    
+
     if (!isInteger(tokens[0]) && !isCellCoordinates(tokens[0])) {
         return false;
     }

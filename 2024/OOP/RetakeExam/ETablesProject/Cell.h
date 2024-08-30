@@ -33,7 +33,7 @@ private:
     struct CellData {
         CellType type;
         CellValues vals;
-    } cell;
+    } cellData;
 
 public:
     Cell();
@@ -53,6 +53,8 @@ public:
     void set(T val, CellType type);
 
     void reset();
+
+    friend std::ofstream &operator<<(std::ofstream &ofs, const Cell &cell);
 
 private:
     void copy(const Cell &other);
@@ -79,24 +81,24 @@ private:
 template<typename T>
 T Cell::get() {
     if constexpr (is_same<T, int>::value) {
-        if (cell.type != CellType::INTEGER) {
+        if (cellData.type != CellType::INTEGER) {
             throw std::logic_error("active value is not integer");
         }
-        return cell.vals.integer;
+        return cellData.vals.integer;
     }
     if constexpr (is_same<T, double>::value) {
-        if (cell.type != CellType::FRACTIONAL) {
+        if (cellData.type != CellType::FRACTIONAL) {
             throw std::logic_error("active value is not fractional");
         }
-        return cell.vals.fractional;
+        return cellData.vals.fractional;
     }
     if constexpr (is_same<T, std::string>::value) {
-        if (cell.type != CellType::STRING && cell.type != CellType::FORMULA) {
+        if (cellData.type != CellType::STRING && cellData.type != CellType::FORMULA) {
             throw std::logic_error("active value is not string or formula");
         }
-        return cell.vals.text;
+        return cellData.vals.text;
     }
-    if (cell.type == CellType::NONE) {
+    if (cellData.type == CellType::NONE) {
         throw std::logic_error("active value is empty");
     }
 
@@ -104,43 +106,45 @@ T Cell::get() {
 }
 
 /**
+ *@brief Setter for new active value in Cell
  *
  * @tparam T the type of the new value
  * @param val new value
  * @param type Cell type of the value
  *
  * @throws logic_error When requested type doesn't match the given CellType
+ * @throws logic_error When there is no matching type
  */
 template<typename T>
 void Cell::set(T val, CellType type) {
-    if (is_same<T, int>()) {
+    if constexpr (is_same<T, int>::value) {
         if (type != CellType::INTEGER) {
             throw std::logic_error("can't save integer as non-CellType::INTEGER");
         }
         destroy();
-        cell.type = type;
-        cell.vals.integer = val;
+        cellData.type = type;
+        cellData.vals.integer = val;
         return;
     }
 
-    if (is_same<T, double>()) {
+    if constexpr (is_same<T, double>::value) {
         if (type != CellType::FRACTIONAL) {
             throw std::logic_error("can't save fractional as non-CellType::FRACTIONAL");
         }
         destroy();
-        cell.type = type;
-        cell.vals.fractional = val;
+        cellData.type = type;
+        cellData.vals.fractional = val;
         return;
     }
 
-    if (is_same<T, std::string>()) {
+    if constexpr (is_same<T, std::string>::value) {
         if (type != CellType::STRING && type != CellType::FORMULA) {
             throw std::logic_error("can't save text as non-CellType::STRING or CellType::FORMULA");
         }
 
         destroy();
-        cell.type = type;
-        new(&cell.vals.text)std::string(val);
+        cellData.type = type;
+        new(&cellData.vals.text)std::string(val);
     }
 
     throw std::logic_error("invalid new value type");

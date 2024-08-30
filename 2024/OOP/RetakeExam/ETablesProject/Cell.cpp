@@ -3,9 +3,10 @@
 //
 
 #include "Cell.h"
+#include <fstream>
 
 Cell::Cell() {
-    cell.type = CellType::NONE;
+    cellData.type = CellType::NONE;
 }
 
 Cell::~Cell() {
@@ -29,7 +30,7 @@ Cell &Cell::operator=(const Cell &other) {
  * @return CellType Type for the cell value interpreter
  */
 CellType Cell::getType() const {
-    return cell.type;
+    return cellData.type;
 }
 
 /**
@@ -37,8 +38,20 @@ CellType Cell::getType() const {
  */
 void Cell::reset() {
     destroy();
-    cell.type = CellType::NONE;
+    cellData.type = CellType::NONE;
 }
+
+std::ofstream &operator<<(std::ofstream &ofs, const Cell &cell) {
+    if (cell.getType() == CellType::INTEGER) {
+        ofs << cell.cellData.vals.integer;
+    } else if (cell.getType() == CellType::FRACTIONAL) {
+        ofs << cell.cellData.vals.fractional;
+    } else if (cell.getType() == CellType::STRING || cell.getType() == CellType::FORMULA) {
+        ofs << cell.cellData.vals.text;
+    }
+    return ofs;
+}
+
 
 /**
  * @brief Copy the data from Cell other with
@@ -47,22 +60,23 @@ void Cell::reset() {
  * @param other The Cell that should be coppied
  */
 void Cell::copy(const Cell &other) {
-    cell.type = other.cell.type;
-    if (cell.type == CellType::FORMULA || cell.type == CellType::STRING) {
-        new(&cell.vals.text)std::string(other.cell.vals.text);
+    cellData.type = other.cellData.type;
+    if (cellData.type == CellType::FORMULA || cellData.type == CellType::STRING) {
+        new(&cellData.vals.text)std::string(other.cellData.vals.text);
         return;
     }
-    if (cell.type == CellType::INTEGER) {
-        cell.vals.integer = other.cell.vals.integer;
+    if (cellData.type == CellType::INTEGER) {
+        cellData.vals.integer = other.cellData.vals.integer;
         return;
     }
-    if (cell.type == CellType::FRACTIONAL) {
-        cell.vals.fractional = other.cell.vals.fractional;
+    if (cellData.type == CellType::FRACTIONAL) {
+        cellData.vals.fractional = other.cellData.vals.fractional;
     }
 }
 
 void Cell::destroy() {
-    if (cell.type == CellType::STRING || cell.type == CellType::FORMULA) {
-        cell.vals.text.~basic_string<char>();
+    if (cellData.type == CellType::STRING || cellData.type == CellType::FORMULA) {
+        cellData.vals.text.~basic_string<char>();
     }
 }
+

@@ -34,7 +34,16 @@ std::ostream &operator<<(std::ostream &osWriter, const Table &table) {
  * @return ofsWriter
  */
 std::ofstream &operator<<(std::ofstream &ofsWriter, const Table &table) {
-    //TODO Print in file
+    for (size_t row = 0; row < table.getRowCount(); ++row) {
+        for (int col = 0; col < table.getColCount(); ++col) {
+            try {
+                ofsWriter << table.rows[row][col].getValue() << ",";
+            } catch (std::logic_error &e) {
+                ofsWriter << ",";
+            }
+        }
+        ofsWriter << "\n";
+    }
     return ofsWriter;
 }
 

@@ -11,22 +11,22 @@
 
 class CellValueInterpreter {
 public:
-    Cell convertToCell(const std::string &cellInput);
+    static Cell convertToCell(const std::string &cellInput);
 
 private:
-    bool isInteger(const std::string &trimmed);
+    static bool isInteger(const std::string &trimmed);
 
-    bool isFractional(const std::string &trimmed);
+    static bool isFractional(const std::string &trimmed);
 
-    bool isString(const std::string &trimmed);
+    static bool isString(const std::string &trimmed);
 
-    bool isFormula(const std::string &trimmed);
+    static bool isFormula(const std::string &trimmed);
 
-    bool isCellCoordinates(const std::string &trimmed);
+    static bool isCellCoordinates(const std::string &trimmed);
 
-    bool isOperator(const std::string &trimmed);
+    static bool isOperator(const std::string &trimmed);
 
-    std::string trim(const std::string &cellInput);
+    static std::string trim(const std::string &cellInput);
 };
 
 
