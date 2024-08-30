@@ -93,9 +93,8 @@ void CmdInterpreter::open(const std::string &fileDir) {
         std::vector<std::string> tableRowStrings = splitTableRow(line);
         Row tableRow;
         for (size_t i = 0; i < tableRowStrings.size(); ++i) {
-            Optional<Cell> curr = CellValueInterpreter::convertToCell(tableRowStrings[i]);
-            Optional<Cell> opt = curr;
-            tableRow.push_back();
+            Cell curr = CellValueInterpreter::convertToCell(tableRowStrings[i]);
+            tableRow.push_back(curr);
         }
     }
 }

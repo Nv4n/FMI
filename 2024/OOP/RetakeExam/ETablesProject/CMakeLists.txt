@@ -7,8 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 add_library(ETable_Headers
-        Optional.inl
-        Optional.inl
         Utility.h)
 
 set_target_properties(ETable_Headers PROPERTIES LINKER_LANGUAGE CXX)

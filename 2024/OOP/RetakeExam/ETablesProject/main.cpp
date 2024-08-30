@@ -2,7 +2,6 @@
 // Created by Sybatron on 8/26/2024.
 //
 #include <iostream>
-#include "Optional.h"
 #include "Cell.h"
 
 int main() {
