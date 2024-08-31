@@ -114,7 +114,7 @@ bool CellValueInterpreter::isString(const std::string &trimmed) {
             continue;
         }
 
-        if (i + 2 >= trimmed.length() - 1) {
+        if (i + 2 >= trimmed.length()) {
             return false;
         }
         if (trimmed[i + 1] != '\\' && trimmed[i + 1] != '"') {
@@ -147,11 +147,15 @@ bool CellValueInterpreter::isFormula(const std::string &trimmed) {
     const short VALUE2_INDEX = 3;
     const short OPERATOR_INDEX = 2;
     //=, VAL1, Operator, VAL2
-    if (!isInteger(tokens[VALUE1_INDEX]) && !isCellCoordinates(tokens[VALUE1_INDEX])) {
+    if (!isFractional(tokens[VALUE1_INDEX])
+        && !isInteger(tokens[VALUE1_INDEX])
+        && !isCellCoordinates(tokens[VALUE1_INDEX])) {
         return false;
     }
 
-    if (!isInteger(tokens[VALUE2_INDEX]) && !isCellCoordinates(tokens[VALUE2_INDEX])) {
+    if (!isFractional(tokens[VALUE2_INDEX])
+        && !isInteger(tokens[VALUE2_INDEX])
+        && !isCellCoordinates(tokens[VALUE2_INDEX])) {
         return false;
     }
 

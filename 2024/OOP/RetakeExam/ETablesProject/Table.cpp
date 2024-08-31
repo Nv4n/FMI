@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Table.h"
 
+
 Table::Table(const Table &other) {
     copy(other);
 }
@@ -29,7 +30,7 @@ std::ostream &operator<<(std::ostream &osWriter, const Table &table) {
     std::vector<size_t> colMaxWidths(table.getColCount(), 0);
 
     for (size_t rowInd = 0; rowInd < tableAsStrings.size(); ++rowInd) {
-        for (size_t colInd = 0; colInd < colMaxWidths.size(); ++colInd) {
+        for (size_t colInd = 0; colInd < colMaxWidths.size() && colInd < tableAsStrings[rowInd].size(); ++colInd) {
             if (colMaxWidths[colInd] < tableAsStrings[rowInd][colInd].size()) {
                 colMaxWidths[colInd] = tableAsStrings[rowInd][colInd].size();
             }
@@ -75,12 +76,15 @@ std::ofstream &operator<<(std::ofstream &ofsWriter, const Table &table) {
     for (size_t row = 0; row < table.getRowCount(); ++row) {
         for (int col = 0; col < table.getColCount(); ++col) {
             try {
-                ofsWriter << table.rows[row][col] << ",";
-            } catch (std::exception &e) {
+                ofsWriter << table.rows[row][col];
+            } catch (...) {}
+            if (col + 1 < table.getColCount()) {
                 ofsWriter << ",";
             }
         }
-        ofsWriter << "\n";
+        if (row + 1 < table.getRowCount()) {
+            ofsWriter << "\n";
+        }
     }
     return ofsWriter;
 }
@@ -97,10 +101,10 @@ void Table::editCell(Coordinates coords, const Cell &cell) {
     }
 
     if (colCount < coords.col) {
-        throw std::invalid_argument("Col is out of range");
+        throw std::invalid_argument("Column is out of range");
     }
     if (rows[coords.row - 1].size() < colCount) {
-        for (size_t i = rows[coords.row - 1].size(); i <= colCount; ++i) {
+        for (size_t i = rows[coords.row - 1].size(); i < colCount; ++i) {
             rows[coords.row - 1].emplace_back();
         }
     }
@@ -159,7 +163,7 @@ void Table::destroy() {
  * @param rawCellCoordinates Cell coordinates as Cell Argument
  * @return Coordinates the deciphered cell coordinates
  */
-Coordinates Table::getCellCoordinates(std::string rawCellCoordinates) {
+Coordinates Table::getCellCoordinates(std::string rawCellCoordinates) const {
     Coordinates coords{};
     std::string token;
     for (size_t ind = 1; ind < rawCellCoordinates.size(); ++ind) {
@@ -204,7 +208,7 @@ std::vector<std::vector<std::string>> Table::getTableAsStringMatrix() const {
             } else if (cell.getType() == CellType::FRACTIONAL) {
                 cellStringRow.push_back(std::to_string(cell.get<double>()));
             } else if (rows[rowInd][colInd].getType() == CellType::STRING) {
-                cellStringRow.push_back(cell.get<std::string>());
+                cellStringRow.push_back(unescapeString(cell.get<std::string>()));
             } else if (rows[rowInd][colInd].getType() == CellType::FORMULA) {
                 cellStringRow.push_back(calculateFormula(cell.get<std::string>()));
             } else {
@@ -218,8 +222,123 @@ std::vector<std::vector<std::string>> Table::getTableAsStringMatrix() const {
 }
 
 std::string Table::calculateFormula(const std::string &formula) const {
-    //TODO CREATE THE WHOLE METHOD
-    return std::string();
+    std::vector<std::string> tokens = CellValueInterpreter::splitStringBySpace(formula);
+    const std::string ERROR_MSG = "ERROR";
+    const short VALUE1_INDEX = 1;
+    const short VALUE2_INDEX = 3;
+    const short OPERATOR_INDEX = 2;
+    //=, VAL1, Operator, VAL2
+    double numVal1;
+    double numVal2;
+    if (CellValueInterpreter::isInteger(tokens[VALUE1_INDEX]) ||
+        CellValueInterpreter::isFractional(tokens[VALUE1_INDEX])) {
+        numVal1 = std::stod(tokens[VALUE1_INDEX]);
+    } else {
+        try {
+            Coordinates coords = getCellCoordinates(tokens[VALUE1_INDEX]);
+            Cell cell = getCell(coords);
+            if (cell.getType() == CellType::INTEGER) {
+                numVal1 = cell.get<int>();
+            } else if (cell.getType() == CellType::FRACTIONAL) {
+                numVal1 = cell.get<double>();
+            } else if (cell.getType() == CellType::NONE) {
+                numVal1 = 0;
+            } else if (cell.getType() == CellType::FORMULA) {
+                std::string formulaCell = calculateFormula(cell.get<std::string>());
+                if (formulaCell == ERROR_MSG) {
+                    return "ERROR";
+                }
+                numVal1 = std::stod(formulaCell);
+            } else {
+                numVal1 = std::stod(cell.get<std::string>());
+            }
+        } catch (...) {
+            numVal1 = 0;
+        }
+    }
+
+    if (CellValueInterpreter::isInteger(tokens[VALUE2_INDEX]) ||
+        CellValueInterpreter::isFractional(tokens[VALUE2_INDEX])) {
+        numVal2 = std::stod(tokens[VALUE2_INDEX]);
+    } else {
+        try {
+            Coordinates coords = getCellCoordinates(tokens[VALUE2_INDEX]);
+            Cell cell = getCell(coords);
+            if (cell.getType() == CellType::INTEGER) {
+                numVal2 = cell.get<int>();
+            } else if (cell.getType() == CellType::FRACTIONAL) {
+                numVal2 = cell.get<double>();
+            } else if (cell.getType() == CellType::NONE) {
+                numVal2 = 0;
+            } else if (cell.getType() == CellType::FORMULA) {
+                std::string formulaCell = calculateFormula(cell.get<std::string>());
+                if (formulaCell == ERROR_MSG) {
+                    return "ERROR";
+                }
+                numVal2 = std::stod(formulaCell);
+            } else {
+                numVal2 = std::stod(cell.get<std::string>());
+            }
+        } catch (...) {
+            numVal2 = 0;
+        }
+
+    }
+
+    if (tokens[OPERATOR_INDEX] == "*") {
+        return std::to_string(numVal1 * numVal2);
+    }
+    if (tokens[OPERATOR_INDEX] == "/") {
+        if (numVal2 == 0) {
+            return "ERROR";
+        }
+        return std::to_string(numVal1 / numVal2);
+    }
+    if (tokens[OPERATOR_INDEX] == "+") {
+        return std::to_string(numVal1 + numVal2);
+    }
+    if (tokens[OPERATOR_INDEX] == "-") {
+        return std::to_string(numVal1 - numVal2);
+    }
+    if (tokens[OPERATOR_INDEX] == "==") {
+        return std::to_string(numVal1 == numVal2 ? 1 : 0);
+    }
+    if (tokens[OPERATOR_INDEX] == ">=") {
+        return std::to_string(numVal1 >= numVal2 ? 1 : 0);
+    }
+    if (tokens[OPERATOR_INDEX] == "<=") {
+        return std::to_string(numVal1 <= numVal2 ? 1 : 0);
+    }
+    if (tokens[OPERATOR_INDEX] == "!=") {
+        return std::to_string(numVal1 != numVal2 ? 1 : 0);
+    }
+    if (tokens[OPERATOR_INDEX] == ">") {
+        return std::to_string(numVal1 > numVal2 ? 1 : 0);
+    }
+    if (tokens[OPERATOR_INDEX] == "<") {
+        return std::to_string(numVal1 < numVal2 ? 1 : 0);
+    }
+
+    return "ERROR";
+}
+
+std::string Table::unescapeString(const std::string &cellValue) const {
+    std::string unescapedCellValue;
+    for (size_t i = 0; i < cellValue.length(); ++i) {
+        if (cellValue[i] == '\\' && i + 1 < cellValue.length()) {
+            if (cellValue[i + 1] == '\"') {
+                unescapedCellValue += '\"';
+            } else if (cellValue[i + 1] == '\\') {
+                unescapedCellValue += '\\';
+
+            }
+            i++;
+        } else {
+            unescapedCellValue += cellValue[i];
+        }
+    }
+    return unescapedCellValue;
+
 }
 
 

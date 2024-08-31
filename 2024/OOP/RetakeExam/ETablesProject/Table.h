@@ -12,6 +12,7 @@
 
 #include "Cell.h"
 #include "Types.h"
+#include "CellValueInterpreter.h"
 
 /**
  * @brief Table class that consists and manage
@@ -55,9 +56,11 @@ private:
 
     void destroy();
 
-    Coordinates getCellCoordinates(std::string rawCellCoordinates);
+    Coordinates getCellCoordinates(std::string rawCellCoordinates) const;
 
     std::vector<std::vector<std::string>> getTableAsStringMatrix() const;
+
+    std::string unescapeString(const std::string &cellValue) const;
 };
 
 

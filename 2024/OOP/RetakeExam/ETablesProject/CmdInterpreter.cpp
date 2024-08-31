@@ -109,6 +109,7 @@ void CmdInterpreter::open(const std::string &fileDir) {
     if (!reader.is_open()) {
         throw std::runtime_error("file directory can't be opened");
     }
+    table.reset();
     std::string line;
     size_t row = 1;
     while (!reader.eof()) {
@@ -138,7 +139,7 @@ void CmdInterpreter::open(const std::string &fileDir) {
         table.addRow(tableRow);
         row++;
     }
-
+    this->fileDir = fileDir;
     reader.close();
 }
 
@@ -215,7 +216,16 @@ void CmdInterpreter::print() {
  * @param args
  */
 void CmdInterpreter::edit(const std::vector<std::string> &args) {
-//TODO MAKE EDIT
+    if (!CellValueInterpreter::isInteger(args[1])) {
+        throw std::invalid_argument("Row is not an integer");
+    }
+    if (!CellValueInterpreter::isInteger(args[2])) {
+        throw std::invalid_argument("Col is not an integer");
+    }
+
+    Cell newCell = CellValueInterpreter::convertToCell(args[3]);
+    Coordinates coords{std::stoul(args[1]), std::stoul(args[2])};
+    table.editCell(coords, newCell);
 }
 
 

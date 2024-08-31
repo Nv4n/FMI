@@ -19,8 +19,10 @@ public:
 
     static std::vector<std::string> splitStringBySpace(const std::string &trimmed);
 
-private:
     static bool isFractional(const std::string &trimmed);
+
+private:
+
 
     static bool isString(const std::string &trimmed);
 
