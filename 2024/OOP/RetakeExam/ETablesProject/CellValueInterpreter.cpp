@@ -29,9 +29,10 @@ Cell CellValueInterpreter::convertToCell(const std::string &cellInput) {
         cell.set<std::string>(trimmed.substr(1, trimmed.size() - 2), CellType::STRING);
     } else if (isFormula(trimmed)) {
         cell.set<std::string>(trimmed, CellType::FORMULA);
+    } else {
+        throw std::invalid_argument("Invalid cell value");
     }
-
-    throw std::invalid_argument("Invalid cell value");
+    return cell;
 }
 
 /**

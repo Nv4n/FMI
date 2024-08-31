@@ -2,14 +2,9 @@
 // Created by Sybatron on 8/26/2024.
 //
 #include <iostream>
-#include "Cell.h"
+#include "CmdInterpreter.h"
 
 int main() {
-//    std::cout << "HI" << std::endl;
-//    Cell test;
-//    auto x = test.get<int>();
-//    std::cout << x;
-    std::string test;
-    std::cin >> test;
-    std::cout << test;
+    CmdInterpreter cmdInterpreter;
+    cmdInterpreter.getCmdLine();
 }

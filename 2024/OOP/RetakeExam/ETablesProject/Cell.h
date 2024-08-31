@@ -145,6 +145,7 @@ void Cell::set(T val, CellType type) {
         destroy();
         cellData.type = type;
         new(&cellData.vals.text)std::string(val);
+        return;
     }
 
     throw std::logic_error("invalid new value type");

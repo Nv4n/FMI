@@ -23,7 +23,32 @@ Table &Table::operator=(const Table &other) {
  * @return osWriter
  */
 std::ostream &operator<<(std::ostream &osWriter, const Table &table) {
-    //TODO Print std::cout
+    std::vector<std::vector<std::string>> tableAsStrings = table.getTableAsStringMatrix();
+    std::vector<size_t> colMaxWidths(table.getColCount(), 0);
+
+    for (size_t rowInd = 0; rowInd < tableAsStrings.size(); ++rowInd) {
+        for (size_t colInd = 0; colInd < colMaxWidths.size(); ++colInd) {
+            if (colMaxWidths[colInd] > tableAsStrings[rowInd][colInd].size()) {
+                colMaxWidths[colInd] = tableAsStrings[rowInd][colInd].size();
+            }
+        }
+    }
+
+    for (size_t rowInd = 0; rowInd < tableAsStrings.size(); ++rowInd) {
+        for (size_t colInd = 0; colInd < tableAsStrings[rowInd].size(); ++colInd) {
+            osWriter << " " << tableAsStrings[rowInd][colInd];
+            if (tableAsStrings[rowInd][colInd].size() < colMaxWidths[colInd]) {
+                size_t width = colMaxWidths[colInd] - tableAsStrings[rowInd][colInd].size();
+                osWriter << std::string(" ", width);
+            }
+            if (colInd + 1 < tableAsStrings[rowInd].size()) {
+                osWriter << "|";
+            }
+        }
+        osWriter << "\n";
+    }
+
+
     return osWriter;
 }
 
@@ -114,6 +139,74 @@ void Table::copy(const Table &other) {
 
 void Table::destroy() {
     rows.clear();
+}
+
+/**
+ *
+ * @param rawCellCoordinates Cell coordinates as Cell Argument
+ * @return Coordinates the deciphered cell coordinates
+ */
+Coordinates Table::getCellCoordinates(std::string rawCellCoordinates) {
+    Coordinates coords{};
+    std::string token;
+    for (size_t ind = 1; ind < rawCellCoordinates.size(); ++ind) {
+        if (rawCellCoordinates[ind] == 'C') {
+            coords.row = std::stoi(token);
+            token = "";
+            continue;
+        }
+        token += rawCellCoordinates[ind];
+    }
+    coords.col = std::stoi(token);
+    return coords;
+}
+
+/**
+ *
+ * @param coords Coordinates row and column
+ * @return Cell by given coordinates
+ */
+Cell Table::getCell(Coordinates coords) const {
+    if (rows.size() < coords.row) {
+        throw std::invalid_argument("Row is out of range");
+    }
+
+    if (colCount < coords.col) {
+        throw std::invalid_argument("Col is out of range");
+    }
+    return rows[coords.row - 1][coords.col - 1];
+}
+
+std::vector<std::vector<std::string>> Table::getTableAsStringMatrix() const {
+    std::vector<std::vector<std::string>> tblAsStrings(getRowCount());
+
+    for (size_t rowInd = 0; rowInd < getRowCount(); ++rowInd) {
+        std::vector<std::string> cellStringRow;
+        size_t colInd = 0;
+
+        for (; colInd < rows[rowInd].size(); ++colInd) {
+            Cell cell = getCell({rowInd + 1, colInd + 1});
+            if (cell.getType() == CellType::INTEGER) {
+                cellStringRow.push_back(std::to_string(cell.get<int>()));
+            } else if (cell.getType() == CellType::FRACTIONAL) {
+                cellStringRow.push_back(std::to_string(cell.get<double>()));
+            } else if (rows[rowInd][colInd].getType() == CellType::STRING) {
+                cellStringRow.push_back(cell.get<std::string>());
+            } else if (rows[rowInd][colInd].getType() == CellType::FORMULA) {
+                cellStringRow.push_back(calculateFormula(cell.get<std::string>()));
+            } else {
+                cellStringRow.emplace_back("");
+            }
+        }
+
+        tblAsStrings[rowInd] = cellStringRow;
+    }
+    return tblAsStrings;
+}
+
+std::string Table::calculateFormula(const std::string &formula) const {
+    //TODO CREATE THE WHOLE METHOD
+    return std::string();
 }
 
 

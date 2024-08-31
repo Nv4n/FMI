@@ -15,8 +15,9 @@ CmdInterpreter::CmdInterpreter() : hasChanges(false) {}
 void CmdInterpreter::getCmdLine() {
     while (true) {
         std::string line;
-        std::cin >> line;
-        std::vector<std::string> args = splitCmdArguments(line);
+        std::getline(std::cin, line);
+        std::vector<std::string> args(splitCmdArguments(line));
+
         try {
             ExecutedCommand cmdType = runCommand(args);
             if (cmdType == ExecutedCommand::CLOSE) {
@@ -25,6 +26,7 @@ void CmdInterpreter::getCmdLine() {
             if (cmdType == ExecutedCommand::EDIT) {
                 hasChanges = true;
             }
+            std::cout << "Operation successful!" << std::endl;
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
@@ -110,7 +112,11 @@ void CmdInterpreter::open(const std::string &fileDir) {
     std::string line;
     size_t row = 1;
     while (!reader.eof()) {
-        reader >> line;
+        std::getline(reader, line);
+
+        if (line.back() == '\r') {
+            line.pop_back();
+        }
         std::vector<std::string> tableRowStrings = splitTableRow(line);
         Row tableRow;
         for (size_t i = 0; i < tableRowStrings.size(); ++i) {
@@ -129,6 +135,7 @@ void CmdInterpreter::open(const std::string &fileDir) {
                 throw std::invalid_argument(expandedException);
             }
         }
+        table.addRow(tableRow);
         row++;
     }
 
@@ -280,6 +287,7 @@ std::vector<std::string> CmdInterpreter::splitTableRow(const std::string &input)
             current += input[ind];
             current += input[++ind];
         } else if (input[ind] == '"') {
+            current += input[ind];
             inQuotes = !inQuotes;
         } else if (input[ind] == ',' && !inQuotes) {
             result.push_back(current);

@@ -10,19 +10,8 @@
 #include <vector>
 #include <fstream>
 
-
 #include "Cell.h"
-
-using Row = std::vector<Cell>;
-using TableRows = std::vector<Row>;
-
-/**
- * @brief Structure consisting of row and column coordinates
- */
-struct Coordinates {
-    size_t row;
-    size_t col;
-};
+#include "Types.h"
 
 /**
  * @brief Table class that consists and manage
@@ -47,9 +36,13 @@ public:
 
     void editCell(Coordinates coords, const Cell &cell);
 
+    Cell getCell(Coordinates coords) const;
+
     friend std::ostream &operator<<(std::ostream &osWriter, const Table &table);
 
     friend std::ofstream &operator<<(std::ofstream &ofsWriter, const Table &table);
+
+    std::string calculateFormula(const std::string &formula) const;
 
     size_t getRowCount() const;
 
@@ -57,11 +50,14 @@ public:
 
     void reset();
 
-
 private:
     void copy(const Table &other);
 
     void destroy();
+
+    Coordinates getCellCoordinates(std::string rawCellCoordinates);
+
+    std::vector<std::vector<std::string>> getTableAsStringMatrix() const;
 };
 
 
