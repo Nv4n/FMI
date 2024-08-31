@@ -2,6 +2,8 @@
 // Created by Sybatron on 8/26/2024.
 //
 
+#include <cmath>
+#include <iostream>
 #include "Table.h"
 
 Table::Table(const Table &other) {
@@ -28,7 +30,7 @@ std::ostream &operator<<(std::ostream &osWriter, const Table &table) {
 
     for (size_t rowInd = 0; rowInd < tableAsStrings.size(); ++rowInd) {
         for (size_t colInd = 0; colInd < colMaxWidths.size(); ++colInd) {
-            if (colMaxWidths[colInd] > tableAsStrings[rowInd][colInd].size()) {
+            if (colMaxWidths[colInd] < tableAsStrings[rowInd][colInd].size()) {
                 colMaxWidths[colInd] = tableAsStrings[rowInd][colInd].size();
             }
         }
@@ -39,10 +41,21 @@ std::ostream &operator<<(std::ostream &osWriter, const Table &table) {
             osWriter << " " << tableAsStrings[rowInd][colInd];
             if (tableAsStrings[rowInd][colInd].size() < colMaxWidths[colInd]) {
                 size_t width = colMaxWidths[colInd] - tableAsStrings[rowInd][colInd].size();
-                osWriter << std::string(" ", width);
+                osWriter << std::string(width, ' ');
             }
             if (colInd + 1 < tableAsStrings[rowInd].size()) {
-                osWriter << "|";
+                osWriter << " |";
+            }
+        }
+        if (tableAsStrings[rowInd].size() < colMaxWidths.size()) {
+            osWriter << " |";
+            for (size_t colInd = tableAsStrings[rowInd].size(); colInd < colMaxWidths.size(); ++colInd) {
+                osWriter << " ";
+                size_t width = colMaxWidths[colInd];
+                osWriter << std::string(width, ' ');
+                if (colInd + 1 < colMaxWidths.size()) {
+                    osWriter << " |";
+                }
             }
         }
         osWriter << "\n";
