@@ -9,6 +9,7 @@
  * @brief Converting string value to CellValue
  * @param cellInput Initial cell value as string
  * @return Processed string value as Cell
+ * @throws invalid_argument When it was given invalid cell value
  */
 Cell CellValueInterpreter::convertToCell(const std::string &cellInput) {
     std::string trimmed = trim(cellInput);
@@ -134,7 +135,7 @@ bool CellValueInterpreter::isFormula(const std::string &trimmed) {
         return false;
     }
 
-    std::vector<std::string> tokens = splitBySpace(trimmed);
+    std::vector<std::string> tokens = splitStringBySpace(trimmed);
 
 
     if (tokens.size() != 4) {
@@ -160,7 +161,7 @@ bool CellValueInterpreter::isFormula(const std::string &trimmed) {
     return true;
 }
 
-std::vector<std::string> CellValueInterpreter::splitBySpace(const std::string &trimmed) {
+std::vector<std::string> CellValueInterpreter::splitStringBySpace(const std::string &trimmed) {
     std::vector<std::string> tokens;
     size_t start = 0;
     size_t end = 0;

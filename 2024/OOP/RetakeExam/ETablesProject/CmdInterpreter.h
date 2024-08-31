@@ -15,6 +15,8 @@ enum class ExecutedCommand {
     SAVE,
     SAVEAS,
     OPEN,
+    PRINT,
+    EDIT,
 };
 
 /**
@@ -47,7 +49,7 @@ private:
 
     void print();
 
-    void edit(std::vector<std::string> args);
+    void edit(const std::vector<std::string> &args);
 
     std::vector<std::string> splitCmdArguments(const std::string &cmd);
 

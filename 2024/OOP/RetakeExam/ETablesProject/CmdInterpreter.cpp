@@ -22,6 +22,9 @@ void CmdInterpreter::getCmdLine() {
             if (cmdType == ExecutedCommand::CLOSE) {
                 return;
             }
+            if (cmdType == ExecutedCommand::EDIT) {
+                hasChanges = true;
+            }
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
@@ -37,8 +40,9 @@ void CmdInterpreter::getCmdLine() {
  * used for determining end of program
  *
  * @throws invalid_argument When there are no or too many arguments
+ * @throws runtime_error
  *
- * @see open(), saveas(), save(), close()
+ * @see open(), saveas(), save(), close(), print(), edit()
  */
 ExecutedCommand CmdInterpreter::runCommand(const std::vector<std::string> &args) {
     if (args.empty()) {
@@ -47,31 +51,45 @@ ExecutedCommand CmdInterpreter::runCommand(const std::vector<std::string> &args)
 
     if (args[0] == "save") {
         if (args.size() != 1) {
-            throw std::invalid_argument("Too many arguments");
+            throw std::invalid_argument("Wrong format! save");
         }
         save();
         return ExecutedCommand::SAVE;
     }
     if (args[0] == "close") {
         if (args.size() != 1) {
-            throw std::invalid_argument("Too many arguments");
+            throw std::invalid_argument("Wrong format! close");
         }
         close();
         return ExecutedCommand::CLOSE;
     }
     if (args[0] == "saveas") {
-        if (args.size() > 2) {
-            throw std::invalid_argument("Too many arguments");
+        if (args.size() != 2) {
+            throw std::invalid_argument("Wrong format! saveas \"filedir\"");
         }
         saveAs(args[1]);
         return ExecutedCommand::SAVEAS;
     }
     if (args[0] == "open") {
-        if (args.size() > 2) {
-            throw std::invalid_argument("Too many arguments");
+        if (args.size() != 2) {
+            throw std::invalid_argument("Wrong format! open \"filedir\"");
         }
         open(args[1]);
         return ExecutedCommand::OPEN;
+    }
+    if (args[0] == "print") {
+        if (args.size() != 1) {
+            throw std::invalid_argument("Wrong format! print");
+        }
+        print();
+        return ExecutedCommand::PRINT;
+    }
+    if (args[0] == "edit") {
+        if (args.size() != 4) {
+            throw std::invalid_argument("Wrong format! edit row col \"new value\"");
+        }
+        edit(args);
+        return ExecutedCommand::EDIT;
     }
 
     throw std::invalid_argument("Unrecognized command");
@@ -80,23 +98,41 @@ ExecutedCommand CmdInterpreter::runCommand(const std::vector<std::string> &args)
 /**
  * @brief Command for opening and reading the table
  * @param fileDir File directory of the table text file
+ * @see splitTableRow(), CellValueInterpreter::convertToCell()
+ * @throws runtime_error When can't open file directory
+ * @throws invalid_argument When catches Invalid Cell Value
  */
 void CmdInterpreter::open(const std::string &fileDir) {
-    //TODO Read table file
     std::ifstream reader(fileDir);
     if (!reader.is_open()) {
         throw std::runtime_error("file directory can't be opened");
     }
     std::string line;
+    size_t row = 1;
     while (!reader.eof()) {
         reader >> line;
         std::vector<std::string> tableRowStrings = splitTableRow(line);
         Row tableRow;
         for (size_t i = 0; i < tableRowStrings.size(); ++i) {
-            Cell curr = CellValueInterpreter::convertToCell(tableRowStrings[i]);
-            tableRow.push_back(curr);
+            try {
+                Cell curr = CellValueInterpreter::convertToCell(tableRowStrings[i]);
+                tableRow.push_back(curr);
+            } catch (std::invalid_argument &e) {
+                std::string expandedException = e.what();
+                expandedException += ": R" + std::to_string(row) + "C" + std::to_string(i + 1);
+
+                tableRowStrings.clear();
+                tableRow.clear();
+                line.clear();
+                table.reset();
+                reader.close();
+                throw std::invalid_argument(expandedException);
+            }
         }
+        row++;
     }
+
+    reader.close();
 }
 
 /**
@@ -114,6 +150,7 @@ void CmdInterpreter::save() {
         throw std::runtime_error("file directory can't be opened");
     }
     writer << table;
+    writer.close();
 }
 
 /**
@@ -129,6 +166,7 @@ void CmdInterpreter::saveAs(const std::string &newFileDir) {
         throw std::runtime_error("file directory can't be opened");
     }
     writer << table;
+    writer.close();
 }
 
 /**
@@ -163,6 +201,14 @@ void CmdInterpreter::close() {
  */
 void CmdInterpreter::print() {
     std::cout << table;
+}
+
+/**
+ *
+ * @param args
+ */
+void CmdInterpreter::edit(const std::vector<std::string> &args) {
+//TODO MAKE EDIT
 }
 
 
@@ -247,4 +293,3 @@ std::vector<std::string> CmdInterpreter::splitTableRow(const std::string &input)
 
     return result;
 }
-

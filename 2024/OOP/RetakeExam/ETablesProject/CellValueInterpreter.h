@@ -17,7 +17,7 @@ public:
 
     static bool isCellCoordinates(const std::string &trimmed);
 
-    static std::vector<std::string> splitBySpace(const std::string &trimmed);
+    static std::vector<std::string> splitStringBySpace(const std::string &trimmed);
 
 private:
     static bool isFractional(const std::string &trimmed);
