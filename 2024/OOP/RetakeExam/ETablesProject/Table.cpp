@@ -38,7 +38,7 @@ std::ofstream &operator<<(std::ofstream &ofsWriter, const Table &table) {
         for (int col = 0; col < table.getColCount(); ++col) {
             try {
                 ofsWriter << table.rows[row][col] << ",";
-            } catch (std::logic_error &e) {
+            } catch (std::exception &e) {
                 ofsWriter << ",";
             }
         }
@@ -60,6 +60,11 @@ void Table::editCell(Coordinates coords, const Cell &cell) {
 
     if (colCount < coords.col) {
         throw std::invalid_argument("Col is out of range");
+    }
+    if (rows[coords.row - 1].size() < colCount) {
+        for (size_t i = rows[coords.row - 1].size(); i <= colCount; ++i) {
+            rows[coords.row - 1].emplace_back();
+        }
     }
     rows[coords.row - 1][coords.col - 1] = cell;
 }

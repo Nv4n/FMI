@@ -6,7 +6,7 @@
 #include "CellValueInterpreter.h"
 
 /**
- *
+ * @brief Converting string value to CellValue
  * @param cellInput Initial cell value as string
  * @return Processed string value as Cell
  */
@@ -24,7 +24,8 @@ Cell CellValueInterpreter::convertToCell(const std::string &cellInput) {
         double val = std::stod(trimmed);
         cell.set<double>(val, CellType::FRACTIONAL);
     } else if (isString(trimmed)) {
-        cell.set<std::string>(trimmed, CellType::STRING);
+        //Trim 2 "
+        cell.set<std::string>(trimmed.substr(1, trimmed.size() - 2), CellType::STRING);
     } else if (isFormula(trimmed)) {
         cell.set<std::string>(trimmed, CellType::FORMULA);
     }
@@ -65,7 +66,7 @@ bool CellValueInterpreter::isFractional(const std::string &trimmed) {
     }
     size_t index = 0;
     if (trimmed[0] == '+' || trimmed[0] == '-') {
-        if (trimmed.size() == 1) {
+        if (trimmed.size() <= 1) {
             return false;
         }
         index = 1;
@@ -111,7 +112,10 @@ bool CellValueInterpreter::isString(const std::string &trimmed) {
             continue;
         }
 
-        if (i + 1 >= trimmed.length() - 1 || (trimmed[i + 1] != '\\' && trimmed[i + 1] != '"')) {
+        if (i + 2 >= trimmed.length() - 1) {
+            return false;
+        }
+        if (trimmed[i + 1] != '\\' && trimmed[i + 1] != '"') {
             return false;
         }
         i++;
@@ -122,7 +126,7 @@ bool CellValueInterpreter::isString(const std::string &trimmed) {
 
 /**
  *
- * @param trimmed
+ * @param trimmed Trimmed cell value as string
  * @return bool
  */
 bool CellValueInterpreter::isFormula(const std::string &trimmed) {
@@ -130,33 +134,51 @@ bool CellValueInterpreter::isFormula(const std::string &trimmed) {
         return false;
     }
 
-    std::vector<std::string> tokens;
-    std::string token;
+    std::vector<std::string> tokens = splitBySpace(trimmed);
 
 
-    if (tokens.size() != 3) {
+    if (tokens.size() != 4) {
         return false;
     }
 
-    if (!isInteger(tokens[0]) && !isCellCoordinates(tokens[0])) {
+    const short VALUE1_INDEX = 1;
+    const short VALUE2_INDEX = 3;
+    const short OPERATOR_INDEX = 2;
+    //=, VAL1, Operator, VAL2
+    if (!isInteger(tokens[VALUE1_INDEX]) && !isCellCoordinates(tokens[VALUE1_INDEX])) {
         return false;
     }
 
-    if (!isInteger(tokens[2]) && !isCellCoordinates(tokens[2])) {
+    if (!isInteger(tokens[VALUE2_INDEX]) && !isCellCoordinates(tokens[VALUE2_INDEX])) {
         return false;
     }
 
-    if (!isOperator(tokens[1])) {
+    if (!isOperator(tokens[OPERATOR_INDEX])) {
         return false;
     }
 
     return true;
 }
 
+std::vector<std::string> CellValueInterpreter::splitBySpace(const std::string &trimmed) {
+    std::vector<std::string> tokens;
+    size_t start = 0;
+    size_t end = 0;
+
+    while ((end = trimmed.find(' ', start)) != std::string::npos) {
+        tokens.push_back(trimmed.substr(start, end - start));
+        start = end + 1;
+    }
+
+    // Add the last word
+    tokens.push_back(trimmed.substr(start));
+
+    return tokens;
+}
 
 /**
  *
- * @param trimmed
+ * @param trimmed Trimmed cell value as string
  * @return bool
  */
 bool CellValueInterpreter::isOperator(const std::string &trimmed) {
@@ -176,8 +198,8 @@ bool CellValueInterpreter::isOperator(const std::string &trimmed) {
 
 /**
  *
- * @param trimmed
- * @return
+ * @param trimmed Trimmed cell value as string
+ * @return bool
  */
 bool CellValueInterpreter::isCellCoordinates(const std::string &trimmed) {
     if (trimmed[0] != 'R') {
@@ -188,7 +210,10 @@ bool CellValueInterpreter::isCellCoordinates(const std::string &trimmed) {
     }
     bool isStartOfCoord = true;
     bool hasCol = false;
-    for (size_t ind = 0; ind < trimmed.size(); ++ind) {
+    for (size_t ind = 1; ind < trimmed.size(); ++ind) {
+        if (trimmed[ind] == 'R') {
+            return false;
+        }
         if (trimmed[ind] == 'C') {
             if (hasCol) {
                 return false;
@@ -211,10 +236,11 @@ bool CellValueInterpreter::isCellCoordinates(const std::string &trimmed) {
     return true;
 }
 
+
 /**
  *
- * @param cellInput
- * @return
+ * @param cellInput Not trimmed cell input
+ * @return string Trimmed cellInput
  */
 std::string CellValueInterpreter::trim(const std::string &cellInput) {
     size_t start = cellInput.find_first_not_of(" \t");

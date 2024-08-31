@@ -46,7 +46,9 @@ std::ofstream &operator<<(std::ofstream &ofs, const Cell &cell) {
         ofs << cell.cellData.vals.integer;
     } else if (cell.getType() == CellType::FRACTIONAL) {
         ofs << cell.cellData.vals.fractional;
-    } else if (cell.getType() == CellType::STRING || cell.getType() == CellType::FORMULA) {
+    } else if (cell.getType() == CellType::STRING) {
+        ofs << '"' << cell.cellData.vals.text << '"';
+    } else if (cell.getType() == CellType::FORMULA) {
         ofs << cell.cellData.vals.text;
     }
     return ofs;

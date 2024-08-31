@@ -13,20 +13,24 @@ class CellValueInterpreter {
 public:
     static Cell convertToCell(const std::string &cellInput);
 
-private:
     static bool isInteger(const std::string &trimmed);
 
+    static bool isCellCoordinates(const std::string &trimmed);
+
+    static std::vector<std::string> splitBySpace(const std::string &trimmed);
+
+private:
     static bool isFractional(const std::string &trimmed);
 
     static bool isString(const std::string &trimmed);
 
     static bool isFormula(const std::string &trimmed);
 
-    static bool isCellCoordinates(const std::string &trimmed);
-
     static bool isOperator(const std::string &trimmed);
 
     static std::string trim(const std::string &cellInput);
+
+
 };
 
 
