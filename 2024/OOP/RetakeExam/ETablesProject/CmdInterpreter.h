@@ -45,6 +45,10 @@ private:
 
     void close();
 
+    void print();
+
+    void edit(std::vector<std::string> args);
+
     std::vector<std::string> splitCmdArguments(const std::string &cmd);
 
     std::vector<std::string> splitTableRow(const std::string &input);

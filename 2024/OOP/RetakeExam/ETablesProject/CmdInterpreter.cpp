@@ -159,7 +159,15 @@ void CmdInterpreter::close() {
 }
 
 /**
- *
+ * @brief Prints the table on terminal
+ */
+void CmdInterpreter::print() {
+    std::cout << table;
+}
+
+
+/**
+ * @brief Split command line into arguments
  * @param cmd Command line
  * @return vector of all command arguments
  */
@@ -211,7 +219,7 @@ std::vector<std::string> CmdInterpreter::splitCmdArguments(const std::string &cm
 }
 
 /**
- *
+ * @brief Split table row into string values
  * @param input Table row in string form
  * @return Cell values as strings
  */
@@ -239,3 +247,4 @@ std::vector<std::string> CmdInterpreter::splitTableRow(const std::string &input)
 
     return result;
 }
+
