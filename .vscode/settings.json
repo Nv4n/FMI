@@ -61,4 +61,13 @@
 	"docwriter.language": "English",
 	"C_Cpp.errorSquiggles": "disabled",
 	"docwriter.progress.trackFunctions": true,
+	"spellright.language": [
+		"bg",
+		"en"
+	],
+	"spellright.documentTypes": [
+		"markdown",
+		"latex",
+		"plaintext"
+	],
 }
