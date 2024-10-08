@@ -68,6 +68,6 @@
 	"spellright.documentTypes": [
 		"markdown",
 		"latex",
-		"plaintext"
+		"xml"
 	],
 }
