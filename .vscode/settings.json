@@ -70,4 +70,7 @@
 		"latex",
 		"xml"
 	],
+	"python.autoComplete.extraPaths": [
+		"matplotlib"
+	]
 }
