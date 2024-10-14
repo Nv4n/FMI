@@ -72,5 +72,6 @@
 	],
 	"python.autoComplete.extraPaths": [
 		"matplotlib"
-	]
+	],
+	"todo-tree.tree.disableCompactFolders": false
 }
