@@ -15,8 +15,9 @@ But the big problem is the gypsies...
 <!-- DONE -->
 
 <!-- С това, че приемат референдум за образователния ценз ГЕРБ -->
-By accepting a referendum on the education requirement GERB will look for those 160 votes they need for convocation of the Grand National Assembly when pigs fly. The introduction of an education threshold also affects the electorate of the DPS. Dogan's voters do not vote for pay in the literal sense of the word.
+By accepting a referendum on the education requirement GERB will look for those 160 votes they need for convocation of the Grand National Assembly when pigs fly. The introduction of an education threshold also affects the electorate of the DPS. Dogan's voters do not vote for pay in the literal sense of the word. 
 <!-- TODO NEEDS TO BE FIXED ^^^ -->
+
 Their vote is more complex and multi-layered. There is also ethnic fear, layered from the recent "Revival Process" past, and purely social fear in the settlements where the Agha "wags the dog"... By their very agreement to put the question of the education requirement to a referendum, GERB has eliminated the last opportunities to negotiate with the DPS collecting the necessary votes for the Grand National Assembly. In fact, the 25 deputies of the DPS do not solve the issue at all. But, as it has already become known to the crows, it is not the Grand National Assembly or the change of the constitution that are GERB's goal. The goal is much simpler and pragmatic - finishing the mandate. Because this time it might be the last. In any case, GERB will never get such unlimited power again.
 <!-- TODO CHECK BEFORE SUBMIT -->
 <!-- DONE -->
