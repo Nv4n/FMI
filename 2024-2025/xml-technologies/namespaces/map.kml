@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml:kml
+    xmlns:kml="http://www.opengis.net/kml/2.2"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:oasis="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+    <kml:Placemark>
+        <kml:name>Факултет по математика и информатика</kml:name>
+        <atom:author>
+            <atom:name>Пламен Тотев</atom:name>
+            <atom:email>ptotev@uni-sofia.bg</atom:email>
+        </atom:author>
+        <atom:link href="https://www.fmi.uni-sofia.bg"/>
+        <kml:address>бул. "Джеймс Баучер" 5, 1164 София</kml:address>
+        <oasis:AddressDetails AddressType="Бизнес">
+            <oasis:Country>
+                <oasis:AddressLine>България</oasis:AddressLine>
+                <oasis:Locality>
+                    <oasis:AddressLine>София</oasis:AddressLine>
+                    <oasis:Thoroughfare>
+                        <oasis:AddressLine>бул. "Джеймс Баучер" 5</oasis:AddressLine>
+                    </oasis:Thoroughfare>
+                    <oasis:PostalCode>
+                        <oasis:AddressLine>1164</oasis:AddressLine>
+                    </oasis:PostalCode>
+                </oasis:Locality>
+            </oasis:Country>
+        </oasis:AddressDetails>
+        <kml:Point>
+            <kml:coordinates>23.330324, 42.674355</kml:coordinates>
+        </kml:Point>
+    </kml:Placemark>
+</kml:kml>

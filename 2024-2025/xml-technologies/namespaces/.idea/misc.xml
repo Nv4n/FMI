@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectResources">
+    <resource url="http://docs.oasis-open.org/election/external/xAL.xsd" location="$PROJECT_DIR$/.idea/schemas/xAL.xsd" />
+    <resource url="http://www.opengis.net/kml/2.2" location="$PROJECT_DIR$/.idea/schemas/ogckml22.xsd" />
+    <resource url="http://www.w3.org/2005/Atom" location="$PROJECT_DIR$/.idea/schemas/atom-author-link.xsd" />
+    <resource url="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" location="$PROJECT_DIR$/.idea/schemas/xAL.xsd" />
+  </component>
+</project>
