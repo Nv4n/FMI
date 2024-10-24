@@ -2,7 +2,7 @@
 <!DOCTYPE contacts [
     <!ELEMENT contacts (contact)*>
     <!ELEMENT contact (name+ , (photo | email | phone)*, (label | labels)?)>
-    <!ELEMENT name (given|last|(given,last))>
+    <!ELEMENT name ((given?, last) | (given,last?))>
     <!ELEMENT given (#PCDATA)>
     <!ELEMENT last (#PCDATA)>
     <!ELEMENT photo (#PCDATA)>
