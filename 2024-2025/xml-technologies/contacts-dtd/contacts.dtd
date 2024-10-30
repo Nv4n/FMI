@@ -1,0 +1,13 @@
+<!ELEMENT contacts (contact)*>
+        <!ELEMENT contact (name+ , photo? ,( email | phone)*, (label | labels)?)>
+        <!ELEMENT name ((given?, last) | (given,last?))>
+        <!ELEMENT given (#PCDATA)>
+        <!ELEMENT last (#PCDATA)>
+        <!ELEMENT photo (#PCDATA)>
+        <!ATTLIST photo uri CDATA #REQUIRED>
+        <!ELEMENT email (#PCDATA)>
+        <!ATTLIST email type (personal | business) #IMPLIED>
+        <!ELEMENT phone (#PCDATA)>
+        <!ATTLIST phone type (personal | business | mobile) "personal">
+        <!ELEMENT label (#PCDATA)>
+        <!ELEMENT labels (label+)>

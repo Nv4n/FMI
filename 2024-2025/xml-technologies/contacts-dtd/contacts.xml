@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE contacts [
-    <!ELEMENT contacts (contact)*>
-    <!ELEMENT contact (name+ , (photo | email | phone)*, (label | labels)?)>
-    <!ELEMENT name ((given?, last) | (given,last?))>
-    <!ELEMENT given (#PCDATA)>
-    <!ELEMENT last (#PCDATA)>
-    <!ELEMENT photo (#PCDATA)>
-    <!ATTLIST photo uri CDATA #REQUIRED>
-    <!ELEMENT email (#PCDATA)>
-    <!ATTLIST email type (personal | business) #IMPLIED>
-    <!ELEMENT phone (#PCDATA)>
-    <!ATTLIST phone type (personal | business | mobile) "personal">
-    <!ELEMENT label (#PCDATA)>
-    <!ELEMENT labels (label+)>
-]>
+<!DOCTYPE contacts SYSTEM "contacts.dtd">
 <contacts> <!-- Съдържа нула или повече контакта -->
     <contact>
         <name> <!-- Задължителен елемент -->
@@ -21,7 +7,7 @@
             <last>Гъмп</last> <!-- Задължителен елемент -->
         </name>
         <!-- Незадължителен празен елемент. `uri` е задължителен атрибут -->
-        <photo uri="https://example.com/pics/gump.jpg" />
+        <photo uri="https://example.com/pics/gump.jpg"/>
         <!--
             Един контакт може да има нула или повече е-мейл адреса.
             `type` може да бъде `personal` или `business`.
