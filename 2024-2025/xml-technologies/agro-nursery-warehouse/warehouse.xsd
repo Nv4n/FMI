@@ -41,6 +41,7 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            <xsd:element name="contact" type="contact"></xsd:element>
         </xsd:sequence>
         <xsd:attribute name="status" default="pending">
             <xsd:simpleType>
@@ -71,8 +72,26 @@
         <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
         <xsd:attribute name="quantity" type="xsd:int" use="required"></xsd:attribute>
     </xsd:complexType>
-</xsd:schema>
 
+    <xsd:complexType name="content-info">
+        <xsd:sequence>
+            <xsd:element name="weight" type="xsd:double"></xsd:element>
+            <xsd:element name="type">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="tool"></xsd:enumeration>
+                        <xsd:enumeration value="seeds"></xsd:enumeration>
+                        <xsd:enumeration value="clothing"></xsd:enumeration>
+                        <xsd:enumeration value="equipment"></xsd:enumeration>
+                        <xsd:enumeration value="structure"></xsd:enumeration>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
+<!-- ATR:5 EL:11 -->
 <!--Всеки
 студент избира и разработва собствен модел на документ за избраната
 от него и одобрена от асистиращите приложна област. За този модел се
