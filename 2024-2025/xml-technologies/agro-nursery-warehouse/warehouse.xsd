@@ -14,12 +14,45 @@
             <xsd:element name="products">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="product" type="product" minOccurs="1" maxOccurs="unbounded"></xsd:element>
+                        <xsd:element name="product" type="product" minOccurs="1"
+                            maxOccurs="unbounded"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="contact" type="contact"></xsd:element>
+            <xsd:element name="deliveries">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="delivery" type="delivery" minOccurs="0"
+                            maxOccurs="unbounded"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="delivery">
+        <xsd:sequence>
+            <xsd:element name="products">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="product" type="product" minOccurs="1"
+                            maxOccurs="unbounded"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="status" default="pending">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="canceled"></xsd:enumeration>
+                    <xsd:enumeration value="returned"></xsd:enumeration>
+                    <xsd:enumeration value="pending"></xsd:enumeration>
+                    <xsd:enumeration value="finished"></xsd:enumeration>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="cost" type="xsd:double"></xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="contact">
