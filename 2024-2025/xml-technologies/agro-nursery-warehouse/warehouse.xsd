@@ -8,7 +8,6 @@
         </xsd:complexType>
     </xsd:element>
 
-
     <xsd:complexType name="warehouse">
         <xsd:sequence>
             <xsd:element name="products">
@@ -72,12 +71,12 @@
         <xsd:attribute name="price" type="xsd:double" use="required"></xsd:attribute>
         <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
         <xsd:attribute name="quantity" type="xsd:int" use="required"></xsd:attribute>
+        <xsd:attribute name="isFragile" type="xsd:boolean" use="optional" default="false"></xsd:attribute>
 
     </xsd:complexType>
 
     <xsd:complexType name="content-info">
         <xsd:sequence>
-            <xsd:element name="fragile" type="xsd:boolean"></xsd:element>
             <xsd:element name="weight" type="xsd:double"></xsd:element>
             <xsd:element name="expiry_date" type="xsd:date"></xsd:element>
             <xsd:element name="type">
@@ -105,67 +104,3 @@
 различни групи вложени елементи (всяка с най-малко 3 елемента). Групите
 трябва да се срещат 2-3 пъти
 -->
-
-<!--Here's
-a basic schema for an inventory/warehouse system within your agro nursery app. It includes tables
-for managing stock levels, warehouse locations, and product batches.
-
-Inventory/Warehouse Schema
-1. warehouses
-Stores details about each warehouse location.
-
-Column	Type	Description
-id	SERIAL	Primary key, unique warehouse ID.
-name	VARCHAR(100)	Name of the warehouse.
-location	VARCHAR(255)	Address or description of the location.
-created_at	TIMESTAMP	Timestamp when the warehouse was created.
-updated_at	TIMESTAMP	Timestamp for the last update.
-
-2. inventory_items
-Details of items in stock within each warehouse.
-Column	Type	Description
-id	SERIAL	Primary key, unique inventory item ID.
-warehouse_id	INT	Foreign key to warehouses(id).
-product_id	INT	Foreign key to products(id).
-quantity	INT	Quantity of the product in stock.
-batch_id	INT	Foreign key to batches(id).
-expiry_date	DATE	Expiration date of the product, if applicable.
-created_at	TIMESTAMP	Timestamp when the item was added.
-updated_at	TIMESTAMP	Timestamp for the last update.
-
-3. products
-Information about products in the inventory.
-
-Column	Type	Description
-id	SERIAL	Primary key, unique product ID.
-name	VARCHAR(100)	Product name.
-description	TEXT	Description of the product.
-price	DECIMAL(10, 2)	Price per unit.
-created_at	TIMESTAMP	Timestamp when the product was created.
-updated_at	TIMESTAMP	Timestamp for the last update.
-
-4. batches
-Tracks individual batches of products for traceability.
-
-Column	Type	Description
-id	SERIAL	Primary key, unique batch ID.
-product_id	INT	Foreign key to products(id).
-batch_number	VARCHAR(50)	Unique identifier for the batch.
-production_date	DATE	Date the batch was produced.
-expiry_date	DATE	Expiration date of the batch, if applicable.
-created_at	TIMESTAMP	Timestamp when the batch was added.
-updated_at	TIMESTAMP	Timestamp for the last update.
-5. stock_movements
-Tracks stock movements (e.g., incoming or outgoing stock) to monitor adjustments.
-
-Column	Type	Description
-id	SERIAL	Primary key, unique movement ID.
-inventory_item_id	INT	Foreign key to inventory_items(id).
-movement_type	VARCHAR(20)	Type of movement (IN, OUT, TRANSFER).
-quantity	INT	Quantity moved.
-date	TIMESTAMP	Date and time of the movement.
-source_warehouse_id	INT	Foreign key to warehouses(id), if applicable.
-destination_warehouse_id	INT	Foreign key to warehouses(id), if applicable.
-created_at	TIMESTAMP	Timestamp when the movement was recorded.
-This design enables tracking inventory at the warehouse level, monitoring stock movements, and
-managing product batches with expiry dates.-->
