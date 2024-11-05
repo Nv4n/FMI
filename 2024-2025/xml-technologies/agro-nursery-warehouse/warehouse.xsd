@@ -4,6 +4,14 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="warehouse" minOccurs="1" maxOccurs="unbounded" type="warehouse"> </xsd:element>
+                <xsd:element name="company">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="name" type="xsd:string"></xsd:element>
+                            <xsd:element name="contact" type="contact"></xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
