@@ -13,9 +13,21 @@
 
     <xsd:complexType name="warehouse">
         <xsd:sequence>
- 
+            <xsd:element name="items">
+                <!-- <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="item" type="item">
+
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType> -->
+            </xsd:element>
+            <xsd:element name="contact">
+
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
+
 </xsd:schema>
 
 <!--Всеки
