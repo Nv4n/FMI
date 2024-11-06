@@ -18,6 +18,7 @@
                 <city>Sofia</city>
                 <address>ul.Pencho 1</address>
             </location>
+            <phone>+359994234232</phone>
         </contact>
         <deliveries>
             <delivery>
@@ -37,6 +38,8 @@
                         <city>Sofia</city>
                         <address>ul. Gosho Geshev 34</address>
                     </location>
+                    <phone>2</phone>
+                    <email>pencho@penchev.com</email>
                 </contact>
             </delivery>
         </deliveries>
@@ -49,6 +52,7 @@
                 <city>Sofia</city>
                 <address>ul.Pencho 1</address>
             </location>
+            <email>gosho@gosho.com</email>
         </contact>
     </company>
 </warehouses>
