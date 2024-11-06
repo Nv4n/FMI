@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE contacts SYSTEM "contacts.dtd">
 <contacts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamescapeSchemaLocation="contacts.xsd"> <!-- Съдържа нула или повече контакта -->
+          xsi:noNamespaceSchemaLocation="contacts.xsd"> <!-- Съдържа нула или повече контакта -->
     <contact>
         <name> <!-- Задължителен елемент -->
             <given>Форест</given> <!-- Задължителен елемент -->
