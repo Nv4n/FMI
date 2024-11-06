@@ -3,12 +3,12 @@
     <xsd:element name="warehouses">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="warehouse" minOccurs="1" maxOccurs="unbounded" type="warehouse"/>
+                <xsd:element name="warehouse" minOccurs="1" maxOccurs="unbounded" type="Warehouse"/>
                 <xsd:element name="company">
                     <xsd:complexType>
                         <xsd:sequence>
                             <xsd:element name="name" type="xsd:string"/>
-                            <xsd:element name="contact" type="contact"/>
+                            <xsd:element name="contact" type="Contact"/>
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>
@@ -16,21 +16,21 @@
         </xsd:complexType>
     </xsd:element>
 
-    <xsd:complexType name="warehouse">
+    <xsd:complexType name="Warehouse">
         <xsd:sequence>
             <xsd:element name="products">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="product" type="product" minOccurs="1"
+                        <xsd:element name="product" type="Product" minOccurs="1"
                                      maxOccurs="unbounded"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="contact" type="contact"/>
+            <xsd:element name="contact" type="Contact"/>
             <xsd:element name="deliveries">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="delivery" type="delivery" minOccurs="0"
+                        <xsd:element name="delivery" type="Delivery" minOccurs="0"
                                      maxOccurs="unbounded"/>
                     </xsd:sequence>
                 </xsd:complexType>
@@ -38,17 +38,17 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="delivery">
+    <xsd:complexType name="Delivery">
         <xsd:sequence>
             <xsd:element name="products">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="product" type="product" minOccurs="1"
+                        <xsd:element name="product" type="Product" minOccurs="1"
                                      maxOccurs="unbounded"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="contact" type="contact"/>
+            <xsd:element name="contact" type="Contact"/>
         </xsd:sequence>
         <xsd:attribute name="status" default="pending">
             <xsd:simpleType>
@@ -63,7 +63,7 @@
         <xsd:attribute name="cost" type="xsd:double"/>
     </xsd:complexType>
 
-    <xsd:complexType name="contact">
+    <xsd:complexType name="Contact">
         <xsd:all>
             <xsd:element name="address" minOccurs="1" maxOccurs="1" type="xsd:string"/>
             <xsd:element name="email" minOccurs="0" type="xsd:string"/>
@@ -71,10 +71,10 @@
         </xsd:all>
     </xsd:complexType>
 
-    <xsd:complexType name="product">
+    <xsd:complexType name="Product">
         <xsd:sequence>
             <xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="info" type="content-info"/>
+            <xsd:element name="info" type="ContentInfo"/>
         </xsd:sequence>
         <xsd:attribute name="price" type="xsd:double" use="required"/>
         <xsd:attribute name="name" type="xsd:string" use="required"/>
@@ -82,9 +82,9 @@
 
     </xsd:complexType>
 
-    <xsd:complexType name="content-info">
+    <xsd:complexType name="ContentInfo">
         <xsd:sequence>
-            <xsd:element name="isFragile" type="xsd:boolean" minOccurs="0" maxOccurs="1"
+            <xsd:element name="fragile" type="xsd:boolean" minOccurs="0" maxOccurs="1"
                          default="false"/>
             <xsd:element name="weight" type="xsd:double"/>
             <xsd:element name="expiry_date" type="xsd:date"/>
@@ -103,7 +103,7 @@
         </xsd:sequence>
     </xsd:complexType>
 </xsd:schema>
-        <!-- ATR:5 EL:11 -->
+
         <!--Всеки
         студент избира и разработва собствен модел на документ за избраната
         от него и одобрена от асистиращите приложна област. За този модел се
