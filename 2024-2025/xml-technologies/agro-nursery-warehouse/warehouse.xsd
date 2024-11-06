@@ -3,12 +3,12 @@
     <xsd:element name="warehouses">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="warehouse" minOccurs="1" maxOccurs="unbounded" type="warehouse"> </xsd:element>
+                <xsd:element name="warehouse" minOccurs="1" maxOccurs="unbounded" type="warehouse"/>
                 <xsd:element name="company">
                     <xsd:complexType>
                         <xsd:sequence>
-                            <xsd:element name="name" type="xsd:string"></xsd:element>
-                            <xsd:element name="contact" type="contact"></xsd:element>
+                            <xsd:element name="name" type="xsd:string"/>
+                            <xsd:element name="contact" type="contact"/>
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>
@@ -22,16 +22,16 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="product" type="product" minOccurs="1"
-                            maxOccurs="unbounded"></xsd:element>
+                                     maxOccurs="unbounded"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="contact" type="contact"></xsd:element>
+            <xsd:element name="contact" type="contact"/>
             <xsd:element name="deliveries">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="delivery" type="delivery" minOccurs="0"
-                            maxOccurs="unbounded"></xsd:element>
+                                     maxOccurs="unbounded"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -44,57 +44,58 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="product" type="product" minOccurs="1"
-                            maxOccurs="unbounded"></xsd:element>
+                                     maxOccurs="unbounded"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="contact" type="contact"></xsd:element>
+            <xsd:element name="contact" type="contact"/>
         </xsd:sequence>
         <xsd:attribute name="status" default="pending">
             <xsd:simpleType>
                 <xsd:restriction base="xsd:string">
-                    <xsd:enumeration value="canceled"></xsd:enumeration>
-                    <xsd:enumeration value="returned"></xsd:enumeration>
-                    <xsd:enumeration value="pending"></xsd:enumeration>
-                    <xsd:enumeration value="finished"></xsd:enumeration>
+                    <xsd:enumeration value="canceled"/>
+                    <xsd:enumeration value="returned"/>
+                    <xsd:enumeration value="pending"/>
+                    <xsd:enumeration value="finished"/>
                 </xsd:restriction>
             </xsd:simpleType>
         </xsd:attribute>
-        <xsd:attribute name="cost" type="xsd:double"></xsd:attribute>
+        <xsd:attribute name="cost" type="xsd:double"/>
     </xsd:complexType>
 
     <xsd:complexType name="contact">
         <xsd:all>
-            <xsd:element name="address" minOccurs="1" maxOccurs="1" type="xsd:string"></xsd:element>
-            <xsd:element name="email" minOccurs="0" type="xsd:string"></xsd:element>
-            <xsd:element name="phone" minOccurs="0" type="xsd:string"></xsd:element>
+            <xsd:element name="address" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <xsd:element name="email" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="phone" minOccurs="0" type="xsd:string"/>
         </xsd:all>
     </xsd:complexType>
 
     <xsd:complexType name="product">
         <xsd:sequence>
-            <xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
-            <xsd:element name="info" type="content-info"></xsd:element>
+            <xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="info" type="content-info"/>
         </xsd:sequence>
-        <xsd:attribute name="price" type="xsd:double" use="required"></xsd:attribute>
-        <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
-        <xsd:attribute name="quantity" type="xsd:int" use="required"></xsd:attribute>
-        <xsd:attribute name="isFragile" type="xsd:boolean" use="optional" default="false"></xsd:attribute>
+        <xsd:attribute name="price" type="xsd:double" use="required"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="quantity" type="xsd:int" use="required"/>
 
     </xsd:complexType>
 
     <xsd:complexType name="content-info">
         <xsd:sequence>
-            <xsd:element name="weight" type="xsd:double"></xsd:element>
-            <xsd:element name="expiry_date" type="xsd:date"></xsd:element>
+            <xsd:element name="isFragile" type="xsd:boolean" minOccurs="0" maxOccurs="1"
+                         default="false"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="expiry_date" type="xsd:date"/>
             <xsd:element name="type">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:enumeration value="tool"></xsd:enumeration>
-                        <xsd:enumeration value="seeds"></xsd:enumeration>
-                        <xsd:enumeration value="clothing"></xsd:enumeration>
-                        <xsd:enumeration value="equipment"></xsd:enumeration>
-                        <xsd:enumeration value="structure"></xsd:enumeration>
+                        <xsd:enumeration value="tool"/>
+                        <xsd:enumeration value="seeds"/>
+                        <xsd:enumeration value="clothing"/>
+                        <xsd:enumeration value="equipment"/>
+                        <xsd:enumeration value="structure"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
@@ -102,13 +103,13 @@
         </xsd:sequence>
     </xsd:complexType>
 </xsd:schema>
-<!-- ATR:5 EL:11 -->
-<!--Всеки
-студент избира и разработва собствен модел на документ за избраната
-от него и одобрена от асистиращите приложна област. За този модел се
-съставя Document Type Definition - DTD или SCHEMA. DTD или SCHEMA
-трябва да съдържа минимум 20 различни елемента и 5 атрибута, с които се
-задава състава и структурата на модела. В документа трябва да има поне две
-различни групи вложени елементи (всяка с най-малко 3 елемента). Групите
-трябва да се срещат 2-3 пъти
--->
+        <!-- ATR:5 EL:11 -->
+        <!--Всеки
+        студент избира и разработва собствен модел на документ за избраната
+        от него и одобрена от асистиращите приложна област. За този модел се
+        съставя Document Type Definition - DTD или SCHEMA. DTD или SCHEMA
+        трябва да съдържа минимум 20 различни елемента и 5 атрибута, с които се
+        задава състава и структурата на модела. В документа трябва да има поне две
+        различни групи вложени елементи (всяка с най-малко 3 елемента). Групите
+        трябва да се срещат 2-3 пъти
+        -->
