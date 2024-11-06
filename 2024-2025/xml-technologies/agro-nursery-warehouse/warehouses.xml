@@ -26,16 +26,16 @@
                         <info>
                             <fragile>false</fragile>
                             <weight>0.2</weight>
-                            <expiry_date></expiry_date>
-                            <type></type>
+                            <expiry_date>2027-12-13</expiry_date>
+                            <type>seeds</type>
                         </info>
                     </product>
                 </products>
                 <contact>
                     <location>
-                        <country></country>
-                        <city></city>
-                        <address></address>
+                        <country>Bulgaria</country>
+                        <city>Sofia</city>
+                        <address>ul. Gosho Geshev 34</address>
                     </location>
                 </contact>
             </delivery>
