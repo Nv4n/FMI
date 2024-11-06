@@ -97,7 +97,7 @@
 
     <xsd:simpleType name="Email">
         <xsd:restriction base="xsd:string">
-            <xsd:maxLength value="254"></xsd:maxLength>
+            <xsd:maxLength value="254"/>
             <xsd:pattern
                 value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
         </xsd:restriction>
@@ -113,14 +113,22 @@
 
     <xsd:complexType name="Product">
         <xsd:sequence>
-            <xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1" />
             <xsd:element name="info" type="ContentInfo" />
+            <xsd:element name="notes" type="NonEmptyString" minOccurs="0" maxOccurs="1">
+            </xsd:element>
         </xsd:sequence>
+        <xsd:attribute name="name" type="NonEmptyString" use="required">
+        </xsd:attribute>
+        <xsd:attribute name="brand" type="NonEmptyString" use="required"/>
         <xsd:attribute name="price" type="xsd:double" use="required" />
-        <xsd:attribute name="name" type="xsd:string" use="required" />
         <xsd:attribute name="quantity" type="xsd:int" use="required" />
-
     </xsd:complexType>
+
+    <xsd:simpleType name="NonEmptyString">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
 
     <xsd:complexType name="ContentInfo">
         <xsd:sequence>

@@ -3,12 +3,21 @@
     xsi:noNamespaceSchemaLocation="warehouses.xsd">
     <warehouse>
         <products>
-            <product price="1" name="Домати" quantity="34">
+            <product brand="Семена Гешев" price="1" name="Домати" quantity="34">
                 <info>
                     <fragile>false</fragile>
                     <weight>0.1</weight>
                     <expiry_date>2025-09-24</expiry_date>
                     <type>seeds</type>
+                </info>
+                <notes>Keep in dry place</notes>
+            </product>
+            <product name="Круши Гергана" brand="Семена Фермера" price="2.5" quantity="30">
+                <info>
+                    <fragile>true</fragile>
+                    <weight></weight>
+                    <expiry_date></expiry_date>
+                    <type>tool</type>
                 </info>
             </product>
         </products>
@@ -23,7 +32,7 @@
         <deliveries>
             <delivery>
                 <products>
-                    <product price="1" name="Домати" quantity="10">
+                    <product brand="Семена Гешев" price="1" name="Домати" quantity="10">
                         <info>
                             <fragile>false</fragile>
                             <weight>0.2</weight>
@@ -32,15 +41,18 @@
                         </info>
                     </product>
                 </products>
-                <contact>
-                    <location>
-                        <country>Bulgaria</country>
-                        <city>Sofia</city>
-                        <address>ul. Gosho Geshev 34</address>
-                    </location>
-                    <email>pencho@penchev.com</email>
-                    <phone>+73-444-23-44</phone>
-                </contact>
+                <vendor>
+                    <name>Vendors inc.</name>
+                    <contact>
+                        <location>
+                            <country>Bulgaria</country>
+                            <city>Sofia</city>
+                            <address>ul. Gosho Geshev 34</address>
+                        </location>
+                        <email>pencho@penchev.com</email>
+                        <phone>+73-444-23-44</phone>
+                    </contact>
+                </vendor>
             </delivery>
         </deliveries>
     </warehouse>
