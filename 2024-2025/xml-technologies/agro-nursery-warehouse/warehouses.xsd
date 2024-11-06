@@ -65,10 +65,18 @@
 
     <xsd:complexType name="Contact">
         <xsd:all>
-            <xsd:element name="address" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <xsd:element name="location" minOccurs="1" maxOccurs="1" type="Location"/>
             <xsd:element name="email" minOccurs="0" type="xsd:string"/>
             <xsd:element name="phone" minOccurs="0" type="xsd:string"/>
         </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="Location">
+        <xsd:sequence>
+            <xsd:element name="country" type="xsd:string"/>
+            <xsd:element name="city" type="xsd:string"/>
+            <xsd:element name="address" type="xsd:string"/>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="Product">
