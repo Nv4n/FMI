@@ -73,7 +73,7 @@
                 </xsd:sequence>
                 <xsd:sequence>
                     <xsd:element name="email" type="Email" minOccurs="0" />
-                    <xsd:element name="phone" type="xsd:string" />
+                    <xsd:element name="phone" type="Phone" />
                 </xsd:sequence>
             </xsd:choice>
         </xsd:sequence>
@@ -92,6 +92,14 @@
             <xsd:maxLength value="254"></xsd:maxLength>
             <xsd:pattern
                 value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+    <xsd:simpleType name="Phone">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern
+                value="\+?[0-9]{1,3}-[0-9]{3}-[0-9]{4}" />
         </xsd:restriction>
     </xsd:simpleType>
 
