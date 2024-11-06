@@ -68,11 +68,11 @@
             <xsd:element name="location" minOccurs="1" maxOccurs="1" type="Location" />
             <xsd:choice>
                 <xsd:sequence>
-                    <xsd:element name="email" type="xsd:string" />
+                    <xsd:element name="email" type="Email" />
                     <xsd:element name="phone" type="xsd:string" minOccurs="0" />
                 </xsd:sequence>
                 <xsd:sequence>
-                    <xsd:element name="email" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="email" type="Email" minOccurs="0" />
                     <xsd:element name="phone" type="xsd:string" />
                 </xsd:sequence>
             </xsd:choice>
@@ -86,6 +86,14 @@
             <xsd:element name="address" type="xsd:string" />
         </xsd:sequence>
     </xsd:complexType>
+
+    <xsd:simpleType name="Email">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="254"></xsd:maxLength>
+            <xsd:pattern
+                value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+        </xsd:restriction>
+    </xsd:simpleType>
 
     <xsd:complexType name="Product">
         <xsd:sequence>
@@ -126,6 +134,6 @@
         съставя Document Type Definition - DTD или SCHEMA. DTD или SCHEMA
         трябва да съдържа минимум 20 различни елемента и 5 атрибута, с които се
         задава състава и структурата на модела. В документа трябва да има поне две
-        различни групи вложени елементи (всяка с най-малко 3 елемента). Групите
+        различни групи вложени елементи (всяка с най-малко 3 елемен��а). Групите
         трябва да се срещат 2-3 пъти
         -->
