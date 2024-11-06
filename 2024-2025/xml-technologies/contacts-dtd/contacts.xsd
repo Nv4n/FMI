@@ -81,10 +81,18 @@
     </xsd:simpleType>
 
     <xsd:complexType name="ContactName">
-        <xsd:sequence>
-            <xsd:element name="given" type="xsd:string" minOccurs="0"/>
-            <xsd:element name="last" type="xsd:string" minOccurs="0"/>
-        </xsd:sequence>
+        <xsd:choice>
+            <xsd:sequence>
+                <xsd:element name="given" type="xsd:string" />
+                <xsd:element name="last" type="xsd:string" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:sequence>
+                <xsd:element name="given" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="last" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:choice>
+
     </xsd:complexType>
+
 
 </xsd:schema>
