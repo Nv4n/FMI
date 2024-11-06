@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="warehouses.xsd">
+    <warehouse>
+        <products>
+            <product price="1" name="Домати" quantity="34">
+                <info>
+                    <weight>0.1</weight>
+                    <expiry_date>2025-09-24</expiry_date>
+                    <type>seeds</type>
+                </info>
+            </product>
+        </products>
+        <contact>
+            <location>
+                <country>Bulgaria</country>
+                <city>Sofia</city>
+                <address>ul.Pencho 1</address>
+            </location>
+        </contact>
+        <deliveries>
+            <delivery>
+                <products>
+                    <product price="1" name="Домати" quantity="10">
+                        <info>
+                            <weight>0.2</weight>
+                            <expiry_date></expiry_date>
+                            <type></type>
+                        </info>
+                    </product>
+                </products>
+                <contact>
+                    <location>
+                        <country></country>
+                        <city></city>
+                        <address></address>
+                    </location>
+                </contact>
+            </delivery>
+        </deliveries>
+    </warehouse>
+    <company>
+        <name>Agro Nursery inc</name>
+        <contact>
+            <location>
+                <country>Bulgaria</country>
+                <city>Sofia</city>
+                <address>ul.Pencho 1</address>
+            </location>
+        </contact>
+    </company>
+</warehouses>
