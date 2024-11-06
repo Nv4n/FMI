@@ -3,18 +3,22 @@
     xsi:noNamespaceSchemaLocation="warehouses.xsd">
     <warehouse>
         <products>
-            <product brand="Семена Гешев" price="1" name="Домати" quantity="34">
+            <product brand="Семена Гешев" name="Домати">
                 <info>
                     <fragile>false</fragile>
+                    <price currency="BGN">1</price>
+                    <quantity>34</quantity>
                     <weight unit="g">0.1</weight>
                     <expiry_date>2025-09-24</expiry_date>
                     <type>seeds</type>
                 </info>
                 <notes>Keep in dry place</notes>
             </product>
-            <product name="Краставици Гергана" brand="Семена Фермера" price="2.5" quantity="30">
+            <product name="Краставици Гергана" brand="Семена Фермера">
                 <info>
                     <fragile>false</fragile>
+                    <price currency="RON">2.5</price>
+                    <quantity>30</quantity>
                     <weight unit="g">2</weight>
                     <expiry_date>2028-10-04</expiry_date>
                     <type>seeds</type>
@@ -32,9 +36,11 @@
         <deliveries>
             <delivery>
                 <products>
-                    <product brand="Семена Гешев" price="1" name="Домати" quantity="10">
+                    <product brand="Семена Гешев" name="Домати">
                         <info>
                             <fragile>false</fragile>
+                            <price currency="BGN">1</price>
+                            <quantity>10</quantity>
                             <weight>0.2</weight>
                             <expiry_date>2027-12-13</expiry_date>
                             <type>seeds</type>
@@ -56,7 +62,7 @@
             </delivery>
         </deliveries>
     </warehouse>
-    <company>
+    <owner>
         <name>Agro Nursery inc</name>
         <contact>
             <location>
@@ -66,5 +72,5 @@
             </location>
             <email>gosho@gosho.com</email>
         </contact>
-    </company>
+    </owner>
 </warehouses>
