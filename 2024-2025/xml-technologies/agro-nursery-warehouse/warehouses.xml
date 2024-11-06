@@ -15,7 +15,7 @@
             <product name="Круши Гергана" brand="Семена Фермера" price="2.5" quantity="30">
                 <info>
                     <fragile>true</fragile>
-                    <weight></weight>
+                    <weight>1</weight>
                     <expiry_date></expiry_date>
                     <type>tool</type>
                 </info>

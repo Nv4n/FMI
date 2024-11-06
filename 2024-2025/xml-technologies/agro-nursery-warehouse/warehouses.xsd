@@ -97,7 +97,7 @@
 
     <xsd:simpleType name="Email">
         <xsd:restriction base="xsd:string">
-            <xsd:maxLength value="254"/>
+            <xsd:maxLength value="254" />
             <xsd:pattern
                 value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
         </xsd:restriction>
@@ -119,14 +119,14 @@
         </xsd:sequence>
         <xsd:attribute name="name" type="NonEmptyString" use="required">
         </xsd:attribute>
-        <xsd:attribute name="brand" type="NonEmptyString" use="required"/>
+        <xsd:attribute name="brand" type="NonEmptyString" use="required" />
         <xsd:attribute name="price" type="xsd:double" use="required" />
         <xsd:attribute name="quantity" type="xsd:int" use="required" />
     </xsd:complexType>
 
     <xsd:simpleType name="NonEmptyString">
         <xsd:restriction base="xsd:string">
-            <xsd:minLength value="1"/>
+            <xsd:minLength value="1" />
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -134,7 +134,15 @@
         <xsd:sequence>
             <xsd:element name="fragile" type="xsd:boolean" minOccurs="0" maxOccurs="1"
                 default="false" />
-            <xsd:element name="weight" type="xsd:double" />
+            <xsd:element name="weight">
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="xsd:double">
+                            <xsd:attribute name="unit" type="xsd:string" use="optional" default="g" />
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="expiry_date" type="xsd:date" />
             <xsd:element name="type">
                 <xsd:simpleType>
