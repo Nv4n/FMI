@@ -6,18 +6,18 @@
             <product brand="Семена Гешев" price="1" name="Домати" quantity="34">
                 <info>
                     <fragile>false</fragile>
-                    <weight>0.1</weight>
+                    <weight unit="g">0.1</weight>
                     <expiry_date>2025-09-24</expiry_date>
                     <type>seeds</type>
                 </info>
                 <notes>Keep in dry place</notes>
             </product>
-            <product name="Круши Гергана" brand="Семена Фермера" price="2.5" quantity="30">
+            <product name="Краставици Гергана" brand="Семена Фермера" price="2.5" quantity="30">
                 <info>
-                    <fragile>true</fragile>
-                    <weight>1</weight>
-                    <expiry_date></expiry_date>
-                    <type>tool</type>
+                    <fragile>false</fragile>
+                    <weight unit="g">2</weight>
+                    <expiry_date>2028-10-04</expiry_date>
+                    <type>seeds</type>
                 </info>
             </product>
         </products>

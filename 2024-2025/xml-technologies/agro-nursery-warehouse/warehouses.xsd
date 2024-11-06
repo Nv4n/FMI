@@ -138,7 +138,14 @@
                 <xsd:complexType>
                     <xsd:simpleContent>
                         <xsd:extension base="xsd:double">
-                            <xsd:attribute name="unit" type="xsd:string" use="optional" default="g" />
+                            <xsd:attribute name="unit" use="optional" default="g">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="g" />
+                                        <xsd:enumeration value="kg" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:attribute>
                         </xsd:extension>
                     </xsd:simpleContent>
                 </xsd:complexType>
