@@ -4,14 +4,7 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="warehouse" minOccurs="1" maxOccurs="unbounded" type="Warehouse" />
-                <xsd:element name="company">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="name" type="xsd:string" />
-                            <xsd:element name="contact" type="Contact" />
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
+                <xsd:element name="owner" type="Vendor"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
@@ -117,10 +110,10 @@
                             <xsd:attribute name="currency" default="BGN">
                                 <xsd:simpleType>
                                     <xsd:restriction base="xsd:string">
-                                        <xsd:enumeration value="BGN"></xsd:enumeration>
-                                        <xsd:enumeration value="EUR"></xsd:enumeration>
-                                        <xsd:enumeration value="USD"></xsd:enumeration>
-                                        <xsd:enumeration value="RON"></xsd:enumeration>
+                                        <xsd:enumeration value="BGN"/>
+                                        <xsd:enumeration value="EUR"/>
+                                        <xsd:enumeration value="USD"/>
+                                        <xsd:enumeration value="RON"/>
                                     </xsd:restriction>
                                 </xsd:simpleType>
                             </xsd:attribute>
