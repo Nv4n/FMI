@@ -12,8 +12,8 @@
                                     <xsd:attribute name="uri" type="xsd:anyURI" use="required"/>
                                 </xsd:complexType>
                             </xsd:element>
-                            <xsd:element name="email" type="Email" minOccurs="0" maxOccurs="unbounded"/>
-                            <xsd:element name="phone" minOccurs="0" maxOccurs="unbounded" type="Phone"/>
+                            <xsd:element name="email" type="EmailWithPattern" minOccurs="0" maxOccurs="unbounded"/>
+                            <xsd:element name="phone" minOccurs="0" maxOccurs="unbounded" type="PhoneWithPattern"/>
                             <xsd:choice minOccurs="0" maxOccurs="1">
                                 <xsd:element name="labels" type="Labels"/>
                                 <xsd:element name="label" type="Label"/>
@@ -37,9 +37,9 @@
         </xsd:simpleContent>
     </xsd:complexType>
 
-    <xsd:complexType name="Phone">
+    <xsd:complexType name="PhoneWithPattern">
         <xsd:simpleContent>
-            <xsd:extension base="xsd:string">
+            <xsd:extension base="Phone">
                 <xsd:attribute name="type" use="optional" default="personal">
                     <xsd:simpleType>
                         <xsd:restriction base="xsd:string">
@@ -53,9 +53,15 @@
         </xsd:simpleContent>
     </xsd:complexType>
 
-    <xsd:complexType name="Email">
+    <xsd:simpleType name="Phone">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\+?[\d \-]+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="EmailWithPattern">
         <xsd:simpleContent>
-            <xsd:extension base="xsd:string">
+            <xsd:extension base="Email">
                 <xsd:attribute name="type" use="optional">
                     <xsd:simpleType>
                         <xsd:restriction base="xsd:string">
@@ -68,11 +74,17 @@
         </xsd:simpleContent>
     </xsd:complexType>
 
+    <xsd:simpleType name="Email">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value=".+@.+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:complexType name="ContactName">
-        <xsd:all>
+        <xsd:sequence>
             <xsd:element name="given" type="xsd:string" minOccurs="0"/>
             <xsd:element name="last" type="xsd:string" minOccurs="0"/>
-        </xsd:all>
+        </xsd:sequence>
     </xsd:complexType>
 
 </xsd:schema>
