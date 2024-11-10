@@ -15,24 +15,22 @@ But the big problem is the gypsies...
 <!-- DONE -->
 
 <!-- С това, че приемат референдум за образователния ценз ГЕРБ -->
-By accepting a referendum on the education requirement GERB will look for those 160 votes they need for convocation of the Grand National Assembly when pigs fly. The introduction of an education threshold also affects the electorate of the DPS. Dogan's voters do not vote for pay in the literal sense of the word. 
-<!-- TODO NEEDS TO BE FIXED ^^^ -->
-
-Their vote is more complex and multi-layered. There is also ethnic fear, layered from the recent "Revival Process" past, and purely social fear in the settlements where the Agha "wags the dog"... By their very agreement to put the question of the education requirement to a referendum, GERB has eliminated the last opportunities to negotiate with the DPS collecting the necessary votes for the Grand National Assembly. In fact, the 25 deputies of the DPS do not solve the issue at all. But, as it has already become known to the crows, it is not the Grand National Assembly or the change of the constitution that are GERB's goal. The goal is much simpler and pragmatic - finishing the mandate. Because this time it might be the last. In any case, GERB will never get such unlimited power again.
-<!-- TODO CHECK BEFORE SUBMIT -->
+By accepting a referendum on the education requirement GERB will look for those 160 votes they need for convocation of the Grand National Assembly when the pigs fly. The introduction of an education threshold also affects the electorate of the DPS. Dogan's voters do not vote for pay in the literal sense of the word. Their vote is more complex and multi-layered. There is also ethnic fear, layered from the recent "Revival Process" past, and purely social fear in the settlements where the Agha "wags the dog"... By their very agreement to put the question of the education requirement to a referendum, GERB has eliminated the last opportunities to negotiate with the DPS collecting the necessary votes for the Grand National Assembly. In fact, the 25 deputies of the DPS do not solve the issue at all. But, as it has already become known to the crows, it is not the Grand National Assembly or the change of the constitution that are GERB's goal. The goal is much simpler and pragmatic - finishing the mandate. Because this time it might be the last. In any case, GERB will never get such unlimited power again.
 <!-- DONE -->
 
-There is a fairy tale - when you go after a beetle, it will lead you to... It is the same to go after the patriots. A few years ago it was the patriots who succeeded in forcing compulsory voting. And it led to an unprecedented increase in voter turnout and, consequently, to greater legitimacy of the government.
+There is saying - follow a beetle,and you will find... It is the same to walk behind the patriots. A few years ago it was the patriots who managed to enforce compulsory voting. And it led to an unprecedented increase in voter turnout and, consequently, to greater legitimacy of the government.
 
-But another time!
+You wish!
 
-If compulsory voting had any effect, it was in favour of the bought vote. The state is simply driving the "merchandise" of the vote merchants to the ground.
+If compulsory voting had any effect, it was in favour of the bought vote. The state is practically delivering the "goods" right to the vote brokers' doorstep.
+<!-- DONE -->
 
-In its current form, the Bulgarian constitution does not allow any form of electoral census. Article 10 stipulates: 'Elections ... shall be held on the basis of universal, equal and direct suffrage by secret ballot.
+In its current form, the Bulgarian constitution does not allow any form of electoral census. Article 10 stipulates: "Elections... shall be held on the basis of universal, equal and direct suffrage by secret ballot."
 
-And in Article 6. it is said: '(2) All citizens shall be equal before the law. There shall be no restrictions on rights or privileges based on race, nationality, ethnicity, sex, origin, religion, education, beliefs, political affiliation, personal and social status or property."
+And in Article 6 it is said: "(2) All citizens shall be equal before the law. There shall be no restrictions on rights or privileges based on race, nationality, ethnicity, sex, origin, religion, education, beliefs, political affiliation, personal and social status or property."
 
-The constitution also says, Article 53, that everyone has the right to education and that schooling up to the age of 16 is compulsory! But this necessarily remains on the books. The provisions of the constitution are being smashed at the entrance of the ghettos. And this applies not only to education...
+The constitution also says in Article 53, that everyone has the right to education and that schooling up to the age of 16 is compulsory! But this necessarily remains on the books. The provisions of the constitution are being smashed at the entrance of the ghettos. And this applies not only to education...
+<!-- DONE -->
 
 This is not the first time that the idea of an education requirement has appeared in the public sphere. Citizens, politicians and academics have spoken out in favour of it. They are usually of the breed who cannot exist outside provocation. No, it's not just about Siderov...
 
