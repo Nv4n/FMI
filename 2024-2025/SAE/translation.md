@@ -32,13 +32,13 @@ And in Article 6 it is said: "(2) All citizens shall be equal before the law. Th
 The constitution also says in Article 53, that everyone has the right to education and that schooling up to the age of 16 is compulsory! But this necessarily remains on the books. The provisions of the constitution are being smashed at the entrance of the ghettos. And this applies not only to education...
 <!-- DONE -->
 
-This is not the first time that the idea of an education requirement has appeared in the public sphere. Citizens, politicians and academics have spoken out in favour of it. They are usually of the breed who cannot exist outside provocation. No, it's not just about Siderov...
+This is not the first time that the idea of an education threshold has appeared in the public sphere. Citizens, politicians and academics have spoken out in favour of it. They are usually of the breed who cannot exist outside provocation. No, it's not just about Siderov...
 
-In 2015 Prof. Konstantinov said that it was time to think about some form of educational value. He suggested complicating the ballots so that Gypsies couldn't keep up.
+In 2015 Prof. Konstantinov said that it was time to consider some form of educational requirement. He suggested complicating the ballots so that Gypsies couldn't keep up.
 
-I don't know. However, there is a video that has been on YouTube for a long time, in which an underage gypsy recites "The Battle of Shipka" without a mistake, like an artist from a drama troupe. I have no doubt that for a buck, gypsies can learn the Hare-Neumeyer methodology. Gypsies are only simple without money. For money and language they can learn. While some Bulgarians, even if they become prime ministers, still do not learn...
+I don't know. However, there is a video that has been on YouTube for a long time, in which an underage gypsy recites "The Battle of Shipka" without a mistake, like an artist from a drama troupe. I have no doubt that for a few bucks, gypsies can learn the Hare-Niemeyer methodology. Gypsies are dumb without money. For money, they will learn even a language. Meanwhile, some Bulgarians, even if they become prime ministers, still don't learn a thing...
 
-In GERB, and at a high level, there are also people who are in favour of introducing an education requirement. At the end of 2018, Vice President Tomislav Donchev said. Education should be a priority, it determines what Bulgaria will look like in 10-15 years."
+In GERB, and at a high level, there are also people who are in favour of introducing an education requirement. At the end of 2018, Vice Minister Tomislav Donchev said: "It's only right to limit the rights of people who don't have at least a basic education. Education should be a priority, it determines how Bulgaria will look like in 10-15 years."
 
 These ideas of Donchev are heretical in a gerber environment. For Borissov the smart ones were not interesting because they are few. Important for him were others. To the clever the others are the simple, are they not? So Borissov can't help but be against disenfranchising the "important" ones. But power still remains above all!
 
