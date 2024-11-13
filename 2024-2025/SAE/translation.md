@@ -56,18 +56,19 @@ But the society, the state and the media behave as if the problem will solve its
 
 And then the problem will be theirs to think about.
 
-(We're on our way.) Where to? Nobody knows. The good thing about not knowing where you're going is that you don't have to worry about which way you're going.
+"Djelem, Djelem..."(We're on our way.) Where to? Nobody knows. The good thing about not knowing where you're going is that you don't have to worry about which way you're going.
 
-The main arguments of the supporters of the education requirement are that this will limit and even eliminate the paid vote of uneducated gypsies. And it will improve the quality of the parliamentary body because educated people are capable of making more accurate choices.
+The main arguments of the supporters of the education requirement are that this will limit and even eliminate the paid vote of uneducated gypsies. And it will improve the quality of the parliamentary body, because educated people are capable of making more accurate choices.
 
 Sounds good, but hardly true. Professional education and civic culture are fundamentally different things. I can point you to more than one or two graduates, even PhDs, associate professors and professors, who are still in the primary grades of civic education.
+<!-- DONE -->
 
 By the way, the Constitution of Tarnovo stipulates an educational requirement, but only for the passive right: "All Bulgarian citizens who enjoy civil and political rights and are above the age of 30 and are literate are eligible!
 
 In the current constitution there is no guarantee that an illiterate MP can get into the National Assembly. With the prevailing system in some parties of selling the seats in the lists, we can end up one day with an MP who cannot read... Even now there are complete morons among the MPs...
 
-So maybe we should start with the educational qualification for the electors and then think about the educational qualification of the electors. Against the background of the ugly sales of MPs and whole parliamentary groups, the problem of the Gypsies seems secondary. Gypsies sell, but Bulgarians buy! So instead of blaming the Gypsies for selling their votes, we can blame the Bulgarians, the Bulgarian politicians and parties for buying the Gypsy votes.
+So maybe we should start with the educational threshold for the elected officials and then think about the educational requirement of the electors. Given the backdrop of the ugly buying and selling of MPs and entire parliamentary groups, the problem of the Gypsies seems secondary. Gypsies sell, but Bulgarians buy! So instead of blaming the Gypsies for selling their votes, we can blame the Bulgarians, the Bulgarian politicians and parties for buying the Gypsy votes.
 
-As far as the quality of popular representation is concerned, it will increase when parties stop trading seats in their lists and start including educated and worthy individuals.
+As for the quality of parliamentary representation is concerned, it will increase when parties stop trading seats in their lists and start including educated and worthy individuals.
 
 So I wanted to say that the solution to Bulgaria's problems is not the gypsies. And as for the education requirement, this road is slippery and dangerous. Today the patriots want the voters to have primary education, tomorrow someone else will ask for secondary, then higher education and finally only the doctors of science will be left with the right to vote - me, Kostov, Dogan, Stanishev, the doctor of physical sciences Borisov... If it is from a small doctor upwards, otherwise we will burn too...
