@@ -164,7 +164,7 @@
     <xsd:simpleType name="Phone">
         <xsd:restriction base="xsd:string">
             <xsd:pattern
-                value="(\+\d{1,3}\s?)?\(?\d{1,3}\)?[\s.-]?\d{2,4}[\s.-]?\d{2,6}" />
+                value="(\+\d{1,3}\s?)?\(?\d{1,3}\)?[\s/\-]?\d{2,4}[\s/\-]?\d{2,6}" />
         </xsd:restriction>
     </xsd:simpleType>
 
