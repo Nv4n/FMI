@@ -1,74 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="warehouses.xsd">
+            xsi:noNamespaceSchemaLocation="warehouses.xsd">
     <owner>
-        <name>Agro Nursery inc</name>
+        <name>Bulgarian Agro Supply</name>
         <contact>
             <location>
                 <country>Bulgaria</country>
                 <city>Sofia</city>
-                <address>15 Tsar Simeon Street, Floor 3, Apt. 7</address>
+                <address>15 Tsar Simeon Street</address>
             </location>
-            <email>kryandrey@phanmembanhang24h.com</email>
-            <phone>+44 01539 702257</phone>
+            <email>contact@bulgarianagrosupply.bg</email>
+            <phone>+359 (888)/123/456</phone>
         </contact>
     </owner>
+
     <warehouse>
         <products>
-            <product brand="Семена Гешев" name="Домати">
+            <product name="Garden Shovel" brand="GardenMaster">
                 <info>
                     <fragile>false</fragile>
-                    <price currency="BGN">1</price>
-                    <quantity>34</quantity>
-                    <weight unit="g">0.1</weight>
-                    <expiry_date>2025-09-24</expiry_date>
+                    <price currency="BGN">12.50</price>
+                    <quantity>100</quantity>
+                    <weight unit="kg">1.2</weight>
+                    <expiry_date>2025-12-31</expiry_date>
+                    <type>tool</type>
+                </info>
+                <notes>Heavy-duty garden shovel for soil work</notes>
+            </product>
+            <product name="Tomato Seeds" brand="SeedCo">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="BGN">3.20</price>
+                    <quantity>500</quantity>
+                    <weight unit="g">0.05</weight>
+                    <expiry_date>2026-04-15</expiry_date>
                     <type>seeds</type>
                 </info>
-                <notes>Keep in dry place</notes>
+                <notes>High yield variety</notes>
             </product>
-            <product name="Краставици Гергана" brand="Семена Фермера">
+            <product name="Safety Gloves" brand="SafeHands">
                 <info>
                     <fragile>false</fragile>
-                    <price currency="RON">2.5</price>
-                    <quantity>30</quantity>
-                    <weight unit="g">2</weight>
-                    <expiry_date>2028-10-04</expiry_date>
-                    <type>seeds</type>
+                    <price currency="BGN">8.00</price>
+                    <quantity>200</quantity>
+                    <weight unit="g">0.15</weight>
+                    <expiry_date>2025-06-01</expiry_date>
+                    <type>clothing</type>
                 </info>
             </product>
         </products>
         <contact>
             <location>
-                <country>USA</country>
-                <city>New York</city>
-                <address>1234 Maple Ave, Apt 202</address>
+                <country>Greece</country>
+                <city>Thessaloniki</city>
+                <address>45 Greenhouse Rd</address>
             </location>
-            <phone>+61 013 7998 1982</phone>
+            <email>thess@bulgarianagrosupply.gr</email>
         </contact>
         <deliveries>
-            <delivery>
+            <delivery status="pending" cost="200.50">
                 <products>
-                    <product brand="Семена Гешев" name="Домати">
+                    <product name="Garden Shovel" brand="GardenMaster">
                         <info>
                             <fragile>false</fragile>
-                            <price currency="BGN">1</price>
-                            <quantity>10</quantity>
-                            <weight>0.2</weight>
-                            <expiry_date>2027-12-13</expiry_date>
-                            <type>seeds</type>
+                            <price currency="EUR">12.50</price>
+                            <quantity>20</quantity>
+                            <weight unit="kg">1.2</weight>
+                            <expiry_date>2025-12-31</expiry_date>
+                            <type>tool</type>
                         </info>
                     </product>
                 </products>
                 <vendor>
-                    <name>Vendors inc.</name>
+                    <name>Greek Distributors</name>
                     <contact>
                         <location>
-                            <country>Bulgaria</country>
-                            <city>Sofia</city>
-                            <address>ul. Gosho Geshev 34</address>
+                            <country>Greece</country>
+                            <city>Athens</city>
+                            <address>88 Market Lane</address>
                         </location>
-                        <email>keccu@livinitlarge.net</email>
-                        <phone>+1 561-555-7689</phone>
+                        <email>sales@greekdistributors.gr</email>
+                    </contact>
+                </vendor>
+            </delivery>
+        </deliveries>
+    </warehouse>
+
+    <warehouse>
+        <products>
+            <product name="Irrigation Pipes" brand="WaterFlow">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="BGN">35.00</price>
+                    <quantity>60</quantity>
+                    <weight unit="kg">3.5</weight>
+                    <expiry_date>2026-07-15</expiry_date>
+                    <type>equipment</type>
+                </info>
+            </product>
+            <product name="Greenhouse Cover" brand="EcoCover">
+                <info>
+                    <fragile>true</fragile>
+                    <price currency="EUR">75.00</price>
+                    <quantity>40</quantity>
+                    <weight unit="kg">5.0</weight>
+                    <expiry_date>2027-03-01</expiry_date>
+                    <type>structure</type>
+                </info>
+            </product>
+            <product name="Garden Fork" brand="GreenTools">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="BGN">15.00</price>
+                    <quantity>150</quantity>
+                    <weight unit="kg">1.5</weight>
+                    <expiry_date>2025-09-15</expiry_date>
+                    <type>tool</type>
+                </info>
+            </product>
+        </products>
+        <contact>
+            <location>
+                <country>Bulgaria</country>
+                <city>Plovdiv</city>
+                <address>33 Warehouse Street</address>
+            </location>
+            <email>plovdiv@bulgarianagrosupply.bg</email>
+            <phone>+359 888 654321</phone>
+        </contact>
+        <deliveries>
+            <delivery status="finished" cost="150.75">
+                <products>
+                    <product name="Irrigation Pipes" brand="WaterFlow">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="BGN">35.00</price>
+                            <quantity>10</quantity>
+                            <weight unit="kg">3.5</weight>
+                            <expiry_date>2026-07-15</expiry_date>
+                            <type>equipment</type>
+                        </info>
+                    </product>
+                </products>
+                <vendor>
+                    <name>Water Supplies Ltd</name>
+                    <contact>
+                        <location>
+                            <country>Romania</country>
+                            <city>Bucharest</city>
+                            <address>101 Water Rd</address>
+                        </location>
+                        <email>orders@watersupplies.ro</email>
+                    </contact>
+                </vendor>
+            </delivery>
+        </deliveries>
+    </warehouse>
+
+    <warehouse>
+        <products>
+            <product name="Plant Fertilizer" brand="EcoGro">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="BGN">25.00</price>
+                    <quantity>80</quantity>
+                    <weight unit="kg">1.0</weight>
+                    <expiry_date>2026-10-01</expiry_date>
+                    <type>tool</type>
+                </info>
+            </product>
+            <product name="Pruning Shears" brand="SharpCut">
+                <info>
+                    <fragile>true</fragile>
+                    <price currency="BGN">18.00</price>
+                    <quantity>50</quantity>
+                    <weight unit="g">150</weight>
+                    <expiry_date>2025-08-20</expiry_date>
+                    <type>tool</type>
+                </info>
+            </product>
+            <product name="Pesticide Spray" brand="SafeGrow">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="BGN">30.00</price>
+                    <quantity>30</quantity>
+                    <weight unit="kg">0.8</weight>
+                    <expiry_date>2027-12-01</expiry_date>
+                    <type>tool</type>
+                </info>
+            </product>
+        </products>
+        <contact>
+            <location>
+                <country>North Macedonia</country>
+                <city>Skopje</city>
+                <address>22 Agriculture Blvd</address>
+            </location>
+            <email>skopje@bulgarianagrosupply.mk</email>
+            <phone>+389 70 123456</phone>
+        </contact>
+        <deliveries>
+            <delivery status="pending" cost="110.00">
+                <products>
+                    <product name="Pesticide Spray" brand="SafeGrow">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="BGN">30.00</price>
+                            <quantity>5</quantity>
+                            <weight unit="kg">0.8</weight>
+                            <expiry_date>2027-12-01</expiry_date>
+                            <type>tool</type>
+                        </info>
+                    </product>
+                </products>
+                <vendor>
+                    <name>Safe Chemicals Ltd</name>
+                    <contact>
+                        <location>
+                            <country>Serbia</country>
+                            <city>Belgrade</city>
+                            <address>50 Chemical Street</address>
+                        </location>
+                        <email>orders@safechemicals.rs</email>
                     </contact>
                 </vendor>
             </delivery>
