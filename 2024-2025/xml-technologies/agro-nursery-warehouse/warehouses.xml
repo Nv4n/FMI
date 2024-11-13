@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="warehouses.xsd">
+    <owner>
+        <name>Agro Nursery inc</name>
+        <contact>
+            <location>
+                <country>Bulgaria</country>
+                <city>Sofia</city>
+                <address>ul.Pencho 1</address>
+            </location>
+            <email>gosho@gosho.com</email>
+        </contact>
+    </owner>
     <warehouse>
         <products>
             <product brand="Семена Гешев" name="Домати">
@@ -31,7 +42,7 @@
                 <city>Sofia</city>
                 <address>ul.Pencho 1</address>
             </location>
-            <phone>+35988-88-77-7777</phone>
+            <phone>+61 013 7998 1982</phone>
         </contact>
         <deliveries>
             <delivery>
@@ -56,21 +67,10 @@
                             <address>ul. Gosho Geshev 34</address>
                         </location>
                         <email>pencho@penchev.com</email>
-                        <phone>+73-444-23-44</phone>
+                        <phone>+1 561-555-7689</phone>
                     </contact>
                 </vendor>
             </delivery>
         </deliveries>
     </warehouse>
-    <owner>
-        <name>Agro Nursery inc</name>
-        <contact>
-            <location>
-                <country>Bulgaria</country>
-                <city>Sofia</city>
-                <address>ul.Pencho 1</address>
-            </location>
-            <email>gosho@gosho.com</email>
-        </contact>
-    </owner>
 </warehouses>
