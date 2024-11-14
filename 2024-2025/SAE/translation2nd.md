@@ -5,28 +5,9 @@ Over the weekend Borissov was again touring the forgotten places of his homeland
 
 A friend says that Borissov in his ripe old age joined the initiative "Get to know your homeland to truly love it". Because, you know, you can't love something you don't perceive. Although especially for Bulgarians it can be the other way around, if you understand me. (It certainly can for Borissov.)
 
-And another friend says that, after he went around all the villages and
-villages on the outskirts of his homeland, where he is loved
-(uninformed!) and do not protest against his rule,
-he intended to continue on the maps of the First
-Bulgarian state, of which he was the direct heir.  All significant,
-made in our lands is his work. Asparuh only founded
-the state, Boris baptized it, and the brothers Cyril and Methodius
-gave us letters to read and write (to some of us!). And from there on
-everything is the work of GERB and Borisov personally. There were some doubts
-about Todor Zhivkov's contribution. He had built as much as we have not
-could paint. But then it turned out that what we could not
-paint, was actually built by Borisov. From the new statesmen
-under suspicion was Ivan Kostov. There were hesitations whether he was not
-had done something for the development of our country, but nothing was
-proved. In a word, we live in a Boykocentric universe and there is no
-our history not to be Boykocentric. For now. But as he likes to
-Dr. Filippov says, Clio is the biggest whore among the muses. The time of
-Borisov is passing and Clio is already flipping the pancake. And slowly and slowly
-people are seeing that the king really is naked. The whole
-Byzantineism in politics, voluntarism in the economy, populism
-and demagoguery in the social sphere, the
-foreign policy... That last one shone, the fool himself
+And another friend says that, after he goes around all the villages and countryside on the outskirts of his homeland, where he is loved (uninformed!) and where no one protests against his rule,he intends to continue on the maps of the First Bulgarian Empire, of which he is a direct heir. Everything significant accomplished on our lands is his doing. Asparuh only founded the empire, Boris baptized it, and the brothers Cyril and Methodius gave us letters to read and write (to some of us!). And from there on everything is the work of GERB and Borisov personally. There were some doubts about Todor Zhivkov's contribution. He built so much that we wouldn't even be able to paint it all. But then it turned out that what we could not paint, was actually built by Borisov. Among the new statesmen Ivan Kostov was under suspicion. There were speculations whether he had done something for the development of our country, but nothing was proved. In a word, we live in a Boyko centric universe and there is no way our history not to be Boyko centric. For now. But as Dr. Filipov likes to say, Clio is the biggest whore among the Muses. The time of Borisov is passing by and Clio is already flipping the pancake. And slowly but surely, people are starting to realize the emperor is truly naked. The whole Byzantinism in politics, voluntarism in the economy, populism and demagoguery in the social sphere, "Pravets-style" cunning in foreign policy...
+<!-- DONE -->
+ That last one shone, the fool himself
 admitted in an uncontroverted recording how he pretended to be dumb while their
 pushing the European leaders with 200, excuse me...
 
