@@ -2,8 +2,6 @@ import math
 import random
 from pprint import pprint as pp
 
-from utils import *
-
 romania_map={}
 romania_map["locations"] = dict(
 Arad=(91, 492), Bucharest=(400, 327), Craiova=(253, 288),
@@ -41,4 +39,6 @@ def choose_best_pop(points,old_gen):
     return best_gen
 
 generated = gen_population(romania_map["locations"])
+print(generated[50])
+pp(generated[50])
 pp(len(choose_best_pop(romania_map["locations"],generated)))
