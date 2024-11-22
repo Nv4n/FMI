@@ -19,3 +19,14 @@ def distance(begin, end) :
     
 def total_distance(points,path):
     return sum(distance(points[path[i-1]],points[path[i]]) for i in range(len(path)))
+
+def gen_population(destinations):
+    population = []
+    for _ in range(100000):
+        rand_population = list (destinations.keys())
+        random.shuffle(rand_population)
+        rand_population=[0]+rand_population
+        population.append(rand_population)
+    return population
+
+generated = gen_population(romania_map["locations"])
