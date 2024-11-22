@@ -1,6 +1,6 @@
-import sys
-from collections import deque
 import math
+import random
+from pprint import pprint as pp
 
 from utils import *
 
@@ -15,6 +15,7 @@ Sibiu=(207, 457), Timisoara=(94, 410), Urziceni=(456, 350),
 Vaslui=(509, 444), Zerind=(108, 531))
 
 def distance(begin, end) :
-    return math.hypot(begin[0]-end[0],begin[1]-end[1])
+    return math.dist(begin,end)
     
-print(distance(romania_map["locations"].get("Arad"),romania_map["locations"].get("Zerind")))
+def total_distance(points,path):
+    return sum(distance(points[path[i-1]],points[path[i]]) for i in range(len(path)))
