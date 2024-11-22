@@ -29,4 +29,16 @@ def gen_population(destinations):
         population.append(rand_population)
     return population
 
+def choose_best_pop(points,old_gen):
+    best_gen =[]
+    random.shuffle(old_gen)
+    mid = len(old_gen) // 2
+    for i in range(mid):
+        if total_distance(points,old_gen[i][1:])<total_distance(points,old_gen[i+mid][1:]) :
+            best_gen.append(old_gen[i])
+        else:
+            best_gen.append(old_gen[i+mid])
+    return best_gen
+
 generated = gen_population(romania_map["locations"])
+pp(len(choose_best_pop(romania_map["locations"],generated)))
