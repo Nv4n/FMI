@@ -54,6 +54,16 @@ def apply_crossovers(leftover):
             crossovers.append(gen_offspring(fstParent,sndParent))
     return crossovers
 
+def apply_mutations (crossovers):
+    mutated_pop = []
+    for path in crossovers:
+        if random.randint(0,1000)<9 :
+            fstInd = random.randint(1,len(path)-1)
+            sndInd = random.randint(1,len(path)-1)
+            path[fstInd],path[sndInd] = path[sndInd],path[fstInd]
+        mutated_pop.append(path)
+    return mutated_pop
+
 
 romania_map={}
 romania_map["locations"] = dict(
