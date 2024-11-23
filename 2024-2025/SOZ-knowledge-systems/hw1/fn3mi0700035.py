@@ -19,20 +19,15 @@ def gen_init_population(towns,start, pop_size=INIT_POP_SIZE):
         population.append(rand_population)
     return population
 
-def apply_fitness(points,unit):
-    total = total_distance(points,unit)
-    
-    return [1/ total, unit]
-
 def select_population(points,old_gen):
     leftovers =[]
     random.shuffle(old_gen)
     mid = len(old_gen) // 2
-    for i in range(len(old_gen)):
-        leftovers.append(apply_fitness(points,old_gen[i]))
-        
-    //TODO FIX SELECTION TO USE FITNESS PARAM
-    //  AND REMOVE IT FROM THE LIST OF POPULATION!!!!
+    for i in range(mid):
+        if total_distance(points,old_gen[i])<total_distance(points,old_gen[i+mid]):
+            leftovers.append(old_gen[i])
+        else:
+            leftovers.append(old_gen[i+mid])
     return leftovers
 
 def gen_offspring(fstParent,sndParent):
