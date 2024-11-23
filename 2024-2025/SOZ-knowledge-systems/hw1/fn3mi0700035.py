@@ -2,27 +2,29 @@ import math
 import random
 from pprint import pprint as pp
 
+INIT_POP_SIZE = 10000
+
 def distance(begin, end) :
     return math.dist(begin,end)
     
 def total_distance(points,path):
     return sum(distance(points[path[i-1]],points[path[i]]) for i in range(len(path)))
 
-def gen_population(destinations, pop_size=10000):
+def gen_init_population(towns,start, pop_size=INIT_POP_SIZE):
     population = []
     for _ in range(pop_size):
-        rand_population = list (destinations.keys())
+        rand_population = [key for key in towns.keys() if key != start]
         random.shuffle(rand_population)
-        rand_population=[0]+rand_population
+        rand_population=[start]+rand_population
         population.append(rand_population)
     return population
 
-def choose_best_pop(points,old_gen):
+def choose_best_pop(towns,old_gen):
     best_gen =[]
     random.shuffle(old_gen)
     mid = len(old_gen) // 2
     for i in range(mid):
-        if total_distance(points,old_gen[i][1:])<total_distance(points,old_gen[i+mid][1:]) :
+        if total_distance(towns,old_gen[i])<total_distance(towns,old_gen[i+mid]) :
             best_gen.append(old_gen[i])
         else:
             best_gen.append(old_gen[i+mid])
@@ -38,6 +40,8 @@ Oradea=(131, 571), Pitesti=(320, 368), Rimnicu=(233, 410),
 Sibiu=(207, 457), Timisoara=(94, 410), Urziceni=(456, 350),
 Vaslui=(509, 444), Zerind=(108, 531))
 
-generated = gen_population(romania_map["locations"])
+START_TOWN = "Bucharest"
+
+generated = gen_init_population(romania_map["locations"],START_TOWN)
 pp(generated[50])
 pp(len(choose_best_pop(romania_map["locations"],generated)))
