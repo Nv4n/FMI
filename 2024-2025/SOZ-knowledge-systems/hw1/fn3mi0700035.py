@@ -64,6 +64,11 @@ def apply_mutations (crossovers):
         mutated_pop.append(path)
     return mutated_pop
 
+def apply_population_lifecycle(points, old_gen):
+    leftovers = select_population(points,old_gen)
+    crossovers = apply_crossovers(leftovers)
+    new_population = apply_mutations(crossovers)
+    return new_population
 
 romania_map={}
 romania_map["locations"] = dict(
@@ -77,6 +82,16 @@ Vaslui=(509, 444), Zerind=(108, 531))
 
 START_TOWN = "Bucharest"
 
-generated = gen_init_population(romania_map["locations"],START_TOWN)
-pp(generated[50])
-pp(len(choose_best_pop(romania_map["locations"],generated)))
+towns = romania_map['locations'].keys()
+init_population = gen_init_population(towns,START_TOWN)
+
+latest_gen = init_population
+selected = select_population(romania_map["locations"],latest_gen)
+# for _ in range(100):
+#     latest_gen = apply_population_lifecycle(romania_map["locations"],latest_gen)
+pp(gen_offspring(selected[50],selected[57])) 
+# pp(latest_gen[0])
+# pp(total_distance(romania_map["locations"],latest_gen[0]))
+
+# pp(latest_gen[50])
+# pp(total_distance(romania_map["locations"],latest_gen[50]))
