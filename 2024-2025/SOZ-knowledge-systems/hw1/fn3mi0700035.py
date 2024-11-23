@@ -43,6 +43,18 @@ def gen_offspring(fstParent,sndParent):
             offspring.append(remaining_sub_path.pop(0))
     return offspring
 
+def apply_crossovers(leftover):
+    crossovers = []
+    random.shuffle(leftover)
+    mid = len(leftover)//2
+    for i in range(0,len(leftover)):
+        fstParent, sndParent = leftover[i],leftover[i+mid]
+        for _ in range(2):
+            crossovers.append(gen_offspring(fstParent,sndParent))
+            crossovers.append(gen_offspring(fstParent,sndParent))
+    return crossovers
+
+
 romania_map={}
 romania_map["locations"] = dict(
 Arad=(91, 492), Bucharest=(400, 327), Craiova=(253, 288),
