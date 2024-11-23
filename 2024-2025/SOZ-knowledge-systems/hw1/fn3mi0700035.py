@@ -30,6 +30,19 @@ def select_population(points,old_gen):
             leftovers.append(old_gen[i+mid])
     return leftovers
 
+def gen_offspring(fstParent,sndParent):
+    offspring = []
+    start = random.randint(0,len(fstParent)-1)
+    end = random.randint(start,len(fstParent))
+    init_sub_path = fstParent[start:end]
+    remaining_sub_path = [town for town in sndParent if town not in init_sub_path]
+    for i in range(0,len(fstParent)):
+        if(i < end):
+            offspring.append(init_sub_path.pop(0))
+        else:
+            offspring.append(remaining_sub_path.pop(0))
+    return offspring
+
 romania_map={}
 romania_map["locations"] = dict(
 Arad=(91, 492), Bucharest=(400, 327), Craiova=(253, 288),
