@@ -6,29 +6,29 @@ INIT_POP_SIZE = 10000
 
 def distance(begin, end) :
     return math.dist(begin,end)
-    
+
 def total_distance(points,path):
     return sum(distance(points[path[i-1]],points[path[i]]) for i in range(len(path)))
 
 def gen_init_population(towns,start, pop_size=INIT_POP_SIZE):
     population = []
     for _ in range(pop_size):
-        rand_population = [key for key in towns.keys() if key != start]
+        rand_population = [town for town in towns if town != start]
         random.shuffle(rand_population)
         rand_population=[start]+rand_population
         population.append(rand_population)
     return population
 
-def choose_best_pop(towns,old_gen):
-    best_gen =[]
+def select_population(points,old_gen):
+    leftovers =[]
     random.shuffle(old_gen)
     mid = len(old_gen) // 2
     for i in range(mid):
-        if total_distance(towns,old_gen[i])<total_distance(towns,old_gen[i+mid]) :
-            best_gen.append(old_gen[i])
+        if total_distance(points,old_gen[i])<total_distance(points,old_gen[i+mid]) :
+            leftovers.append(old_gen[i])
         else:
-            best_gen.append(old_gen[i+mid])
-    return best_gen
+            leftovers.append(old_gen[i+mid])
+    return leftovers
 
 romania_map={}
 romania_map["locations"] = dict(
