@@ -3,7 +3,9 @@ import random
 from pprint import pprint as pp
 import matplotlib.pyplot as plt
 
-INIT_POP_SIZE = 5000
+INIT_POP_SIZE = 1000
+START_TOWN = "Hirsova"
+GENERATION_COUNT = 500
 
 def distance(begin, end) :
     return math.dist(begin,end)
@@ -72,7 +74,10 @@ def apply_population_lifecycle(points, old_gen):
 
 def plotPath(towns,points,path):
     for i in range(len(towns)):
-        plt.text(points[towns[i]][0] + 2, points[towns[i]][1] + 0.25, towns[i], fontsize=9)
+        if towns[i] != START_TOWN:
+            plt.text(points[towns[i]][0] + 2, points[towns[i]][1] + 0.25, towns[i], fontsize=9)
+        else:
+            plt.text(points[towns[i]][0] + 2, points[towns[i]][1] + 0.25, towns[i], fontsize=9,color="blue")
     
     x_coords=[]
     y_coords=[]
@@ -80,11 +85,15 @@ def plotPath(towns,points,path):
         x_coords.append(points[path[i]][0])
         y_coords.append(points[path[i]][1])
 
+    x_directions=[]
+    y_directions=[]
     for i in range(len(x_coords)):
-        x_start,x_end = x_coords[i-1],x_coords[i]
-        y_start,y_end = y_coords[i-1],y_coords[i]
-        plt.arrow(x_start, y_start, (x_end - x_start)*.95, (y_end - y_start)*.95, head_width=10, head_length=7, fc='orange', ec='orange')
+        x_direct = x_coords[i-1]-x_coords[i]
+        y_direct = y_coords[i-1]-y_coords[i]
+        x_directions.append(x_direct)
+        y_directions.append(y_direct)
     
+    plt.quiver(x_coords,y_coords,x_directions,y_directions,angles='xy', scale_units='xy', scale=1,color="orange")
     x_coords.append(x_coords[0])
     y_coords.append(y_coords[0])
 
@@ -105,22 +114,21 @@ Oradea=(131, 571), Pitesti=(320, 368), Rimnicu=(233, 410),
 Sibiu=(207, 457), Timisoara=(94, 410), Urziceni=(456, 350),
 Vaslui=(509, 444), Zerind=(108, 531))
 
-START_TOWN = "Hirsova"
 
 towns = list(romania_map['locations'].keys())
 init_population = gen_init_population(towns,START_TOWN)
 
 latest_gen = init_population
 
-for i in range(100):
+for i in range(GENERATION_COUNT):
     print(f"Generation #{i}")
     latest_gen = apply_population_lifecycle(romania_map["locations"],latest_gen)
 
-print("Plotting!")
 sorted(latest_gen,key=lambda x: total_distance(romania_map["locations"],x))
-pp(len(latest_gen[0]))
-pp(latest_gen[0])
 
-pp("Best distance {0}".format(total_distance(romania_map["locations"],latest_gen[0])))
+pp("Plotting!")
+pp(f"Start town: {START_TOWN}")
+pp(latest_gen[0])
+pp("Best distance {0:.2f}".format(total_distance(romania_map["locations"],latest_gen[0])))
 
 plotPath(towns,romania_map["locations"],latest_gen[0])

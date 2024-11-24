@@ -200,4 +200,8 @@ plotPath(towns,romania_map["locations"],latest_gen[0])
 > - Python 3.12.x
 > - IDE: VSCode
 
+> ### Инструкции за компилация
+> 
+> 1. python -m pip install -U matplotlib
+
 ## 5. Примерни резултати
