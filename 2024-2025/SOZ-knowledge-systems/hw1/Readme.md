@@ -16,8 +16,10 @@
 > Избрания алгоритъм на решение е генетичен алгоритъм написан в Python. 
 > Използва се състезателния метод на решение, където случайно избрани групи
 > от индивидуални извадки се съпоставят две по две. Използва се, за да предотврати
-> получаване на шум в популацията от фитнес функцията в началните стадии.
-> Сравнението между извадките е базирано на общата дължина на пътя.
+> получаване на шум в популацията от фитнес функцията в началните стадии и 
+> стагнация на алгоритъма. Сравнението между извадките е базирано на общата дължина 
+> на пътя. Прекратяването на алгоритъма е посредством максимален № поколение и 
+> минимален фитнес коефициент.
 
 ## 2. Реализация чрез псевдо код
 ```sql
@@ -27,17 +29,20 @@ FUNCTION DISTANCE(begin, end) RETURNS a number
 FUNCTION TOTAL-DISTANCE(points, path) RETURNS a number
     RETURN SUM OF distances FOR ALL consecutive pairs IN path
 
+FUNCTION FITNESS-COEFFICIENT(points, path) RETURN a number
+    RETURN 1000 / TOTAL-DISTANCE(points,path)
+
 FUNCTION GENERATE-INITIAL-POPULATION(towns, start, population_size) RETURNS a population
-    population ← EMPTY LIST
+    population <- EMPTY LIST
     REPEAT population_size TIMES
-        random_population ← SHUFFLE(towns EXCLUDING start)
+        random_population <- SHUFFLE(towns EXCLUDING start)
         PREPEND start TO rand_population
         ADD random_population TO population
     RETURN population
 
 FUNCTION SELECT-POPULATION(points, old_generation) RETURNS a selected_population
-    leftovers ← EMPTY LIST
-    middle ← HALF LENGTH OF old_gen
+    leftovers <- EMPTY LIST
+    middle <- HALF LENGTH OF old_gen
     FOR i FROM 0 TO middle DO
         IF TOTAL-DISTANCE(points, old_generation[i]) < TOTAL-DISTANCE(points, old_generation[i + middle])
             APPEND old_generation[i] TO leftovers
@@ -46,11 +51,11 @@ FUNCTION SELECT-POPULATION(points, old_generation) RETURNS a selected_population
     RETURN leftovers
 
 FUNCTION GENERATE-OFFSPRING(firstParent, secondParent) RETURNS an offspring
-    offspring ← EMPTY LIST
-    start ← RANDOM NUMBER FROM 0 TO LENGTH(firstParent)-1
-    end ← RANDOM NUMBER FROM start TO LENGTH(firstParent)
-    initial_sub_path ← GET firstParent FROM start TO end
-    remaining_sub_path ← GET TOWNS FROM secondParent IF NOT IN initial_sub_path
+    offspring <- EMPTY LIST
+    start <- RANDOM NUMBER FROM 0 TO LENGTH(firstParent)-1
+    end <- RANDOM NUMBER FROM start TO LENGTH(firstParent)
+    initial_sub_path <- GET firstParent FROM start TO end
+    remaining_sub_path <- GET TOWNS FROM secondParent IF NOT IN initial_sub_path
     FOR i FROM 0 TO LENGTH firstParent DO
         IF start <= i < end
             APPEND NEXT ELEMENT FROM initial_sub_path TO offspring
@@ -59,48 +64,71 @@ FUNCTION GENERATE-OFFSPRING(firstParent, secondParent) RETURNS an offspring
     RETURN offspring
 
 FUNCTION APPLY-CROSSOVERS(leftovers) RETURNS a population
-    crossovers ← EMPTY LIST
+    crossovers <- EMPTY LIST
     RANDOM SHUFFLE leftovers 
-    middle ← HALF LENGTH OF leftovers
+    middle <- HALF LENGTH OF leftovers
     REPEAT middle TIMES
-        firstParent ← leftover[i]
-        secondParent ← leftover[i + middle]
+        firstParent <- leftover[i]
+        secondParent <- leftover[i + middle]
         REPEAT 2 TIMES
             APPEND GENERATE-OFFSPRING(firstParent, secondParent) TO crossovers
             APPEND GENERATE-OFFSPRING(secondParent, firstParent) TO crossovers
     RETURN crossovers
 
 FUNCTION APPLY-MUTATIONS(crossovers) RETURNS a mutated_population
-    mutated_population ← EMPTY LIST
+    mutated_population <- EMPTY LIST
     FOR path IN crossovers DO
         IF RANDOM NUMBER FROM 0 TO 1000 < 9 THEN
-            firstIndex ← RANDOM NUMBER FROM 1 TO LENGTH(path)-1
-            secondIndex ← RANDOM NUMBER FROM 1 TO LENGTH(path)-1
+            firstIndex <- RANDOM NUMBER FROM 1 TO LENGTH(path)-1
+            secondIndex <- RANDOM NUMBER FROM 1 TO LENGTH(path)-1
             SWAP path[firstIndex] AND path[secondIndex]
         APPEND path TO mutated_population
     RETURN mutated_population
 
 FUNCTION APPLY-POPULATION-LIFECYCLE(points, old_generation) RETURNS a population
-    leftovers ← SELECT-POPULATION(points, old_generation)
-    crossovers ← APPLY-CROSSOVERS(leftovers)
-    new_population ← APPLY-MUTATIONS(crossovers)
+    leftovers <- SELECT-POPULATION(points, old_generation)
+    crossovers <- APPLY-CROSSOVERS(leftovers)
+    new_population <- APPLY-MUTATIONS(crossovers)
     RETURN new_population
 
 FUNCTION PLOT-PATH(towns, points, path)
     PLOT the path AND annotate points WITH their town names
 
 SETUP PARAMETERS
-    romania_map ← {locations: {TOWN_NAME: (COORDINATE_X, COORDINATE_Y), ...}}
-    towns ← KEYS(romania_map["locations"])
-    START_TOWN = "TOWN_NAME"
-    INITIAL_POPULATION_SIZE = 1000
-    GENERATION_COUNT = 250
-    initial_population ← GENERATE-INITIAL-POPULATION(towns, START_TOWN, INITIAL_POPULATION_SIZE)
-    latest_generation ← initial_population
+    romania_map <- {locations: {TOWN_NAME: (COORDINATE_X, COORDINATE_Y), ...}}
+    towns <- KEYS(romania_map["locations"])
+    START_TOWN <- "TOWN_NAME"
+    INITIAL_POPULATION_SIZE <- 3000
+    GENERATION_COUNT <- 200
+    FITNESS_COEFICIENT <- 0.6
+    STAGNATED_COUNT <- 50
+    initial_population <- GENERATE-INITIAL-POPULATION(towns, START_TOWN, INITIAL_POPULATION_SIZE)
+    latest_generation <- initial_population
+    max_fitness = -INFINITE
+    same_fitness_count <- 0
 
 REPEAT GENERATION_COUNT TIMES
     PRINT "Generation #" + i
-    latest_generation ← APPLY-POPULATION-LIFECYCLE(romania_map["locations"], latest_generation)
+    latest_generation <- APPLY-POPULATION-LIFECYCLE(romania_map["locations"], latest_generation)
+
+    fitness <- FITNESS-COEFF(romania_map["locations"], path) FOR EACH path IN latest_generation
+    SORT fitness IN DESCENDING ORDER
+    
+    PRINT "BEST FITNESS: " + fitness[0]
+    
+    IF max_fitness < fitness[0] THEN
+        max_fitness <- fitness[0]
+        same_fitness_count <- 0
+    ELSE
+        same_fitness_count <- same_fitness_count + 1
+
+    IF max_fitness >= FITNESS_COEFICIENT AND same_fitness_count >= 5 THEN
+        PRINT "Hit fitness coefficient: " + FITNESS_COEFICIENT
+        BREAK
+
+    IF same_fitness_count >= STAGNATED_COUNT THEN
+        PRINT "Algorithm stagnated"
+        BREAK
 
 SORT latest_generation BY TOTAL-DISTANCE(romania_map["locations"])
 PRINT "Plotting!"
@@ -119,15 +147,20 @@ import random
 from pprint import pprint as pp
 import matplotlib.pyplot as plt
 
-INIT_POP_SIZE = 1000
+INIT_POP_SIZE = 3000
 START_TOWN = "Hirsova"
-GENERATION_COUNT = 250
+GENERATION_COUNT = 200
+FITNESS_COEF = 0.6
+STAGNATED_CNT = 50
 
 def distance(begin, end) :
     return math.dist(begin,end)
 
 def total_distance(points,path):
     return sum(distance(points[path[i-1]],points[path[i]]) for i in range(len(path)))
+
+def fitness_coeff(points, path):
+    return 1000 / total_distance(points,path)
 
 def gen_init_population(towns, start, pop_size=INIT_POP_SIZE):
     population = []
@@ -235,10 +268,27 @@ towns = list(romania_map['locations'].keys())
 init_population = gen_init_population(towns,START_TOWN)
 
 latest_gen = init_population
-
+max_fitness = float('-inf')
+same_fitness_cnt = 0
 for i in range(GENERATION_COUNT):
     print(f"Generation #{i}")
     latest_gen = apply_population_lifecycle(romania_map["locations"],latest_gen)
+    
+    fitness = [round(fitness_coeff(romania_map["locations"],path),3) for path in latest_gen]
+    sorted(fitness,key=lambda x:x,reverse=True)
+    print(f"BEST FITNESS: {fitness[0]}")
+    if(max_fitness<fitness[0]):
+        max_fitness=fitness[0]
+        same_fitness_cnt=0
+    else:
+        same_fitness_cnt+=1
+    
+    if(max_fitness>=FITNESS_COEF and same_fitness_cnt>=5):
+        pp(f"Hit fitness coefficient: {max_fitness}")
+        break
+    if (same_fitness_cnt>=STAGNATED_CNT):
+        pp(f"Algorithm stagnated")  
+        break
 
 sorted(latest_gen,key=lambda x: total_distance(romania_map["locations"],x))
 
@@ -261,8 +311,11 @@ plotPath(towns,romania_map["locations"],latest_gen[0])
 > ### Преди компилация:
 >
 > - Избирането на начален град се получава чрез смяна на променливата **START_TOWN** (в диаграмата се представя със син цвят градът начало)
-> - Смяната на размера на популацията става чрез смяна на променливата **INIT_POP_SIZE** (за оптималност на бързина на алгоритъма и намляване на стагнацията му е сложено като **1000**)
-> - Смяната на максималния брой поколения става чрез смяна на променливата **GENERATION_COUNT** (оптимални резултати при популация **1000** се забелязва при **поколения >=№200** )
+> - Смяната на размера на популацията става чрез смяна на променливата **INIT_POP_SIZE** (за оптималност на бързина на алгоритъма и намаляване на стагнацията му е сложено като **3000**)
+> - Смяната на максималния брой поколения става чрез смяна на променливата **GENERATION_COUNT** (оптимални резултати при популация **3000** се забелязва при **поколения >=№200** )
+> - Смяната на минималния фитнес коефициент смяна на променливата **FITNESS_COEF** (оптимални резултати се считат на **0.6**)
+> - Смяната на максималния брой идентични поколения преди стагнация става чрез промяна на променливата **STAGNATED_CNT** (стагнация се счита при **50** идентични поколения, идентичност спрямо най-добър фитнес коефициент)
+
 
 > ### Стъпки за компилация:
 >
@@ -274,8 +327,13 @@ plotPath(towns,romania_map["locations"],latest_gen[0])
 ## 5. Примерни резултати
 
 > ### Start town: Hirsova
-> - Best distance: ~1589.84 (при различни опити може да варира до ~1860)
-> - Път: Hirsova-> Vaslui-> Iasi-> Neamt-> Fagaras-> Rimnicu-> Sibiu-> Oradea-> Zerind-> Arad-> Timisoara-> Lugoj-> Mehadia-> Drobeta-> Craiova-> Pitesti-> Giurgiu-> Bucharest-> Urziceni-> Eforie
+> - Best distance: ~**1589.84** (при различни опити може да варира до ~**1860**)
+> - **Път**: Hirsova-> Vaslui-> Iasi-> Neamt-> Fagaras-> Rimnicu-> Sibiu-> Oradea-> Zerind-> Arad-> Timisoara-> Lugoj-> Mehadia-> Drobeta-> Craiova-> Pitesti-> Giurgiu-> Bucharest-> Urziceni-> Eforie
 
+![alt text](./imgs/{A605B7F8-A559-44B9-9249-B4940A7B6308}.png)
 
-![alt text]({A605B7F8-A559-44B9-9249-B4940A7B6308}.png)
+> ### Start town: Lugoj
+> - Best distance: **1802.99**
+> - **Път**: Lugoj-> Neamt-> Iasi-> Vaslui-> Hirsova-> Eforie-> Urziceni-> Bucharest-> Giurgiu-> Craiova-> Pitesti-> Fagaras-> Rimnicu-> Sibiu-> Oradea-> Zerind-> Arad-> Timisoara-> Drobeta-> Mehadia
+
+![alt text](./imgs/{44F15CDE-431B-4EBF-B4F7-B1F05AD4D920}.png)

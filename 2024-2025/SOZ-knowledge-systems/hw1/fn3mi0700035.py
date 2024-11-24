@@ -4,7 +4,7 @@ from pprint import pprint as pp
 import matplotlib.pyplot as plt
 
 INIT_POP_SIZE = 3000
-START_TOWN = "Hirsova"
+START_TOWN = "Lugoj"
 GENERATION_COUNT = 200
 FITNESS_COEF = 0.6
 STAGNATED_CNT = 50
@@ -140,7 +140,7 @@ for i in range(GENERATION_COUNT):
         same_fitness_cnt+=1
     
     if(max_fitness>=FITNESS_COEF and same_fitness_cnt>=5):
-        pp(f"Hit fitness coefficient: {FITNESS_COEF}")
+        pp(f"Hit fitness coefficient: {max_fitness}")
         break
     if (same_fitness_cnt>=STAGNATED_CNT):
         pp(f"Algorithm stagnated")  
