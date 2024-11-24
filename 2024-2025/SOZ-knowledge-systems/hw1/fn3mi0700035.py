@@ -72,18 +72,27 @@ def apply_population_lifecycle(points, old_gen):
 
 def problemPlot(towns,points,path):
     for i in range(len(towns)):
-        plt.text(points[towns[i]][0] + 0.2, points[towns[i]][1] + 0.2, towns[i], fontsize=9)
+        plt.text(points[towns[i]][0] + 2, points[towns[i]][1] + 0.25, towns[i], fontsize=9)
     
     x_coords=[]
     y_coords=[]
 
+
+
     for i in range(len(path)):
         x_coords.append(points[path[i]][0])
         y_coords.append(points[path[i]][1])
+
+    for i in range(len(x_coords)):
+        x_start,x_end = x_coords[i-1],x_coords[i]
+        y_start,y_end = y_coords[i-1],y_coords[i]
+        plt.arrow(x_start, y_start, (x_end - x_start)*.95, (y_end - y_start)*.95, head_width=10, head_length=7, fc='orange', ec='orange')
     
     x_coords.append(x_coords[0])
     y_coords.append(y_coords[0])
-    plt.plot(x_coords,y_coords)
+
+    
+    plt.scatter(x_coords,y_coords,color="red")
     plt.title("Traveling Salesman Problem")
     plt.xlabel("X Coordinate")
     plt.ylabel("Y Coordinate")
@@ -99,7 +108,7 @@ Oradea=(131, 571), Pitesti=(320, 368), Rimnicu=(233, 410),
 Sibiu=(207, 457), Timisoara=(94, 410), Urziceni=(456, 350),
 Vaslui=(509, 444), Zerind=(108, 531))
 
-START_TOWN = "Bucharest"
+START_TOWN = "Hirsova"
 
 towns = list(romania_map['locations'].keys())
 init_population = gen_init_population(towns,START_TOWN)
