@@ -3,15 +3,20 @@ import random
 from pprint import pprint as pp
 import matplotlib.pyplot as plt
 
-INIT_POP_SIZE = 1000
+INIT_POP_SIZE = 3000
 START_TOWN = "Hirsova"
-GENERATION_COUNT = 250
+GENERATION_COUNT = 200
+FITNESS_COEF = 0.6
+STAGNATED_CNT = 50
 
 def distance(begin, end) :
     return math.dist(begin,end)
 
 def total_distance(points,path):
     return sum(distance(points[path[i-1]],points[path[i]]) for i in range(len(path)))
+
+def fitness_coeff(points, path):
+    return 1000 / total_distance(points,path)
 
 def gen_init_population(towns, start, pop_size=INIT_POP_SIZE):
     population = []
@@ -119,10 +124,27 @@ towns = list(romania_map['locations'].keys())
 init_population = gen_init_population(towns,START_TOWN)
 
 latest_gen = init_population
-
+max_fitness = float('-inf')
+same_fitness_cnt = 0
 for i in range(GENERATION_COUNT):
     print(f"Generation #{i}")
     latest_gen = apply_population_lifecycle(romania_map["locations"],latest_gen)
+    
+    fitness = [round(fitness_coeff(romania_map["locations"],path),3) for path in latest_gen]
+    sorted(fitness,key=lambda x:x,reverse=True)
+    print(f"BEST FITNESS: {fitness[0]}")
+    if(max_fitness<fitness[0]):
+        max_fitness=fitness[0]
+        same_fitness_cnt=0
+    else:
+        same_fitness_cnt+=1
+    
+    if(max_fitness>=FITNESS_COEF and same_fitness_cnt>=5):
+        pp(f"Hit fitness coefficient: {FITNESS_COEF}")
+        break
+    if (same_fitness_cnt>=STAGNATED_CNT):
+        pp(f"Algorithm stagnated")  
+        break
 
 sorted(latest_gen,key=lambda x: total_distance(romania_map["locations"],x))
 
