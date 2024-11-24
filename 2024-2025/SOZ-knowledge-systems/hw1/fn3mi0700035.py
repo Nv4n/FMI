@@ -70,7 +70,7 @@ def apply_population_lifecycle(points, old_gen):
     new_population = apply_mutations(crossovers)
     return new_population
 
-def problemPlot(towns,points,path):
+def plotPath(towns,points,path):
     for i in range(len(towns)):
         plt.text(points[towns[i]][0] + 2, points[towns[i]][1] + 0.25, towns[i], fontsize=9)
     
@@ -126,4 +126,4 @@ pp(latest_gen[0])
 
 pp("Best distance {0}".format(total_distance(romania_map["locations"],latest_gen[0])))
 
-problemPlot(towns,romania_map["locations"],latest_gen[0])
+plotPath(towns,romania_map["locations"],latest_gen[0])
