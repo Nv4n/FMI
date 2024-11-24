@@ -1,8 +1,9 @@
 import math
 import random
 from pprint import pprint as pp
+import matplotlib.pyplot as plt
 
-INIT_POP_SIZE = 10000
+INIT_POP_SIZE = 5000
 
 def distance(begin, end) :
     return math.dist(begin,end)
@@ -20,8 +21,7 @@ def gen_init_population(towns,start, pop_size=INIT_POP_SIZE):
     return population
 
 def select_population(points,old_gen):
-    leftovers =[]
-    random.shuffle(old_gen)
+    leftovers = []
     mid = len(old_gen) // 2
     for i in range(mid):
         if total_distance(points,old_gen[i])<total_distance(points,old_gen[i+mid]):
@@ -37,7 +37,7 @@ def gen_offspring(fstParent,sndParent):
     init_sub_path = fstParent[start:end]
     remaining_sub_path = [town for town in sndParent if town not in init_sub_path]
     for i in range(0,len(fstParent)):
-        if(i < end):
+        if(start <= i < end):
             offspring.append(init_sub_path.pop(0))
         else:
             offspring.append(remaining_sub_path.pop(0))
@@ -46,8 +46,8 @@ def gen_offspring(fstParent,sndParent):
 def apply_crossovers(leftover):
     crossovers = []
     random.shuffle(leftover)
-    mid = len(leftover)//2
-    for i in range(0,len(leftover)):
+    mid = len(leftover) // 2
+    for i in range(mid):
         fstParent, sndParent = leftover[i],leftover[i+mid]
         for _ in range(2):
             crossovers.append(gen_offspring(fstParent,sndParent))
@@ -70,6 +70,25 @@ def apply_population_lifecycle(points, old_gen):
     new_population = apply_mutations(crossovers)
     return new_population
 
+def problemPlot(towns,points,path):
+    for i in range(len(towns)):
+        plt.text(points[towns[i]][0] + 0.2, points[towns[i]][1] + 0.2, towns[i], fontsize=9)
+    
+    x_coords=[]
+    y_coords=[]
+
+    for i in range(len(path)):
+        x_coords.append(points[path[i]][0])
+        y_coords.append(points[path[i]][1])
+    
+    x_coords.append(x_coords[0])
+    y_coords.append(y_coords[0])
+    plt.plot(x_coords,y_coords)
+    plt.title("Traveling Salesman Problem")
+    plt.xlabel("X Coordinate")
+    plt.ylabel("Y Coordinate")
+    plt.show()
+
 romania_map={}
 romania_map["locations"] = dict(
 Arad=(91, 492), Bucharest=(400, 327), Craiova=(253, 288),
@@ -82,16 +101,20 @@ Vaslui=(509, 444), Zerind=(108, 531))
 
 START_TOWN = "Bucharest"
 
-towns = romania_map['locations'].keys()
+towns = list(romania_map['locations'].keys())
 init_population = gen_init_population(towns,START_TOWN)
 
 latest_gen = init_population
-selected = select_population(romania_map["locations"],latest_gen)
-# for _ in range(100):
-#     latest_gen = apply_population_lifecycle(romania_map["locations"],latest_gen)
-pp(gen_offspring(selected[50],selected[57])) 
-# pp(latest_gen[0])
-# pp(total_distance(romania_map["locations"],latest_gen[0]))
 
-# pp(latest_gen[50])
-# pp(total_distance(romania_map["locations"],latest_gen[50]))
+for i in range(100):
+    print(f"Generation #{i}")
+    latest_gen = apply_population_lifecycle(romania_map["locations"],latest_gen)
+
+print("Plotting!")
+sorted(latest_gen,key=lambda x: total_distance(romania_map["locations"],x))
+pp(len(latest_gen[0]))
+pp(latest_gen[0])
+
+pp("Best distance {0}".format(total_distance(romania_map["locations"],latest_gen[0])))
+
+problemPlot(towns,romania_map["locations"],latest_gen[0])
