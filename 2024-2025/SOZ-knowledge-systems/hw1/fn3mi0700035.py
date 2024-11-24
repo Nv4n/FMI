@@ -76,9 +76,6 @@ def plotPath(towns,points,path):
     
     x_coords=[]
     y_coords=[]
-
-
-
     for i in range(len(path)):
         x_coords.append(points[path[i]][0])
         y_coords.append(points[path[i]][1])
