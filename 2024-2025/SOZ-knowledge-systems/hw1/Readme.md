@@ -4,62 +4,94 @@
 
 ## 2. Реализация чрез псевдо код
 ```sql
-INITIALIZE CONSTANTS:
-    INITITIAL_POPULATION_SIZE = 5000
+FUNCTION DISTANCE(begin, end) RETURNS a number
+    RETURN distance BETWEEN coordinates of begin AND end
+
+FUNCTION TOTAL-DISTANCE(points, path) RETURNS a number
+    RETURN SUM OF distances FOR ALL consecutive pairs IN path
+
+FUNCTION GENERATE-INITIAL-POPULATION(towns, start, population_size) RETURNS a population
+    population ← EMPTY LIST
+    REPEAT population_size TIMES
+        random_population ← SHUFFLE(towns EXCLUDING start)
+        PREPEND start TO rand_population
+        ADD random_population TO population
+    RETURN population
+
+FUNCTION SELECT-POPULATION(points, old_generation) RETURNS a selected_population
+    leftovers ← EMPTY LIST
+    middle ← HALF LENGTH OF old_gen
+    FOR i FROM 0 TO middle DO
+        IF TOTAL-DISTANCE(points, old_generation[i]) < TOTAL-DISTANCE(points, old_generation[i + middle])
+            APPEND old_generation[i] TO leftovers
+        ELSE
+            APPEND old_generation[i + middle] TO leftovers
+    RETURN leftovers
+
+FUNCTION GENERATE-OFFSPRING(firstParent, secondParent) RETURNS an offspring
+    offspring ← EMPTY LIST
+    start ← RANDOM NUMBER FROM 0 TO LENGTH(firstParent)-1
+    end ← RANDOM NUMBER FROM start TO LENGTH(firstParent)
+    initial_sub_path ← GET firstParent FROM start TO end
+    remaining_sub_path ← GET TOWNS FROM secondParent IF NOT IN initial_sub_path
+    FOR i FROM 0 TO LENGTH firstParent DO
+        IF start <= i < end
+            APPEND NEXT ELEMENT FROM initial_sub_path TO offspring
+        ELSE
+            APPEND NEXT ELEMENT FROM remaining_sub_path TO offspring
+    RETURN offspring
+
+FUNCTION APPLY-CROSSOVERS(leftovers) RETURNS a population
+    crossovers ← EMPTY LIST
+    RANDOM SHUFFLE leftovers 
+    middle ← HALF LENGTH OF leftovers
+    REPEAT middle TIMES
+        firstParent ← leftover[i]
+        secondParent ← leftover[i + middle]
+        REPEAT 2 TIMES
+            APPEND GENERATE-OFFSPRING(firstParent, secondParent) TO crossovers
+            APPEND GENERATE-OFFSPRING(secondParent, firstParent) TO crossovers
+    RETURN crossovers
+
+FUNCTION APPLY-MUTATIONS(crossovers) RETURNS a mutated_population
+    mutated_population ← EMPTY LIST
+    FOR path IN crossovers DO
+        IF RANDOM NUMBER FROM 0 TO 1000 < 9 THEN
+            firstIndex ← RANDOM NUMBER FROM 1 TO LENGTH(path)-1
+            secondIndex ← RANDOM NUMBER FROM 1 TO LENGTH(path)-1
+            SWAP path[firstIndex] AND path[secondIndex]
+        APPEND path TO mutated_population
+    RETURN mutated_population
+
+FUNCTION APPLY-POPULATION-LIFECYCLE(points, old_generation) RETURNS a population
+    leftovers ← SELECT-POPULATION(points, old_generation)
+    crossovers ← APPLY-CROSSOVERS(leftovers)
+    new_population ← APPLY-MUTATIONS(crossovers)
+    RETURN new_population
+
+FUNCTION PLOT-PATH(towns, points, path)
+    PLOT the path AND annotate points WITH their town names
+
+SETUP PARAMETERS
+    romania_map ← {locations: {TOWN_NAME: (COORDINATE_X, COORDINATE_Y), ...}}
+    towns ← KEYS(romania_map["locations"])
     START_TOWN = "TOWN_NAME"
-    ROMANIA_MAP = {locations: {town_name: (x, y), ...}}
+    INITIAL_POPULATION_SIZE = 1000
+    GENERATION_COUNT = 250
+    initial_population ← GENERATE-INITIAL-POPULATION(towns, START_TOWN, INITIAL_POPULATION_SIZE)
+    latest_generation ← initial_population
 
-FUNCTION DISTANCE(begin, end):
-    COMPUTE distance between two points
+REPEAT GENERATION_COUNT TIMES
+    PRINT "Generation #" + i
+    latest_generation ← APPLY-POPULATION-LIFECYCLE(romania_map["locations"], latest_generation)
 
-FUNCTION TOTAL_DISTANCE(points, path):
-    CALCULATE total distance for a given path based on points coordinates
+SORT latest_generation BY TOTAL-DISTANCE(romania_map["locations"])
+PRINT "Plotting!"
+PRINT "Start town: " + START_TOWN
+PRINT latest_generation[0]
+PRINT "Best distance: " + TOTAL-DISTANCE OF latest_generation[0]
 
-FUNCTION GEN_INIT_POPULATION(towns, start, pop_size=INIT_POP_SIZE):
-    INITIALIZE population as a list of shuffled permutations of towns, starting with `start`
-
-FUNCTION SELECT_POPULATION(points, old_gen):
-    SPLIT old generation into two halves
-    COMPARE distances between corresponding paths in each half
-    RETAIN paths with shorter distances as "leftovers"
-
-FUNCTION GEN_OFFSPRING(fstParent, sndParent):
-    RANDOMLY SELECT a sub-path from fstParent
-    CREATE offspring by combining sub-path with towns from sndParent, preserving order
-
-FUNCTION APPLY_CROSSOVERS(leftover):
-    SHUFFLE leftovers and DIVIDE INTO pairs
-    FOR each pair, generate two offspring by applying crossover logic
-    RETURN list of all offspring
-
-FUNCTION APPLY_MUTATIONS(crossovers):
-    FOR each path IN crossovers:
-        WITH a small probability, randomly swap two towns in the path
-    RETURN mutated paths
-
-FUNCTION APPLY_POPULATION_LIFECYCLE(points, old_gen):
-    SELECT leftovers from old generation
-    GENERATE offspring from leftovers
-    APPLY mutations to offspring
-    RETURN new population
-
-FUNCTION PLOT_PATH(towns, points, path):
-    PLOT towns on a graph
-    DRAW arrows between towns following the path
-    DISPLAY the Traveling Salesman Problem visualization
-
-MAIN EXECUTION:
-    INITIALIZE towns and initial population
-    SET `latest_gen` as the initial population
-
-    FOR 100 GENERATIONS:
-        PRINT current generation number
-        EXECUTE population lifecycle to evolve the generation
-
-    SORT latest generation BY total distance
-    PRINT the size and best path IN `latest generation`
-    PRINT the total distance of the best path
-    PLOT the best path USING `plotPath`
+PLOT-PATH(towns, romania_map["locations"], latest_generation[0])
 ```
 
 ## 3. Реализация чрез Python код
@@ -72,7 +104,7 @@ import matplotlib.pyplot as plt
 
 INIT_POP_SIZE = 1000
 START_TOWN = "Hirsova"
-GENERATION_COUNT = 500
+GENERATION_COUNT = 250
 
 def distance(begin, end) :
     return math.dist(begin,end)
@@ -80,7 +112,7 @@ def distance(begin, end) :
 def total_distance(points,path):
     return sum(distance(points[path[i-1]],points[path[i]]) for i in range(len(path)))
 
-def gen_init_population(towns,start, pop_size=INIT_POP_SIZE):
+def gen_init_population(towns, start, pop_size=INIT_POP_SIZE):
     population = []
     for _ in range(pop_size):
         rand_population = [town for town in towns if town != start]
@@ -112,12 +144,12 @@ def gen_offspring(fstParent,sndParent):
             offspring.append(remaining_sub_path.pop(0))
     return offspring
 
-def apply_crossovers(leftover):
+def apply_crossovers(leftovers):
     crossovers = []
-    random.shuffle(leftover)
-    mid = len(leftover) // 2
+    random.shuffle(leftovers)
+    mid = len(leftovers) // 2
     for i in range(mid):
-        fstParent, sndParent = leftover[i],leftover[i+mid]
+        fstParent, sndParent = leftovers[i],leftovers[i+mid]
         for _ in range(2):
             crossovers.append(gen_offspring(fstParent,sndParent))
             crossovers.append(gen_offspring(fstParent,sndParent))

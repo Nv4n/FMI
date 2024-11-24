@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 INIT_POP_SIZE = 1000
 START_TOWN = "Hirsova"
-GENERATION_COUNT = 500
+GENERATION_COUNT = 250
 
 def distance(begin, end) :
     return math.dist(begin,end)
@@ -13,7 +13,7 @@ def distance(begin, end) :
 def total_distance(points,path):
     return sum(distance(points[path[i-1]],points[path[i]]) for i in range(len(path)))
 
-def gen_init_population(towns,start, pop_size=INIT_POP_SIZE):
+def gen_init_population(towns, start, pop_size=INIT_POP_SIZE):
     population = []
     for _ in range(pop_size):
         rand_population = [town for town in towns if town != start]
@@ -45,12 +45,12 @@ def gen_offspring(fstParent,sndParent):
             offspring.append(remaining_sub_path.pop(0))
     return offspring
 
-def apply_crossovers(leftover):
+def apply_crossovers(leftovers):
     crossovers = []
-    random.shuffle(leftover)
-    mid = len(leftover) // 2
+    random.shuffle(leftovers)
+    mid = len(leftovers) // 2
     for i in range(mid):
-        fstParent, sndParent = leftover[i],leftover[i+mid]
+        fstParent, sndParent = leftovers[i],leftovers[i+mid]
         for _ in range(2):
             crossovers.append(gen_offspring(fstParent,sndParent))
             crossovers.append(gen_offspring(fstParent,sndParent))
