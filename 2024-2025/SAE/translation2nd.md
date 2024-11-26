@@ -10,27 +10,20 @@ As for the last part,  it came out clear as day - the fool himself admitted in a
 <!-- DONE -->
 
 By the way, past the recordings of his informal conversations, I think that if 15 years after he became mayor of Sofia and changed the environment in which he works and, presumably, communicates with at least moderately intelligent people, Borisov did not change the sociolect of thugs, it means that he continues to communicate with them. Otherwise, where will he fill his vocabulary with the neologisms of the underground? Right, isn't it?
+<!-- DONE -->
 
-I got carried away, I wanted to tell you something else. About Borisov's visit to Lovech and the surrounding area. And because his tour is a little bit of an electoral thing, he visited the Cathedral of St. Sv. Cyril and Methodius". To have an occasion to remind that for its renovation his government has so far allocated 828 000 BGN, and his party added nearly a million more.
+I got carried away, I wanted to tell you something else. About Borisov's visit to Lovech and the surrounding area. And because his tour is a little bit of an electoral thing, he visited the Cathedral of "St. St. Cyril And Methodius". To have an occasion to remind that for its renovation his government has so far allocated 828 000 BGN, and his party added nearly a million more.
 
-"This temple was built for the people because it is important for us to keep our faith, the Prime Minister told us. - I am glad that the decision not to close the churches for Easter and Palm Sunday turned out to be the right one. The Lord made sure that we kept people healthy and I thank all the bishops and priests."
+"This temple was built for the people, because it is important for us to keep our faith, the Prime Minister blessed us. - I am glad that the decision not to close the churches for Easter and Palm Sunday turned out to be the right one. The Lord made sure that we kept people healthy and I thank all the bishops and priests."
 
-Не знам, може и Господ да го е направил. Аз в тия работи избягвам да
-се бъркам. Но друго не мога да разбера. Как така децата ще се душат
-на училище с маски, а той се среща с хиляди хора без маска. Пардон,
-преувеличих малко – десетки, тук-таме стотици! Но и с трима души да
-говори, пак е важно какъв пример дава на гражданите! Щото така
-работа заприличва на оня действителен случай, дето Иванчо гледал
-през ключалката какво правят майка му и баща му в спалнята и
-погнусен възкликнал: И тия хора ще ми казват да не си бъркам в носа!
+I don't know, maybe God did it. I avoid meddling in these things. But I cannot understand one thing. How come kids will be suffocating at school with masks on and he's meeting thousands of people without a mask. Pardon my exaggeration - dozens, here and there hundreds! But even if he talks to three people, it's still important what kind of example he sets for the citizens! Because this way it resembles that real case, when Ivancho watched through the keyhole what his mother and father were doing in the bedroom and disgusted exclaimed: And these people will tell me not to pick my nose!
 
-I don't know, maybe God did it. I avoid meddling in these things. But I cannot understand anything else. How come kids will be showering at school with masks on and he's meeting thousands of people without a mask. Pardon my exaggeration - dozens, here and there hundreds! But even if he talks to three people, it's still important what kind of example he sets for the citizens! Because this way the work resembles that real case, when Ivancho watched through the keyhole what his mother and father were doing in the bedroom and disgusted exclaimed.
+At the peak of the pandemic, he wore the mask like a bib, now he's ditched it. God will protect us! But if you ask father priest, he will tell you that God gives, but doesn't put it in the pen for you. God only warns, "Be careful..."
 
-At the height of the pandemic, he wore the mask like a bib, now he's ditched it. God will protect us! But if you ask Grandpa Pope, he will tell you that God gives, but does not bring into the fold. God only warns, "Beware..."
+He will fight the pandemic with 50 leva pension supplements! Let them eat, get immunity, and hopefully live until the elections. Because it is no secret to anyone that this electorate is stealing from BSP and is sharing it with God...
 
-We will fight the pandemic with 50 leva pension supplements! Let them devour, get immunity, and hopefully live until the elections. Because it is no secret to anyone that this BSP electorate is stealing it and sharing it with God...
-
-And again I return to uninformed love. I don't know why God is helping us in the pandemic. And Borisov why he helps I have no explanation. At least he should be informed... Boris Dimovsky used to say that God makes the lame stork's nest. And it's hard to imagine a lamer stork than this one...
+And again I return to uninformed love. I don't know why God is helping us in the pandemic. And why he helps Borisov, I have no explanation. At least he should be informed... Boris Dimovski used to say that God makes the limp stork's nest. And it's hard to imagine a limpier stork than this one...
+<!-- DONE -->
 
 And I have written about Borisov's Christian faith many times. But when I watched how he crossly kissed the hand of the bishop, how he dragged the icon of St. St. Mary of God under his arm like a gypsy manhole cover, it came to me. The photos don't show if he has at least removed the red thread from his cunque. He wore it until recently. Even though the BOC announced a few years ago that it was starting a war on superstition. The Vladyka jumped specifically against the red thread. They insisted that the Synod condemn this pagan tradition, condemn fortune tellers, witch doctors and various other superstitions. The word "superstition" means empty, meaningless (in vain) belief, useless faith. According to the Church, belief in God is a virtue, and superstition is a sin.
 
