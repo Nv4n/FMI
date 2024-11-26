@@ -36,38 +36,43 @@ Christianity has nothing to do with fortune tellers, diviners, astrologers, heal
 
 My grandmother, one really pious grandmother, when she would go on a journey, she would just cross herself and say, "God speed!" And neither black cats nor bad eyes of the people brought her back...
 
-An enlightened person cannot be so superstitious! Such superstition is inherent in the rustic spirituality of previous centuries. Although, on the other hand, the hieromonks Vissarion and John say in "Superstitions among Christians Today" that "superstition depends neither on intellect nor on education. Often great scholars appear to be superstitious men." Well, in this case it is not a question of great scholars, de...
+An enlightened person cannot be so superstitious! Such superstition is inherent in the rustic spirituality of previous centuries. Although, on the other hand, the hieromonks Vissarion and Jovan say in "Superstitions among Christians Today" that "superstition depends neither on intellect nor on education. Often great scholars appear to be superstitious men." Well, in this case it is not a question of great scholars...
 
-Just in passing, I will note that there are also individual clairvoyants.Once on "Horizon" I came across the psychic Nikoleta Yordanova. She said about the MPs. An assessment that would do honour to many political scientists, wouldn't it?
+Just briefly I will note that there are also decent clairvoyants.Once on "Horizont" I came across the psychic Nikoleta Yordanova. She said about the MPs: "The stupid bastards in Parliament, who are trash bins full of money, have ruined Bulgaria" An assessment that would do honour to many political scientists, wouldn't it?
 
-And the astrologers believe Borisov. First he believed a lot in Leszczanski. But then Alena wrote that in his previous life Borisov was a general in England in the XVII century. And probably he started trusting her from then on. And for one birthday he wrote to her, "I will not conceal that I take your advice and thank you for your accurate guidance."
+And to the astrologers - believes Borisov. First he believed a lot in Leshtanski. But then Alena wrote that in his previous life Borisov was a general in England in the XVII century. And probably he started trusting her from then on. And for one birthday he wrote to her, "I will not conceal that I take your advice and thank you for your accurate guidance."
 
 And it was right to hide, because it appears that the state is guided by astrologers.
+<!-- DONE -->
 
-And this same superstitious person, who has no clue of the Christian catechism, is dying to pretend to be pious! And the popes bind him, Zer is in power and donates generously from the people's steam. He goes around the churches, gets baptized, kisses the icons and the hands of the popes, gives icons and they give him gifts... Zealous as any proselyte. From his confessions we learnt that he was pious from a short time ago, he became pious by the king. Before that he was a communist, a member of the Communist Party who refused to depoliticize. And the Communists, as you know, confessed Christ shortly after November 10. Like that citizen of Ilf and Petrov, who recognized the Soviet power a little later than England and a little earlier than Greece...
+And this same superstitious person, who has no clue of the Christian catechism, is dying to pretend to be pious! And the popes believe him, of course he is in power and donates generously from the people's pocket. He goes around the churches,  blessing oneself, kisses the icons and the hands of the popes, gives icons and they give him icons back... Zealous as any proselyte. From his confessions we learnt that he became pious recently by the king's influence. Before that he was a communist, a member of the BKP who refused to depoliticize. And the Communists, as you know, confessed Christ shortly after November 10. Like that citizen of Ilf and Petrov, who recognized the Soviet power a little later than England and a little earlier than Greece...
 
-But to such a clergy, such pasoms... My friend wrote on Facebook about the bishop of Lovchan: "It and Tsvetan Dinev, with the thug alias Gavriel, is the same spoiled goods as Borisov." Zachary Stoyanov wrote: "Once the robbers hung on the cross, now the cross hangs on the robbers."
+Such clergy, such followers... My friend wrote on Facebook about the bishop of Lovchan: "Tsvetan Dinev, with the thug alias Gavriel, is the same spoiled goods as Borisov." Zahari Stoyanov wrote: "Once the robbers hung on the cross, now the cross hangs on the robbers."
 
-With us it is always the same time... And the party of the Pharisees always wins - both in the church and outside it.
+Here it's always once upon a time... And the party of the Pharisees always wins - both in the church and outside it.
+<!-- DONE -->
 
-If my voice could reach the people of those villages and hamlets where the prime minister goes around like a "gloa bitch", as the intellectuals of Pazardzhik put it, I would ask them: how come, people, how come you are not tired of living in this hypocrisy for ten years?! A superstitious person preaching Christianity to you, a former communist teaching you anti-communism, a thief teaching you morality, a pathological liar teaching you honesty, a corrupt thug teaching you patriotism, a vain to the point of pathology person teaching you modesty?!!  How can you not be tired of a billionaire, who only in his locker pockets a ten-year average pension, to throw you 50 leva alms?!
+If my voice could reach the people of those villages and hamlets where the prime minister goes around like a "deaf bitch", as the intellectuals of Pazardzhik put it, I would ask them: "How come folks, how come you are not tired of living in this hypocrisy for ten years?! A superstitious person preaching Christianity to you, a former communist teaching you anti-communism, a thief teaching you morality, a pathological liar teaching you honesty, a corrupt thug teaching you patriotism, a vain to the point of pathology person teaching you modesty?!!  How can you not be tired of a billionaire, who only in his locker pockets a ten-year average pension, to throw you 50 BGN alms?!
 
-And maybe you're not bored for a reason? Maybe Chekhov is right. "The mass, always prone to anthropomorphism in religion and morality, worships just those idols that have its weaknesses." Who knows...
+And maybe you're not fed up for a reason? Maybe Chehov is right. "The mass, always prone to anthropomorphism in religion and morality, worships just those idols that have its weaknesses." Who knows...
 
-If we want to be honest in advance, we have to admit that hypocrisy will not go away with Borissov. The person, the emblem of corruption in GERB Cicero made a party and is preparing for elections. The friend of the thugs Slavi Trifonov is also preparing. You remember how he roared on TV when Georgi Iliev was shot. You remember the Grenzis... If you remembered, they would hardly dare to make parties. But both Slavi and Tsvetanov know and remember that you don't remember...
+Still, I would try to tell them. But there's no way I could reach them. For these villages, the media is something like Grandpa Yotso's village: "there is no newspaper because nobody reads..."
 
-Especially for the intellectuals who ask what will come when we overthrow Borisov, I will say. Now the task is to overthrow the thug. And then, if we are not tired of it, we can think and remember that our enemy is not this or that cabinet, but the status quo itself. It is a llama with three heads and five asses, as a grandfather used to say. In place of every severed head grows a new head and two new asses. We cannot smell it. We need a bomb. The status quo is crime, the status quo is corruption, the status quo is poverty and misery, screwed up education and sick healthcare, the self-serving political class and the venal intelligentsia... They are the status quo and we are the status quo. We are in it and it is in us...
+If we want to be honest in advance, we have to admit that hypocrisy will not go away with Borissov. The person, the emblem of corruption in GERB Cicero made a party and is preparing for elections. The friend of the thugs Slavi Trifonov is also preparing. You remember how he cried on TV when Georgi Iliev was shot. You remember sure, in your dreams... If you remembered, they would hardly dare to make parties. But both Slavi and Tsvetanov know and remember that you don't remember...
+<!-- DONE -->
 
-And I will tell you a little "secret". So far, in the fight against the status quo, we have always come second, because we always let someone else lead this fight for us. And for that someone else, the struggle to change the status quo ends with the change of status.
+Especially for the intellectuals who ask what will come when we overthrow Borisov, I will say. Now the task is to overthrow the thug. And then, if we are not lazy, we can think and remember that our enemy is not this or that cabinet, but the status quo itself. It's a three-headed dragon with five asses, as an old man used to say. In place of every severed head grows a new head and two new asses. We cannot overcome it. We need a bomb. The status quo is the crime, the status quo is the corruption, the status quo is the poverty and misery, screwed up education and sick healthcare, the self-serving political class and the venal intelligentsia... They are the status quo and we are the status quo. We are in it and it is in us...
+
+And I will tell you a little "secret". So far, in the fight against the status quo, we have always came second, because we always let someone else lead this fight for us. And for that someone else, the struggle to change the status quo ends with the change of status.
 
 I'm afraid that's the way it's going to be now too, dammit (no excuse)!
 
-But that doesn't mean we should give up. Remember... Excuse me...
+But that doesn't mean we should give up. Do you remember... Excuse me...
 
 I wanted to quote a short dialogue from Kestner's "Fabian" that I've probably mentioned to you before:
 
-- 'The sensible will not come to power,' said Fabian, 'still less the just.
+- The sensible will not come to power - said Fabian - even less the just ones.
 
-- So!"Laboude stepped very close to his friend and grabbed the collar of his coat with both hands. - But shouldn't they still dare?
+- So! - Labude stepped very close to his friend and grabbed the collar of his coat with both hands. - But shouldn't they still dare?
 
-So they do!
+And so on!
