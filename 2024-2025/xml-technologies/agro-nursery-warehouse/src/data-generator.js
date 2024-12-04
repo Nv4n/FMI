@@ -7,7 +7,7 @@ import { random, toLatin } from "./utility.js";
  *
  * @returns {string} Random full name
  */
-function generateFullName() {
+export function generateFullName() {
     const randFirstName = firstNames[random(firstNames.length)];
     const randLastName = lastNames[random(lastNames.length)];
     return `${randFirstName.name} ${randLastName}${
@@ -20,7 +20,7 @@ function generateFullName() {
  * @param {string} fullName
  * @returns {string} Random email
  */
-function generateEmail(fullName) {
+export function generateEmail(fullName) {
     const randomDomain = emailDomains[random(emailDomains.length)];
     return `${toLatin(fullName.replace(" ", "_"))}@${randomDomain}`;
 }
@@ -29,7 +29,7 @@ function generateEmail(fullName) {
  *
  * @returns {string} Random phone number
  */
-function generatePhone() {
+export function generatePhone() {
     let phoneNumber = "+";
     for (let ind = 0; ind <= random(2) + 1; ind++) {
         phoneNumber += random(9).toString();
@@ -48,3 +48,5 @@ function generatePhone() {
     }
     return phoneNumber;
 }
+
+//TODO RANDOM ADRESSES

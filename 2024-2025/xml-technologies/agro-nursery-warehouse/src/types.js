@@ -48,6 +48,8 @@ export const lastNames = [
 
 export const emailDomains = ["gmail.com", "abv.bg", "yahoo.com", "outlook.com"];
 
+//TODO RANDOM ADDRESSES DATA
+
 /**
  * @typedef {Object} ContentInfo
  * @prop {boolean} isFragile
