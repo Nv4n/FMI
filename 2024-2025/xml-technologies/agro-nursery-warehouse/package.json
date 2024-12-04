@@ -1,0 +1,16 @@
+{
+  "name": "agro-nursery-warehouse",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Warehouse xml project",
+  "main": "./src/generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nv4n/FMI/2024-2025/xml-technologies/agro-nursery-warehouse"
+  },
+  "author": "Ivan Petrov FN3MI0700035",
+  "license": "ISC"
+}
