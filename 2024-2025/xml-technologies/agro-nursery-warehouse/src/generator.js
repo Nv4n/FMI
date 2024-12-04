@@ -48,9 +48,3 @@ function generatePhone() {
     }
     return phoneNumber;
 }
-
-let fullname = generateFullName();
-let email = generateEmail(fullname);
-
-console.log(fullname, email);
-console.log(generatePhone());
