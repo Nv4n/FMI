@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nv4n/FMI/2024-2025/xml-technologies/agro-nursery-warehouse"
+    "directory": "2024-2025/xml-technologies/agro-nursery-warehouse",
+    "url": "https://github.com/Nv4n/FMI"
   },
   "author": "Ivan Petrov FN3MI0700035",
   "license": "ISC"
