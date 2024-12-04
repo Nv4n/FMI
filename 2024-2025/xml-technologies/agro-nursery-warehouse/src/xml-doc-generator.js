@@ -1,5 +1,10 @@
 //@ts-check
 
+import {
+    generateEmail,
+    generateFullName,
+    generatePhone,
+} from "./data-generator";
 import { products } from "./types";
 import { random } from "./utility";
 
@@ -146,4 +151,48 @@ function generateProduct(xmlDoc, product) {
         element: productEl,
         cost: quantity * product.contentInfo.price * currencyCoeff,
     };
+}
+
+/**
+ *
+ * @param {XMLDocument} xmlDoc
+ * @param {string} fullname
+ * @returns {Element}
+ */
+function generateContact(xmlDoc, fullname = generateFullName()) {
+    let contactEl = xmlDoc.createElementNS(namespace, "contact");
+    let locationEl = xmlDoc.createElementNS(namespace, "location");
+
+    let countryEl = xmlDoc.createElementNS(namespace, "country");
+    countryEl.textContent = "";
+    let cityEl = xmlDoc.createElementNS(namespace, "city");
+    cityEl.textContent = "";
+    let addressEl = xmlDoc.createElementNS(namespace, "address");
+    addressEl.textContent = "";
+
+    locationEl.appendChild(countryEl);
+    locationEl.appendChild(cityEl);
+    locationEl.appendChild(addressEl);
+
+    contactEl.appendChild(locationEl);
+
+    let choice = random(3);
+    if (choice < 1) {
+        let emailEl = xmlDoc.createElementNS(namespace, "email");
+        emailEl.textContent = generateEmail(fullname);
+        contactEl.appendChild(emailEl);
+    } else if (choice === 1) {
+        let phoneEl = xmlDoc.createElementNS(namespace, "phone");
+        phoneEl.textContent = generatePhone();
+        contactEl.appendChild(phoneEl);
+    } else {
+        let emailEl = xmlDoc.createElementNS(namespace, "email");
+        emailEl.textContent = generateEmail(fullname);
+        let phoneEl = xmlDoc.createElementNS(namespace, "phone");
+        phoneEl.textContent = generatePhone();
+        contactEl.appendChild(emailEl);
+        contactEl.appendChild(phoneEl);
+    }
+
+    return contactEl;
 }
