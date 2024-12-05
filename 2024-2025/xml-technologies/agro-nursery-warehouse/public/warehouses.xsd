@@ -59,7 +59,7 @@
 
     <xsd:complexType name="Vendor">
         <xsd:sequence>
-            <xsd:element name="name" type="xsd:string" />
+            <xsd:element name="name" type="NonEmptyString" />
             <xsd:element name="contact" type="Contact" />
         </xsd:sequence>
     </xsd:complexType>

@@ -5,7 +5,7 @@
   "description": "Warehouse xml project",
   "main": "./src/index.js",
   "scripts": {
-    "gen": "vite"
+    "dev": "vite"
   },
   "repository": {
     "type": "git",
