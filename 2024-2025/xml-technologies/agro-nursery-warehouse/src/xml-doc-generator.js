@@ -27,9 +27,9 @@ export function generateDoc() {
         "warehouses.xsd"
     );
 
-    let ownerEl = xmlDoc.createElementNS(namespace, "owner");
+    let ownerEl = xmlDoc.createElement("owner");
     let fullName = generateFullName();
-    let nameEl = xmlDoc.createElementNS(namespace, "name");
+    let nameEl = xmlDoc.createElement("name");
 
     ownerEl.appendChild(nameEl);
     ownerEl.appendChild(generateContact(xmlDoc, fullName));
@@ -48,8 +48,8 @@ export function generateDoc() {
  * @returns {Element} Random warehouse
  */
 function generateWarehouse(xmlDoc) {
-    let warehouseEl = xmlDoc.createElementNS(namespace, "warehouse");
-    let productsEl = xmlDoc.createElementNS(namespace, "products");
+    let warehouseEl = xmlDoc.createElement("warehouse");
+    let productsEl = xmlDoc.createElement("products");
     let setOfProducts = new Set();
 
     for (let ind = 0; ind < random(5) + 1; ind++) {
@@ -65,7 +65,7 @@ function generateWarehouse(xmlDoc) {
         productsEl.appendChild(generateProduct(xmlDoc, randProduct).element);
     }
 
-    let deliveriesEl = xmlDoc.createElementNS(namespace, "deliveries");
+    let deliveriesEl = xmlDoc.createElement("deliveries");
     for (let ind = 0; ind < random(3) + 1; ind++) {
         deliveriesEl.appendChild(generateDelivery(xmlDoc));
     }
@@ -85,10 +85,10 @@ function generateWarehouse(xmlDoc) {
  * @returns {Element} Random delivery
  */
 function generateDelivery(xmlDoc) {
-    let deliveryEl = xmlDoc.createElementNS(namespace, "delivery");
+    let deliveryEl = xmlDoc.createElement("delivery");
     let setOfProducts = new Set();
     let totalCost = 0;
-    let productsEl = xmlDoc.createElementNS(namespace, "products");
+    let productsEl = xmlDoc.createElement("products");
 
     for (let ind = 0; ind < random(3) + 1; ind++) {
         let randProduct;
@@ -103,9 +103,9 @@ function generateDelivery(xmlDoc) {
         totalCost += result.cost;
         productsEl.appendChild(result.element);
     }
-    let vendorEl = xmlDoc.createElementNS(namespace, "vendor");
+    let vendorEl = xmlDoc.createElement("vendor");
     let fullName = generateFullName();
-    let nameEl = xmlDoc.createElementNS(namespace, "name");
+    let nameEl = xmlDoc.createElement("name");
 
     vendorEl.appendChild(nameEl);
     vendorEl.appendChild(generateContact(xmlDoc, fullName));
@@ -129,38 +129,38 @@ function generateDelivery(xmlDoc) {
  * @returns {{element:Element,cost:number}}
  */
 function generateProduct(xmlDoc, product) {
-    let productEl = xmlDoc.createElementNS(namespace, "product");
+    let productEl = xmlDoc.createElement("product");
     productEl.setAttribute("name", product.name);
     productEl.setAttribute("brand", product.brand);
 
-    let notesEl = xmlDoc.createElementNS(namespace, "notes");
+    let notesEl = xmlDoc.createElement("notes");
     notesEl.textContent = product.notes;
 
-    let contentInfoEl = xmlDoc.createElementNS(namespace, "info");
-    let fragileEl = xmlDoc.createElementNS(namespace, "fragile");
+    let contentInfoEl = xmlDoc.createElement("info");
+    let fragileEl = xmlDoc.createElement("fragile");
     fragileEl.textContent = product.contentInfo.isFragile.toString();
     contentInfoEl.appendChild(fragileEl);
 
-    let priceEl = xmlDoc.createElementNS(namespace, "price");
+    let priceEl = xmlDoc.createElement("price");
     priceEl.textContent = product.contentInfo.price.toString();
     priceEl.setAttribute("currency", product.contentInfo.currency);
     contentInfoEl.appendChild(priceEl);
 
-    let quantityEl = xmlDoc.createElementNS(namespace, "quantity");
+    let quantityEl = xmlDoc.createElement("quantity");
     const quantity = random(30);
     quantityEl.textContent = quantity.toString();
     contentInfoEl.appendChild(quantityEl);
 
-    let weightEl = xmlDoc.createElementNS(namespace, "weight");
+    let weightEl = xmlDoc.createElement("weight");
     weightEl.textContent = product.contentInfo.weight.toString();
     weightEl.setAttribute("unit", product.contentInfo.unit);
     contentInfoEl.appendChild(weightEl);
 
-    let expireDateEl = xmlDoc.createElementNS(namespace, "expiry_date");
+    let expireDateEl = xmlDoc.createElement("expiry_date");
     expireDateEl.textContent = product.contentInfo.expiryDate;
     contentInfoEl.appendChild(expireDateEl);
 
-    let typeEl = xmlDoc.createElementNS(namespace, "type");
+    let typeEl = xmlDoc.createElement("type");
     typeEl.textContent = product.contentInfo.type;
     contentInfoEl.appendChild(typeEl);
 
@@ -188,15 +188,15 @@ function generateProduct(xmlDoc, product) {
  * @returns {Element}
  */
 function generateContact(xmlDoc, fullname = generateFullName()) {
-    let contactEl = xmlDoc.createElementNS(namespace, "contact");
-    let locationEl = xmlDoc.createElementNS(namespace, "location");
+    let contactEl = xmlDoc.createElement("contact");
+    let locationEl = xmlDoc.createElement("location");
 
     let randomLocation = contactLocations[random(contactLocations.length)];
-    let countryEl = xmlDoc.createElementNS(namespace, "country");
+    let countryEl = xmlDoc.createElement("country");
     countryEl.textContent = randomLocation.country;
-    let cityEl = xmlDoc.createElementNS(namespace, "city");
+    let cityEl = xmlDoc.createElement("city");
     cityEl.textContent = randomLocation.city;
-    let addressEl = xmlDoc.createElementNS(namespace, "address");
+    let addressEl = xmlDoc.createElement("address");
     addressEl.textContent = randomLocation.address;
 
     locationEl.appendChild(countryEl);
@@ -207,17 +207,17 @@ function generateContact(xmlDoc, fullname = generateFullName()) {
 
     let choice = random(3);
     if (choice < 1) {
-        let emailEl = xmlDoc.createElementNS(namespace, "email");
+        let emailEl = xmlDoc.createElement("email");
         emailEl.textContent = generateEmail(fullname);
         contactEl.appendChild(emailEl);
     } else if (choice === 1) {
-        let phoneEl = xmlDoc.createElementNS(namespace, "phone");
+        let phoneEl = xmlDoc.createElement("phone");
         phoneEl.textContent = generatePhone();
         contactEl.appendChild(phoneEl);
     } else {
-        let emailEl = xmlDoc.createElementNS(namespace, "email");
+        let emailEl = xmlDoc.createElement("email");
         emailEl.textContent = generateEmail(fullname);
-        let phoneEl = xmlDoc.createElementNS(namespace, "phone");
+        let phoneEl = xmlDoc.createElement("phone");
         phoneEl.textContent = generatePhone();
         contactEl.appendChild(emailEl);
         contactEl.appendChild(phoneEl);
