@@ -1,5 +1,8 @@
 //@ts-check
 
+/**
+ * @type {{name:string,gender:'m'|'f'}[]}
+ */
 export const firstNames = [
     { name: "Александър", gender: "m" },
     { name: "Борислав", gender: "m" },
@@ -383,3 +386,5 @@ export const products = [
         },
     },
 ];
+
+export const deliveryStatuses = ["canceled", "returned", "finished", "pending"];
