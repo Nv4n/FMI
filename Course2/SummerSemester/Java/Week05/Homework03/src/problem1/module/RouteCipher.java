@@ -11,7 +11,6 @@ public class RouteCipher {
     final public int getKey() {
         return key;
     }
-    //FIXME
 
     final public void setKey(int key) {
         this.key = key != 0 ? key : 1;

@@ -49,8 +49,6 @@ void SystemCommander::signup() {
 
     User user(fname, lname, username, password);
     database.addUser(user);
-    //TODO
-    //  ADD USER TO FILE OR SOMEWHERE
 }
 
 void SystemCommander::login() {
@@ -67,7 +65,6 @@ void SystemCommander::login() {
     std::cout << "You logged in" << std::endl;
 }
 
-//TODO EDIT
 //Всеки потребител трябва да има възможност за промяна на данните
 // в собствения си акаунт (команда edit). Променят се имената или паролата.
 // Ако потребителят е модератор, той може да променя и чужд акаунт (edit id),

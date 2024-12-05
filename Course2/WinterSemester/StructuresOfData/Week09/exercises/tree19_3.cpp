@@ -84,8 +84,6 @@ std::string getLongestLevel(Node<char> *root, std::vector<std::string> &v) {
     if (root == nullptr) {
         return "";
     }
-    //TODO
-    //  think how to get each level
 
     return "";
 }

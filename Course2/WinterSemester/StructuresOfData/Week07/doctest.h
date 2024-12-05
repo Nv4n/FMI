@@ -432,7 +432,6 @@ DOCTEST_INTERFACE extern bool is_running_in_test;
 //              and the "is small" bit remains "0" ("as well as the capacity left") so its OK
 // Idea taken from this lecture about the string implementation of facebook/folly - fbstring
 // https://www.youtube.com/watch?v=kPR8h4-qZdk
-// TODO:
 // - optimizations - like not deleting memory unnecessarily in operator= and etc.
 // - resize/reserve/clear
 // - substr
@@ -2990,8 +2989,6 @@ namespace detail {
     ContextState* g_cs = nullptr;
 
     // used to avoid locks for the debug output
-    // TODO: figure out if this is indeed necessary/correct - seems like either there still
-    // could be a race or that there wouldn't be a race even if using the context directly
     DOCTEST_THREAD_LOCAL bool g_no_colors;
 
 #endif // DOCTEST_CONFIG_DISABLE
@@ -4067,7 +4064,6 @@ namespace {
 #ifdef DOCTEST_PLATFORM_WINDOWS
 #define DOCTEST_OUTPUT_DEBUG_STRING(text) ::OutputDebugStringA(text)
 #else
-    // TODO: integration with XCode and other IDEs
 #define DOCTEST_OUTPUT_DEBUG_STRING(text) // NOLINT(clang-diagnostic-unused-macros)
 #endif // Platform
 
@@ -5467,7 +5463,6 @@ namespace {
             }
         } else {
             // integer
-            // TODO: change this to use std::stoi or something else! currently it uses undefined behavior - assumes '0' on failed parse...
             int theInt = std::atoi(parsedValue.c_str()); // NOLINT
             if(theInt != 0) {
                 res = theInt; //!OCLINT parameter reassignment
@@ -5698,7 +5693,7 @@ int Context::run() {
             p->reporters_currently_used.push_back(curr.second(*g_cs));
     }
 
-    // TODO: check if there is nothing in reporters_currently_used
+
 
     // prepend all listeners
     for(auto& curr : getListeners())

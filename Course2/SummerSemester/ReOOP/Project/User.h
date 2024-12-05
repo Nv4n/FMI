@@ -28,11 +28,6 @@ public:
 
     const std::string &getFName() const;
 
-//TODO
-// THROW Arg exception on empty args
-
-//TODO
-// Test with spaces data
     void setFName(const std::string &_fname);
 
     const std::string &LName() const;

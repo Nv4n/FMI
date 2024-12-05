@@ -11,8 +11,6 @@ bool isEmpty(std::ifstream &isFile) {
 }
 
 int main() {
-    //TODO
-    //  MAKE NOT MENU DEMO
     std::cout << "Demo Library" << std::endl;
     Library library;
 //    std::ifstream is("library.txt", std::ios::in);
