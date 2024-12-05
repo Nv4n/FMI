@@ -30,8 +30,16 @@ export function generateDoc() {
         warehousesEl.appendChild(generateWarehouse(xmlDoc));
     }
 
-    //TODO OWNER ELEMENT
+    let ownerEl = xmlDoc.createElementNS(namespace, "ownder");
+    let fullName = generateFullName();
+    let nameEl = xmlDoc.createElementNS(namespace, "name");
+
+    ownerEl.appendChild(nameEl);
+    ownerEl.appendChild(generateContact(xmlDoc, fullName));
+
+    xmlDoc.appendChild(ownerEl);
     xmlDoc.appendChild(warehousesEl);
+
     return xmlDoc;
 }
 /**
