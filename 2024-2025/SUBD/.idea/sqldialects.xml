@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/EX01_Simple_SQL_Queries/TASKS.sql" dialect="DB2" />
-    <file url="file://$PROJECT_DIR$/EX02_Retrieving_Data/TASKS.sql" dialect="DB2" />
-    <file url="file://$PROJECT_DIR$/EX03_Scalar_Functions/TASKS.sql" dialect="DB2" />
-    <file url="file://$PROJECT_DIR$/EX04_Grouping_Functions/TASKS.sql" dialect="DB2" />
-    <file url="file://$PROJECT_DIR$/EX05_Subqueries/TASKS.sql" dialect="DB2" />
-    <file url="file://$PROJECT_DIR$/EX06_UDF/TASKS.sql" dialect="DB2" />
-    <file url="file://$PROJECT_DIR$/PRACTICUM/EX01_PROCEDURES/TASKS.sql" dialect="DB2" />
-    <file url="file://$PROJECT_DIR$/PRACTICUM/EX03_FUNCTIONS/TASKS.sql" dialect="DB2" />
-    <file url="file://$PROJECT_DIR$/PRACTICUM/EX04/TASKS.sql" dialect="DB2" />
     <file url="PROJECT" dialect="DB2" />
   </component>
 </project>
