@@ -3,12 +3,99 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
         <title>XML App</title>
     </head>
     <body>
-        <div id="app">
-            <button id="download">Download XML Example</button>
+        <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+            <form
+                id="download"
+                action="#"
+                method="post"
+                class="mx-auto mb-0 mt-8 max-w-md space-y-4"
+            >
+                <h1 class="text-2xl font-bold sm:text-3xl">Generated data</h1>
+                <div>
+                    <div>
+                        <label
+                            for="deliveries"
+                            class="block text-sm font-medium text-gray-900"
+                        >
+                            Max deliveries
+                        </label>
+
+                        <select
+                            name="deliveries"
+                            id="deliveries"
+                            class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+                        >
+                            <option value="">Default</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label
+                        for="products"
+                        class="block text-sm font-medium text-gray-900"
+                    >
+                        Max products
+                    </label>
+
+                    <select
+                        name="products"
+                        id="products"
+                        class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+                    >
+                        <option value="">Default</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div>
+                    <label
+                        for="warehouses"
+                        class="block text-sm font-medium text-gray-900"
+                    >
+                        Max warehouses
+                    </label>
+
+                    <select
+                        name="warehouses"
+                        id="HeadlineAct"
+                        class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+                    >
+                        <option value="">Default</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <button
+                    type="submit"
+                    class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                >
+                    Submit
+                </button>
+            </form>
+            <iframe
+                id="xmlFrame"
+                title="XML Frame Example"
+                width="700"
+                height="500"
+            >
+            </iframe>
         </div>
-        <script type="module" src="/src/main.js"></script>
+
+        <script type="module" src="/src/main.js" defer></script>
     </body>
 </html>
