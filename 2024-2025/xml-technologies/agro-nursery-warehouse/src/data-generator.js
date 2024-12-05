@@ -48,5 +48,3 @@ export function generatePhone() {
     }
     return phoneNumber;
 }
-
-//TODO RANDOM ADRESSES

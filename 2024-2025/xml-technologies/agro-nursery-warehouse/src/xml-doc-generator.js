@@ -6,11 +6,25 @@ import {
     generatePhone,
 } from "./data-generator";
 import { contactLocations, deliveryStatuses, products } from "./types";
-import { random } from "./utility";
+import { precision, random } from "./utility";
 
 const namespace = "http://www.w3.org/2001/XMLSchema-instance";
+let deliveriesCount = 3;
+let productsCount = 3;
+let warehousesCount = 3;
 
-export function generateDoc() {
+/**
+ *
+ * @param {number} deliveryCnt
+ * @param {number} productsCnt
+ * @param {number} warehousesCnt
+ * @returns
+ */
+export function generateDoc(deliveryCnt, productsCnt, warehousesCnt) {
+    deliveriesCount = deliveryCnt;
+    productsCount = productsCnt;
+    warehousesCount = warehousesCnt;
+
     const documentImplementation = document.implementation;
     const xmlDoc = documentImplementation.createDocument(null, null);
 
@@ -28,14 +42,15 @@ export function generateDoc() {
     );
 
     let ownerEl = xmlDoc.createElement("owner");
-    let fullName = generateFullName();
+    let fullName = `Агро магазин ${generateFullName()}`;
     let nameEl = xmlDoc.createElement("name");
+    nameEl.textContent = fullName;
 
     ownerEl.appendChild(nameEl);
     ownerEl.appendChild(generateContact(xmlDoc, fullName));
     warehousesEl.appendChild(ownerEl);
 
-    for (let ind = 0; ind < random(3) + 1; ind++) {
+    for (let ind = 0; ind < random(warehousesCount) + 1; ind++) {
         warehousesEl.appendChild(generateWarehouse(xmlDoc));
     }
 
@@ -52,7 +67,7 @@ function generateWarehouse(xmlDoc) {
     let productsEl = xmlDoc.createElement("products");
     let setOfProducts = new Set();
 
-    for (let ind = 0; ind < random(5) + 1; ind++) {
+    for (let ind = 0; ind < random(warehousesCount) + 1; ind++) {
         let randProduct;
         while (true) {
             randProduct = products[random(products.length)];
@@ -66,7 +81,7 @@ function generateWarehouse(xmlDoc) {
     }
 
     let deliveriesEl = xmlDoc.createElement("deliveries");
-    for (let ind = 0; ind < random(3) + 1; ind++) {
+    for (let ind = 0; ind < random(deliveriesCount) + 1; ind++) {
         deliveriesEl.appendChild(generateDelivery(xmlDoc));
     }
 
@@ -90,7 +105,7 @@ function generateDelivery(xmlDoc) {
     let totalCost = 0;
     let productsEl = xmlDoc.createElement("products");
 
-    for (let ind = 0; ind < random(3) + 1; ind++) {
+    for (let ind = 0; ind < random(productsCount) + 1; ind++) {
         let randProduct;
         while (true) {
             randProduct = products[random(products.length)];
@@ -103,9 +118,11 @@ function generateDelivery(xmlDoc) {
         totalCost += result.cost;
         productsEl.appendChild(result.element);
     }
+    console.log(totalCost);
     let vendorEl = xmlDoc.createElement("vendor");
     let fullName = generateFullName();
     let nameEl = xmlDoc.createElement("name");
+    nameEl.textContent = fullName;
 
     vendorEl.appendChild(nameEl);
     vendorEl.appendChild(generateContact(xmlDoc, fullName));
@@ -115,7 +132,7 @@ function generateDelivery(xmlDoc) {
         deliveryStatuses[random(deliveryStatuses.length)]
     );
 
-    deliveryEl.setAttribute("cost", totalCost.toString());
+    deliveryEl.setAttribute("cost", precision(totalCost, 2).toString());
 
     deliveryEl.appendChild(productsEl);
     deliveryEl.appendChild(vendorEl);
@@ -147,7 +164,7 @@ function generateProduct(xmlDoc, product) {
     contentInfoEl.appendChild(priceEl);
 
     let quantityEl = xmlDoc.createElement("quantity");
-    const quantity = random(30);
+    const quantity = random(30) + 1;
     quantityEl.textContent = quantity.toString();
     contentInfoEl.appendChild(quantityEl);
 
