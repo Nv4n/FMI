@@ -387,4 +387,59 @@ export const products = [
     },
 ];
 
+/** @type{['canceled','returned','finished','pending']} */
 export const deliveryStatuses = ["canceled", "returned", "finished", "pending"];
+
+/** @type {{country:string,city:string,address:string}[]} */
+export const contactLocations = [
+    { country: "България", city: "София", address: "ул. Витоша 10" },
+    { country: "Сърбия", city: "Белград", address: "бул. Краля Александра 25" },
+    { country: "Румъния", city: "Букурещ", address: "ул. Липскани 32" },
+    { country: "Гърция", city: "Атина", address: "пл. Синтагма 5" },
+    { country: "Турция", city: "Истанбул", address: "пл. Таксим 1" },
+    {
+        country: "Северна Македония",
+        city: "Скопие",
+        address: "бул. Македония 15",
+    },
+    { country: "Албания", city: "Тирана", address: "пл. Скандербег 10" },
+    {
+        country: "Босна и Херцеговина",
+        city: "Сараево",
+        address: "ул. Башчаршия 8",
+    },
+    {
+        country: "Черна гора",
+        city: "Подгорица",
+        address: "ул. Независимост 12",
+    },
+    { country: "Косово", city: "Прищина", address: "ул. Майка Тереза 18" },
+    { country: "Хърватия", city: "Загреб", address: "ул. Илица 45" },
+    { country: "Словения", city: "Любляна", address: "ул. Прешернов площад 3" },
+    { country: "Молдова", city: "Кишинев", address: "бул. Стефан чел Маре 22" },
+    { country: "България", city: "Пловдив", address: "ул. Главна 67" },
+    { country: "България", city: "Варна", address: "бул. Сливница 14" },
+    { country: "Сърбия", city: "Нови Сад", address: "ул. Змай Йовина 9" },
+    { country: "Румъния", city: "Клуж-Напока", address: "ул. Унири 21" },
+    { country: "Гърция", city: "Солун", address: "ул. Егнатиа 33" },
+    { country: "Турция", city: "Анкара", address: "ул. Ататюрк 77" },
+    {
+        country: "Северна Македония",
+        city: "Битоля",
+        address: "ул. Широк сокак 5",
+    },
+    { country: "Албания", city: "Шкодра", address: "ул. Розафа 2" },
+    {
+        country: "Босна и Херцеговина",
+        city: "Мостар",
+        address: "ул. Стари мост 3",
+    },
+    { country: "Черна гора", city: "Котор", address: "ул. Стари град 7" },
+    { country: "Косово", city: "Гниляне", address: "ул. Илирия 10" },
+    { country: "Хърватия", city: "Дубровник", address: "ул. Страдун 12" },
+    { country: "Словения", city: "Марибор", address: "ул. Главен площад 4" },
+    { country: "Молдова", city: "Тираспол", address: "ул. Одеска 15" },
+    { country: "България", city: "Бургас", address: "ул. Богориди 23" },
+    { country: "Румъния", city: "Брашов", address: "ул. Република 11" },
+    { country: "Турция", city: "Измир", address: "ул. Конак 6" },
+];
