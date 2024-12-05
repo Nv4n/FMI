@@ -20,26 +20,26 @@ export function generateDoc() {
     );
     xmlDoc.appendChild(xml);
 
-    let warehousesEl = xmlDoc.createElementNS(namespace, "warehouses");
+    let warehousesEl = xmlDoc.createElement("warehouses");
+    warehousesEl.setAttribute("xmlns:xsi", namespace);
     warehousesEl.setAttribute(
         "xsi:noNamespaceSchemaLocation",
         "warehouses.xsd"
     );
 
-    for (let ind = 0; ind < random(3) + 1; ind++) {
-        warehousesEl.appendChild(generateWarehouse(xmlDoc));
-    }
-
-    let ownerEl = xmlDoc.createElementNS(namespace, "ownder");
+    let ownerEl = xmlDoc.createElementNS(namespace, "owner");
     let fullName = generateFullName();
     let nameEl = xmlDoc.createElementNS(namespace, "name");
 
     ownerEl.appendChild(nameEl);
     ownerEl.appendChild(generateContact(xmlDoc, fullName));
+    warehousesEl.appendChild(ownerEl);
 
-    xmlDoc.appendChild(ownerEl);
+    for (let ind = 0; ind < random(3) + 1; ind++) {
+        warehousesEl.appendChild(generateWarehouse(xmlDoc));
+    }
+
     xmlDoc.appendChild(warehousesEl);
-
     return xmlDoc;
 }
 /**
