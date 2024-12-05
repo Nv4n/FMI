@@ -5,7 +5,7 @@ import {
     generateFullName,
     generatePhone,
 } from "./data-generator";
-import { products } from "./types";
+import { contactLocations, deliveryStatuses, products } from "./types";
 import { random } from "./utility";
 
 const namespace = "http://www.w3.org/2001/XMLSchema-instance";
@@ -71,7 +71,9 @@ function generateWarehouse(xmlDoc) {
     }
 
     warehouseEl.appendChild(productsEl);
-    //TODO CONTACT ELEMENT
+    warehouseEl.appendChild(
+        generateContact(xmlDoc, `Warehouse ${generateFullName()}`)
+    );
     warehouseEl.appendChild(deliveriesEl);
 
     return warehouseEl;
@@ -185,12 +187,13 @@ function generateContact(xmlDoc, fullname = generateFullName()) {
     let contactEl = xmlDoc.createElementNS(namespace, "contact");
     let locationEl = xmlDoc.createElementNS(namespace, "location");
 
+    let randomLocation = contactLocations[random(contactLocations.length)];
     let countryEl = xmlDoc.createElementNS(namespace, "country");
-    countryEl.textContent = "";
+    countryEl.textContent = randomLocation.country;
     let cityEl = xmlDoc.createElementNS(namespace, "city");
-    cityEl.textContent = "";
+    cityEl.textContent = randomLocation.city;
     let addressEl = xmlDoc.createElementNS(namespace, "address");
-    addressEl.textContent = "";
+    addressEl.textContent = randomLocation.address;
 
     locationEl.appendChild(countryEl);
     locationEl.appendChild(cityEl);
