@@ -48,7 +48,6 @@ export function toLatin(cyrillic) {
     };
 
     let letters = cyrillic.toLowerCase().split("");
-    console.log(letters);
     return letters
         .map((letter) => {
             if (!!conversion[letter]) {
