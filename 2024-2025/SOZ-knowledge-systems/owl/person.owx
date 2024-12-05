@@ -22,10 +22,25 @@
         <Class IRI="#Brother"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Bus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BusDriver"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CatOwner"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Child"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Daughter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Driver"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Father"/>
@@ -40,10 +55,16 @@
         <Class IRI="#Mother"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#MultipleKidsParent"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Parent"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pet"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Relative"/>
@@ -59,6 +80,12 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Uncle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vehicle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#drives"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasAncestor"/>
@@ -70,10 +97,25 @@
         <ObjectProperty IRI="#hasDaughter"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasFather"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOwner"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasParent"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasSibling"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasSon"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_pet"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#likes"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasSon"/>
@@ -82,7 +124,19 @@
         <NamedIndividual IRI="#AdamJTalor"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#AuntTaylor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Bus"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GrandpaTaylor"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#JosephBTalor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kitty"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#MariaITaylor"/>
@@ -90,6 +144,67 @@
     <Declaration>
         <NamedIndividual IRI="#SofiaMTaylor"/>
     </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Aunt"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Female"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#hasSibling"/>
+                <Class IRI="#Parent"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#BusDriver"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#drives"/>
+            <Class IRI="#Bus"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CatOwner"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#has_pet"/>
+            <Class IRI="#Cat"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Driver"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#drives"/>
+            <Class IRI="#Vehicle"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MultipleKidsParent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Parent"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="#hasChild"/>
+                <Class IRI="#Child"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Parent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Ancestor"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasChild"/>
+                <Class IRI="#Child"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Uncle"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Male"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#hasSibling"/>
+                <Class IRI="#Parent"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Ancestor"/>
         <Class IRI="#Relative"/>
@@ -103,12 +218,32 @@
         <Class IRI="#Sibling"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Bus"/>
+        <Class IRI="#Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BusDriver"/>
+        <Class IRI="#Driver"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cat"/>
+        <Class IRI="#Pet"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CatOwner"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Child"/>
         <Class IRI="#Relative"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Daughter"/>
         <Class IRI="#Child"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Driver"/>
+        <Class IRI="#Person"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Father"/>
@@ -127,10 +262,6 @@
         <Class IRI="#Parent"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Parent"/>
-        <Class IRI="#Ancestor"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Relative"/>
         <Class IRI="#Person"/>
     </SubClassOf>
@@ -151,10 +282,7 @@
         <Class IRI="#Relative"/>
     </SubClassOf>
     <DisjointClasses>
-        <Class IRI="#Ancestor"/>
         <Class IRI="#Aunt"/>
-        <Class IRI="#Child"/>
-        <Class IRI="#Sibling"/>
         <Class IRI="#Uncle"/>
     </DisjointClasses>
     <DisjointClasses>
@@ -169,6 +297,10 @@
         <Class IRI="#Father"/>
         <Class IRI="#Mother"/>
     </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Female"/>
+        <Class IRI="#Male"/>
+    </DisjointClasses>
     <ClassAssertion>
         <Class IRI="#Male"/>
         <NamedIndividual IRI="#AdamJTalor"/>
@@ -178,12 +310,24 @@
         <NamedIndividual IRI="#AdamJTalor"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Female"/>
+        <NamedIndividual IRI="#AuntTaylor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Bus"/>
+        <NamedIndividual IRI="#Bus"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Father"/>
         <NamedIndividual IRI="#JosephBTalor"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Male"/>
         <NamedIndividual IRI="#JosephBTalor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Cat"/>
+        <NamedIndividual IRI="#Kitty"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Female"/>
@@ -206,6 +350,26 @@
         <NamedIndividual IRI="#SofiaMTaylor"/>
     </DifferentIndividuals>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAncestor"/>
+        <NamedIndividual IRI="#AdamJTalor"/>
+        <NamedIndividual IRI="#JosephBTalor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSibling"/>
+        <NamedIndividual IRI="#AuntTaylor"/>
+        <NamedIndividual IRI="#JosephBTalor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#has_pet"/>
+        <NamedIndividual IRI="#GrandpaTaylor"/>
+        <NamedIndividual IRI="#Kitty"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAncestor"/>
+        <NamedIndividual IRI="#JosephBTalor"/>
+        <NamedIndividual IRI="#GrandpaTaylor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasChild"/>
         <NamedIndividual IRI="#JosephBTalor"/>
         <NamedIndividual IRI="#AdamJTalor"/>
@@ -220,6 +384,11 @@
         <NamedIndividual IRI="#JosephBTalor"/>
         <NamedIndividual IRI="#AdamJTalor"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSibling"/>
+        <NamedIndividual IRI="#SofiaMTaylor"/>
+        <NamedIndividual IRI="#AdamJTalor"/>
+    </ObjectPropertyAssertion>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasAncestor"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
@@ -233,23 +402,50 @@
         <ObjectProperty IRI="#hasChild"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFather"/>
         <ObjectProperty IRI="#hasParent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasOwner"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParent"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSibling"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasSon"/>
         <ObjectProperty IRI="#hasChild"/>
     </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has_pet"/>
+        <ObjectProperty IRI="#likes"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#likes"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasChild"/>
-        <ObjectProperty IRI="#hasParent"/>
+        <ObjectProperty IRI="#hasOwner"/>
+        <ObjectProperty IRI="#has_pet"/>
     </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#hasSibling"/>
+    </SymmetricObjectProperty>
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#hasAncestor"/>
     </TransitiveObjectProperty>
     <TransitiveObjectProperty>
-        <ObjectProperty IRI="#hasChild"/>
+        <ObjectProperty IRI="#hasParent"/>
     </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#drives"/>
+        <Class IRI="#Driver"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasAncestor"/>
         <Class IRI="#Relative"/>
@@ -267,9 +463,21 @@
         <Class IRI="#Child"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSibling"/>
+        <Class IRI="#Sibling"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSon"/>
         <Class IRI="#Parent"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_pet"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#drives"/>
+        <Class IRI="#Vehicle"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasAncestor"/>
         <Class IRI="#Ancestor"/>
@@ -287,8 +495,16 @@
         <Class IRI="#Parent"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSibling"/>
+        <Class IRI="#Sibling"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasSon"/>
         <Class IRI="#Son"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_pet"/>
+        <Class IRI="#Pet"/>
     </ObjectPropertyRange>
 </Ontology>
 
