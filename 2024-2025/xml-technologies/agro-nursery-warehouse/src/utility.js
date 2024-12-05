@@ -1,4 +1,5 @@
 //@ts-check
+import formatXml from "xml-formatter";
 
 /**
  * @param {number} maxValue
