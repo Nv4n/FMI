@@ -86,6 +86,8 @@ function generateDelivery(xmlDoc) {
     let deliveryEl = xmlDoc.createElementNS(namespace, "delivery");
     let setOfProducts = new Set();
     let totalCost = 0;
+    let productsEl = xmlDoc.createElementNS(namespace, "products");
+
     for (let ind = 0; ind < random(3) + 1; ind++) {
         let randProduct;
         while (true) {
@@ -97,8 +99,20 @@ function generateDelivery(xmlDoc) {
         }
         let result = generateProduct(xmlDoc, randProduct);
         totalCost += result.cost;
-        deliveryEl.appendChild(result.element);
+        productsEl.appendChild(result.element);
     }
+    let vendorEl = xmlDoc.createElementNS(namespace, "vendor");
+    let fullName = generateFullName();
+    let nameEl = xmlDoc.createElementNS(namespace, "name");
+
+    vendorEl.appendChild(nameEl);
+    vendorEl.appendChild(generateContact(xmlDoc, fullName));
+
+    
+    deliveryEl.appendChild(productsEl);
+    deliveryEl.appendChild(vendorEl);
+    //TODO STATUS
+    //TODO COST
     return deliveryEl;
 }
 
