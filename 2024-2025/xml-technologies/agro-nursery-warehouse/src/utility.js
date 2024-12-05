@@ -78,7 +78,8 @@ export function serializeDocument(doc) {
 /**
  *
  * @param {string} filename
- * @param {*} content
+ * @param {string} content
+ * @returns {string}
  */
 export function download(filename, content) {
     const file = new File([content], filename);
@@ -94,5 +95,16 @@ export function download(filename, content) {
     tempLinkElement.click();
 
     document.body.removeChild(tempLinkElement);
-    URL.revokeObjectURL(url);
+    // URL.revokeObjectURL(url);
+    return url;
+}
+
+/**
+ *
+ * @param {number} num
+ * @returns {number}
+ */
+export function precision(num, precision) {
+    let prec = 10 ** precision;
+    return Math.round(num * prec) / prec;
 }
