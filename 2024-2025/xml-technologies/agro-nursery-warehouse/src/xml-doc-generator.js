@@ -110,11 +110,15 @@ function generateDelivery(xmlDoc) {
     vendorEl.appendChild(nameEl);
     vendorEl.appendChild(generateContact(xmlDoc, fullName));
 
-    
+    let statusEl = xmlDoc.createElementNS(namespace, "status");
+    statusEl.textContent = deliveryStatuses[random(deliveryStatuses.length)];
+    let costEl = xmlDoc.createElementNS(namespace, "cost");
+    costEl.textContent = totalCost.toString();
+
     deliveryEl.appendChild(productsEl);
     deliveryEl.appendChild(vendorEl);
-    //TODO STATUS
-    //TODO COST
+    deliveryEl.appendChild(statusEl);
+    deliveryEl.appendChild(costEl);
     return deliveryEl;
 }
 
