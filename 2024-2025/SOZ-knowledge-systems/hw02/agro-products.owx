@@ -421,6 +421,11 @@
         <Class IRI="#Pest"/>
     </SubClassOf>
     <DisjointClasses>
+        <Class IRI="#Clay"/>
+        <Class IRI="#Loamy"/>
+        <Class IRI="#Sandy"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="#Compost"/>
         <Class IRI="#Liquid"/>
         <Class IRI="#Slow_Release"/>
