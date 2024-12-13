@@ -259,10 +259,10 @@
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Store"/>
-        <ObjectSomeValuesFrom>
+        <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#sells"/>
             <Class IRI="#Product"/>
-        </ObjectSomeValuesFrom>
+        </ObjectMinCardinality>
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#BigStore"/>
