@@ -78,31 +78,27 @@
         </div>
     </xsl:template>
 
-    <xsl:template match="enclosure">
-        <xsl:choose>
-            <xsl:when test="starts-with(@type,'video/')">
-                <video width="250"  class="float-start rounded m-3 block" alt="ENCLOSURE VIDEO" controls="true" loop="true"
-                >
-                    <source>
-                        <xsl:attribute name="src">
-                            <xsl:value-of select="@url"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="type">
-                            <xsl:value-of select="@type"/>
-                        </xsl:attribute>
-                    </source>
+    <xsl:template match="enclosure[starts-with(@type,'video/')]">
+        <video width="250" class="float-start rounded m-3 block" alt="ENCLOSURE VIDEO" controls="true"
+               loop="true"
+        >
+            <source>
+                <xsl:attribute name="src">
+                    <xsl:value-of select="@url"/>
+                </xsl:attribute>
+                <xsl:attribute name="type">
+                    <xsl:value-of select="@type"/>
+                </xsl:attribute>
+            </source>
 
-                </video>
-
-            </xsl:when>
-            <xsl:when test="starts-with(@type,'image/')">
-                <img class="float-start rounded m-3" alt="ENCLOSURE IMAGE"
-                >
-                    <xsl:attribute name="src">
-                        <xsl:value-of select="@url"/>
-                    </xsl:attribute>
-                </img>
-            </xsl:when>
-        </xsl:choose>
+        </video>
+    </xsl:template>
+    <xsl:template match="enclosure[starts-with(@type,'image/')]">
+        <img class="float-start rounded m-3" alt="ENCLOSURE IMAGE"
+        >
+            <xsl:attribute name="src">
+                <xsl:value-of select="@url"/>
+            </xsl:attribute>
+        </img>
     </xsl:template>
 </xsl:stylesheet>
