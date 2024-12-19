@@ -62,7 +62,8 @@
 	"C_Cpp.errorSquiggles": "disabled",
 	"docwriter.progress.trackFunctions": true,
 	"spellright.language": [
-		"bg"
+		"bg",
+		"en"
 	],
 	"spellright.documentTypes": [
 		"latex",
