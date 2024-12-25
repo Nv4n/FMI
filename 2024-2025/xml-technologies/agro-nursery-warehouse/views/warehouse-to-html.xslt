@@ -179,9 +179,9 @@
         </div>
         <div class="flex gap-8 m-2">
 
-                <p class="!text-base font-medium">
-                    <xsl:value-of select="concat('Total: ',@cost)"/>
-                </p>
+            <p class="!text-base font-medium">
+                <xsl:value-of select="concat('Total: ',@cost)"/>
+            </p>
 
             <div class="flex justify-end">
                 <span
