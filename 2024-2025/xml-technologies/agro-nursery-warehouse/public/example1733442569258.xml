@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="warehouses.xsd">
+    <owner>
+        <name>Агро магазин Любо Цветков</name>
+        <contact>
+            <location>
+                <country>Черна гора</country>
+                <city>Подгорица</city>
+                <address>ул. Независимост 12</address>
+            </location>
+            <phone>+502 33-141-382</phone>
+        </contact>
+    </owner>
+    <warehouse>
+        <products>
+            <product name="трактор" brand="Машиникс">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="USD">150000</price>
+                    <quantity>5</quantity>
+                    <weight unit="kg">1500</weight>
+                    <expiry_date>2032-05-25</expiry_date>
+                    <type>equipment</type>
+                </info>
+                <notes>идеален за средни площи</notes>
+            </product>
+            <product name="косачка за трева" brand="ТехноФермер">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="USD">150</price>
+                    <quantity>25</quantity>
+                    <weight unit="kg">10</weight>
+                    <expiry_date>2032-08-05</expiry_date>
+                    <type>equipment</type>
+                </info>
+                <notes>идеална за малки и средни градини</notes>
+            </product>
+        </products>
+        <contact>
+            <location>
+                <country>Северна Македония</country>
+                <city>Скопие</city>
+                <address>бул. Македония 15</address>
+            </location>
+            <email>warehouse_lyubo_zlatev824@gmail.com</email>
+            <phone>+004 30-483-45203</phone>
+        </contact>
+        <deliveries>
+            <delivery status="canceled" cost="5867.51">
+                <products>
+                    <product name="семена пепино пъпеш" brand="Градинар">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="RON">12.99</price>
+                            <quantity>14</quantity>
+                            <weight unit="g">0.9</weight>
+                            <expiry_date>2030-04-10</expiry_date>
+                            <type>seeds</type>
+                        </info>
+                        <notes>медено сладък сорт</notes>
+                    </product>
+                    <product name="ръкавици за градинарство" brand="ГрадинаПро">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="BGN">7.99</price>
+                            <quantity>23</quantity>
+                            <weight unit="kg">0.2</weight>
+                            <expiry_date>2027-06-10</expiry_date>
+                            <type>clothing</type>
+                        </info>
+                        <notes>за защита от остри предмети</notes>
+                    </product>
+                    <product name="поливна система" brand="Водаградин">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="BGN">180</price>
+                            <quantity>29</quantity>
+                            <weight unit="kg">10</weight>
+                            <expiry_date>2030-10-01</expiry_date>
+                            <type>equipment</type>
+                        </info>
+                        <notes>лесна за настройка и използване</notes>
+                    </product>
+                </products>
+                <vendor>
+                    <name>Борислав Филипов</name>
+                    <contact>
+                        <location>
+                            <country>Румъния</country>
+                            <city>Брашов</city>
+                            <address>ул. Република 11</address>
+                        </location>
+                        <email>borislav_filipov941@abv.bg</email>
+                    </contact>
+                </vendor>
+            </delivery>
+        </deliveries>
+    </warehouse>
+    <warehouse>
+        <products>
+            <product name="ръкавици за градинарство" brand="ГрадинаПро">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="BGN">7.99</price>
+                    <quantity>20</quantity>
+                    <weight unit="kg">0.2</weight>
+                    <expiry_date>2027-06-10</expiry_date>
+                    <type>clothing</type>
+                </info>
+                <notes>за защита от остри предмети</notes>
+            </product>
+            <product name="джобен нож" brand="ФермерОборудване">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="BGN">12.5</price>
+                    <quantity>17</quantity>
+                    <weight unit="kg">0.5</weight>
+                    <expiry_date>2050-07-10</expiry_date>
+                    <type>tool</type>
+                </info>
+                <notes>за многофункционално използване</notes>
+            </product>
+            <product name="трактор" brand="Машиникс">
+                <info>
+                    <fragile>false</fragile>
+                    <price currency="USD">150000</price>
+                    <quantity>14</quantity>
+                    <weight unit="kg">1500</weight>
+                    <expiry_date>2032-05-25</expiry_date>
+                    <type>equipment</type>
+                </info>
+                <notes>идеален за средни площи</notes>
+            </product>
+        </products>
+        <contact>
+            <location>
+                <country>България</country>
+                <city>Пловдив</city>
+                <address>ул. Главна 67</address>
+            </location>
+            <phone>+424 52-075-23436</phone>
+        </contact>
+        <deliveries>
+            <delivery status="pending" cost="688.5">
+                <products>
+                    <product name="лопата" brand="АгроИнструмент">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="BGN">25.5</price>
+                            <quantity>27</quantity>
+                            <weight unit="kg">2.3</weight>
+                            <expiry_date>2028-01-15</expiry_date>
+                            <type>tool</type>
+                        </info>
+                        <notes>подходяща за градинска работа</notes>
+                    </product>
+                </products>
+                <vendor>
+                    <name>Тодор Златев</name>
+                    <contact>
+                        <location>
+                            <country>Черна гора</country>
+                            <city>Подгорица</city>
+                            <address>ул. Независимост 12</address>
+                        </location>
+                        <phone>+280 473-684-562</phone>
+                    </contact>
+                </vendor>
+            </delivery>
+            <delivery status="returned" cost="8141.12">
+                <products>
+                    <product name="градски ботуши" brand="ТехноОбувки">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="BGN">45</price>
+                            <quantity>1</quantity>
+                            <weight unit="kg">1.5</weight>
+                            <expiry_date>2032-02-20</expiry_date>
+                            <type>clothing</type>
+                        </info>
+                        <notes>удобни и издръжливи при всякакви условия</notes>
+                    </product>
+                    <product name="косачка за трева" brand="ТехноФермер">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="USD">150</price>
+                            <quantity>27</quantity>
+                            <weight unit="kg">10</weight>
+                            <expiry_date>2032-08-05</expiry_date>
+                            <type>equipment</type>
+                        </info>
+                        <notes>идеална за малки и средни градини</notes>
+                    </product>
+                    <product name="семена пепино пъпеш" brand="Градинар">
+                        <info>
+                            <fragile>false</fragile>
+                            <price currency="RON">12.99</price>
+                            <quantity>17</quantity>
+                            <weight unit="g">0.9</weight>
+                            <expiry_date>2030-04-10</expiry_date>
+                            <type>seeds</type>
+                        </info>
+                        <notes>медено сладък сорт</notes>
+                    </product>
+                </products>
+                <vendor>
+                    <name>Любо Радев</name>
+                    <contact>
+                        <location>
+                            <country>Хърватия</country>
+                            <city>Загреб</city>
+                            <address>ул. Илица 45</address>
+                        </location>
+                        <email>lyubo_radev1682@gmail.com</email>
+                        <phone>+733 465-810-27161</phone>
+                    </contact>
+                </vendor>
+            </delivery>
+        </deliveries>
+    </warehouse>
+</warehouses>

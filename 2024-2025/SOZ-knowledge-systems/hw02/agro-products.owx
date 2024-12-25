@@ -1,0 +1,929 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/sybatron/ontologies/2024/11/agro-products"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/sybatron/ontologies/2024/11/agro-products">
+    <Prefix name="" IRI="http://www.semanticweb.org/sybatron/ontologies/2024/11/agro-products/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#BigStore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cashier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Clay"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Compost"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Drip"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Employee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Equipment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Female"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fertilizer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Flower"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fruit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fungicide"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fungus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Grain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Herb"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Herbicide"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Inorganic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Insect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Insecticide"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IrrigationEquipment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Liquid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Loamy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Male"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Manager"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Organic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OrganicStore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pesticide"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Plow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Product"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProductType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sandy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Seeds"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Shovel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Slow_Release"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Snips"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Soil"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sprinkler"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Store"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StoreChain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StoreEmployee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tools"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vegetable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WarehouseWorker"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WateringCan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Weed"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#combatsPest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eliminatedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isRelatedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSuplierOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#manages"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#recommendedForCrop"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sells"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sold_in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#suitableForSoil"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#worksIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#worksWith"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Aphids"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BestSprinkle"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BioApple"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BioCherryTomatoes"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CompostX"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GoodManager"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Gosho"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HugeStore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LoamySoil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NeemOil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pena"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Stainless_Steel_Shovel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SuperBioStore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TheAgroStore1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TheAgroStore2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TheAgroStore3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Whiteflies"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#BigStore"/>
+        <ObjectMinCardinality cardinality="3">
+            <ObjectProperty IRI="#sells"/>
+            <Class IRI="#Product"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Fungicide"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#combatsPest"/>
+            <Class IRI="#Fungus"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Herbicide"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#combatsPest"/>
+            <Class IRI="#Weed"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Insecticide"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#combatsPest"/>
+            <Class IRI="#Insect"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Manager"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#manages"/>
+            <Class IRI="#Employee"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OrganicStore"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#sells"/>
+            <ObjectIntersectionOf>
+                <Class IRI="#Product"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Bio"/>
+                    <Class IRI="#Organic"/>
+                </ObjectUnionOf>
+            </ObjectIntersectionOf>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OrganicStore"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#sells"/>
+            <ObjectUnionOf>
+                <Class IRI="#Product"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Product"/>
+                    <ObjectUnionOf>
+                        <Class IRI="#Bio"/>
+                        <Class IRI="#Organic"/>
+                    </ObjectUnionOf>
+                </ObjectIntersectionOf>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Pesticide"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#combatsPest"/>
+            <Class IRI="#Pest"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Product"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#sold_in"/>
+            <Class IRI="#Store"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Store"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#sells"/>
+            <Class IRI="#Product"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#StoreChain"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#isRelatedTo"/>
+            <Class IRI="#Store"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#StoreEmployee"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#worksIn"/>
+            <Class IRI="#Store"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#BigStore"/>
+        <Class IRI="#Store"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bio"/>
+        <Class IRI="#ProductType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cashier"/>
+        <Class IRI="#StoreEmployee"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Clay"/>
+        <Class IRI="#Soil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Compost"/>
+        <Class IRI="#Fertilizer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drip"/>
+        <Class IRI="#IrrigationEquipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Employee"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Equipment"/>
+        <Class IRI="#Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Female"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fertilizer"/>
+        <Class IRI="#Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flower"/>
+        <Class IRI="#Seeds"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fruit"/>
+        <Class IRI="#Seeds"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fungicide"/>
+        <Class IRI="#Pesticide"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fungus"/>
+        <Class IRI="#Pest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Grain"/>
+        <Class IRI="#Seeds"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Herb"/>
+        <Class IRI="#Seeds"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Herbicide"/>
+        <Class IRI="#Pesticide"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Inorganic"/>
+        <Class IRI="#ProductType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Insect"/>
+        <Class IRI="#Pest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Insecticide"/>
+        <Class IRI="#Pesticide"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IrrigationEquipment"/>
+        <Class IRI="#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Liquid"/>
+        <Class IRI="#Fertilizer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Loamy"/>
+        <Class IRI="#Soil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Male"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Manager"/>
+        <Class IRI="#StoreEmployee"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organic"/>
+        <Class IRI="#ProductType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OrganicStore"/>
+        <Class IRI="#Store"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pest"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pesticide"/>
+        <Class IRI="#Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Plow"/>
+        <Class IRI="#Tools"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Product"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProductType"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sandy"/>
+        <Class IRI="#Soil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Seeds"/>
+        <Class IRI="#Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Shovel"/>
+        <Class IRI="#Tools"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Slow_Release"/>
+        <Class IRI="#Fertilizer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Snips"/>
+        <Class IRI="#Tools"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Soil"/>
+        <Class IRI="#Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sprinkler"/>
+        <Class IRI="#IrrigationEquipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Store"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StoreChain"/>
+        <Class IRI="#Store"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StoreEmployee"/>
+        <Class IRI="#Employee"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tools"/>
+        <Class IRI="#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Vegetable"/>
+        <Class IRI="#Seeds"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WarehouseWorker"/>
+        <Class IRI="#StoreEmployee"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WateringCan"/>
+        <Class IRI="#IrrigationEquipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weed"/>
+        <Class IRI="#Pest"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Clay"/>
+        <Class IRI="#Loamy"/>
+        <Class IRI="#Sandy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Compost"/>
+        <Class IRI="#Liquid"/>
+        <Class IRI="#Slow_Release"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Female"/>
+        <Class IRI="#Male"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Flower"/>
+        <Class IRI="#Fruit"/>
+        <Class IRI="#Grain"/>
+        <Class IRI="#Herb"/>
+        <Class IRI="#Vegetable"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Inorganic"/>
+        <Class IRI="#Organic"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Pest"/>
+        <Class IRI="#ProductType"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Insect"/>
+        <NamedIndividual IRI="#Aphids"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Inorganic"/>
+        <NamedIndividual IRI="#BestSprinkle"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sprinkler"/>
+        <NamedIndividual IRI="#BestSprinkle"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Fruit"/>
+        <NamedIndividual IRI="#BioApple"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Organic"/>
+        <NamedIndividual IRI="#BioApple"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Organic"/>
+        <NamedIndividual IRI="#BioCherryTomatoes"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Vegetable"/>
+        <NamedIndividual IRI="#BioCherryTomatoes"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Compost"/>
+        <NamedIndividual IRI="#CompostX"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Inorganic"/>
+        <NamedIndividual IRI="#CompostX"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Male"/>
+        <NamedIndividual IRI="#GoodManager"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Male"/>
+        <NamedIndividual IRI="#Gosho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Loamy"/>
+        <NamedIndividual IRI="#LoamySoil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Organic"/>
+        <NamedIndividual IRI="#LoamySoil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Organic"/>
+        <NamedIndividual IRI="#NeemOil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Female"/>
+        <NamedIndividual IRI="#Pena"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#WarehouseWorker"/>
+        <NamedIndividual IRI="#Pena"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Bio"/>
+        <NamedIndividual IRI="#Stainless_Steel_Shovel"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Shovel"/>
+        <NamedIndividual IRI="#Stainless_Steel_Shovel"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Insect"/>
+        <NamedIndividual IRI="#Whiteflies"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#suitableForSoil"/>
+        <NamedIndividual IRI="#BioCherryTomatoes"/>
+        <NamedIndividual IRI="#LoamySoil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#manages"/>
+        <NamedIndividual IRI="#GoodManager"/>
+        <NamedIndividual IRI="#Pena"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#worksIn"/>
+        <NamedIndividual IRI="#GoodManager"/>
+        <NamedIndividual IRI="#TheAgroStore1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#worksIn"/>
+        <NamedIndividual IRI="#Gosho"/>
+        <NamedIndividual IRI="#TheAgroStore1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#worksWith"/>
+        <NamedIndividual IRI="#Gosho"/>
+        <NamedIndividual IRI="#GoodManager"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuplierOf"/>
+        <NamedIndividual IRI="#HugeStore"/>
+        <NamedIndividual IRI="#SuperBioStore"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#HugeStore"/>
+        <NamedIndividual IRI="#BestSprinkle"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#HugeStore"/>
+        <NamedIndividual IRI="#BioApple"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#HugeStore"/>
+        <NamedIndividual IRI="#BioCherryTomatoes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#HugeStore"/>
+        <NamedIndividual IRI="#CompostX"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#HugeStore"/>
+        <NamedIndividual IRI="#NeemOil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#HugeStore"/>
+        <NamedIndividual IRI="#Stainless_Steel_Shovel"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#combatsPest"/>
+        <NamedIndividual IRI="#NeemOil"/>
+        <NamedIndividual IRI="#Aphids"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#combatsPest"/>
+        <NamedIndividual IRI="#NeemOil"/>
+        <NamedIndividual IRI="#Whiteflies"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#worksIn"/>
+        <NamedIndividual IRI="#Pena"/>
+        <NamedIndividual IRI="#TheAgroStore1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#worksWith"/>
+        <NamedIndividual IRI="#Pena"/>
+        <NamedIndividual IRI="#GoodManager"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuplierOf"/>
+        <NamedIndividual IRI="#SuperBioStore"/>
+        <NamedIndividual IRI="#TheAgroStore1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#SuperBioStore"/>
+        <NamedIndividual IRI="#BioApple"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#SuperBioStore"/>
+        <NamedIndividual IRI="#BioCherryTomatoes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#SuperBioStore"/>
+        <NamedIndividual IRI="#NeemOil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#TheAgroStore1"/>
+        <NamedIndividual IRI="#NeemOil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isRelatedTo"/>
+        <NamedIndividual IRI="#TheAgroStore2"/>
+        <NamedIndividual IRI="#TheAgroStore1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#TheAgroStore2"/>
+        <NamedIndividual IRI="#LoamySoil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isRelatedTo"/>
+        <NamedIndividual IRI="#TheAgroStore3"/>
+        <NamedIndividual IRI="#TheAgroStore2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sells"/>
+        <NamedIndividual IRI="#TheAgroStore3"/>
+        <NamedIndividual IRI="#Stainless_Steel_Shovel"/>
+    </ObjectPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#combatsPest"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#eliminatedBy"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isRelatedTo"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isSuplierOf"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#manages"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#recommendedForCrop"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sells"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sold_in"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#suitableForSoil"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#worksIn"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#worksWith"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#combatsPest"/>
+        <ObjectProperty IRI="#eliminatedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#sells"/>
+        <ObjectProperty IRI="#sold_in"/>
+    </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#isRelatedTo"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#worksWith"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isRelatedTo"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isSuplierOf"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#combatsPest"/>
+        <Class IRI="#Pesticide"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#eliminatedBy"/>
+        <Class IRI="#Pest"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isRelatedTo"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isSuplierOf"/>
+        <Class IRI="#Store"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#manages"/>
+        <Class IRI="#Employee"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#recommendedForCrop"/>
+        <Class IRI="#Fertilizer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#recommendedForCrop"/>
+        <Class IRI="#Soil"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sells"/>
+        <Class IRI="#Store"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sold_in"/>
+        <Class IRI="#Product"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#suitableForSoil"/>
+        <Class IRI="#Seeds"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#worksIn"/>
+        <Class IRI="#Employee"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#worksWith"/>
+        <Class IRI="#Employee"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#combatsPest"/>
+        <Class IRI="#Pest"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#eliminatedBy"/>
+        <Class IRI="#Pesticide"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isRelatedTo"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isSuplierOf"/>
+        <Class IRI="#Store"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#manages"/>
+        <Class IRI="#Employee"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#recommendedForCrop"/>
+        <Class IRI="#Seeds"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sells"/>
+        <Class IRI="#Product"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sold_in"/>
+        <Class IRI="#Store"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#suitableForSoil"/>
+        <Class IRI="#Soil"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#worksIn"/>
+        <Class IRI="#Store"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#worksWith"/>
+        <Class IRI="#Employee"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectInverseOf>
+                <ObjectProperty IRI="#isRelatedTo"/>
+            </ObjectInverseOf>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#isSuplierOf"/>
+    </SubObjectPropertyOf>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
