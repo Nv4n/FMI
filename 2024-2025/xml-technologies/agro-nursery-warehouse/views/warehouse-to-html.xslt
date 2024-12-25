@@ -177,11 +177,26 @@
         <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <xsl:apply-templates select="products/product"/>
         </div>
+        <div class="flex gap-8 m-2">
+
+                <p class="!text-base font-medium">
+                    <xsl:value-of select="concat('Total: ',@cost)"/>
+                </p>
+
+            <div class="flex justify-end">
+                <span
+                        class="inline-flex items-center justify-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-indigo-700"
+                >
+                    <p class="whitespace-nowrap text-xs">
+                        <xsl:value-of select="concat('Status: ',@status)"/>
+                    </p>
+                </span>
+            </div>
+        </div>
         <span class="relative flex justify-center">
             <div
                     class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
             />
-
             <span class="relative z-10 bg-white px-6">END OF DELIVERY</span>
         </span>
     </xsl:template>
