@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation="../public/warehouses.xsd">
+<?xml version="1.0" encoding="UTF-8"?><warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../public/warehouses.xsd">
     <owner>
         <name>Агро магазин Владимир Огнянов</name>
         <contact>
@@ -23,6 +21,15 @@
                     <type>equipment</type>
                 </info>
             </product>
+            <product name="лопата" brand="АгроИнструмент">
+                <info>
+                    <price currency="BGN">25.5</price>
+                    <quantity>12</quantity>
+                    <weight unit="kg">2.3</weight>
+                    <expiry_date>2028-01-15</expiry_date>
+                    <type>tool</type>
+                </info>
+            </product>
         </products>
         <contact>
             <location>
@@ -32,31 +39,6 @@
             </location>
             <email>warehouse_mariya_todorova1239@yahoo.com</email>
         </contact>
-        <deliveries>
-            <delivery status="canceled" cost="7813594.5">
-                <products>
-                    <product name="форма за разсад" brand="СеменАгро">
-                        <info>
-                            <price currency="EUR">50</price>
-                            <quantity>14</quantity>
-                            <weight unit="kg">2.5</weight>
-                            <expiry_date>2026-04-18</expiry_date>
-                            <type>equipment</type>
-                        </info>
-                    </product>
-                </products>
-                <vendor>
-                    <name>Тодор Борисов</name>
-                    <contact>
-                        <location>
-                            <country>Турция</country>
-                            <city>Истанбул</city>
-                            <address>пл. Таксим 1</address>
-                        </location>
-                        <email>todor_borisov1727@outlook.com</email>
-                    </contact>
-                </vendor>
-            </delivery>
-        </deliveries>
+        <deliveries/>
     </warehouse>
 </warehouses>

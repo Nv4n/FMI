@@ -3,8 +3,7 @@
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
     <xsl:template match="/">
-        <warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                    xsi:noNamespaceSchemaLocation="../public/warehouses.xsd">
+        <warehouses>
             <xsl:apply-templates select="warehouses"/>
         </warehouses>
     </xsl:template>
@@ -15,9 +14,6 @@
         </xsl:element>
         <xsl:for-each select="warehouse">
             <xsl:element name="warehouse">
-                <products>
-                    <xsl:apply-templates select="products/product"/>
-                </products>
                 <contact>
                     <xsl:apply-templates select="contact"/>
                 </contact>
@@ -39,51 +35,6 @@
         </xsl:element>
     </xsl:template>
 
-    <xsl:template match="product">
-        <product>
-            <xsl:attribute name="name">
-                <xsl:value-of select="@name"/>
-            </xsl:attribute>
-            <xsl:attribute name="brand">
-                <xsl:value-of select="@brand"/>
-            </xsl:attribute>
-            <info>
-                <xsl:if test="info/fragile">
-                    <fragile>
-                        <xsl:value-of select="info/fragile"/>
-                    </fragile>
-                </xsl:if>
-                <price>
-                    <xsl:attribute name="currency">
-                        <xsl:value-of select="info/price/@currency"/>
-                    </xsl:attribute>
-                    <xsl:value-of select="info/price"/>
-                </price>
-                <quantity>
-                    <xsl:value-of select="info/quantity"/>
-                </quantity>
-                <weight>
-                    <xsl:attribute name="unit">
-                        <xsl:value-of select="info/weight/@unit"/>
-                    </xsl:attribute>
-                    <xsl:value-of select="info/weight"/>
-                </weight>
-                <expiry_date>
-                    <xsl:value-of select="info/expiry_date"/>
-                </expiry_date>
-                <type>
-                    <xsl:value-of select="info/type"/>
-                </type>
-            </info>
-            <xsl:if test="notes">
-                <notes>
-                    <xsl:value-of select="notes"/>
-                </notes>
-            </xsl:if>
-
-        </product>
-    </xsl:template>
-
     <xsl:template match="delivery">
         <delivery>
             <xsl:attribute name="status">
@@ -92,9 +43,6 @@
             <xsl:attribute name="cost">
                 <xsl:value-of select="@cost"/>
             </xsl:attribute>
-            <products>
-                <xsl:apply-templates select="products/product"/>
-            </products>
             <vendor>
                 <xsl:apply-templates select="vendor"/>
             </vendor>

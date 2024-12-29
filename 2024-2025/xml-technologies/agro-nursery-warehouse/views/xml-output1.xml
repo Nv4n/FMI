@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation="../public/warehouses.xsd">
+<?xml version="1.0" encoding="UTF-8"?><warehouses>
     <owner>
         <name>Агро магазин Огнян Тодоров</name>
         <contact>
@@ -13,19 +11,6 @@
         </contact>
     </owner>
     <warehouse>
-        <products>
-            <product name="поливна система" brand="Водаградин">
-                <info>
-                    <fragile>false</fragile>
-                    <price currency="BGN">180</price>
-                    <quantity>21</quantity>
-                    <weight unit="kg">10</weight>
-                    <expiry_date>2030-10-01</expiry_date>
-                    <type>equipment</type>
-                </info>
-                <notes>лесна за настройка и използване</notes>
-            </product>
-        </products>
         <contact>
             <location>
                 <country>Хърватия</country>
@@ -36,19 +21,6 @@
         </contact>
         <deliveries>
             <delivery status="finished" cost="499.8">
-                <products>
-                    <product name="семена от домати" brand="СемеАгро">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="EUR">8.5</price>
-                            <quantity>30</quantity>
-                            <weight unit="g">3</weight>
-                            <expiry_date>2025-10-10</expiry_date>
-                            <type>seeds</type>
-                        </info>
-                        <notes>високодобивни сортове</notes>
-                    </product>
-                </products>
                 <vendor>
                     <name>Златина Караивановa</name>
                     <contact>
@@ -65,19 +37,6 @@
         </deliveries>
     </warehouse>
     <warehouse>
-        <products>
-            <product name="семена пепино пъпеш" brand="Градинар">
-                <info>
-                    <fragile>false</fragile>
-                    <price currency="RON">12.99</price>
-                    <quantity>15</quantity>
-                    <weight unit="g">0.9</weight>
-                    <expiry_date>2030-04-10</expiry_date>
-                    <type>seeds</type>
-                </info>
-                <notes>медено сладък сорт</notes>
-            </product>
-        </products>
         <contact>
             <location>
                 <country>Черна гора</country>
@@ -89,41 +48,6 @@
         </contact>
         <deliveries>
             <delivery status="returned" cost="15134.86">
-                <products>
-                    <product name="покрив за оранжерия" brand="ЕкоСтрой">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="RON">220</price>
-                            <quantity>23</quantity>
-                            <weight unit="kg">25</weight>
-                            <expiry_date>2030-03-05</expiry_date>
-                            <type>structure</type>
-                        </info>
-                        <notes>устойчив на UV лъчи и дъжд</notes>
-                    </product>
-                    <product name="семена пепино пъпеш" brand="Градинар">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="RON">12.99</price>
-                            <quantity>23</quantity>
-                            <weight unit="g">0.9</weight>
-                            <expiry_date>2030-04-10</expiry_date>
-                            <type>seeds</type>
-                        </info>
-                        <notes>медено сладък сорт</notes>
-                    </product>
-                    <product name="форма за разсад" brand="СеменАгро">
-                        <info>
-                            <fragile>true</fragile>
-                            <price currency="EUR">50</price>
-                            <quantity>15</quantity>
-                            <weight unit="kg">2.5</weight>
-                            <expiry_date>2026-04-18</expiry_date>
-                            <type>equipment</type>
-                        </info>
-                        <notes>за точни и равномерни посеви</notes>
-                    </product>
-                </products>
                 <vendor>
                     <name>Огнян Тодоров</name>
                     <contact>
@@ -138,52 +62,6 @@
                 </vendor>
             </delivery>
             <delivery status="canceled" cost="4015.51">
-                <products>
-                    <product name="защитни очила" brand="ФермерГард">
-                        <info>
-                            <fragile>true</fragile>
-                            <price currency="BGN">10</price>
-                            <quantity>8</quantity>
-                            <weight unit="g">250</weight>
-                            <expiry_date>2032-05-20</expiry_date>
-                            <type>clothing</type>
-                        </info>
-                        <notes>защита от при пръскане</notes>
-                    </product>
-                    <product name="форма за разсад" brand="СеменАгро">
-                        <info>
-                            <fragile>true</fragile>
-                            <price currency="EUR">50</price>
-                            <quantity>29</quantity>
-                            <weight unit="kg">2.5</weight>
-                            <expiry_date>2026-04-18</expiry_date>
-                            <type>equipment</type>
-                        </info>
-                        <notes>за точни и равномерни посеви</notes>
-                    </product>
-                    <product name="орехови семена" brand="ФермЕксперт">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="EUR">15.2</price>
-                            <quantity>30</quantity>
-                            <weight unit="g">5</weight>
-                            <expiry_date>2026-08-19</expiry_date>
-                            <type>seeds</type>
-                        </info>
-                        <notes>висококачествени семена за засаждане</notes>
-                    </product>
-                    <product name="ръкавици за градинарство" brand="ГрадинаПро">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="BGN">7.99</price>
-                            <quantity>25</quantity>
-                            <weight unit="kg">0.2</weight>
-                            <expiry_date>2027-06-10</expiry_date>
-                            <type>clothing</type>
-                        </info>
-                        <notes>за защита от остри предмети</notes>
-                    </product>
-                </products>
                 <vendor>
                     <name>Мария Борисовa</name>
                     <contact>
@@ -197,41 +75,6 @@
                 </vendor>
             </delivery>
             <delivery status="pending" cost="5730">
-                <products>
-                    <product name="защитни очила" brand="ФермерГард">
-                        <info>
-                            <fragile>true</fragile>
-                            <price currency="BGN">10</price>
-                            <quantity>12</quantity>
-                            <weight unit="g">250</weight>
-                            <expiry_date>2032-05-20</expiry_date>
-                            <type>clothing</type>
-                        </info>
-                        <notes>защита от при пръскане</notes>
-                    </product>
-                    <product name="навес" brand="ДомАгро">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="RON">950</price>
-                            <quantity>2</quantity>
-                            <weight unit="kg">120</weight>
-                            <expiry_date>2030-11-15</expiry_date>
-                            <type>structure</type>
-                        </info>
-                        <notes>здрав и устойчив на дъжд</notes>
-                    </product>
-                    <product name="градски ботуши" brand="ТехноОбувки">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="BGN">45</price>
-                            <quantity>17</quantity>
-                            <weight unit="kg">1.5</weight>
-                            <expiry_date>2032-02-20</expiry_date>
-                            <type>clothing</type>
-                        </info>
-                        <notes>удобни и издръжливи при всякакви условия</notes>
-                    </product>
-                </products>
                 <vendor>
                     <name>Филип Еленов</name>
                     <contact>
@@ -248,30 +91,6 @@
         </deliveries>
     </warehouse>
     <warehouse>
-        <products>
-            <product name="масло за трактор" brand="ТехноМотор">
-                <info>
-                    <fragile>false</fragile>
-                    <price currency="BGN">20</price>
-                    <quantity>18</quantity>
-                    <weight unit="kg">1</weight>
-                    <expiry_date>2026-03-30</expiry_date>
-                    <type>equipment</type>
-                </info>
-                <notes>висококачествено за дълготрайна работа</notes>
-            </product>
-            <product name="система за вентилация" brand="КлимаПро">
-                <info>
-                    <fragile>false</fragile>
-                    <price currency="USD">500</price>
-                    <quantity>26</quantity>
-                    <weight unit="kg">25</weight>
-                    <expiry_date>2026-09-22</expiry_date>
-                    <type>structure</type>
-                </info>
-                <notes>за оптимални условия в оранжерията</notes>
-            </product>
-        </products>
         <contact>
             <location>
                 <country>Северна Македония</country>
@@ -283,41 +102,6 @@
         </contact>
         <deliveries>
             <delivery status="returned" cost="9564.66">
-                <products>
-                    <product name="семена от домати" brand="СемеАгро">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="EUR">8.5</price>
-                            <quantity>21</quantity>
-                            <weight unit="g">3</weight>
-                            <expiry_date>2025-10-10</expiry_date>
-                            <type>seeds</type>
-                        </info>
-                        <notes>високодобивни сортове</notes>
-                    </product>
-                    <product name="осветителни тела за оранжерия" brand="ЛумиТех">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="EUR">90</price>
-                            <quantity>5</quantity>
-                            <weight unit="kg">5</weight>
-                            <expiry_date>2026-12-12</expiry_date>
-                            <type>equipment</type>
-                        </info>
-                        <notes>екологични и икономични</notes>
-                    </product>
-                    <product name="косачка" brand="Техноградинар">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="USD">320</price>
-                            <quantity>14</quantity>
-                            <weight unit="kg">15</weight>
-                            <expiry_date>2027-05-11</expiry_date>
-                            <type>equipment</type>
-                        </info>
-                        <notes>мощен двигател за големи площи</notes>
-                    </product>
-                </products>
                 <vendor>
                     <name>Златина Мариновa</name>
                     <contact>
@@ -331,19 +115,6 @@
                 </vendor>
             </delivery>
             <delivery status="canceled" cost="60">
-                <products>
-                    <product name="защитни очила" brand="ФермерГард">
-                        <info>
-                            <fragile>true</fragile>
-                            <price currency="BGN">10</price>
-                            <quantity>6</quantity>
-                            <weight unit="g">250</weight>
-                            <expiry_date>2032-05-20</expiry_date>
-                            <type>clothing</type>
-                        </info>
-                        <notes>защита от при пръскане</notes>
-                    </product>
-                </products>
                 <vendor>
                     <name>Борислав Златев</name>
                     <contact>
@@ -358,30 +129,6 @@
                 </vendor>
             </delivery>
             <delivery status="canceled" cost="2912.4">
-                <products>
-                    <product name="осветителни тела за оранжерия" brand="ЛумиТех">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="EUR">90</price>
-                            <quantity>16</quantity>
-                            <weight unit="kg">5</weight>
-                            <expiry_date>2026-12-12</expiry_date>
-                            <type>equipment</type>
-                        </info>
-                        <notes>екологични и икономични</notes>
-                    </product>
-                    <product name="градски ботуши" brand="ТехноОбувки">
-                        <info>
-                            <fragile>false</fragile>
-                            <price currency="BGN">45</price>
-                            <quantity>2</quantity>
-                            <weight unit="kg">1.5</weight>
-                            <expiry_date>2032-02-20</expiry_date>
-                            <type>clothing</type>
-                        </info>
-                        <notes>удобни и издръжливи при всякакви условия</notes>
-                    </product>
-                </products>
                 <vendor>
                     <name>Филип Владимиров</name>
                     <contact>

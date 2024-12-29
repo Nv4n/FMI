@@ -16,16 +16,12 @@
         <xsl:for-each select="warehouse[1]">
             <xsl:element name="warehouse">
                 <products>
-                    <xsl:apply-templates select="products/product[1]"/>
+                    <xsl:apply-templates select="products/product"/>
                 </products>
                 <contact>
                     <xsl:apply-templates select="contact"/>
                 </contact>
-                <xsl:if test="deliveries">
-                    <deliveries>
-                        <xsl:apply-templates select="deliveries/delivery[1]"/>
-                    </deliveries>
-                </xsl:if>
+                <deliveries/>
             </xsl:element>
         </xsl:for-each>
     </xsl:template>
@@ -75,23 +71,6 @@
         <type>
             <xsl:value-of select="type"/>
         </type>
-    </xsl:template>
-
-    <xsl:template match="delivery">
-        <delivery>
-            <xsl:attribute name="status">
-                <xsl:value-of select="@status"/>
-            </xsl:attribute>
-            <xsl:attribute name="cost">
-                <xsl:value-of select="@cost"/>
-            </xsl:attribute>
-            <products>
-                <xsl:apply-templates select="products/product[1]"/>
-            </products>
-            <vendor>
-                <xsl:apply-templates select="vendor"/>
-            </vendor>
-        </delivery>
     </xsl:template>
 
     <xsl:template match="contact">
