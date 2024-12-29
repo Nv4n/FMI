@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="../public/warehouses.xsd">
+    <owner>
+        <name>Агро магазин Владимир Огнянов</name>
+        <contact>
+            <location>
+                <country>Словения</country>
+                <city>Марибор</city>
+                <address>ул. Главен площад 4</address>
+            </location>
+            <email>agro_magazin_vladimir_ognyanov1009@outlook.com</email>
+        </contact>
+    </owner>
+    <warehouse>
+        <products>
+            <product name="трактор" brand="Машиникс">
+                <info>
+                    <price currency="USD">150000</price>
+                    <quantity>24</quantity>
+                    <weight unit="kg">1500</weight>
+                    <expiry_date>2032-05-25</expiry_date>
+                    <type>equipment</type>
+                </info>
+            </product>
+        </products>
+        <contact>
+            <location>
+                <country>Сърбия</country>
+                <city>Белград</city>
+                <address>бул. Краля Александра 25</address>
+            </location>
+            <email>warehouse_mariya_todorova1239@yahoo.com</email>
+        </contact>
+        <deliveries>
+            <delivery status="canceled" cost="7813594.5">
+                <products>
+                    <product name="форма за разсад" brand="СеменАгро">
+                        <info>
+                            <price currency="EUR">50</price>
+                            <quantity>14</quantity>
+                            <weight unit="kg">2.5</weight>
+                            <expiry_date>2026-04-18</expiry_date>
+                            <type>equipment</type>
+                        </info>
+                    </product>
+                </products>
+                <vendor>
+                    <name>Тодор Борисов</name>
+                    <contact>
+                        <location>
+                            <country>Турция</country>
+                            <city>Истанбул</city>
+                            <address>пл. Таксим 1</address>
+                        </location>
+                        <email>todor_borisov1727@outlook.com</email>
+                    </contact>
+                </vendor>
+            </delivery>
+        </deliveries>
+    </warehouse>
+</warehouses>
