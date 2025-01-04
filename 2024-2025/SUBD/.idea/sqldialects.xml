@@ -6,6 +6,11 @@
     <file url="file://$PROJECT_DIR$/PRACTICE/TASKS.sql" dialect="DB2" />
     <file url="file://$PROJECT_DIR$/PRACTICUM/HW3/TASKS.sql" dialect="DB2" />
     <file url="file://$PROJECT_DIR$/PRACTICUM/HW4/TASKS.sql" dialect="DB2" />
+    <file url="file://$PROJECT_DIR$/../../Course2/SummerSemester/Databases/Project/sql/createFunc.sql" dialect="DB2" />
+    <file url="file://$PROJECT_DIR$/../../Course2/SummerSemester/Databases/Project/sql/createProc.sql" dialect="DB2" />
+    <file url="file://$PROJECT_DIR$/../../Course2/SummerSemester/Databases/Project/sql/createTrig.sql" dialect="DB2" />
+    <file url="file://$PROJECT_DIR$/../../Course2/SummerSemester/Databases/Project/sql/createView.sql" dialect="DB2" />
+    <file url="file://$PROJECT_DIR$/../../Course2/SummerSemester/Databases/Project/sql/dataLoad.sql" dialect="DB2" />
     <file url="PROJECT" dialect="DB2" />
   </component>
   <component name="SqlResolveMappings">
