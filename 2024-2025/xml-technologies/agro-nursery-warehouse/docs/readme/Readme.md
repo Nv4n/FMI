@@ -22,7 +22,7 @@
 
 ## 1. Версия "XML схема"
 
-### Описание на предметната област и на заданието
+### **Описание на предметната област и на заданието**
 
 Целта на проекта е създаване на система за управление на складовото приложение на агро
 магазин, специализиран в продажбата на селскостопански стоки и оборудване. Основни
@@ -857,7 +857,7 @@ function generateContact(xmlDoc, fullname = generateFullName()) {
 }
 ```
 
-## 3. Версия 'Набор от XSLT трансформации"
+## 3. Версия "Набор от XSLT трансформации"
 
 ### **Трансформации XML към XML**
 
@@ -1194,42 +1194,52 @@ function generateContact(xmlDoc, fullname = generateFullName()) {
 
 ```xml
 ...
-    <xsd:complexType name="Product">
-        <xsd:sequence>
-            <xsd:element name="info" type="ContentInfo" />
-            <xsd:element name="notes" type="NonEmptyString" minOccurs="0" maxOccurs="1"/>
-            <!-- <xsd:element name="img" type="NonEmptyString" minOccurs="0" maxOccurs="1"/> -->
-        </xsd:sequence>
-        <xsd:attribute name="name" type="NonEmptyString" use="required">
-        </xsd:attribute>
-        <xsd:attribute name="brand" type="NonEmptyString" use="required" />
-    </xsd:complexType>
+<xsd:complexType name="Product">
+    <xsd:sequence>
+        <xsd:element name="info" type="ContentInfo" />
+        <xsd:element name="notes" type="NonEmptyString" minOccurs="0" maxOccurs="1"/>
+        <!-- <xsd:element name="img" type="NonEmptyString" minOccurs="0" maxOccurs="1"/> -->
+    </xsd:sequence>
+    <xsd:attribute name="name" type="NonEmptyString" use="required">
+    </xsd:attribute>
+    <xsd:attribute name="brand" type="NonEmptyString" use="required" />
+</xsd:complexType>
 ...
 ```
 
 2. Добавяне на линк за точна локация на доставката
 
+С цел подобряване проследяването на доставените продукти
+
+```xml
+...
 <xsd:complexType name="Delivery">
-        <xsd:sequence>
-            <xsd:element name="products">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="product" type="Product" minOccurs="1"
-                            maxOccurs="unbounded" />
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="vendor" type="Vendor" />
-        </xsd:sequence>
-        <xsd:attribute name="status" default="pending">
-            <xsd:simpleType>
-                <xsd:restriction base="xsd:string">
-                    <xsd:enumeration value="canceled" />
-                    <xsd:enumeration value="returned" />
-                    <xsd:enumeration value="pending" />
-                    <xsd:enumeration value="finished" />
-                </xsd:restriction>
-            </xsd:simpleType>
-        </xsd:attribute>
-        <xsd:attribute name="cost" type="xsd:double" />
-    </xsd:complexType>
+    <xsd:sequence>
+        ...
+    </xsd:sequence>
+    <xsd:attribute name="status" default="pending">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="canceled" />
+                <xsd:enumeration value="returned" />
+                <xsd:enumeration value="pending" />
+                <xsd:enumeration value="finished" />
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="cost" type="xsd:double" />
+    <!-- <xsd:attribute name="live_location" type="xsd:string"/> -->
+</xsd:complexType>
+...
+```
+
+3. Добавяне на трансформация за генериране на касови бележки базирани на доставките
+
+Трансформация от вида XML към текст, за автоматично генериране на касови бележки за всяка
+доставка. Така от събраните данни ще можем да трансформираме до стандартен формат касова бележка.
+
+4. Добавяне на трансформация за лесна статистика
+
+Трансформация от вида XML към HTML, където ще се репрезентират данните под формата на статистика.
+С графики на най-поръчаните продукти, и кои продукти имаме най-много в наличност.
+Така ще знаем, ако даден продукт застоява твърде дълго по складовете.
