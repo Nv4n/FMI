@@ -90,7 +90,7 @@ end;
 CREATE OR REPLACE PROCEDURE PROC_ADD_STUDENT(IN fac CHAR(10), IN fname VARCHAR(50), IN lname VARCHAR(50),
                                              IN faculty VARCHAR(100), IN course SMALLINT)
 BEGIN
-    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
         BEGIN
             SIGNAL SQLSTATE '45000'
                 SET MESSAGE_TEXT = 'Грешка при създаване на студент';

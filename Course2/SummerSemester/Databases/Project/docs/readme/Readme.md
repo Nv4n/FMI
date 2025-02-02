@@ -225,7 +225,7 @@ CK: (max_length >= min_length)
 
 <span style="font-style: italic;">Процедура за увеличаване точките на отговорите и съответно изпита</span>
 
-![alt text](image-16.png)
+![alt text](image-19.png)
 
 <span style="font-style: italic;">Процедура за добавяне на студент</span>
 
