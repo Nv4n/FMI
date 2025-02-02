@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><warehouses>
+    <owner>
+        <name>Агро магазин Огнян Тодоров</name>
+        <contact>
+            <location>
+                <country>Словения</country>
+                <city>Марибор</city>
+                <address>ул. Главен площад 4</address>
+            </location>
+            <phone>+13 47-061-4183</phone>
+        </contact>
+    </owner>
+    <warehouse>
+        <contact>
+            <location>
+                <country>Хърватия</country>
+                <city>Загреб</city>
+                <address>ул. Илица 45</address>
+            </location>
+            <phone>+34 41-3123-715</phone>
+        </contact>
+        <deliveries>
+            <delivery status="finished" cost="499.8">
+                <vendor>
+                    <name>Златина Караивановa</name>
+                    <contact>
+                        <location>
+                            <country>България</country>
+                            <city>Пловдив</city>
+                            <address>ул. Главна 67</address>
+                        </location>
+                        <email>zlatina_karaivanova445@gmail.com</email>
+                        <phone>+00 377-301-8362</phone>
+                    </contact>
+                </vendor>
+            </delivery>
+        </deliveries>
+    </warehouse>
+    <warehouse>
+        <contact>
+            <location>
+                <country>Черна гора</country>
+                <city>Подгорица</city>
+                <address>ул. Независимост 12</address>
+            </location>
+            <email>warehouse_todor_dimitrov1634@yahoo.com</email>
+            <phone>+501 60-885-7806</phone>
+        </contact>
+        <deliveries>
+            <delivery status="returned" cost="15134.86">
+                <vendor>
+                    <name>Огнян Тодоров</name>
+                    <contact>
+                        <location>
+                            <country>Косово</country>
+                            <city>Прищина</city>
+                            <address>ул. Майка Тереза 18</address>
+                        </location>
+                        <email>ognyan_todorov1768@gmail.com</email>
+                        <phone>+061 057-6786-2473</phone>
+                    </contact>
+                </vendor>
+            </delivery>
+            <delivery status="canceled" cost="4015.51">
+                <vendor>
+                    <name>Мария Борисовa</name>
+                    <contact>
+                        <location>
+                            <country>Румъния</country>
+                            <city>Брашов</city>
+                            <address>ул. Република 11</address>
+                        </location>
+                        <email>mariya_borisova1487@outlook.com</email>
+                    </contact>
+                </vendor>
+            </delivery>
+            <delivery status="pending" cost="5730">
+                <vendor>
+                    <name>Филип Еленов</name>
+                    <contact>
+                        <location>
+                            <country>Гърция</country>
+                            <city>Солун</city>
+                            <address>ул. Егнатиа 33</address>
+                        </location>
+                        <email>filip_elenov1142@gmail.com</email>
+                        <phone>+10 28-1566-38626</phone>
+                    </contact>
+                </vendor>
+            </delivery>
+        </deliveries>
+    </warehouse>
+    <warehouse>
+        <contact>
+            <location>
+                <country>Северна Македония</country>
+                <city>Скопие</city>
+                <address>бул. Македония 15</address>
+            </location>
+            <email>warehouse_svetlana_marinova1605@yahoo.com</email>
+            <phone>+73 03-786-7511</phone>
+        </contact>
+        <deliveries>
+            <delivery status="returned" cost="9564.66">
+                <vendor>
+                    <name>Златина Мариновa</name>
+                    <contact>
+                        <location>
+                            <country>Босна и Херцеговина</country>
+                            <city>Мостар</city>
+                            <address>ул. Стари мост 3</address>
+                        </location>
+                        <email>zlatina_marinova731@yahoo.com</email>
+                    </contact>
+                </vendor>
+            </delivery>
+            <delivery status="canceled" cost="60">
+                <vendor>
+                    <name>Борислав Златев</name>
+                    <contact>
+                        <location>
+                            <country>Хърватия</country>
+                            <city>Дубровник</city>
+                            <address>ул. Страдун 12</address>
+                        </location>
+                        <email>borislav_zlatev1672@yahoo.com</email>
+                        <phone>+443 48-8837-7236</phone>
+                    </contact>
+                </vendor>
+            </delivery>
+            <delivery status="canceled" cost="2912.4">
+                <vendor>
+                    <name>Филип Владимиров</name>
+                    <contact>
+                        <location>
+                            <country>България</country>
+                            <city>София</city>
+                            <address>ул. Витоша 10</address>
+                        </location>
+                        <phone>+03 075-5658-8708</phone>
+                    </contact>
+                </vendor>
+            </delivery>
+        </deliveries>
+    </warehouse>
+</warehouses>

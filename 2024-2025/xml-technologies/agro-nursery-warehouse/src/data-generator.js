@@ -22,7 +22,7 @@ export function generateFullName() {
  */
 export function generateEmail(fullName) {
     const randomDomain = emailDomains[random(emailDomains.length)];
-    return `${toLatin(fullName.replace(" ", "_"))}@${randomDomain}`;
+    return `${toLatin(fullName.replaceAll(" ", "_"))}@${randomDomain}`;
 }
 
 /**
@@ -48,5 +48,3 @@ export function generatePhone() {
     }
     return phoneNumber;
 }
-
-//TODO RANDOM ADRESSES

@@ -5,7 +5,7 @@
   "description": "Warehouse xml project",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite"
   },
   "repository": {
     "type": "git",
@@ -13,5 +13,12 @@
     "url": "https://github.com/Nv4n/FMI"
   },
   "author": "Ivan Petrov FN3MI0700035",
-  "license": "ISC"
+  "license": "ISC",
+  "packageManager": "yarn@4.5.0",
+  "dependencies": {
+    "xml-formatter": "^3.6.3"
+  },
+  "devDependencies": {
+    "vite": "^6.0.1"
+  }
 }

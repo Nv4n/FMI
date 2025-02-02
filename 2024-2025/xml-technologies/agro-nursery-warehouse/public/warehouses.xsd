@@ -59,7 +59,7 @@
 
     <xsd:complexType name="Vendor">
         <xsd:sequence>
-            <xsd:element name="name" type="xsd:string" />
+            <xsd:element name="name" type="NonEmptyString" />
             <xsd:element name="contact" type="Contact" />
         </xsd:sequence>
     </xsd:complexType>
@@ -174,13 +174,3 @@
         </xsd:restriction>
     </xsd:simpleType>
 </xsd:schema>
-
-<!--Всеки
-        студент избира и разработва собствен модел на документ за избраната
-        от него и одобрена от асистиращите приложна област. За този модел се
-        съставя Document Type Definition - DTD или SCHEMA. DTD или SCHEMA
-        трябва да съдържа минимум 20 различни елемента и 5 атрибута, с които се
-        задава състава и структурата на модела. В документа трябва да има поне две
-        различни групи вложени елементи (всяка с най-малко 3 елемен��а). Групите
-        трябва да се срещат 2-3 пъти
-        -->

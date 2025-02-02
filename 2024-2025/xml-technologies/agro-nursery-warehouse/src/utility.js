@@ -1,4 +1,5 @@
 //@ts-check
+import formatXml from "xml-formatter";
 
 /**
  * @param {number} maxValue
@@ -47,7 +48,6 @@ export function toLatin(cyrillic) {
     };
 
     let letters = cyrillic.toLowerCase().split("");
-    console.log(letters);
     return letters
         .map((letter) => {
             if (!!conversion[letter]) {
@@ -58,4 +58,53 @@ export function toLatin(cyrillic) {
         })
         .concat(`${Math.floor(Math.random() * 2000)}`)
         .join("");
+}
+
+/**
+ *
+ * @param {XMLDocument} doc
+ * @returns {string}
+ */
+export function serializeDocument(doc) {
+    const serializer = new XMLSerializer();
+    const serializedDocument = serializer.serializeToString(doc);
+
+    return formatXml(serializedDocument, {
+        collapseContent: true,
+        throwOnFailure: false,
+    });
+}
+
+/**
+ *
+ * @param {string} filename
+ * @param {string} content
+ * @returns {string}
+ */
+export function download(filename, content) {
+    const file = new File([content], filename);
+    const url = URL.createObjectURL(file);
+
+    const tempLinkElement = document.createElement("a");
+    tempLinkElement.setAttribute("href", url);
+    tempLinkElement.setAttribute("download", filename);
+
+    tempLinkElement.style.display = "none";
+    document.body.appendChild(tempLinkElement);
+
+    tempLinkElement.click();
+
+    document.body.removeChild(tempLinkElement);
+    // URL.revokeObjectURL(url);
+    return url;
+}
+
+/**
+ *
+ * @param {number} num
+ * @returns {number}
+ */
+export function precision(num, precision) {
+    let prec = 10 ** precision;
+    return Math.round(num * prec) / prec;
 }

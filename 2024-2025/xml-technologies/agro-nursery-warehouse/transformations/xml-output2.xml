@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><warehouses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../public/warehouses.xsd">
+    <owner>
+        <name>Агро магазин Владимир Огнянов</name>
+        <contact>
+            <location>
+                <country>Словения</country>
+                <city>Марибор</city>
+                <address>ул. Главен площад 4</address>
+            </location>
+            <email>agro_magazin_vladimir_ognyanov1009@outlook.com</email>
+        </contact>
+    </owner>
+    <warehouse>
+        <products>
+            <product name="трактор" brand="Машиникс">
+                <info>
+                    <price currency="USD">150000</price>
+                    <quantity>24</quantity>
+                    <weight unit="kg">1500</weight>
+                    <expiry_date>2032-05-25</expiry_date>
+                    <type>equipment</type>
+                </info>
+            </product>
+            <product name="лопата" brand="АгроИнструмент">
+                <info>
+                    <price currency="BGN">25.5</price>
+                    <quantity>12</quantity>
+                    <weight unit="kg">2.3</weight>
+                    <expiry_date>2028-01-15</expiry_date>
+                    <type>tool</type>
+                </info>
+            </product>
+        </products>
+        <contact>
+            <location>
+                <country>Сърбия</country>
+                <city>Белград</city>
+                <address>бул. Краля Александра 25</address>
+            </location>
+            <email>warehouse_mariya_todorova1239@yahoo.com</email>
+        </contact>
+        <deliveries/>
+    </warehouse>
+</warehouses>
