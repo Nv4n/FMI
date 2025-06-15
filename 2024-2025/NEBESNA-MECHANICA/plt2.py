@@ -1,9 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Орбитални елементи за планети (опростени Кеплерови елементи за демонстрация)
-# Източник на орбитални елементи: Приближени за 21 януари 2002 г. от стойностите за J2000
-# Мерни единици: a в AU, ъгли в градуси, период в земни години
 planets = {
     "Меркурий": {"a": 0.387, "e": 0.206, "I": 7.00, "theta": 48.33, "g": 29.12, "L0": 252.25, "T": 0.241},
     "Венера":   {"a": 0.723, "e": 0.007, "I": 3.39, "theta": 76.68, "g": 54.85, "L0": 181.98, "T": 0.615},
@@ -17,13 +14,11 @@ planets = {
     "Плутон": {"a": 39.48, "e": 0.2488, "I": 17.16, "theta": 110.30, "g": 113.8, "L0": 238.95, "T": 90560},
 }
 
-
 # Константи
 days_since_j2000 = (2002 - 2000) * 365.25 + 20  # Януари 21, 2002 - Януари 1, 2000
+# 2D Top-down view (X-Y plane) with orbits
 
-# Изчисли позициите
-fig = plt.figure(figsize=(10, 10))
-ax = fig.add_subplot(111, projection='3d')
+fig, ax = plt.subplots(figsize=(10, 10))
 
 for name, p in planets.items():
     a = p["a"]
@@ -34,24 +29,23 @@ for name, p in planets.items():
     L0 = np.radians(p["L0"])
     T = p["T"]
     
-    n = 360 / (T * 365.25)  # градус/ден
-    M = L0 + np.radians(n * days_since_j2000) - g  # Средна аномалия
+    # Mean motion and anomaly
+    n = 360 / (T * 365.25)  # deg/day
+    M = L0 + np.radians(n * days_since_j2000) - g
 
-    # Решете уравнението на Кеплер: E - e*sin(E) = M (опростен метод на Нютон-Рафсън)
+    # Solve Kepler's Equation
     E = M
     for _ in range(5):
         E = E - (E - e * np.sin(E) - M) / (1 - e * np.cos(E))
     
-    # Истинска аномалия
     v = 2 * np.arctan2(np.sqrt(1+e)*np.sin(E/2), np.sqrt(1-e)*np.cos(E/2))
     r = a * (1 - e * np.cos(E))
-    
-    # Позиция в орбитална равнина
+
+    # Position in orbital plane
     x_orb = r * np.cos(v)
     y_orb = r * np.sin(v)
-    z_orb = 0
 
-    # Завъртане към еклиптични координати
+    # Rotate to ecliptic coordinates (2D projection)
     cos_O = np.cos(theta)
     sin_O = np.sin(theta)
     cos_i = np.cos(I)
@@ -61,14 +55,29 @@ for name, p in planets.items():
 
     x = r * (cos_O * cos_wv - sin_O * sin_wv * cos_i)
     y = r * (sin_O * cos_wv + cos_O * sin_wv * cos_i)
-    z = r * (sin_wv * sin_i)
+
+    ax.plot(x, y, 'o', label=name)
+    ax.text(x, y, name, fontsize=9)
+
+    # Draw orbit
+    orbit_points = []
+    for angle in np.linspace(0, 2*np.pi, 500):
+        E_orb = angle
+        r_orb = a * (1 - e * np.cos(E_orb))
+        v_orb = 2 * np.arctan2(np.sqrt(1+e)*np.sin(E_orb/2), np.sqrt(1-e)*np.cos(E_orb/2))
+        cos_wv = np.cos(g + v_orb)
+        sin_wv = np.sin(g + v_orb)
+        x_orb = r_orb * (cos_O * cos_wv - sin_O * sin_wv * cos_i)
+        y_orb = r_orb * (sin_O * cos_wv + cos_O * sin_wv * cos_i)
+        orbit_points.append((x_orb, y_orb))
     
-    ax.scatter(x, y, z, label=name)
-    ax.text(x, y, z, name)
+    orbit_points = np.array(orbit_points)
+    ax.plot(orbit_points[:, 0], orbit_points[:, 1], linestyle='--', alpha=0.5)
 
 ax.set_xlabel("X (AU)")
 ax.set_ylabel("Y (AU)")
-ax.set_zlabel("Z (AU)")
-ax.set_title("Позиции на планетите на 2002-01-21")
+ax.set_title("2D Изглед отгоре 2002-01-21")
+ax.set_aspect('equal')
+ax.grid(True)
 ax.legend()
 plt.show()
