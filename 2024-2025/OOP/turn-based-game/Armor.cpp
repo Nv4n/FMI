@@ -11,16 +11,23 @@ Armor::Armor(ArmorType t, int d) : type(t), durability(d) {}
 int Armor::absorb(int damage) {
     if (durability <= 0) return damage;
 
-    float reduction = 0.0f;
+    double reduction = 0.0;
     switch (type) {
-        case ArmorType::Leather:  reduction = 0.25f; break;
-        case ArmorType::Medium:   reduction = 0.50f; break;
-        case ArmorType::Heavy:    reduction = 0.75f; break;
-        default:                  reduction = 0.0f;
+        case ArmorType::Leather:
+            reduction = 0.25;
+            break;
+        case ArmorType::Medium:
+            reduction = 0.50;
+            break;
+        case ArmorType::Heavy:
+            reduction = 0.75;
+            break;
+        default:
+            reduction = 0.0;
     }
 
     durability--;
-    return static_cast<int>(damage * (1.0f - reduction));
+    return static_cast<int>(damage * (1.0 - reduction));
 }
 
 bool Armor::isBroken() const {
@@ -28,4 +35,5 @@ bool Armor::isBroken() const {
 }
 
 ArmorType Armor::getType() const { return type; }
+
 int Armor::getDurability() const { return durability; }

@@ -3,15 +3,15 @@
 //
 
 #include "Unit.h"
-#include "Unit.h"
-#include <algorithm>
 
-Unit::Unit(std::string name, int hp, int mp, const Armor& a, int atk, int cost)
-        : name(n), health(hp), mana(mp), armorType(at), armorStrength(as), attackPower(ap), goldCost(cost) {}
+Unit::Unit(std::string name, int hp, int mp, const Armor &a, int atk, int cost)
+        : name(std::move(name)), health(hp), mana(mp), armor(a), attackPower(atk), goldCost(cost) {
+    maxHealth = health;
+    maxMana = mana;
+    faction = Faction::UNKNOWN;
+}
 
-        : name(name), health(hp), maxHealth(hp), mana(mp), maxMana(mp), armor(a), attackPower(atk), goldCost(cost) {}
-
-void Unit::attack(Unit& target) {
+void Unit::attack(Unit &target) {
     target.receiveDamage(attackPower);
 }
 
@@ -21,8 +21,17 @@ void Unit::receiveDamage(int dmg) {
 }
 
 bool Unit::isAlive() const { return health > 0; }
+
 std::string Unit::getName() const { return name; }
+
 int Unit::getHealth() const { return health; }
+
 int Unit::getMana() const { return mana; }
-int Unit::getCost() const { return goldCost; }
-Armor Unit::getArmor() const { return armor; }
+
+Armor Unit::getArmor() const {
+    return armor;
+}
+
+int Unit::getGoldCost() const {
+    return goldCost;
+}
