@@ -54,7 +54,7 @@ public:
      */
     virtual void receiveDamage(int dmg);
 
-    bool isCommanderUnit() const;
+    virtual bool isCommanderUnit() const;
 
     Faction getFaction() const;
 

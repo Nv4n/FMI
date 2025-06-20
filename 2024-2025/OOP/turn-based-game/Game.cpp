@@ -2,6 +2,7 @@
 // Created by Sybatron on 6/20/2025.
 //
 
+#include <fstream>
 #include "Game.h"
 
 Game::Game(int gold, size_t unitLimit)
@@ -10,19 +11,19 @@ Game::Game(int gold, size_t unitLimit)
 
 void Game::saveGame(const std::string &filename) {
     std::ofstream out(filename);
-    if(!out.is_open()){
+    if (!out.is_open()) {
         throw std::runtime_error("Cannot open save file: " + filename);
     }
     out << livingWins << ' ' << undeadWins << '\n';
     living.save(out);
     undead.save(out);
-    out.close()
+    out.close();
 }
 
 void Game::loadGame(const std::string &filename) {
     std::ifstream in(filename);
-    if(!out.is_open()){
-        throw std::runtime_error("Cannot open save file: " + filename);
+    if (!in.is_open()) {
+        throw std::runtime_error("Cannot open load file: " + filename);
     }
     in >> livingWins >> undeadWins;
     living.load(in);
@@ -39,11 +40,11 @@ bool Game::isGameOver() const {
     return livingWins >= 3 || undeadWins >= 3;
 }
 
-void Game::handleCommand(const std::string& commandLine) {
-    std::string cmd = commandLine;
+void Game::handleCommand() {
+    std::string cmd = "CREATE INFANTRYMAN";
     if (cmd.rfind("CREATE ", 0) == 0) {
         std::string name = cmd.substr(7);
-        Unit* unit = Unit::createFromName(name, Faction::LIVING);
+        Unit *unit = living.createUnitFromName(UnitEnum::INFANTRYMAN);
         if (unit && living.createUnit(unit)) {
             std::cout << "Created unit: " << name << "\n";
         } else {
@@ -51,7 +52,7 @@ void Game::handleCommand(const std::string& commandLine) {
         }
     } else if (cmd.rfind("SELECT BOSS ", 0) == 0) {
         std::string name = cmd.substr(12);
-        for (Unit* c : living.getAliveCommanders()) {
+        for (Unit *c: living.getAliveCommanders()) {
             if (c->getName() == name) {
                 selectedLivingCommanders.push_back(c);
                 std::cout << "Selected commander: " << name << "\n";
@@ -66,7 +67,7 @@ void Game::handleCommand(const std::string& commandLine) {
             std::string name = cmd.substr(spacePos + 1);
             int times = std::atoi(timesStr.c_str());
             int count = 0;
-            for (Unit* u : living.getAliveUnits()) {
+            for (Unit *u: living.getAliveUnits()) {
                 if (u->getName() == name && count < times) {
                     selectedLivingUnits.push_back(u);
                     ++count;
@@ -86,7 +87,9 @@ void Game::handleCommand(const std::string& commandLine) {
         std::string choice;
         std::cout << "Do you want to save the game before exit? (yes/no): ";
         std::cin >> choice;
-        if (choice == "yes") saveGame("savegame.txt");
+        if (choice == "yes") {
+            saveGame("savegame.txt");
+        }
         std::exit(0);
     } else if (cmd == "RESTART") {
         restart();
@@ -98,10 +101,10 @@ void Game::startDuel() {
     selectedUndeadUnits.clear();
     selectedUndeadCommanders.clear();
 
-    std::vector<Unit*> allUndeadUnits = undead.getAliveUnits();
-    std::vector<Unit*> allUndeadCommanders = undead.getAliveCommanders();
+    std::vector<Unit *> allUndeadUnits = undead.getAliveUnits();
+    std::vector<Unit *> allUndeadCommanders = undead.getAliveCommanders();
 
-    int maxUnits = std::min(3, (int)allUndeadUnits.size());
+    int maxUnits = std::min(3, (int) allUndeadUnits.size());
     int selectedUnitCount = std::rand() % (maxUnits + 1);
     for (int i = 0; i < selectedUnitCount; ++i) {
         int idx = std::rand() % allUndeadUnits.size();
@@ -116,22 +119,52 @@ void Game::startDuel() {
     std::cout << "\n--- Duel begins ---\n";
 
     // Nemртви attack
-    for (Unit* undead : selectedUndeadCommanders) for (Unit* target : selectedLivingUnits) if (target->isAlive()) { undead->attack(*target); std::cout << undead->getName() << " (Cmd) attacks " << target->getName() << "\n"; break; }
-    for (Unit* undead : selectedUndeadUnits) for (Unit* target : selectedLivingUnits) if (target->isAlive()) { undead->attack(*target); std::cout << undead->getName() << " attacks " << target->getName() << "\n"; break; }
+    for (Unit *undead: selectedUndeadCommanders)
+        for (Unit *target: selectedLivingUnits)
+            if (target->isAlive()) {
+                undead->attack(*target);
+                std::cout << undead->getName() << " (Cmd) attacks " << target->getName() << "\n";
+                break;
+            }
+    for (Unit *undead: selectedUndeadUnits)
+        for (Unit *target: selectedLivingUnits)
+            if (target->isAlive()) {
+                undead->attack(*target);
+                std::cout << undead->getName() << " attacks " << target->getName() << "\n";
+                break;
+            }
 
     // Living counterattack
-    for (Unit* l : selectedLivingCommanders) for (Unit* target : selectedUndeadUnits) if (target->isAlive()) { l->attack(*target); std::cout << l->getName() << " (Cmd) counterattacks " << target->getName() << "\n"; break; }
-    for (Unit* l : selectedLivingUnits) for (Unit* target : selectedUndeadUnits) if (target->isAlive()) { l->attack(*target); std::cout << l->getName() << " counterattacks " << target->getName() << "\n"; break; }
+    for (Unit *l: selectedLivingCommanders)
+        for (Unit *target: selectedUndeadUnits)
+            if (target->isAlive()) {
+                l->attack(*target);
+                std::cout << l->getName() << " (Cmd) counterattacks " << target->getName() << "\n";
+                break;
+            }
+    for (Unit *l: selectedLivingUnits)
+        for (Unit *target: selectedUndeadUnits)
+            if (target->isAlive()) {
+                l->attack(*target);
+                std::cout << l->getName() << " counterattacks " << target->getName() << "\n";
+                break;
+            }
 
     // Final strike from living
-    for (Unit* l : selectedLivingUnits) for (Unit* target : selectedUndeadUnits) if (target->isAlive()) { l->attack(*target); std::cout << l->getName() << " final hit " << target->getName() << "\n"; break; }
+    for (Unit *l: selectedLivingUnits)
+        for (Unit *target: selectedUndeadUnits)
+            if (target->isAlive()) {
+                l->attack(*target);
+                std::cout << l->getName() << " final hit " << target->getName() << "\n";
+                break;
+            }
 
     // Check winner
     bool undeadAlive = false, livingAlive = false;
-    for (Unit* u : selectedUndeadUnits) if (u->isAlive()) undeadAlive = true;
-    for (Unit* u : selectedUndeadCommanders) if (u->isAlive()) undeadAlive = true;
-    for (Unit* u : selectedLivingUnits) if (u->isAlive()) livingAlive = true;
-    for (Unit* u : selectedLivingCommanders) if (u->isAlive()) livingAlive = true;
+    for (Unit *u: selectedUndeadUnits) if (u->isAlive()) undeadAlive = true;
+    for (Unit *u: selectedUndeadCommanders) if (u->isAlive()) undeadAlive = true;
+    for (Unit *u: selectedLivingUnits) if (u->isAlive()) livingAlive = true;
+    for (Unit *u: selectedLivingCommanders) if (u->isAlive()) livingAlive = true;
 
     if (undeadAlive && !livingAlive) {
         undeadWins++;

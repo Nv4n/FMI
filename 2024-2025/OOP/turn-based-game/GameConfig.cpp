@@ -79,7 +79,7 @@ void GameConfig::loadFromFile(const std::string &path) {
             undeadLeaders.push_back({value, species});
         }
     }
-    file.close()
+    file.close();
 }
 
 void GameConfig::print() const {

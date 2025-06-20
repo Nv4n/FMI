@@ -47,3 +47,7 @@ void Unit::restoreMana() {
 void Unit::restoreHealth() {
     health += 100;
 }
+
+bool Unit::isCommanderUnit() const {
+    return false;
+}

@@ -54,70 +54,7 @@ public:
 
     size_t getRemainingUnitSlots() const;
 
-    Unit *createUnitFromName(UnitEnum type) {
-        Unit *unit = nullptr;
-        switch (type) {
-            // Living
-            case UnitEnum::INFANTRYMAN:
-                unit = new Infantryman();
-                break;
-            case UnitEnum::ARCHER:
-                unit = new Archer();
-                break;
-            case UnitEnum::KNIGHT:
-                unit = new Knight();
-                break;
-            case UnitEnum::HEALER:
-                unit = new Healer();
-                break;
-            case UnitEnum::WIZARD:
-                unit = new Wizard();
-                break;
-            case UnitEnum::UNDEAD_HUNTER:
-                unit = new UndeadHunter();
-                break;
-            case UnitEnum::BLADE_DANCER:
-                unit = new BladeDancer();
-                break;
-            case UnitEnum::PALADIN:
-                unit = new Paladin();
-                break;
-                // Undead
-            case UnitEnum::SKELETON:
-                unit = new Skeleton();
-                break;
-            case UnitEnum::GHOUL:
-                unit = new Ghoul();
-                break;
-            case UnitEnum::NECROMANCER:
-                unit = new Necromancer();
-                break;
-            case UnitEnum::ZOMBIE:
-                unit = new Zombie();
-                break;
-            case UnitEnum::DYBBUK:
-                unit = new Dybbuk();
-                break;
-            case UnitEnum::REVENANT:
-                unit = new Revenant();
-                break;
-            case UnitEnum::GHOST:
-                unit = new Ghost();
-                break;
-            case UnitEnum::LICH:
-                unit = new Lich();
-                break;
-            case UnitEnum::DREADLORD:
-                unit = new Dreadlord();
-                break;
-            case UnitEnum::DEATH_KNIGHT:
-                unit = new DeathKnight();
-                break;
-        }
-        if (unit && createUnit(unit)) return unit;
-        delete unit;
-        return nullptr;
-    }
+    Unit *createUnitFromName(UnitEnum type);
 
 };
 
