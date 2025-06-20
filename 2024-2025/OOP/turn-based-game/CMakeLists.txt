@@ -33,5 +33,21 @@ add_executable(Game
         undead-creatures/Revenant.h
         undead-creatures/Ghost.cpp
         undead-creatures/Ghost.h
+        undead-creatures/Lich.cpp
+        undead-creatures/Lich.h
+        undead-creatures/Dreadlord.cpp
+        undead-creatures/Dreadlord.h
+        undead-creatures/DeathKnight.cpp
+        undead-creatures/DeathKnight.h
+        living-creatures/UndeadHunter.cpp
+        living-creatures/UndeadHunter.h
+        living-creatures/BladeDancer.cpp
+        living-creatures/BladeDancer.h
+        living-creatures/Paladin.cpp
+        living-creatures/Paladin.h
+        GameConfig.cpp
+        GameConfig.h
+        LeaderEnums.h
+        main.cpp
 )
 

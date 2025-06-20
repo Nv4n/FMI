@@ -12,9 +12,10 @@
 
 
 enum class Faction {
-    Living,
-    Undead,
-    UNKNOWN
+    UNKNOWN = -1,
+    LIVING,
+    UNDEAD,
+    COUNT
 };
 
 /**
@@ -71,6 +72,10 @@ public:
     Armor getArmor() const;
 
     int getGoldCost() const;
+
+    void restoreMana();
+
+    void restoreHealth();
 };
 
 

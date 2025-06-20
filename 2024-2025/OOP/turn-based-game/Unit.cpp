@@ -35,3 +35,15 @@ Armor Unit::getArmor() const {
 int Unit::getGoldCost() const {
     return goldCost;
 }
+
+Faction Unit::getFaction() const {
+    return faction;
+}
+
+void Unit::restoreMana() {
+    mana += 75;
+}
+
+void Unit::restoreHealth() {
+    health += 100;
+}

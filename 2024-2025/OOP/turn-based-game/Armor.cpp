@@ -9,7 +9,7 @@
 Armor::Armor(ArmorType t, int d) : type(t), durability(d) {}
 
 int Armor::absorb(int damage) {
-    if (durability <= 0) return damage;
+    if (isBroken()) return damage;
 
     double reduction = 0.0;
     switch (type) {
