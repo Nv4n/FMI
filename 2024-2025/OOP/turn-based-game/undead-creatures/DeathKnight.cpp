@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
-DeathKnight::DeathKnight(): Unit("Death Knight", 2500, 1000, Armor(ArmorType::Heavy, 15), 150, 0) {} {}
+DeathKnight::DeathKnight() : Unit("Death Knight", 2500, 1000, Armor(ArmorType::Heavy, 15), 150, 0) {}
 
 void DeathKnight::healUndead(Unit &target) {
     if (mana >= 350) {

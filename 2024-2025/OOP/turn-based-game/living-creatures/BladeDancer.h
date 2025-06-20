@@ -15,7 +15,7 @@
  */
 class BladeDancer : public Unit {
 public:
-    BladeDancer()
+    BladeDancer();
 };
 
 
