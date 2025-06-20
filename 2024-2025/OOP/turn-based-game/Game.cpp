@@ -118,7 +118,7 @@ void Game::startDuel() {
 
     std::cout << "\n--- Duel begins ---\n";
 
-    // Nemртви attack
+    // Немъртви атакуват
     for (Unit *undead: selectedUndeadCommanders)
         for (Unit *target: selectedLivingUnits)
             if (target->isAlive()) {
