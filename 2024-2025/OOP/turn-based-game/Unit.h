@@ -17,7 +17,6 @@ enum class Faction {
     UNKNOWN
 };
 
-
 /**
  * @class Unit
  * @brief Базов клас за всички бойни единици в играта.
