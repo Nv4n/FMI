@@ -50,11 +50,13 @@ void GameConfig::loadFromFile(const std::string &path) {
         } else if (currentLine == "[living_leaders]") {
             LivingSpecies species = getLivingSpecies(key);
             if (species == LivingSpecies::UNKNOWN) {
+                file.close();
                 throw std::runtime_error("Unknown living species: " + key);
             }
 
             int idx = static_cast<int>(species);
             if (livingSpeciesCounts[idx] >= 7) {
+                file.close();
                 throw std::runtime_error("Too many leaders for living species: " + key);
             }
 
@@ -63,11 +65,13 @@ void GameConfig::loadFromFile(const std::string &path) {
         } else if (currentLine == "[undead_leaders]") {
             UndeadSpecies species = getUndeadSpecies(key);
             if (species == UndeadSpecies::UNKNOWN) {
+                file.close();
                 throw std::runtime_error("Unknown undead species: " + key);
             }
 
             int idx = static_cast<int>(species);
             if (undeadSpeciesCounts[idx] >= 7) {
+                file.close();
                 throw std::runtime_error("Too many leaders for undead species: " + key);
             }
 
@@ -75,6 +79,7 @@ void GameConfig::loadFromFile(const std::string &path) {
             undeadLeaders.push_back({value, species});
         }
     }
+    file.close()
 }
 
 void GameConfig::print() const {

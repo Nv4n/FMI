@@ -17,8 +17,8 @@ add_executable(Game
         living-creatures/Infantryman.cpp
         living-creatures/Healer.cpp
         living-creatures/Healer.h
-        living-creatures/Wizzard.cpp
-        living-creatures/Wizzard.h
+        living-creatures/Wizard.cpp
+        living-creatures/Wizard.h
         undead-creatures/Skeleton.cpp
         undead-creatures/Skeleton.h
         undead-creatures/Ghoul.cpp
@@ -49,5 +49,10 @@ add_executable(Game
         GameConfig.h
         LeaderEnums.h
         main.cpp
+        Base.cpp
+        Base.h
+        Game.cpp
+        Game.h
+        BaseImports.h
 )
 

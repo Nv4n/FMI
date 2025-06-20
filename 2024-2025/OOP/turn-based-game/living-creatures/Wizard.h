@@ -2,8 +2,8 @@
 // Created by Sybatron on 6/20/2025.
 //
 
-#ifndef TURNBASEDGAME_WIZZARD_H
-#define TURNBASEDGAME_WIZZARD_H
+#ifndef TURNBASEDGAME_WIZARD_H
+#define TURNBASEDGAME_WIZARD_H
 
 #pragma once
 
@@ -20,4 +20,4 @@ public:
 //    bool canCast() const override;
 };
 
-#endif //TURNBASEDGAME_WIZZARD_H
+#endif //TURNBASEDGAME_WIZARD_H
