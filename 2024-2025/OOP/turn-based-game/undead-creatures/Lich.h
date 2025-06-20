@@ -24,6 +24,8 @@ public:
      * @return true ако заклинанието е успешно.
      */
     bool raiseDead(int deadAlliesThisTurn, bool alreadyRaisedThisTurn);
+
+    bool isCommanderUnit() const override;
 };
 
 

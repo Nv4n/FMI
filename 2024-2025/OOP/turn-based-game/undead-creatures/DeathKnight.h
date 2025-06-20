@@ -28,6 +28,8 @@ public:
      * @return true с вероятност 25%.
      */
     static bool tryCreateFromDeadKnight();
+
+    bool isCommanderUnit() const override;
 };
 
 

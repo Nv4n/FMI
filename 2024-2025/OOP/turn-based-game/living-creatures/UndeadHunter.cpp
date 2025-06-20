@@ -15,3 +15,7 @@ bool UndeadHunter::destroyUndeadCommander(Unit &target) {
     }
     return false;
 }
+
+bool UndeadHunter::isCommanderUnit() const {
+    return true;
+}

@@ -23,6 +23,8 @@ public:
      * @return true ако е успешно.
      */
     bool destroyUndeadCommander(Unit &target);
+
+    bool isCommanderUnit() const override;
 };
 
 #endif //TURNBASEDGAME_UNDEADHUNTER_H

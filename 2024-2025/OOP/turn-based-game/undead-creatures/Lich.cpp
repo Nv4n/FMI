@@ -14,3 +14,7 @@ bool Lich::raiseDead(int deadAlliesThisTurn, bool alreadyRaisedThisTurn) {
 }
 
 Lich::Lich() : Unit("Lich", 1500, 1000, Armor(ArmorType::Heavy, 15), 100, 0) {}
+
+bool Lich::isCommanderUnit() const {
+    return true;
+}

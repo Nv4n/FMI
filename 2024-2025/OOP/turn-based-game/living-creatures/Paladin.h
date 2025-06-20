@@ -22,6 +22,8 @@ public:
      * @param ally Съюзникът, който ще бъде излекуван.
      */
     void healAlly(Unit &ally);
+
+    bool isCommanderUnit() const override;
 };
 
 

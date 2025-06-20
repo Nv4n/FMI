@@ -24,6 +24,8 @@ public:
      * @return Вектор с призовани единици.
      */
     std::vector<Unit *> summon(int &mana);
+
+    bool isCommanderUnit() const override;
 };
 
 

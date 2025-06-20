@@ -20,3 +20,7 @@ std::vector<Unit *> Dreadlord::summon(int &mana) {
     }
     return summoned;
 }
+
+bool Dreadlord::isCommanderUnit() const {
+    return true;
+}

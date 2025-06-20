@@ -5,3 +5,7 @@
 #include "BladeDancer.h"
 
 BladeDancer::BladeDancer() : Unit("Blade Dancer", 4000, 0, Armor(ArmorType::Medium, 25), 300, 0) {}
+
+bool BladeDancer::isCommanderUnit() const {
+    return true;
+}

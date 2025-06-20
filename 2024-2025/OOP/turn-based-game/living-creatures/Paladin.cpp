@@ -13,3 +13,7 @@ void Paladin::healAlly(Unit &ally) {
         std::cout << "Paladin heals ally.\n";
     }
 }
+
+bool Paladin::isCommanderUnit() const {
+    return true;
+}

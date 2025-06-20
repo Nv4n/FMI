@@ -16,3 +16,7 @@ bool DeathKnight::tryCreateFromDeadKnight() {
     std::srand(std::time(nullptr));
     return (std::rand() % 100) < 25;
 }
+
+bool DeathKnight::isCommanderUnit() const {
+    return true;
+}

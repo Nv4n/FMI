@@ -16,6 +16,8 @@
 class BladeDancer : public Unit {
 public:
     BladeDancer();
+
+    bool isCommanderUnit() const override;
 };
 
 
