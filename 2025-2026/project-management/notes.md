@@ -57,3 +57,4 @@ Project Life Cycle=collection of project phases (за изпит)
 устен 50%
 активност +-10%
 
+5 процесни групи (изпит)
