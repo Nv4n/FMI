@@ -1,0 +1,33 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.wrapper {
+    background-color: #e2e2e2;
+}
+
+.box {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.red-border {
+    border: 1px solid red;
+}
+
+.red {
+    background-color: #ff5479;
+}
+
+.green {
+    background-color: #8efc88;
+}
+
+.hidden {
+    display: none;
+}

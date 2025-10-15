@@ -1,0 +1,7 @@
+create-user
+remove-user
+send-coins
+exit
+verify-transactions
+wealthiest-users
+biggest-blocks

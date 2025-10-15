@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.green {
+    background-color: green;
+}
+.lime {
+    background-color: limegreen;
+}
+.purple {
+    background-color: purple;
+}
+.blue {
+    background-color: blue;
+}
+.lightblue {
+    background-color: rgb(48, 48, 255);
+}
+.red {
+    background-color: red;
+}
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.quarter-width {
+    width: 25%;
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.small-gap {
+    gap: 1em;
+}
+
+.height-73 {
+    height: 73vh;
+}
+.height-67{
+    height: 67vh;
+}
+
+.height-63 {
+    height: 63vh;
+}
+
+.height-20 {
+    height: 20vh;
+}
+
+.height-15{
+    height: 15vh;
+}
+.height-10 {
+    height: 10vh;
+}
+
+.main {
+    margin: 1em 0;
+}
+
+.main-halfmargin{
+    margin: 0.5em 0;
+}

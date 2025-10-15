@@ -1,0 +1,33 @@
+.slide-toggle {
+    --size: 1.5rem;
+    appearance: none;
+    outline: 2px solid black;
+    outline-offset: 2px;
+    width: calc(var(--size) * 2);
+    height: var(--size);
+    border-radius: var(--size);
+    position: relative;
+    transition: 150ms;
+}
+
+.slide-toggle:checked {
+    background-color: red;
+}
+
+.slide-toggle::before {
+    content: "";
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    background-color: purple;
+    border-radius: 50%;
+    transition: translate 150ms ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
+        3px 3px 15px rgba(0, 0, 0, 0.5),
+        -1px -1px 30px rgba(0, 0, 0, 0.2);
+    background-image: radial-gradient(purple 25%, black);
+}
+
+.slide-toggle:checked::before {
+    translate: var(--size);
+}
