@@ -1,1 +1,0 @@
-moduleSearchIndex = [{"l":"exam.client.exam"},{"l":"exam.remote.generator"},{"l":"questions.bank"},{"l":"questions.editor"}];updateSearchResults();
