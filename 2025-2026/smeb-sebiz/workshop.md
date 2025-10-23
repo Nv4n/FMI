@@ -13,6 +13,12 @@ Edge AI
 Изпъква при системи с критична нужда от бързина на обработката на данните
 
 
+[text](https://blogs.nvidia.com/blog/what-is-edge-ai)
+[text](https://www.ibm.com/think/topics/edge-ai)
+https://resources.nvidia.com/en-us-fleet-command/considerations-for-deploying-ai-at-the-edge-technical-overview
+https://www.reddit.com/r/computervision/comments/17h91nx/edge_ai_hardware
+https://search.brave.com/search?q=edge+ai+&source=web&summary=1&conversation=d0a4d12d6d91bb5390c490
+
 =====
 
 ## Дълъг формат
