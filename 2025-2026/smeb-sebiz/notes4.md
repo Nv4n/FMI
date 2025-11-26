@@ -56,7 +56,7 @@ Enterprise Resource Planning (ERP) is a category of business management software
 
 ## ERD
 
-- master data
+- master data - защото не се променя
     people things places concepts
 - transaction data
 
